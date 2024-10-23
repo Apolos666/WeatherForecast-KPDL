@@ -1,6 +1,6 @@
 services:
   weatherforecast.dataingestion:
-    image: ${DOCKER_REGISTRY-}weatherforecastdataingestion
+    image: quangtran2/weatherforecastdataingestion:latest
     build:
       context: .
       dockerfile: Services/DataIngestion/WeatherForecast.DataIngestion/Dockerfile
@@ -12,7 +12,7 @@ services:
       - mysql_data:/var/lib/mysql
 
   weatherforecast.databaseapi:
-    image: ${DOCKER_REGISTRY-}weatherforecastdatabaseapi
+    image: quangtran2/weatherforecastdatabaseapi:latest
     build:
       context: .
       dockerfile: Services/DatabaseApi/WeatherForecast.DatabaseApi/Dockerfile
