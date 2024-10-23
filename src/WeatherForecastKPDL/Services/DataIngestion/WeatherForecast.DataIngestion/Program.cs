@@ -1,6 +1,15 @@
-var builder = WebApplication.CreateBuilder(args);
+var builder = Host.CreateDefaultBuilder(args)
+    .ConfigureServices((hostContext, services) =>
+    {
+        services.AddHttpClient();
+        services.AddHostedService<WeatherForecastService>();
+    })
+    .ConfigureAppConfiguration((hostingContext, config) =>
+    {
+        config.AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
+        config.AddJsonFile($"appsettings.{hostingContext.HostingEnvironment.EnvironmentName}.json", optional: true);
+        config.AddEnvironmentVariables();
+    });
+
 var app = builder.Build();
-
-app.MapGet("/", () => "Hello World!");
-
-app.Run();
+await app.RunAsync();
