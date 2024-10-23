@@ -13,6 +13,7 @@ FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
 COPY ["Services/DataIngestion/WeatherForecast.DataIngestion/WeatherForecast.DataIngestion.csproj", "Services/DataIngestion/WeatherForecast.DataIngestion/"]
+COPY ["BuildingBlocks/WeatherForecast.BuildingBlock/WeatherForecast.BuildingBlock.csproj", "BuildingBlocks/WeatherForecast.BuildingBlock/"]
 RUN dotnet restore "./Services/DataIngestion/WeatherForecast.DataIngestion/WeatherForecast.DataIngestion.csproj"
 COPY . .
 WORKDIR "/src/Services/DataIngestion/WeatherForecast.DataIngestion"

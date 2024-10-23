@@ -1,0 +1,239 @@
+name: dockercompose7768302907067737365
+services:
+  db:
+    container_name: weatherforecastdb
+    environment:
+      MYSQL_DATABASE: weatherdb
+      MYSQL_PASSWORD: weatherpass
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_USER: weatheruser
+    image: mysql:8.0
+    networks:
+      weathernet: null
+    ports:
+      - mode: ingress
+        target: 3306
+        published: "3307"
+        protocol: tcp
+    restart: always
+    volumes:
+      - type: volume
+        source: mysql_data
+        target: /var/lib/mysql
+        volume: {}
+  weatherforecast.databaseapi:
+    build:
+      context: C:\Projects\WeatherForecast\src\WeatherForecastKPDL
+      dockerfile: Services/DatabaseApi/WeatherForecast.DatabaseApi/Dockerfile
+      args:
+        BUILD_CONFIGURATION: Debug
+        LAUNCHING_FROM_VS: "true"
+      labels:
+        com.microsoft.created-by: visual-studio
+        com.microsoft.visual-studio.project-name: WeatherForecast.DatabaseApi
+      target: base
+    container_name: weatherforecast.databaseapi
+    depends_on:
+      db:
+        condition: service_started
+        required: true
+    entrypoint:
+      - dotnet
+      - --roll-forward
+      - Major
+      - /VSTools/DistrolessHelper/DistrolessHelper.dll
+      - --wait
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_HTTP_PORTS: "8080"
+      ASPNETCORE_LOGGING__CONSOLE__DISABLECOLORS: "true"
+      ConnectionStrings__DefaultConnection: Server=db;Port=3306;Database=weatherdb;User=weatheruser;Password=weatherpass;
+      DOTNET_USE_POLLING_FILE_WATCHER: "1"
+      NUGET_FALLBACK_PACKAGES: ""
+    image: weatherforecastdatabaseapi:dev
+    labels:
+      com.microsoft.visualstudio.debuggee.arguments: ' --additionalProbingPath /.nuget/packages  "/app/bin/Debug/net8.0/WeatherForecast.DatabaseApi.dll"'
+      com.microsoft.visualstudio.debuggee.killprogram: dotnet --roll-forward Major /VSTools/DistrolessHelper/DistrolessHelper.dll --stop dotnet
+      com.microsoft.visualstudio.debuggee.program: dotnet
+      com.microsoft.visualstudio.debuggee.workingdirectory: /app
+    networks:
+      default: null
+    ports:
+      - mode: ingress
+        target: 8080
+        published: "8084"
+        protocol: tcp
+    tty: true
+    volumes:
+      - type: bind
+        source: C:\Users\quang\AppData\Roaming\Microsoft\UserSecrets
+        target: /home/app/.microsoft/usersecrets
+        read_only: true
+        bind:
+          create_host_path: true
+      - type: bind
+        source: C:\Users\quang\AppData\Roaming\ASP.NET\Https
+        target: /home/app/.aspnet/https
+        read_only: true
+        bind:
+          create_host_path: true
+      - type: bind
+        source: C:\Projects\WeatherForecast\src\WeatherForecastKPDL\Services\DatabaseApi\WeatherForecast.DatabaseApi
+        target: /app
+        bind:
+          create_host_path: true
+      - type: bind
+        source: C:\Projects\WeatherForecast\src\WeatherForecastKPDL
+        target: /src
+        bind:
+          create_host_path: true
+      - type: bind
+        source: C:\Users\quang\vsdbg\vs2017u5
+        target: /remote_debugger
+        bind:
+          create_host_path: true
+      - type: bind
+        source: C:\Users\quang\.nuget\packages
+        target: /.nuget/packages
+        read_only: true
+        bind:
+          create_host_path: true
+      - type: bind
+        source: C:\Users\quang\AppData\Roaming\ASP.NET\Https
+        target: /root/.aspnet/https
+        read_only: true
+        bind:
+          create_host_path: true
+      - type: bind
+        source: C:\Users\quang\AppData\Roaming\Microsoft\UserSecrets
+        target: /root/.microsoft/usersecrets
+        read_only: true
+        bind:
+          create_host_path: true
+      - type: bind
+        source: C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Sdks\Microsoft.Docker.Sdk\tools\linux-x64\net8.0
+        target: /VSTools
+        read_only: true
+        bind:
+          create_host_path: true
+      - type: bind
+        source: C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\HotReload
+        target: /HotReloadAgent
+        read_only: true
+        bind:
+          create_host_path: true
+  weatherforecast.dataingestion:
+    build:
+      context: C:\Projects\WeatherForecast\src\WeatherForecastKPDL
+      dockerfile: Services/DataIngestion/WeatherForecast.DataIngestion/Dockerfile
+      args:
+        BUILD_CONFIGURATION: Debug
+        LAUNCHING_FROM_VS: "true"
+      labels:
+        com.microsoft.created-by: visual-studio
+        com.microsoft.visual-studio.project-name: WeatherForecast.DataIngestion
+      target: base
+    container_name: weatherforecast.dataingestion
+    depends_on:
+      weatherforecast.databaseapi:
+        condition: service_started
+        required: true
+    entrypoint:
+      - dotnet
+      - --roll-forward
+      - Major
+      - /VSTools/DistrolessHelper/DistrolessHelper.dll
+      - --wait
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_HTTP_PORTS: "8080"
+      ASPNETCORE_HTTPS_PORTS: "8081"
+      ASPNETCORE_LOGGING__CONSOLE__DISABLECOLORS: "true"
+      DOTNET_USE_POLLING_FILE_WATCHER: "1"
+      DatabaseApi__BaseUrl: http://weatherforecast.databaseapi:8080
+      NUGET_FALLBACK_PACKAGES: ""
+    image: weatherforecastdataingestion:dev
+    labels:
+      com.microsoft.visualstudio.debuggee.arguments: ' --additionalProbingPath /.nuget/packages  "/app/bin/Debug/net8.0/WeatherForecast.DataIngestion.dll"'
+      com.microsoft.visualstudio.debuggee.killprogram: dotnet --roll-forward Major /VSTools/DistrolessHelper/DistrolessHelper.dll --stop dotnet
+      com.microsoft.visualstudio.debuggee.program: dotnet
+      com.microsoft.visualstudio.debuggee.workingdirectory: /app
+    networks:
+      weathernet: null
+    ports:
+      - mode: ingress
+        target: 8080
+        published: "8082"
+        protocol: tcp
+      - mode: ingress
+        target: 8081
+        published: "8083"
+        protocol: tcp
+    tty: true
+    volumes:
+      - type: bind
+        source: C:\Users\quang\AppData\Roaming\Microsoft\UserSecrets
+        target: /home/app/.microsoft/usersecrets
+        read_only: true
+        bind:
+          create_host_path: true
+      - type: bind
+        source: C:\Users\quang\AppData\Roaming\ASP.NET\Https
+        target: /home/app/.aspnet/https
+        read_only: true
+        bind:
+          create_host_path: true
+      - type: bind
+        source: C:\Projects\WeatherForecast\src\WeatherForecastKPDL\Services\DataIngestion\WeatherForecast.DataIngestion
+        target: /app
+        bind:
+          create_host_path: true
+      - type: bind
+        source: C:\Projects\WeatherForecast\src\WeatherForecastKPDL
+        target: /src
+        bind:
+          create_host_path: true
+      - type: bind
+        source: C:\Users\quang\vsdbg\vs2017u5
+        target: /remote_debugger
+        bind:
+          create_host_path: true
+      - type: bind
+        source: C:\Users\quang\.nuget\packages
+        target: /.nuget/packages
+        read_only: true
+        bind:
+          create_host_path: true
+      - type: bind
+        source: C:\Users\quang\AppData\Roaming\ASP.NET\Https
+        target: /root/.aspnet/https
+        read_only: true
+        bind:
+          create_host_path: true
+      - type: bind
+        source: C:\Users\quang\AppData\Roaming\Microsoft\UserSecrets
+        target: /root/.microsoft/usersecrets
+        read_only: true
+        bind:
+          create_host_path: true
+      - type: bind
+        source: C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Sdks\Microsoft.Docker.Sdk\tools\linux-x64\net8.0
+        target: /VSTools
+        read_only: true
+        bind:
+          create_host_path: true
+      - type: bind
+        source: C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\HotReload
+        target: /HotReloadAgent
+        read_only: true
+        bind:
+          create_host_path: true
+networks:
+  default:
+    name: dockercompose7768302907067737365_default
+  weathernet:
+    name: dockercompose7768302907067737365_weathernet
+    driver: bridge
+volumes:
+  mysql_data:
+    name: dockercompose7768302907067737365_mysql_data

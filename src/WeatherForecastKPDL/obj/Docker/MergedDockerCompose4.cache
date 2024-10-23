@@ -1,0 +1,63 @@
+name: dockercompose7768302907067737365
+services:
+  db:
+    container_name: weatherforecastdb
+    environment:
+      MYSQL_DATABASE: weatherdb
+      MYSQL_PASSWORD: weatherpass
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_USER: weatheruser
+    image: mysql:8.0
+    networks:
+      weathernet: null
+    ports:
+      - mode: ingress
+        target: 3306
+        published: "3307"
+        protocol: tcp
+    restart: always
+    volumes:
+      - type: volume
+        source: mysql_data
+        target: /var/lib/mysql
+        volume: {}
+  weatherforecast.databaseapi:
+    build:
+      context: C:\Projects\WeatherForecast\src\WeatherForecastKPDL
+      dockerfile: Services/DatabaseApi/WeatherForecast.DatabaseApi/Dockerfile
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_HTTP_PORTS: "8080"
+      ASPNETCORE_HTTPS_PORTS: "8081"
+    image: weatherforecastdatabaseapi
+    networks:
+      default: null
+    ports:
+      - mode: ingress
+        target: 8080
+        protocol: tcp
+      - mode: ingress
+        target: 8081
+        protocol: tcp
+    volumes:
+      - type: bind
+        source: C:\Users\quang\AppData\Roaming/Microsoft/UserSecrets
+        target: /home/app/.microsoft/usersecrets
+        read_only: true
+        bind:
+          create_host_path: true
+      - type: bind
+        source: C:\Users\quang\AppData\Roaming/ASP.NET/Https
+        target: /home/app/.aspnet/https
+        read_only: true
+        bind:
+          create_host_path: true
+networks:
+  default:
+    name: dockercompose7768302907067737365_default
+  weathernet:
+    name: dockercompose7768302907067737365_weathernet
+    driver: bridge
+volumes:
+  mysql_data:
+    name: dockercompose7768302907067737365_mysql_data

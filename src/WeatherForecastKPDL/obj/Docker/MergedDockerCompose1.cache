@@ -1,0 +1,29 @@
+name: dockercompose7768302907067737365
+services:
+  db:
+    environment:
+      MYSQL_DATABASE: weatherdb
+      MYSQL_PASSWORD: weatherpass
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_USER: weatheruser
+    image: mysql:8.0
+    networks:
+      weathernet: null
+    ports:
+      - mode: ingress
+        target: 3306
+        published: "3306"
+        protocol: tcp
+    restart: always
+    volumes:
+      - type: volume
+        source: mysql_data
+        target: /var/lib/mysql
+        volume: {}
+networks:
+  weathernet:
+    name: dockercompose7768302907067737365_weathernet
+    driver: bridge
+volumes:
+  mysql_data:
+    name: dockercompose7768302907067737365_mysql_data

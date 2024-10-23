@@ -1,5 +1,6 @@
 using Newtonsoft.Json;
 using WeatherForecast.BuildingBlock.Models;
+using System.Text;
 
 public class WeatherForecastService : BackgroundService
 {
@@ -8,6 +9,7 @@ public class WeatherForecastService : BackgroundService
     private readonly IConfiguration _configuration;
     private readonly string _apiUrl;
     private readonly TimeSpan _updateInterval;
+    private readonly string _databaseApiUrl;
 
     public WeatherForecastService(ILogger<WeatherForecastService> logger, IHttpClientFactory httpClientFactory, IConfiguration configuration)
     {
@@ -22,8 +24,9 @@ public class WeatherForecastService : BackgroundService
         _apiUrl = $"{baseUrl}/{endpoint}?key={apiKey}&q={location}";
 
         var updateIntervalMinutes = _configuration.GetValue<int>("WeatherApi:UpdateIntervalMinutes");
-        // _updateInterval = TimeSpan.FromMinutes(updateIntervalMinutes);
-        _updateInterval = TimeSpan.FromSeconds(30);
+        _updateInterval = TimeSpan.FromMinutes(updateIntervalMinutes);
+
+        _databaseApiUrl = $"{_configuration["DatabaseApi:BaseUrl"]}/api/weatherdata";
     }
 
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
@@ -35,8 +38,6 @@ public class WeatherForecastService : BackgroundService
                 var response = await _httpClient.GetStringAsync(_apiUrl);
                 var weatherData = JsonConvert.DeserializeObject<WeatherData>(response);
 
-                // Lưu trữ dữ liệu đã lọc
-                // Ví dụ: bạn có thể lưu vào cơ sở dữ liệu hoặc gửi đến một dịch vụ khác
                 await ProcessWeatherData(weatherData);
 
                 _logger.LogInformation("Dữ liệu thời tiết đã được xử lý: {WeatherData}", JsonConvert.SerializeObject(weatherData));
@@ -52,9 +53,24 @@ public class WeatherForecastService : BackgroundService
 
     private async Task ProcessWeatherData(WeatherData weatherData)
     {
-        // Thực hiện xử lý dữ liệu ở đây
-        // Ví dụ: lưu vào cơ sở dữ liệu, gửi thông báo, v.v.
-        // Đây chỉ là một phương thức giả định, bạn cần triển khai logic xử lý thực tế
-        await Task.CompletedTask;
+        try
+        {
+            var json = JsonConvert.SerializeObject(weatherData);
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
+            var response = await _httpClient.PostAsync(_databaseApiUrl, content);
+
+            if (response.IsSuccessStatusCode)
+            {
+                _logger.LogInformation("Dữ liệu thời tiết đã được lưu thành công vào cơ sở dữ liệu");
+            }
+            else
+            {
+                _logger.LogError("Không thể lưu dữ liệu thời tiết. Mã trạng thái: {StatusCode}", response.StatusCode);
+            }
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Lỗi khi gửi dữ liệu thời tiết đến DatabaseApi");
+        }
     }
 }

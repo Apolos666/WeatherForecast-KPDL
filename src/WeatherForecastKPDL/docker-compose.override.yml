@@ -1,0 +1,63 @@
+services:
+  weatherforecast.dataingestion:
+    container_name: weatherforecast.dataingestion
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_HTTP_PORTS=8080
+      - ASPNETCORE_HTTPS_PORTS=8081
+      - DatabaseApi__BaseUrl=http://weatherforecast.databaseapi:8080
+    ports:
+      - "8082:8080"
+      - "8083:8081"
+    volumes:
+      - ${APPDATA}/Microsoft/UserSecrets:/home/app/.microsoft/usersecrets:ro
+      - ${APPDATA}/ASP.NET/Https:/home/app/.aspnet/https:ro
+    depends_on:
+      weatherforecast.databaseapi:
+        condition: service_healthy
+    networks:
+      - weathernet
+
+  weatherforecast.databaseapi:
+    container_name: weatherforecast.databaseapi
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_HTTP_PORTS=8080
+      - ConnectionStrings__DefaultConnection=Server=db;Port=3306;Database=weatherdb;User=weatheruser;Password=weatherpass;Connect Timeout=30;
+    ports:
+      - "8084:8080"
+    volumes:
+      - ${APPDATA}/Microsoft/UserSecrets:/home/app/.microsoft/usersecrets:ro
+      - ${APPDATA}/ASP.NET/Https:/home/app/.aspnet/https:ro
+    depends_on:
+      db:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD-SHELL", "curl --fail http://localhost:8080/health || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+    networks:
+      - weathernet
+
+  db:
+    container_name: weatherforecastdb
+    environment:
+      - MYSQL_ROOT_PASSWORD=rootpassword
+      - MYSQL_DATABASE=weatherdb
+      - MYSQL_USER=weatheruser
+      - MYSQL_PASSWORD=weatherpass
+    ports:
+      - "3307:3306"
+    networks:
+      - weathernet
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+
+networks:
+  weathernet:
+    driver: bridge

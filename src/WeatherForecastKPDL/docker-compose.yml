@@ -1,0 +1,25 @@
+services:
+  weatherforecast.dataingestion:
+    image: ${DOCKER_REGISTRY-}weatherforecastdataingestion
+    build:
+      context: .
+      dockerfile: Services/DataIngestion/WeatherForecast.DataIngestion/Dockerfile
+
+  db:
+    image: mysql:8.0
+    restart: always
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+  weatherforecast.databaseapi:
+    image: ${DOCKER_REGISTRY-}weatherforecastdatabaseapi
+    build:
+      context: .
+      dockerfile: Services/DatabaseApi/WeatherForecast.DatabaseApi/Dockerfile
+
+volumes:
+  mysql_data:
+
+networks:
+  weathernet:
+    driver: bridge
