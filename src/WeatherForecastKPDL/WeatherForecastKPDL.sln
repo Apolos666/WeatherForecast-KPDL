@@ -7,7 +7,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{2F
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data Ingestion", "Data Ingestion", "{55B2D5C5-70AB-48A9-98F9-3C4113AC9AE3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeatherForecast.DataIngestion", "Services\DataIngestion\WeatherForecast.DataIngestion\WeatherForecast.DataIngestion.csproj", "{8BD3329C-8AF8-40F4-BB91-5640A01E590D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WeatherForecast.DataIngestion", "Services\DataIngestion\WeatherForecast.DataIngestion\WeatherForecast.DataIngestion.csproj", "{8BD3329C-8AF8-40F4-BB91-5640A01E590D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BuildingBlocks", "BuildingBlocks", "{2B2F789A-E2A4-4391-96AB-58C5DA35819B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BuildingBlock", "BuildingBlock", "{D4974778-FFDB-4860-B0A5-31779CB9F8B2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeatherForecast.BuildingBlock", "BuildingBlocks\WeatherForecast.BuildingBlock\WeatherForecast.BuildingBlock.csproj", "{61A2460B-5337-4A81-AE54-EDFB6E61CE8C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,6 +25,10 @@ Global
 		{8BD3329C-8AF8-40F4-BB91-5640A01E590D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8BD3329C-8AF8-40F4-BB91-5640A01E590D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8BD3329C-8AF8-40F4-BB91-5640A01E590D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{61A2460B-5337-4A81-AE54-EDFB6E61CE8C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{61A2460B-5337-4A81-AE54-EDFB6E61CE8C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{61A2460B-5337-4A81-AE54-EDFB6E61CE8C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{61A2460B-5337-4A81-AE54-EDFB6E61CE8C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -26,6 +36,8 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{55B2D5C5-70AB-48A9-98F9-3C4113AC9AE3} = {2FDD59E9-A8CB-47CB-8409-2CCFC484102A}
 		{8BD3329C-8AF8-40F4-BB91-5640A01E590D} = {55B2D5C5-70AB-48A9-98F9-3C4113AC9AE3}
+		{D4974778-FFDB-4860-B0A5-31779CB9F8B2} = {2B2F789A-E2A4-4391-96AB-58C5DA35819B}
+		{61A2460B-5337-4A81-AE54-EDFB6E61CE8C} = {D4974778-FFDB-4860-B0A5-31779CB9F8B2}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {FA6CDFCB-67E2-4055-AB3E-72716DAADCED}

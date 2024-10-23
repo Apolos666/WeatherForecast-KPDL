@@ -1,0 +1,13 @@
+C:\Projects\WeatherForecast\src\WeatherForecastKPDL\BuildingBlocks\WeatherForecast.BuildingBlock\bin\Debug\net8.0\WeatherForecast.BuildingBlock.deps.json
+C:\Projects\WeatherForecast\src\WeatherForecastKPDL\BuildingBlocks\WeatherForecast.BuildingBlock\bin\Debug\net8.0\WeatherForecast.BuildingBlock.dll
+C:\Projects\WeatherForecast\src\WeatherForecastKPDL\BuildingBlocks\WeatherForecast.BuildingBlock\bin\Debug\net8.0\WeatherForecast.BuildingBlock.pdb
+C:\Projects\WeatherForecast\src\WeatherForecastKPDL\BuildingBlocks\WeatherForecast.BuildingBlock\obj\Debug\net8.0\WeatherForecast.BuildingBlock.GeneratedMSBuildEditorConfig.editorconfig
+C:\Projects\WeatherForecast\src\WeatherForecastKPDL\BuildingBlocks\WeatherForecast.BuildingBlock\obj\Debug\net8.0\WeatherForecast.BuildingBlock.AssemblyInfoInputs.cache
+C:\Projects\WeatherForecast\src\WeatherForecastKPDL\BuildingBlocks\WeatherForecast.BuildingBlock\obj\Debug\net8.0\WeatherForecast.BuildingBlock.AssemblyInfo.cs
+C:\Projects\WeatherForecast\src\WeatherForecastKPDL\BuildingBlocks\WeatherForecast.BuildingBlock\obj\Debug\net8.0\WeatherForecast.BuildingBlock.csproj.CoreCompileInputs.cache
+C:\Projects\WeatherForecast\src\WeatherForecastKPDL\BuildingBlocks\WeatherForecast.BuildingBlock\obj\Debug\net8.0\WeatherForecast.BuildingBlock.sourcelink.json
+C:\Projects\WeatherForecast\src\WeatherForecastKPDL\BuildingBlocks\WeatherForecast.BuildingBlock\obj\Debug\net8.0\WeatherForecast.BuildingBlock.dll
+C:\Projects\WeatherForecast\src\WeatherForecastKPDL\BuildingBlocks\WeatherForecast.BuildingBlock\obj\Debug\net8.0\refint\WeatherForecast.BuildingBlock.dll
+C:\Projects\WeatherForecast\src\WeatherForecastKPDL\BuildingBlocks\WeatherForecast.BuildingBlock\obj\Debug\net8.0\WeatherForecast.BuildingBlock.pdb
+C:\Projects\WeatherForecast\src\WeatherForecastKPDL\BuildingBlocks\WeatherForecast.BuildingBlock\obj\Debug\net8.0\ref\WeatherForecast.BuildingBlock.dll
+C:\Projects\WeatherForecast\src\WeatherForecastKPDL\BuildingBlocks\WeatherForecast.BuildingBlock\obj\Debug\net8.0\WeatherForecast.BuildingBlock.csproj.AssemblyReference.cache
