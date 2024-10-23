@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "gj5A62/p5SA=",
+  "success": true,
+  "projectFilePath": "C:\\Projects\\WeatherForecast\\src\\WeatherForecastKPDL\\Services\\DataIngestion\\WeatherForecast.DataIngestion\\WeatherForecast.DataIngestion.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\quang\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.21.0\\microsoft.visualstudio.azure.containers.tools.targets.1.21.0.nupkg.sha512"
+  ],
+  "logs": []
+}

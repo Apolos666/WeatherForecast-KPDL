@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35312.102
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{2FDD59E9-A8CB-47CB-8409-2CCFC484102A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data Ingestion", "Data Ingestion", "{55B2D5C5-70AB-48A9-98F9-3C4113AC9AE3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeatherForecast.DataIngestion", "Services\DataIngestion\WeatherForecast.DataIngestion\WeatherForecast.DataIngestion.csproj", "{8BD3329C-8AF8-40F4-BB91-5640A01E590D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8BD3329C-8AF8-40F4-BB91-5640A01E590D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8BD3329C-8AF8-40F4-BB91-5640A01E590D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8BD3329C-8AF8-40F4-BB91-5640A01E590D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8BD3329C-8AF8-40F4-BB91-5640A01E590D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{55B2D5C5-70AB-48A9-98F9-3C4113AC9AE3} = {2FDD59E9-A8CB-47CB-8409-2CCFC484102A}
+		{8BD3329C-8AF8-40F4-BB91-5640A01E590D} = {55B2D5C5-70AB-48A9-98F9-3C4113AC9AE3}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FA6CDFCB-67E2-4055-AB3E-72716DAADCED}
+	EndGlobalSection
+EndGlobal
