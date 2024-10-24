@@ -1,0 +1,111 @@
+2024-10-24 17:21:37.222 +00:00 [INF] Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1 FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA='weatherdb' AND TABLE_NAME='__EFMigrationsHistory';
+2024-10-24 17:21:37.270 +00:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1 FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA='weatherdb' AND TABLE_NAME='__EFMigrationsHistory';
+2024-10-24 17:21:37.290 +00:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `MigrationId`, `ProductVersion`
+FROM `__EFMigrationsHistory`
+ORDER BY `MigrationId`;
+2024-10-24 17:21:37.302 +00:00 [INF] No migrations were applied. The database is already up to date.
+2024-10-24 17:21:37.429 +00:00 [INF] Now listening on: http://[::]:8080
+2024-10-24 17:21:37.430 +00:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-10-24 17:21:37.431 +00:00 [INF] Hosting environment: Development
+2024-10-24 17:21:37.432 +00:00 [INF] Content root path: /app
+2024-10-24 17:21:41.242 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:8080/health - null null
+2024-10-24 17:21:41.290 +00:00 [INF] Executing endpoint 'Health checks'
+2024-10-24 17:21:41.316 +00:00 [INF] Executed endpoint 'Health checks'
+2024-10-24 17:21:41.318 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:8080/health - 200 null application/json 76.505ms
+2024-10-24 17:21:42.739 +00:00 [INF] Request starting HTTP/1.1 POST http://weatherforecast.databaseapi:8080/api/weatherdata - application/json; charset=utf-8 645
+2024-10-24 17:21:42.742 +00:00 [INF] Executing endpoint 'HTTP: POST /api/weatherdata'
+2024-10-24 17:21:43.021 +00:00 [INF] Executed DbCommand (21ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (Size = 200), @p2='?' (Size = 100), @p3='?' (Size = 100), @p4='?' (Size = 50), @p5='?' (Size = 100)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `Conditions` (`Code`, `Icon`, `Text`)
+VALUES (@p0, @p1, @p2);
+SELECT `Id`
+FROM `Conditions`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+
+INSERT INTO `Locations` (`Country`, `Localtime`, `Name`)
+VALUES (@p3, @p4, @p5);
+SELECT `Id`
+FROM `Locations`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+2024-10-24 17:21:43.038 +00:00 [INF] Executed DbCommand (3ms) [Parameters=[@p6='?' (DbType = Int32), @p7='?' (DbType = Int32), @p8='?' (DbType = Double), @p9='?' (DbType = Double), @p10='?' (DbType = Double), @p11='?' (DbType = Double), @p12='?' (DbType = Double), @p13='?' (DbType = Double), @p14='?' (DbType = Double), @p15='?' (DbType = Double), @p16='?' (DbType = Int32), @p17='?' (DbType = Int32), @p18='?' (Size = 50), @p19='?' (DbType = Double), @p20='?' (DbType = Double), @p21='?' (DbType = Double), @p22='?' (DbType = Double), @p23='?' (DbType = Double), @p24='?' (DbType = Double), @p25='?' (DbType = Double), @p26='?' (DbType = Double), @p27='?' (DbType = Double), @p28='?' (DbType = Int32), @p29='?' (Size = 10), @p30='?' (DbType = Double), @p31='?' (DbType = Double), @p32='?' (DbType = Double), @p33='?' (DbType = Double)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `CurrentWeather` (`Cloud`, `ConditionId`, `DewpointC`, `DewpointF`, `FeelslikeC`, `FeelslikeF`, `GustKph`, `GustMph`, `HeatindexC`, `HeatindexF`, `Humidity`, `IsDay`, `LastUpdated`, `PrecipIn`, `PrecipMm`, `PressureIn`, `PressureMb`, `TempC`, `TempF`, `Uv`, `VisKm`, `VisMiles`, `WindDegree`, `WindDir`, `WindKph`, `WindMph`, `WindchillC`, `WindchillF`)
+VALUES (@p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15, @p16, @p17, @p18, @p19, @p20, @p21, @p22, @p23, @p24, @p25, @p26, @p27, @p28, @p29, @p30, @p31, @p32, @p33);
+SELECT `Id`
+FROM `CurrentWeather`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+2024-10-24 17:21:43.044 +00:00 [INF] Executed DbCommand (4ms) [Parameters=[@p34='?' (DbType = DateTime), @p35='?' (DbType = Int32), @p36='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `WeatherData` (`CreatedAt`, `CurrentId`, `LocationId`)
+VALUES (@p34, @p35, @p36);
+SELECT `Id`
+FROM `WeatherData`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+2024-10-24 17:21:43.068 +00:00 [INF] Weather data added at "2024-10-24T17:21:42.8085359Z", ID: 2
+2024-10-24 17:21:43.075 +00:00 [INF] Setting HTTP status code 201.
+2024-10-24 17:21:43.083 +00:00 [INF] Writing value of type 'WeatherData' as Json.
+2024-10-24 17:21:43.089 +00:00 [INF] Executed endpoint 'HTTP: POST /api/weatherdata'
+2024-10-24 17:21:43.096 +00:00 [INF] Request finished HTTP/1.1 POST http://weatherforecast.databaseapi:8080/api/weatherdata - 201 null application/json; charset=utf-8 356.2668ms
+2024-10-24 17:21:51.348 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:8080/health - null null
+2024-10-24 17:21:51.349 +00:00 [INF] Executing endpoint 'Health checks'
+2024-10-24 17:21:51.349 +00:00 [INF] Executed endpoint 'Health checks'
+2024-10-24 17:21:51.350 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:8080/health - 200 null application/json 2.0028ms
+2024-10-24 17:22:01.460 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:8080/health - null null
+2024-10-24 17:22:01.460 +00:00 [INF] Executing endpoint 'Health checks'
+2024-10-24 17:22:01.461 +00:00 [INF] Executed endpoint 'Health checks'
+2024-10-24 17:22:01.462 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:8080/health - 200 null application/json 2.1245ms
+2024-10-24 17:22:11.488 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:8080/health - null null
+2024-10-24 17:22:11.488 +00:00 [INF] Executing endpoint 'Health checks'
+2024-10-24 17:22:11.489 +00:00 [INF] Executed endpoint 'Health checks'
+2024-10-24 17:22:11.489 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:8080/health - 200 null application/json 1.3474ms
+2024-10-24 17:22:21.513 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:8080/health - null null
+2024-10-24 17:22:21.514 +00:00 [INF] Executing endpoint 'Health checks'
+2024-10-24 17:22:21.514 +00:00 [INF] Executed endpoint 'Health checks'
+2024-10-24 17:22:21.515 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:8080/health - 200 null application/json 1.5822ms
+2024-10-24 17:22:30.546 +00:00 [INF] Application is shutting down...
+2024-10-24 17:28:02.353 +00:00 [INF] Executed DbCommand (11ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1 FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA='weatherdb' AND TABLE_NAME='__EFMigrationsHistory';
+2024-10-24 17:28:02.396 +00:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1 FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA='weatherdb' AND TABLE_NAME='__EFMigrationsHistory';
+2024-10-24 17:28:02.418 +00:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `MigrationId`, `ProductVersion`
+FROM `__EFMigrationsHistory`
+ORDER BY `MigrationId`;
+2024-10-24 17:28:02.429 +00:00 [INF] No migrations were applied. The database is already up to date.
+2024-10-24 17:28:02.539 +00:00 [INF] Now listening on: http://[::]:8080
+2024-10-24 17:28:02.541 +00:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-10-24 17:28:02.542 +00:00 [INF] Hosting environment: Development
+2024-10-24 17:28:02.542 +00:00 [INF] Content root path: /app
+2024-10-24 17:28:07.894 +00:00 [INF] Executed DbCommand (24ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (Size = 200), @p2='?' (Size = 100), @p3='?' (Size = 100), @p4='?' (Size = 50), @p5='?' (Size = 100)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `Conditions` (`Code`, `Icon`, `Text`)
+VALUES (@p0, @p1, @p2);
+SELECT `Id`
+FROM `Conditions`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+
+INSERT INTO `Locations` (`Country`, `Localtime`, `Name`)
+VALUES (@p3, @p4, @p5);
+SELECT `Id`
+FROM `Locations`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+2024-10-24 17:28:07.913 +00:00 [INF] Executed DbCommand (4ms) [Parameters=[@p6='?' (DbType = Int32), @p7='?' (DbType = Int32), @p8='?' (DbType = Double), @p9='?' (DbType = Double), @p10='?' (DbType = Double), @p11='?' (DbType = Double), @p12='?' (DbType = Double), @p13='?' (DbType = Double), @p14='?' (DbType = Double), @p15='?' (DbType = Double), @p16='?' (DbType = Int32), @p17='?' (DbType = Int32), @p18='?' (Size = 50), @p19='?' (DbType = Double), @p20='?' (DbType = Double), @p21='?' (DbType = Double), @p22='?' (DbType = Double), @p23='?' (DbType = Double), @p24='?' (DbType = Double), @p25='?' (DbType = Double), @p26='?' (DbType = Double), @p27='?' (DbType = Double), @p28='?' (DbType = Int32), @p29='?' (Size = 10), @p30='?' (DbType = Double), @p31='?' (DbType = Double), @p32='?' (DbType = Double), @p33='?' (DbType = Double)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `CurrentWeather` (`Cloud`, `ConditionId`, `DewpointC`, `DewpointF`, `FeelslikeC`, `FeelslikeF`, `GustKph`, `GustMph`, `HeatindexC`, `HeatindexF`, `Humidity`, `IsDay`, `LastUpdated`, `PrecipIn`, `PrecipMm`, `PressureIn`, `PressureMb`, `TempC`, `TempF`, `Uv`, `VisKm`, `VisMiles`, `WindDegree`, `WindDir`, `WindKph`, `WindMph`, `WindchillC`, `WindchillF`)
+VALUES (@p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15, @p16, @p17, @p18, @p19, @p20, @p21, @p22, @p23, @p24, @p25, @p26, @p27, @p28, @p29, @p30, @p31, @p32, @p33);
+SELECT `Id`
+FROM `CurrentWeather`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+2024-10-24 17:28:07.919 +00:00 [INF] Executed DbCommand (4ms) [Parameters=[@p34='?' (DbType = DateTime), @p35='?' (DbType = Int32), @p36='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `WeatherData` (`CreatedAt`, `CurrentId`, `LocationId`)
+VALUES (@p34, @p35, @p36);
+SELECT `Id`
+FROM `WeatherData`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+2024-10-24 17:28:07.940 +00:00 [INF] Weather data added at "2024-10-24T17:28:07.6832414Z", ID: 3
+2024-10-24 17:29:35.924 +00:00 [INF] Application is shutting down...
+2024-10-24 17:31:41.000 +00:00 [INF] Now listening on: http://[::]:8080
+2024-10-24 17:31:41.032 +00:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-10-24 17:31:41.032 +00:00 [INF] Hosting environment: Development
+2024-10-24 17:31:41.033 +00:00 [INF] Content root path: /app
+2024-10-24 17:31:46.524 +00:00 [INF] Weather data added at "2024-10-24T17:31:46.2777100Z", ID: 4
+2024-10-24 17:32:16.601 +00:00 [INF] Application is shutting down...
+2024-10-24 17:33:59.576 +00:00 [INF] Weather data added at "2024-10-24T17:33:59.3249635Z", ID: 5

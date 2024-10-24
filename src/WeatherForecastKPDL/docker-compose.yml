@@ -1,9 +1,6 @@
 services:
   weatherforecast.dataingestion:
     image: quangtran2/weatherforecastdataingestion:latest
-    build:
-      context: .
-      dockerfile: Services/DataIngestion/WeatherForecast.DataIngestion/Dockerfile
 
   db:
     image: mysql:8.0
@@ -13,12 +10,12 @@ services:
 
   weatherforecast.databaseapi:
     image: quangtran2/weatherforecastdatabaseapi:latest
-    build:
-      context: .
-      dockerfile: Services/DatabaseApi/WeatherForecast.DatabaseApi/Dockerfile
+    volumes:
+      - ./logs:/app/logs
 
 volumes:
   mysql_data:
+  logs:
 
 networks:
   weathernet:

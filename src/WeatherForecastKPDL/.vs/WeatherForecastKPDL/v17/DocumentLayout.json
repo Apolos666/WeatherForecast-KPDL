@@ -11,8 +11,20 @@
       "RelativeMoniker": "D:0:0:{5B45B299-B12C-4B52-BAF1-BCB48AAE13C1}|Services\\DatabaseApi\\WeatherForecast.DatabaseApi\\WeatherForecast.DatabaseApi.csproj|solutionrelative:services\\databaseapi\\weatherforecast.databaseapi\\dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{DF7FCEAF-9AD7-4F37-92C1-C218414AB80C}|docker-compose.dcproj|c:\\projects\\weatherforecast\\src\\weatherforecastkpdl\\docker-compose.yml||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{DF7FCEAF-9AD7-4F37-92C1-C218414AB80C}|docker-compose.dcproj|solutionrelative:docker-compose.yml||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{5B45B299-B12C-4B52-BAF1-BCB48AAE13C1}|Services\\DatabaseApi\\WeatherForecast.DatabaseApi\\WeatherForecast.DatabaseApi.csproj|c:\\projects\\weatherforecast\\src\\weatherforecastkpdl\\services\\databaseapi\\weatherforecast.databaseapi\\modules\\weatherdatamodule.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5B45B299-B12C-4B52-BAF1-BCB48AAE13C1}|Services\\DatabaseApi\\WeatherForecast.DatabaseApi\\WeatherForecast.DatabaseApi.csproj|solutionrelative:services\\databaseapi\\weatherforecast.databaseapi\\modules\\weatherdatamodule.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5B45B299-B12C-4B52-BAF1-BCB48AAE13C1}|Services\\DatabaseApi\\WeatherForecast.DatabaseApi\\WeatherForecast.DatabaseApi.csproj|c:\\projects\\weatherforecast\\src\\weatherforecastkpdl\\services\\databaseapi\\weatherforecast.databaseapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{5B45B299-B12C-4B52-BAF1-BCB48AAE13C1}|Services\\DatabaseApi\\WeatherForecast.DatabaseApi\\WeatherForecast.DatabaseApi.csproj|solutionrelative:services\\databaseapi\\weatherforecast.databaseapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5B45B299-B12C-4B52-BAF1-BCB48AAE13C1}|Services\\DatabaseApi\\WeatherForecast.DatabaseApi\\WeatherForecast.DatabaseApi.csproj|c:\\projects\\weatherforecast\\src\\weatherforecastkpdl\\services\\databaseapi\\weatherforecast.databaseapi\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{5B45B299-B12C-4B52-BAF1-BCB48AAE13C1}|Services\\DatabaseApi\\WeatherForecast.DatabaseApi\\WeatherForecast.DatabaseApi.csproj|solutionrelative:services\\databaseapi\\weatherforecast.databaseapi\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8BD3329C-8AF8-40F4-BB91-5640A01E590D}|Services\\DataIngestion\\WeatherForecast.DataIngestion\\WeatherForecast.DataIngestion.csproj|c:\\projects\\weatherforecast\\src\\weatherforecastkpdl\\services\\dataingestion\\weatherforecast.dataingestion\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -27,20 +39,8 @@
       "RelativeMoniker": "D:0:0:{5B45B299-B12C-4B52-BAF1-BCB48AAE13C1}|Services\\DatabaseApi\\WeatherForecast.DatabaseApi\\WeatherForecast.DatabaseApi.csproj|solutionrelative:services\\databaseapi\\weatherforecast.databaseapi\\extensions\\migrationextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DF7FCEAF-9AD7-4F37-92C1-C218414AB80C}|docker-compose.dcproj|c:\\projects\\weatherforecast\\src\\weatherforecastkpdl\\docker-compose.yml||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{DF7FCEAF-9AD7-4F37-92C1-C218414AB80C}|docker-compose.dcproj|solutionrelative:docker-compose.yml||{8B382828-6202-11D1-8870-0000F87579D2}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{DF7FCEAF-9AD7-4F37-92C1-C218414AB80C}|docker-compose.dcproj|c:\\projects\\weatherforecast\\src\\weatherforecastkpdl\\docker-compose.override.yml||{8B382828-6202-11D1-8870-0000F87579D2}",
       "RelativeMoniker": "D:0:0:{DF7FCEAF-9AD7-4F37-92C1-C218414AB80C}|docker-compose.dcproj|solutionrelative:docker-compose.override.yml||{8B382828-6202-11D1-8870-0000F87579D2}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5B45B299-B12C-4B52-BAF1-BCB48AAE13C1}|Services\\DatabaseApi\\WeatherForecast.DatabaseApi\\WeatherForecast.DatabaseApi.csproj|c:\\projects\\weatherforecast\\src\\weatherforecastkpdl\\services\\databaseapi\\weatherforecast.databaseapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{5B45B299-B12C-4B52-BAF1-BCB48AAE13C1}|Services\\DatabaseApi\\WeatherForecast.DatabaseApi\\WeatherForecast.DatabaseApi.csproj|solutionrelative:services\\databaseapi\\weatherforecast.databaseapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Projects\\WeatherForecast\\src\\WeatherForecastKPDL\\Services\\DataIngestion\\WeatherForecast.DataIngestion\\libman.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Services\\DataIngestion\\WeatherForecast.DataIngestion\\libman.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{5B45B299-B12C-4B52-BAF1-BCB48AAE13C1}|Services\\DatabaseApi\\WeatherForecast.DatabaseApi\\WeatherForecast.DatabaseApi.csproj|c:\\projects\\weatherforecast\\src\\weatherforecastkpdl\\services\\databaseapi\\weatherforecast.databaseapi\\configurations\\mapsterconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -121,6 +121,10 @@
     {
       "AbsoluteMoniker": "D:0:0:{61A2460B-5337-4A81-AE54-EDFB6E61CE8C}|BuildingBlocks\\WeatherForecast.BuildingBlock\\WeatherForecast.BuildingBlock.csproj|c:\\projects\\weatherforecast\\src\\weatherforecastkpdl\\buildingblocks\\weatherforecast.buildingblock\\weatherforecast.buildingblock.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
       "RelativeMoniker": "D:0:0:{61A2460B-5337-4A81-AE54-EDFB6E61CE8C}|BuildingBlocks\\WeatherForecast.BuildingBlock\\WeatherForecast.BuildingBlock.csproj|solutionrelative:buildingblocks\\weatherforecast.buildingblock\\weatherforecast.buildingblock.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BD3329C-8AF8-40F4-BB91-5640A01E590D}|Services\\DataIngestion\\WeatherForecast.DataIngestion\\WeatherForecast.DataIngestion.csproj|c:\\projects\\weatherforecast\\src\\weatherforecastkpdl\\services\\dataingestion\\weatherforecast.dataingestion\\libman.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{8BD3329C-8AF8-40F4-BB91-5640A01E590D}|Services\\DataIngestion\\WeatherForecast.DataIngestion\\WeatherForecast.DataIngestion.csproj|solutionrelative:services\\dataingestion\\weatherforecast.dataingestion\\libman.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     }
   ],
   "DocumentGroupContainers": [
@@ -143,14 +147,14 @@
             {
               "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "MigrationExtensions.cs",
-              "DocumentMoniker": "C:\\Projects\\WeatherForecast\\src\\WeatherForecastKPDL\\Services\\DatabaseApi\\WeatherForecast.DatabaseApi\\Extensions\\MigrationExtensions.cs",
-              "RelativeDocumentMoniker": "Services\\DatabaseApi\\WeatherForecast.DatabaseApi\\Extensions\\MigrationExtensions.cs",
-              "ToolTip": "C:\\Projects\\WeatherForecast\\src\\WeatherForecastKPDL\\Services\\DatabaseApi\\WeatherForecast.DatabaseApi\\Extensions\\MigrationExtensions.cs",
-              "RelativeToolTip": "Services\\DatabaseApi\\WeatherForecast.DatabaseApi\\Extensions\\MigrationExtensions.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAARAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-23T11:52:14.884Z",
+              "Title": "appsettings.Development.json",
+              "DocumentMoniker": "C:\\Projects\\WeatherForecast\\src\\WeatherForecastKPDL\\Services\\DatabaseApi\\WeatherForecast.DatabaseApi\\appsettings.Development.json",
+              "RelativeDocumentMoniker": "Services\\DatabaseApi\\WeatherForecast.DatabaseApi\\appsettings.Development.json",
+              "ToolTip": "C:\\Projects\\WeatherForecast\\src\\WeatherForecastKPDL\\Services\\DatabaseApi\\WeatherForecast.DatabaseApi\\appsettings.Development.json",
+              "RelativeToolTip": "Services\\DatabaseApi\\WeatherForecast.DatabaseApi\\appsettings.Development.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-10-24T16:47:31.482Z",
               "EditorCaption": ""
             },
             {
@@ -161,27 +165,14 @@
               "RelativeDocumentMoniker": "Services\\DatabaseApi\\WeatherForecast.DatabaseApi\\Program.cs",
               "ToolTip": "C:\\Projects\\WeatherForecast\\src\\WeatherForecastKPDL\\Services\\DatabaseApi\\WeatherForecast.DatabaseApi\\Program.cs",
               "RelativeToolTip": "Services\\DatabaseApi\\WeatherForecast.DatabaseApi\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAkAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-23T10:50:10.059Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "WeatherForecastService.cs",
-              "DocumentMoniker": "C:\\Projects\\WeatherForecast\\src\\WeatherForecastKPDL\\Services\\DataIngestion\\WeatherForecast.DataIngestion\\WeatherForecastService.cs",
-              "RelativeDocumentMoniker": "Services\\DataIngestion\\WeatherForecast.DataIngestion\\WeatherForecastService.cs",
-              "ToolTip": "C:\\Projects\\WeatherForecast\\src\\WeatherForecastKPDL\\Services\\DataIngestion\\WeatherForecast.DataIngestion\\WeatherForecastService.cs",
-              "RelativeToolTip": "Services\\DataIngestion\\WeatherForecast.DataIngestion\\WeatherForecastService.cs",
-              "ViewState": "AgIAADYAAAAAAAAAAAAmwEcAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-23T10:28:40.177Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 6,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Projects\\WeatherForecast\\src\\WeatherForecastKPDL\\Services\\DataIngestion\\WeatherForecast.DataIngestion\\Program.cs",
               "RelativeDocumentMoniker": "Services\\DataIngestion\\WeatherForecast.DataIngestion\\Program.cs",
@@ -194,13 +185,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "WeatherDataModule.cs",
               "DocumentMoniker": "C:\\Projects\\WeatherForecast\\src\\WeatherForecastKPDL\\Services\\DatabaseApi\\WeatherForecast.DatabaseApi\\Modules\\WeatherDataModule.cs",
               "RelativeDocumentMoniker": "Services\\DatabaseApi\\WeatherForecast.DatabaseApi\\Modules\\WeatherDataModule.cs",
               "ToolTip": "C:\\Projects\\WeatherForecast\\src\\WeatherForecastKPDL\\Services\\DatabaseApi\\WeatherForecast.DatabaseApi\\Modules\\WeatherDataModule.cs",
               "RelativeToolTip": "Services\\DatabaseApi\\WeatherForecast.DatabaseApi\\Modules\\WeatherDataModule.cs",
-              "ViewState": "AgIAAAoAAAAAAAAAAAAzwBIAAAAQAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAzAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-23T11:23:21.078Z",
               "EditorCaption": ""
@@ -213,27 +204,14 @@
               "RelativeDocumentMoniker": "Services\\DatabaseApi\\WeatherForecast.DatabaseApi\\Dockerfile",
               "ToolTip": "C:\\Projects\\WeatherForecast\\src\\WeatherForecastKPDL\\Services\\DatabaseApi\\WeatherForecast.DatabaseApi\\Dockerfile",
               "RelativeToolTip": "Services\\DatabaseApi\\WeatherForecast.DatabaseApi\\Dockerfile",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAABdAAAAAAAAAA==",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAowB4AAAA4AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
               "WhenOpened": "2024-10-23T11:37:11.292Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "docker-compose.yml",
-              "DocumentMoniker": "C:\\Projects\\WeatherForecast\\src\\WeatherForecastKPDL\\docker-compose.yml",
-              "RelativeDocumentMoniker": "docker-compose.yml",
-              "ToolTip": "C:\\Projects\\WeatherForecast\\src\\WeatherForecastKPDL\\docker-compose.yml",
-              "RelativeToolTip": "docker-compose.yml",
-              "ViewState": "AgIAAAQAAAAAAAAAAAAcwA4AAAA4AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003775|",
-              "WhenOpened": "2024-10-23T10:48:58.586Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 4,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Projects\\WeatherForecast\\src\\WeatherForecastKPDL\\Services\\DatabaseApi\\WeatherForecast.DatabaseApi\\appsettings.json",
               "RelativeDocumentMoniker": "Services\\DatabaseApi\\WeatherForecast.DatabaseApi\\appsettings.json",
@@ -242,6 +220,45 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
               "WhenOpened": "2024-10-23T11:12:06.954Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "docker-compose.yml",
+              "DocumentMoniker": "C:\\Projects\\WeatherForecast\\src\\WeatherForecastKPDL\\docker-compose.yml",
+              "RelativeDocumentMoniker": "docker-compose.yml",
+              "ToolTip": "C:\\Projects\\WeatherForecast\\src\\WeatherForecastKPDL\\docker-compose.yml",
+              "RelativeToolTip": "docker-compose.yml",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAcwBYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003775|",
+              "WhenOpened": "2024-10-23T10:48:58.586Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "WeatherForecastService.cs",
+              "DocumentMoniker": "C:\\Projects\\WeatherForecast\\src\\WeatherForecastKPDL\\Services\\DataIngestion\\WeatherForecast.DataIngestion\\WeatherForecastService.cs",
+              "RelativeDocumentMoniker": "Services\\DataIngestion\\WeatherForecast.DataIngestion\\WeatherForecastService.cs",
+              "ToolTip": "C:\\Projects\\WeatherForecast\\src\\WeatherForecastKPDL\\Services\\DataIngestion\\WeatherForecast.DataIngestion\\WeatherForecastService.cs",
+              "RelativeToolTip": "Services\\DataIngestion\\WeatherForecast.DataIngestion\\WeatherForecastService.cs",
+              "ViewState": "AgIAADYAAAAAAAAAAAAmwEcAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-23T10:28:40.177Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "MigrationExtensions.cs",
+              "DocumentMoniker": "C:\\Projects\\WeatherForecast\\src\\WeatherForecastKPDL\\Services\\DatabaseApi\\WeatherForecast.DatabaseApi\\Extensions\\MigrationExtensions.cs",
+              "RelativeDocumentMoniker": "Services\\DatabaseApi\\WeatherForecast.DatabaseApi\\Extensions\\MigrationExtensions.cs",
+              "ToolTip": "C:\\Projects\\WeatherForecast\\src\\WeatherForecastKPDL\\Services\\DatabaseApi\\WeatherForecast.DatabaseApi\\Extensions\\MigrationExtensions.cs",
+              "RelativeToolTip": "Services\\DatabaseApi\\WeatherForecast.DatabaseApi\\Extensions\\MigrationExtensions.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-23T11:52:14.884Z",
               "EditorCaption": ""
             },
             {
@@ -272,7 +289,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 9,
               "Title": "docker-compose.override.yml",
               "DocumentMoniker": "C:\\Projects\\WeatherForecast\\src\\WeatherForecastKPDL\\docker-compose.override.yml",
               "RelativeDocumentMoniker": "docker-compose.override.yml",
@@ -285,7 +302,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 30,
               "Title": "libman.json",
               "DocumentMoniker": "C:\\Projects\\WeatherForecast\\src\\WeatherForecastKPDL\\Services\\DataIngestion\\WeatherForecast.DataIngestion\\libman.json",
               "RelativeDocumentMoniker": "Services\\DataIngestion\\WeatherForecast.DataIngestion\\libman.json",
@@ -317,7 +334,7 @@
               "RelativeDocumentMoniker": "Services\\DatabaseApi\\WeatherForecast.DatabaseApi\\Entities\\Current.cs",
               "ToolTip": "C:\\Projects\\WeatherForecast\\src\\WeatherForecastKPDL\\Services\\DatabaseApi\\WeatherForecast.DatabaseApi\\Entities\\Current.cs",
               "RelativeToolTip": "Services\\DatabaseApi\\WeatherForecast.DatabaseApi\\Entities\\Current.cs",
-              "ViewState": "AgIAABUAAAAAAAAAAAA+wAkAAAApAAAAAAAAAA==",
+              "ViewState": "AgIAABYAAAAAAAAAAAA8wAkAAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-23T11:07:36.569Z",
               "EditorCaption": ""
@@ -351,12 +368,12 @@
             {
               "$type": "Document",
               "DocumentIndex": 12,
-              "Title": "WeatherForecast.DatabaseApi",
+              "Title": "WeatherForecast.DatabaseApi.csproj",
               "DocumentMoniker": "C:\\Projects\\WeatherForecast\\src\\WeatherForecastKPDL\\Services\\DatabaseApi\\WeatherForecast.DatabaseApi\\WeatherForecast.DatabaseApi.csproj",
               "RelativeDocumentMoniker": "Services\\DatabaseApi\\WeatherForecast.DatabaseApi\\WeatherForecast.DatabaseApi.csproj",
               "ToolTip": "C:\\Projects\\WeatherForecast\\src\\WeatherForecastKPDL\\Services\\DatabaseApi\\WeatherForecast.DatabaseApi\\WeatherForecast.DatabaseApi.csproj",
               "RelativeToolTip": "Services\\DatabaseApi\\WeatherForecast.DatabaseApi\\WeatherForecast.DatabaseApi.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
               "WhenOpened": "2024-10-23T10:57:25.162Z",
               "EditorCaption": ""
@@ -447,7 +464,7 @@
               "RelativeDocumentMoniker": "BuildingBlocks\\WeatherForecast.BuildingBlock\\Models\\Current.cs",
               "ToolTip": "C:\\Projects\\WeatherForecast\\src\\WeatherForecastKPDL\\BuildingBlocks\\WeatherForecast.BuildingBlock\\Models\\Current.cs",
               "RelativeToolTip": "BuildingBlocks\\WeatherForecast.BuildingBlock\\Models\\Current.cs",
-              "ViewState": "AgIAADAAAAAAAAAAAAA7wFUAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAADEAAAAAAAAAAAAkwFUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-23T10:37:02.551Z",
               "EditorCaption": ""
@@ -481,7 +498,7 @@
             {
               "$type": "Document",
               "DocumentIndex": 26,
-              "Title": "docker-compose",
+              "Title": "docker-compose.dcproj",
               "DocumentMoniker": "C:\\Projects\\WeatherForecast\\src\\WeatherForecastKPDL\\docker-compose.dcproj",
               "RelativeDocumentMoniker": "docker-compose.dcproj",
               "ToolTip": "C:\\Projects\\WeatherForecast\\src\\WeatherForecastKPDL\\docker-compose.dcproj",
