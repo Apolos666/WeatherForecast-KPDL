@@ -28,4 +28,12 @@
     <PackageReference Include="Serilog.Sinks.File" Version="6.0.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Configurations\" />
+    <Folder Include="Data\Configurations\" />
+    <Folder Include="Data\Migrations\" />
+    <Folder Include="Entities\" />
+    <Folder Include="Modules\" />
+  </ItemGroup>
+
 </Project>

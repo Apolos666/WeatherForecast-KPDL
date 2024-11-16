@@ -5,6 +5,11 @@ using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Microsoft.Extensions.Diagnostics.HealthChecks;
 using HealthChecks.UI.Client;
 using Serilog;
+using WeatherForecast.DatabaseApi.Data;
+using Mapster;
+using WeatherForecast.DatabaseApi.Dtos;
+using WeatherForecast.DatabaseApi.Entities;
+using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -25,8 +30,15 @@ builder.Services.AddCarter();
 
 builder.Services.AddHealthChecks();
 
-// var config = TypeAdapterConfig.GlobalSettings;
-// MapsterConfig.RegisterMaps(config);
+TypeAdapterConfig.GlobalSettings.Scan(Assembly.GetExecutingAssembly());
+
+TypeAdapterConfig<LocationDto, Location>
+    .NewConfig()
+    .Map(dest => dest.Id, src => 0);
+
+TypeAdapterConfig<DayDto, Day>
+    .NewConfig()
+    .Map(dest => dest.Id, src => 0);
 
 var app = builder.Build();
 

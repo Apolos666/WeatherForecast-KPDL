@@ -1,21 +1,23 @@
 using Microsoft.EntityFrameworkCore;
-using System.Reflection;
 using WeatherForecast.DatabaseApi.Entities;
+using System.Reflection;
 
-public class AppDbContext : DbContext
+namespace WeatherForecast.DatabaseApi.Data
 {
-    public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
+    public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(options)
     {
-    }
+        public DbSet<Location> Locations { get; set; }
+        public DbSet<Entities.WeatherForecast> WeatherForecasts { get; set; }
+        public DbSet<Day> Days { get; set; }
+        public DbSet<Astro> Astros { get; set; }
+        public DbSet<Hour> Hours { get; set; }
 
-    public DbSet<WeatherData> WeatherData { get; set; }
-    public DbSet<Location> Locations { get; set; }
-    public DbSet<Current> CurrentWeather { get; set; }
-    public DbSet<Condition> Conditions { get; set; }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
 
-    protected override void OnModelCreating(ModelBuilder modelBuilder)
-    {
-        modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+            // Tự động áp dụng tất cả các configurations trong assembly
+            modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+        }
     }
 }
-

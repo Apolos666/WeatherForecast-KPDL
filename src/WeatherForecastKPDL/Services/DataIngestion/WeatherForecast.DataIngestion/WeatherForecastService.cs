@@ -1,31 +1,34 @@
-using Newtonsoft.Json;
-using WeatherForecast.BuildingBlock.Models;
 using System.Text;
+using System.Text.Json;
+using WeatherForecast.DataIngestion.Models;
+using WeatherForecast.DataIngestion.Services;
+
+namespace WeatherForecast.DataIngestion;
 
 public class WeatherForecastService : BackgroundService
 {
-    private readonly ILogger<WeatherForecastService> _logger;
     private readonly HttpClient _httpClient;
     private readonly IConfiguration _configuration;
+    private readonly ILogger<WeatherForecastService> _logger;
+    private readonly ILastProcessedDateService _lastProcessedDateService;
+    private readonly string _apiKey;
     private readonly string _apiUrl;
-    private readonly TimeSpan _updateInterval;
     private readonly string _databaseApiUrl;
+    private readonly TimeSpan _updateInterval = TimeSpan.FromHours(24);
+    private readonly TimeSpan _apiDelayInterval = TimeSpan.FromSeconds(15);
 
-    public WeatherForecastService(ILogger<WeatherForecastService> logger, IHttpClientFactory httpClientFactory, IConfiguration configuration)
+    public WeatherForecastService(
+        HttpClient httpClient,
+        IConfiguration configuration,
+        ILogger<WeatherForecastService> logger,
+        ILastProcessedDateService lastProcessedDateService)
     {
-        _logger = logger;
-        _httpClient = httpClientFactory.CreateClient();
+        _httpClient = httpClient;
         _configuration = configuration;
-
-        var baseUrl = _configuration["WeatherApi:BaseUrl"];
-        var endpoint = _configuration["WeatherApi:Endpoint"];
-        var apiKey = _configuration["WeatherApi:ApiKey"];
-        var location = _configuration["WeatherApi:Location"];
-        _apiUrl = $"{baseUrl}/{endpoint}?key={apiKey}&q={location}";
-
-        var updateIntervalMinutes = _configuration.GetValue<int>("WeatherApi:UpdateIntervalMinutes");
-        _updateInterval = TimeSpan.FromMinutes(updateIntervalMinutes);
-
+        _logger = logger;
+        _lastProcessedDateService = lastProcessedDateService;
+        _apiKey = _configuration["WeatherApi:ApiKey"];
+        _apiUrl = $"https://api.weatherapi.com/v1/history.json?key={_apiKey}&q=Da%20Nang";
         _databaseApiUrl = $"{_configuration["DatabaseApi:BaseUrl"]}/api/weatherdata";
     }
 
@@ -35,42 +38,79 @@ public class WeatherForecastService : BackgroundService
         {
             try
             {
-                var response = await _httpClient.GetStringAsync(_apiUrl);
-                var weatherData = JsonConvert.DeserializeObject<WeatherData>(response);
+                var currentDate = await _lastProcessedDateService.GetLastProcessedDate();
+                var endDate = DateTime.Now;
 
-                await ProcessWeatherData(weatherData);
+                _logger.LogInformation("Bắt đầu xử lý dữ liệu từ {StartDate} đến {EndDate}",
+                    currentDate.ToString("yyyy-MM-dd"), endDate.ToString("yyyy-MM-dd"));
 
-                _logger.LogInformation("Dữ liệu thời tiết đã được xử lý: {WeatherData}", JsonConvert.SerializeObject(weatherData));
+                while (currentDate <= endDate && !stoppingToken.IsCancellationRequested)
+                {
+                    var dateStr = currentDate.ToString("yyyy-MM-dd");
+                    var url = $"{_apiUrl}&dt={dateStr}";
+
+                    try
+                    {
+                        var response = await _httpClient.GetStringAsync(url, stoppingToken);
+                        var weatherData = JsonSerializer.Deserialize<WeatherApiResponse>(response);
+
+                        if (weatherData != null)
+                        {
+                            await ProcessWeatherData(weatherData, stoppingToken);
+                            await _lastProcessedDateService.SaveLastProcessedDate(currentDate);
+                            _logger.LogInformation("Đã xử lý dữ liệu cho ngày {Date}", dateStr);
+                        }
+                    }
+                    catch (HttpRequestException ex)
+                    {
+                        _logger.LogError(ex, "Lỗi khi gọi Weather API cho ngày {Date}", dateStr);
+                        await Task.Delay(TimeSpan.FromMinutes(1), stoppingToken);
+                        continue;
+                    }
+
+                    currentDate = currentDate.AddDays(1);
+                    await Task.Delay(_apiDelayInterval, stoppingToken);
+                }
+
+                _logger.LogInformation("Hoàn thành chu kỳ xử lý dữ liệu. Đợi {Interval} giờ cho lần chạy tiếp theo",
+                    _updateInterval.TotalHours);
+                await Task.Delay(_updateInterval, stoppingToken);
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Lỗi khi lấy hoặc xử lý dữ liệu thời tiết");
+                _logger.LogError(ex, "Lỗi không mong muốn trong quá trình xử lý dữ liệu");
+                await Task.Delay(TimeSpan.FromMinutes(5), stoppingToken);
             }
-
-            await Task.Delay(_updateInterval, stoppingToken);
         }
     }
 
-    private async Task ProcessWeatherData(WeatherData weatherData)
+    private async Task ProcessWeatherData(WeatherApiResponse weatherData, CancellationToken stoppingToken)
     {
         try
         {
-            var json = JsonConvert.SerializeObject(weatherData);
-            var content = new StringContent(json, Encoding.UTF8, "application/json");
-            var response = await _httpClient.PostAsync(_databaseApiUrl, content);
+            using var content = new StringContent(
+                JsonSerializer.Serialize(weatherData),
+                Encoding.UTF8,
+                "application/json");
+
+            using var response = await _httpClient.PostAsync(_databaseApiUrl, content, stoppingToken);
 
             if (response.IsSuccessStatusCode)
             {
-                _logger.LogInformation("Dữ liệu thời tiết đã được lưu thành công vào cơ sở dữ liệu");
+                _logger.LogInformation("Đã lưu thành công dữ liệu thời tiết cho {Location} vào database",
+                    weatherData.Location.Name);
             }
             else
             {
-                _logger.LogError("Không thể lưu dữ liệu thời tiết. Mã trạng thái: {StatusCode}", response.StatusCode);
+                _logger.LogError("Lỗi khi lưu dữ liệu thời tiết. Status code: {StatusCode}, Content: {Content}",
+                    response.StatusCode,
+                    await response.Content.ReadAsStringAsync(stoppingToken));
             }
         }
         catch (Exception ex)
         {
             _logger.LogError(ex, "Lỗi khi gửi dữ liệu thời tiết đến DatabaseApi");
+            throw;
         }
     }
 }
