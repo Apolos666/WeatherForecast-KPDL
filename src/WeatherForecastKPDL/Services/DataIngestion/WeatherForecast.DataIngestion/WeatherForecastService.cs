@@ -39,7 +39,7 @@ public class WeatherForecastService : BackgroundService
             try
             {
                 var currentDate = await _lastProcessedDateService.GetLastProcessedDate();
-                var endDate = DateTime.Now;
+                var endDate = DateTime.Now.AddDays(-1);
 
                 _logger.LogInformation("Bắt đầu xử lý dữ liệu từ {StartDate} đến {EndDate}",
                     currentDate.ToString("yyyy-MM-dd"), endDate.ToString("yyyy-MM-dd"));

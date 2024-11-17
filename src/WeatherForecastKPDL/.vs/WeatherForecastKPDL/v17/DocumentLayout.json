@@ -214,8 +214,7 @@
               "RelativeToolTip": "Services\\DatabaseApi\\WeatherForecast.DatabaseApi\\Dockerfile.original",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAALAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2024-11-16T10:47:53.28Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-16T10:47:53.28Z"
             },
             {
               "$type": "Document",
@@ -227,8 +226,7 @@
               "RelativeToolTip": "Services\\DataIngestion\\WeatherForecast.DataIngestion\\WeatherForecastService.cs",
               "ViewState": "AgIAAAcAAAAAAAAAAAAIwBUAAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-23T10:28:40.177Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-23T10:28:40.177Z"
             },
             {
               "$type": "Document",
@@ -240,8 +238,7 @@
               "RelativeToolTip": "docker-compose.override.yml",
               "ViewState": "AgIAAC0AAAAAAAAAAAAAADoAAAA8AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003775|",
-              "WhenOpened": "2024-10-23T10:49:04.591Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-23T10:49:04.591Z"
             },
             {
               "$type": "Document",
@@ -253,8 +250,7 @@
               "RelativeToolTip": "docker-compose.yml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003775|",
-              "WhenOpened": "2024-10-23T10:48:58.586Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-23T10:48:58.586Z"
             },
             {
               "$type": "Document",
@@ -266,8 +262,7 @@
               "RelativeToolTip": "Services\\DataIngestion\\WeatherForecast.DataIngestion\\Dockerfile",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAASAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2024-10-23T10:48:41.624Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-23T10:48:41.624Z"
             },
             {
               "$type": "Document",
@@ -292,8 +287,7 @@
               "RelativeToolTip": "Services\\DatabaseApi\\WeatherForecast.DatabaseApi\\WeatherForecast.DatabaseApi.csproj",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAB8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2024-10-23T10:57:25.162Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-23T10:57:25.162Z"
             },
             {
               "$type": "Document",
@@ -305,8 +299,7 @@
               "RelativeToolTip": "Services\\DataIngestion\\WeatherForecast.DataIngestion\\appsettings.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAADAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-11-16T10:38:50.723Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-16T10:38:50.723Z"
             },
             {
               "$type": "Document",
@@ -318,8 +311,7 @@
               "RelativeToolTip": "Services\\DataIngestion\\WeatherForecast.DataIngestion\\Program.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAABNAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-23T10:18:34.291Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-23T10:18:34.291Z"
             },
             {
               "$type": "Document",
@@ -331,8 +323,7 @@
               "RelativeToolTip": "Services\\DataIngestion\\WeatherForecast.DataIngestion\\Models\\Hour.cs",
               "ViewState": "AgIAAC4AAAAAAAAAAAA8wAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-16T10:42:24.869Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-16T10:42:24.869Z"
             },
             {
               "$type": "Document",
@@ -344,8 +335,7 @@
               "RelativeToolTip": "Services\\DataIngestion\\WeatherForecast.DataIngestion\\Models\\ForecastDay.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-16T10:42:24.305Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-16T10:42:24.305Z"
             },
             {
               "$type": "Document",
@@ -357,8 +347,7 @@
               "RelativeToolTip": "Services\\DataIngestion\\WeatherForecast.DataIngestion\\Models\\Forecast.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-16T10:42:23.487Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-16T10:42:23.487Z"
             },
             {
               "$type": "Document",
@@ -370,8 +359,7 @@
               "RelativeToolTip": "Services\\DataIngestion\\WeatherForecast.DataIngestion\\Models\\Condition.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-16T10:42:22.814Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-16T10:42:22.814Z"
             },
             {
               "$type": "Document",
@@ -383,8 +371,7 @@
               "RelativeToolTip": "Services\\DataIngestion\\WeatherForecast.DataIngestion\\Models\\Astro.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-16T10:42:21.99Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-16T10:42:21.99Z"
             },
             {
               "$type": "Document",
@@ -396,8 +383,7 @@
               "RelativeToolTip": "Services\\DataIngestion\\WeatherForecast.DataIngestion\\Services\\RedisLastProcessedDateService.cs",
               "ViewState": "AgIAAA0AAAAAAAAAAAAQwCMAAAA1AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-16T10:39:08.908Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-16T10:39:08.908Z"
             },
             {
               "$type": "Document",
@@ -409,8 +395,7 @@
               "RelativeToolTip": "Services\\DatabaseApi\\WeatherForecast.DatabaseApi\\Properties\\launchSettings.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-11-16T10:41:28.399Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-16T10:41:28.399Z"
             },
             {
               "$type": "Document",
@@ -421,8 +406,7 @@
               "ToolTip": "C:\\Projects\\WeatherForecast\\src\\WeatherForecastKPDL\\Services\\DatabaseApi\\WeatherForecast.DatabaseApi\\WeatherForecast.DatabaseApi.csproj",
               "RelativeToolTip": "Services\\DatabaseApi\\WeatherForecast.DatabaseApi\\WeatherForecast.DatabaseApi.csproj",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2024-11-16T10:41:26.078Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-16T10:41:26.078Z"
             },
             {
               "$type": "Document",
@@ -434,8 +418,7 @@
               "RelativeToolTip": "Services\\DataIngestion\\WeatherForecast.DataIngestion\\Properties\\launchSettings.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-11-16T10:41:21.583Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-16T10:41:21.583Z"
             },
             {
               "$type": "Document",
@@ -447,8 +430,7 @@
               "RelativeToolTip": "Services\\DataIngestion\\WeatherForecast.DataIngestion\\Services\\ILastProcessedDateService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-16T10:39:08.34Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-16T10:39:08.34Z"
             },
             {
               "$type": "Document",
@@ -460,8 +442,7 @@
               "RelativeToolTip": "Services\\DatabaseApi\\WeatherForecast.DatabaseApi\\Data\\Configurations\\WeatherForecastConfiguration.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-16T10:34:20.796Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-16T10:34:20.796Z"
             },
             {
               "$type": "Document",
@@ -473,8 +454,7 @@
               "RelativeToolTip": "Services\\DatabaseApi\\WeatherForecast.DatabaseApi\\Data\\Configurations\\HourConfiguration.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAABFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-16T10:34:15.184Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-16T10:34:15.184Z"
             },
             {
               "$type": "Document",
@@ -486,8 +466,7 @@
               "RelativeToolTip": "Services\\DatabaseApi\\WeatherForecast.DatabaseApi\\Data\\Configurations\\DayConfiguration.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAABFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-16T10:34:10.515Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-16T10:34:10.515Z"
             },
             {
               "$type": "Document",
@@ -499,8 +478,7 @@
               "RelativeToolTip": "Services\\DatabaseApi\\WeatherForecast.DatabaseApi\\Program.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-23T10:50:10.059Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-23T10:50:10.059Z"
             },
             {
               "$type": "Document",
@@ -512,8 +490,7 @@
               "RelativeToolTip": "Services\\DatabaseApi\\WeatherForecast.DatabaseApi\\Data\\Configurations\\LocationConfiguration.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-23T11:06:57.881Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-23T11:06:57.881Z"
             },
             {
               "$type": "Document",
