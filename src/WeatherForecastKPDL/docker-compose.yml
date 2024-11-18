@@ -2,27 +2,35 @@ services:
   weatherforecast.dataingestion:
     image: quangtran2/weatherforecastdataingestion:latest
 
-  # db:
-  #   image: mysql:8.0
-  #   restart: always
-  #   volumes:
-  #     - mysql_data:/var/lib/mysql
-
-  # redis:
-  #   image: redis:alpine
-  #   restart: always
-  #   volumes:
-  #     - redis_data:/data
-
   weatherforecast.databaseapi:
     image: quangtran2/weatherforecastdatabaseapi:latest
     volumes:
       - ./logs:/app/logs
 
+  zookeeper:
+    image: confluentinc/cp-zookeeper:7.5.1
+    volumes:
+      - zookeeper_data:/var/lib/zookeeper/data
+      - zookeeper_log:/var/lib/zookeeper/log
+
+  kafka:
+    image: confluentinc/cp-kafka:7.5.1
+    volumes:
+      - kafka_data:/var/lib/kafka/data
+
+  debezium:
+    image: debezium/connect:2.5
+
+  init-connector:
+    image: curlimages/curl  
+
 volumes:
   mysql_data:
   redis_data:
   logs:
+  zookeeper_data:
+  zookeeper_log:
+  kafka_data:
 
 networks:
   weathernet:
