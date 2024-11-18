@@ -2,17 +2,17 @@ services:
   weatherforecast.dataingestion:
     image: quangtran2/weatherforecastdataingestion:latest
 
-  db:
-    image: mysql:8.0
-    restart: always
-    volumes:
-      - mysql_data:/var/lib/mysql
+  # db:
+  #   image: mysql:8.0
+  #   restart: always
+  #   volumes:
+  #     - mysql_data:/var/lib/mysql
 
-  redis:
-    image: redis:alpine
-    restart: always
-    volumes:
-      - redis_data:/data
+  # redis:
+  #   image: redis:alpine
+  #   restart: always
+  #   volumes:
+  #     - redis_data:/data
 
   weatherforecast.databaseapi:
     image: quangtran2/weatherforecastdatabaseapi:latest

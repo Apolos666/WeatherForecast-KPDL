@@ -6,7 +6,7 @@ services:
       - ASPNETCORE_HTTP_PORTS=8080
       - ASPNETCORE_HTTPS_PORTS=8081
       - DatabaseApi__BaseUrl=http://weatherforecast.databaseapi:8080
-      - ConnectionStrings__Redis=weatherforecast.redis:6379
+      - ConnectionStrings__Redis=${REDIS_HOST}:${REDIS_PORT},password=${REDIS_PASSWORD},user=default,ssl=true,abortConnect=false
     ports:
       - "8082:8080"
       - "8083:8081"
@@ -16,8 +16,8 @@ services:
     depends_on:
       weatherforecast.databaseapi:
         condition: service_healthy
-      redis:
-        condition: service_healthy
+      # redis:
+      #   condition: service_healthy
     networks:
       - weathernet
 
@@ -26,15 +26,15 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_HTTP_PORTS=8080
-      - ConnectionStrings__DefaultConnection=Server=db;Port=3306;Database=weatherdb;User=weatheruser;Password=weatherpass;Connect Timeout=30;
+      - ConnectionStrings__DefaultConnection=Server=${DB_HOST};Port=${DB_PORT};Database=${DB_NAME};User Id=${DB_USER};Password=${DB_PASSWORD}
     ports:
       - "8084:8080"
     volumes:
       - ${APPDATA}/Microsoft/UserSecrets:/home/app/.microsoft/usersecrets:ro
       - ${APPDATA}/ASP.NET/Https:/home/app/.aspnet/https:ro
-    depends_on:
-      db:
-        condition: service_healthy
+    # depends_on:
+    #   db:
+    #     condition: service_healthy
     healthcheck:
       test: ["CMD-SHELL", "curl --fail http://localhost:8080/health || exit 1"]
       interval: 10s
@@ -44,35 +44,35 @@ services:
     networks:
       - weathernet
 
-  db:
-    container_name: weatherforecastdb
-    environment:
-      - MYSQL_ROOT_PASSWORD=rootpassword
-      - MYSQL_DATABASE=weatherdb
-      - MYSQL_USER=weatheruser
-      - MYSQL_PASSWORD=weatherpass
-    ports:
-      - "3307:3306"
-    networks:
-      - weathernet
-    healthcheck:
-      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
-      interval: 10s
-      timeout: 5s
-      retries: 3
+  # db:
+  #   container_name: weatherforecastdb
+  #   environment:
+  #     - MYSQL_ROOT_PASSWORD=rootpassword
+  #     - MYSQL_DATABASE=weatherdb
+  #     - MYSQL_USER=weatheruser
+  #     - MYSQL_PASSWORD=weatherpass
+  #   ports:
+  #     - "3307:3306"
+  #   networks:
+  #     - weathernet
+  #   healthcheck:
+  #     test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+  #     interval: 10s
+  #     timeout: 5s
+  #     retries: 3
 
-  redis:
-    container_name: weatherforecast.redis
-    ports:
-      - "6379:6379"
-    networks:
-      - weathernet
-    command: redis-server --appendonly yes
-    healthcheck:
-      test: ["CMD", "redis-cli", "ping"]
-      interval: 5s
-      timeout: 3s
-      retries: 3
+  # redis:
+  #   container_name: weatherforecast.redis
+  #   ports:
+  #     - "6379:6379"
+  #   networks:
+  #     - weathernet
+  #   command: redis-server --appendonly yes
+  #   healthcheck:
+  #     test: ["CMD", "redis-cli", "ping"]
+  #     interval: 5s
+  #     timeout: 3s
+  #     retries: 3
 
 networks:
   weathernet:

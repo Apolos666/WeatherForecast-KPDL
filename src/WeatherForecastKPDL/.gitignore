@@ -1,0 +1,7 @@
+# Environment variables
+.env
+.env.*
+!.env.example
+
+# User secrets
+**/UserSecrets/
