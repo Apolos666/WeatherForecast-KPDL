@@ -16,8 +16,6 @@ services:
     depends_on:
       weatherforecast.databaseapi:
         condition: service_healthy
-    networks:
-      - weathernet
 
   weatherforecast.databaseapi:
     container_name: weatherforecast.databaseapi
@@ -36,8 +34,6 @@ services:
       timeout: 5s
       retries: 3
       start_period: 10s
-    networks:
-      - weathernet
 
   zookeeper:
     container_name: zookeeper
@@ -46,51 +42,57 @@ services:
       - ZOOKEEPER_TICK_TIME=2000
     ports:
       - "2181:2181"
-    networks:
-      - weathernet
+    healthcheck:
+      test: ["CMD-SHELL", "echo ruok | nc localhost 2181 || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
 
   kafka:
     container_name: kafka
     environment:
       - KAFKA_BROKER_ID=1
       - KAFKA_ZOOKEEPER_CONNECT=zookeeper:2181
-      - KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://kafka:29092,PLAINTEXT_HOST://localhost:9092
+      - KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://kafka:9092,PLAINTEXT_HOST://kafka:29092
       - KAFKA_LISTENER_SECURITY_PROTOCOL_MAP=PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
       - KAFKA_INTER_BROKER_LISTENER_NAME=PLAINTEXT
       - KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR=1
-      - KAFKA_GROUP_INITIAL_REBALANCE_DELAY_MS=0
     ports:
       - "9092:9092"
       - "29092:29092"
     depends_on:
-      - zookeeper
-    networks:
-      - weathernet
+      zookeeper:
+        condition: service_healthy
     healthcheck:
-      test: ["CMD-SHELL", "kafka-topics --bootstrap-server kafka:29092 --list"]
-      interval: 10s
-      timeout: 5s
+      test:
+        [
+          "CMD-SHELL",
+          "kafka-topics --bootstrap-server kafka:9092 --list || exit 1",
+        ]
+      interval: 5s
+      timeout: 10s
       retries: 5
       start_period: 15s
 
   debezium:
     container_name: debezium
     environment:
-      - BOOTSTRAP_SERVERS=kafka:29092
+      - BOOTSTRAP_SERVERS=kafka:9092
       - GROUP_ID=1
       - CONFIG_STORAGE_TOPIC=connect_configs
       - OFFSET_STORAGE_TOPIC=connect_offsets
       - STATUS_STORAGE_TOPIC=connect_statuses
       - KEY_CONVERTER=org.apache.kafka.connect.json.JsonConverter
       - VALUE_CONVERTER=org.apache.kafka.connect.json.JsonConverter
-      - ENABLE_DEBEZIUM_SCRIPTING="true"
+      - ENABLE_DEBEZIUM_SCRIPTING=true
+      - CONNECT_REST_PORT=8083
+      - CONNECT_REST_ADVERTISED_HOST_NAME=debezium
     ports:
-      - "8083:8083"
+      - "8085:8083"
     depends_on:
       - kafka
       - weatherforecast.databaseapi
-    networks:
-      - weathernet
     healthcheck:
       test: ["CMD-SHELL", "curl -f http://localhost:8083/ || exit 1"]
       interval: 10s
@@ -98,42 +100,63 @@ services:
       retries: 5
       start_period: 15s
 
-  init-connector:
-    container_name: init-connector
+  debezium-ui:
+    container_name: debezium-ui
+    ports:
+      - "8086:8080"
+    environment:
+      - KAFKA_CONNECT_URIS=http://debezium:8083
     depends_on:
       debezium:
         condition: service_healthy
+    healthcheck:
+      test: ["CMD", "wget", "--spider", "-q", "http://localhost:8080"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  debezium-connector-config:
+    container_name: debezium-connector-config
+    depends_on:
+      debezium:
+        condition: service_healthy
+    restart: on-failure
+    command: >
+      -X POST http://debezium:8083/connectors -H "Content-Type: application/json" -d '{
+        "name": "weather-mysql-connector",
+        "config": {
+          "connector.class": "io.debezium.connector.mysql.MySqlConnector",
+          "database.hostname": "'${DB_HOST}'",
+          "database.port": "'${DB_PORT}'",
+          "database.user": "'${DB_USER}'",
+          "database.password": "'${DB_PASSWORD}'",
+          "database.server.name": "weather-mysql",
+          "database.server.id": "1",
+          "database.include.list": "'${DB_NAME}'",
+
+          "schema.history.internal.kafka.bootstrap.servers": "kafka:9092",
+          "schema.history.internal.kafka.topic": "schema-changes.weather",
+          
+          "include.schema.changes": "true",
+          "topic.prefix": "weather-mysql",
+          "database.history.store.only.captured.tables.ddl": "true",
+          "snapshot.mode": "initial"
+        }
+      }'
+
+  kafdrop:
+    container_name: kafdrop
+    environment:
+      - KAFKA_BROKERCONNECT=kafka:9092
+      - JVM_OPTS=-Xms32M -Xmx64M
+      - SERVER_SERVLET_CONTEXTPATH=/
+    ports:
+      - "9000:9000"
+    depends_on:
       kafka:
         condition: service_healthy
-    command: >
-      /bin/sh -c "
-      for i in {1..30}; do
-        echo 'Waiting for Debezium to be ready... (Attempt '$$i')' &&
-        if curl -s debezium:8083 > /dev/null; then
-          echo 'Creating connector...' &&
-          curl -X POST http://debezium:8083/connectors -H 'Content-Type: application/json' -d '{
-            \"name\": \"weather-connector\",
-            \"config\": {
-              \"connector.class\": \"io.debezium.connector.mysql.MySqlConnector\",
-              \"database.hostname\": \"${DB_HOST}\",
-              \"database.port\": \"${DB_PORT}\",
-              \"database.user\": \"${DB_USER}\",
-              \"database.password\": \"${DB_PASSWORD}\",
-              \"database.server.name\": \"weatherdb\",
-              \"database.include.list\": \"${DB_NAME}\",
-              \"database.history.kafka.bootstrap.servers\": \"kafka:29092\",
-              \"database.history.kafka.topic\": \"schema-changes.weather\",
-              \"include.schema.changes\": \"true\",
-              \"topic.prefix\": \"weather\",
-              \"database.allowPublicKeyRetrieval\": \"true\",
-              \"database.ssl.mode\": \"required\"
-            }
-          }' &&
-          exit 0
-        fi
-        sleep 2
-      done
-      echo 'Failed to connect to Debezium after 30 attempts' &&
-      exit 1"
-    networks:
-      - weathernet
+    healthcheck:
+      test: ["CMD", "wget", "--spider", "-q", "http://localhost:9000"]
+      interval: 30s
+      timeout: 10s
+      retries: 3

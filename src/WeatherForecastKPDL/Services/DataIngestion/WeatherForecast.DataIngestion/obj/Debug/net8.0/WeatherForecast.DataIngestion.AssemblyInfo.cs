@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("WeatherForecast.DataIngestion")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+615c8d5622f5127366ab8f119b389adb19c7501d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+37d644ad5c0012ec65910cca4ea043732396175b")]
 [assembly: System.Reflection.AssemblyProductAttribute("WeatherForecast.DataIngestion")]
 [assembly: System.Reflection.AssemblyTitleAttribute("WeatherForecast.DataIngestion")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

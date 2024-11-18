@@ -1,32 +1,52 @@
 services:
   weatherforecast.dataingestion:
     image: quangtran2/weatherforecastdataingestion:latest
+    networks:
+      - weathernet
 
   weatherforecast.databaseapi:
     image: quangtran2/weatherforecastdatabaseapi:latest
     volumes:
       - ./logs:/app/logs
+    networks:
+      - weathernet
 
   zookeeper:
     image: confluentinc/cp-zookeeper:7.5.1
     volumes:
       - zookeeper_data:/var/lib/zookeeper/data
       - zookeeper_log:/var/lib/zookeeper/log
+    networks:
+      - weathernet
 
   kafka:
     image: confluentinc/cp-kafka:7.5.1
     volumes:
       - kafka_data:/var/lib/kafka/data
+    networks:
+      - weathernet
+
+  kafdrop:
+    image: obsidiandynamics/kafdrop    
+    networks:
+      - weathernet
 
   debezium:
     image: debezium/connect:2.5
+    networks:
+      - weathernet
 
-  init-connector:
-    image: curlimages/curl  
+  debezium-ui:
+    image: debezium/debezium-ui:latest
+    networks:
+      - weathernet
 
+  debezium-connector-config:
+    image: curlimages/curl
+    networks:
+      - weathernet    
+        
 volumes:
-  mysql_data:
-  redis_data:
   logs:
   zookeeper_data:
   zookeeper_log:
