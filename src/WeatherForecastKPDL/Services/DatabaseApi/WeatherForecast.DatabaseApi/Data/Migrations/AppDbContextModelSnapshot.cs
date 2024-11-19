@@ -69,6 +69,40 @@ namespace WeatherForecast.DatabaseApi.Data.Migrations
                     b.ToTable("Astros");
                 });
 
+            modelBuilder.Entity("WeatherForecast.DatabaseApi.Entities.DailyAnalysis", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<double>("AverageHumidity")
+                        .HasColumnType("double");
+
+                    b.Property<double>("AveragePressure")
+                        .HasColumnType("double");
+
+                    b.Property<double>("AverageTemperature")
+                        .HasColumnType("double");
+
+                    b.Property<double>("AverageWindSpeed")
+                        .HasColumnType("double");
+
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<double>("TotalPrecipitation")
+                        .HasColumnType("double");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Date")
+                        .IsUnique();
+
+                    b.ToTable("DailyAnalyses");
+                });
+
             modelBuilder.Entity("WeatherForecast.DatabaseApi.Entities.Day", b =>
                 {
                     b.Property<int>("Id")

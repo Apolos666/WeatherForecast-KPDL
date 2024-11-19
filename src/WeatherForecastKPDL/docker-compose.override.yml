@@ -59,7 +59,7 @@ services:
       - KAFKA_INTER_BROKER_LISTENER_NAME=PLAINTEXT
       - KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR=1
     ports:
-      - "9092:9092"
+      - "9093:9092"
       - "29092:29092"
     depends_on:
       zookeeper:
@@ -160,3 +160,16 @@ services:
       interval: 30s
       timeout: 10s
       retries: 3
+
+  weatherforecast.dataanalysis:
+    container_name: weatherforecast.dataanalysis
+    environment:
+      - KAFKA_BOOTSTRAP_SERVERS=kafka:9092
+      - DATABASE_API_URL=http://weatherforecast.databaseapi:8080
+    ports:
+      - "8087:8000"
+    depends_on:
+      kafka:
+        condition: service_healthy
+      weatherforecast.databaseapi:
+        condition: service_healthy    

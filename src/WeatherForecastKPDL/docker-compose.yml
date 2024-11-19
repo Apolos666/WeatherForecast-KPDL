@@ -45,6 +45,11 @@ services:
     image: curlimages/curl
     networks:
       - weathernet    
+
+  weatherforecast.dataanalysis:
+    image: quangtran2/weatherforecastdataanalysis:latest
+    networks:
+      - weathernet    
         
 volumes:
   logs:
