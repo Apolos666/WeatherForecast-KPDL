@@ -10,6 +10,7 @@ using Mapster;
 using WeatherForecast.DatabaseApi.Dtos;
 using WeatherForecast.DatabaseApi.Entities;
 using System.Reflection;
+using StackExchange.Redis;
 using WeatherForecast.DatabaseApi.Infrastructure.Services;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -31,8 +32,14 @@ builder.Services.AddCarter();
 
 builder.Services.AddHealthChecks();
 
-builder.Services.AddMemoryCache();
-builder.Services.AddScoped<ICacheService, CacheService>();
+builder.Services.AddSingleton<IConnectionMultiplexer>(sp =>
+{
+    var configuration = ConfigurationOptions.Parse(
+        builder.Configuration.GetConnectionString("Redis")!);
+    return ConnectionMultiplexer.Connect(configuration);
+});
+
+builder.Services.AddScoped<ICacheService, RedisCacheService>();
 
 TypeAdapterConfig.GlobalSettings.Scan(Assembly.GetExecutingAssembly());
 
