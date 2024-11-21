@@ -6,6 +6,7 @@ using WeatherForecast.DatabaseApi.Data;
 using WeatherForecast.DatabaseApi.Dtos;
 using WeatherForecast.DatabaseApi.Entities;
 using WeatherForecast.DatabaseApi.Features.Weather.Dtos;
+using WeatherForecast.DatabaseApi.Infrastructure.Services;
 
 namespace WeatherForecast.DatabaseApi.Features.Weather.Endpoints;
 
@@ -65,11 +66,15 @@ public class WeatherEndpoints : ICarterModule
             }
         });
 
-        app.MapGet("/api/weather/date-range", async ([AsParameters] DateRangeQueryParameters parameters, AppDbContext db) =>
+        app.MapGet("/api/weather/date-range", async ([AsParameters] DateRangeQueryParameters parameters, AppDbContext db, ICacheService cache) =>
         {
             try
             {
-                var data = await GetDailyWeatherData(db, parameters.FromDate, parameters.ToDate);
+                string cacheKey = $"weather_date_range_{parameters.FromDate:yyyyMMdd}_{parameters.ToDate:yyyyMMdd}";
+
+                var data = await cache.GetOrSetAsync(cacheKey,
+                    async () => await GetDailyWeatherData(db, parameters.FromDate, parameters.ToDate));
+
                 return Results.Ok(data);
             }
             catch (Exception ex)
@@ -81,14 +86,19 @@ public class WeatherEndpoints : ICarterModule
             }
         });
 
-        app.MapGet("/api/weather/weeks-ago", async ([FromQuery] int weeksAgo, AppDbContext db) =>
+        app.MapGet("/api/weather/weeks-ago", async ([FromQuery] int weeksAgo, AppDbContext db, ICacheService cache) =>
         {
             try
             {
-                var endDate = DateTime.Now.Date;
-                var startDate = endDate.AddDays(-(weeksAgo * 7));
+                string cacheKey = $"weather_weeks_ago_{weeksAgo}";
 
-                var data = await GetDailyWeatherData(db, startDate, endDate);
+                var data = await cache.GetOrSetAsync(cacheKey, async () =>
+                {
+                    var endDate = DateTime.Now.Date;
+                    var startDate = endDate.AddDays(-(weeksAgo * 7));
+                    return await GetDailyWeatherData(db, startDate, endDate);
+                });
+
                 return Results.Ok(data);
             }
             catch (Exception ex)
@@ -100,14 +110,19 @@ public class WeatherEndpoints : ICarterModule
             }
         });
 
-        app.MapGet("/api/weather/months-ago", async ([FromQuery] int monthsAgo, AppDbContext db) =>
+        app.MapGet("/api/weather/months-ago", async ([FromQuery] int monthsAgo, AppDbContext db, ICacheService cache) =>
         {
             try
             {
-                var endDate = DateTime.Now.Date;
-                var startDate = endDate.AddMonths(-monthsAgo);
+                string cacheKey = $"weather_months_ago_{monthsAgo}";
 
-                var data = await GetDailyWeatherData(db, startDate, endDate);
+                var data = await cache.GetOrSetAsync(cacheKey, async () =>
+                {
+                    var endDate = DateTime.Now.Date;
+                    var startDate = endDate.AddMonths(-monthsAgo);
+                    return await GetDailyWeatherData(db, startDate, endDate);
+                });
+
                 return Results.Ok(data);
             }
             catch (Exception ex)
