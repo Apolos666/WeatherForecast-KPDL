@@ -13,6 +13,8 @@ public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(op
     public DbSet<Hour> Hours { get; set; }
     public DbSet<DailyAnalysis> DailyAnalyses { get; set; }
 
+    public DbSet<MonthlyAnalysis> MonthlyAnalyses { get; set; }
+
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);

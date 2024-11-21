@@ -26,3 +26,16 @@ class WeatherAnalysisScheduler:
                 logger.warning("Không nhận được dữ liệu từ Kafka")
         except Exception as e:
             logger.error(f"Lỗi khi xử lý dữ liệu thời tiết: {str(e)}")
+            
+    async def process_seasonal_data(self):
+        logger.info("Bắt đầu xử lý dữ liệu theo tháng")
+        try: 
+            hourly_data = self.consumer.get_monthly_data()
+            if hourly_data:
+                monthly_analysis = self.analysis_service.analyze_seasonal_data(hourly_data)
+                await self.database_api.save_seasonal_analysis(monthly_analysis)
+                logger.info("Xử lý dữ liệu theo tháng thành công")
+            else:
+                logger.warning("Không nhận được dữ liệu từ Kafka")
+        except Exception as e:
+            logger.error(f"Lỗi khi xử lý dữ liệu theo tháng: {str(e)}")

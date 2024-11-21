@@ -57,5 +57,58 @@ public class AnalysisEndpoints : ICarterModule
                     statusCode: 500);
             }
         });
+
+        app.MapPost("/api/analysis/monthly", async (MonthlyAnalysisDto request, AppDbContext db) =>
+        {
+            try
+            {
+                var date = DateTime.Parse($"{request.YearMonth}-01");
+                
+                // Kiểm tra xem đã có dữ liệu cho tháng này chưa
+                var existingAnalysis = await db.MonthlyAnalyses
+                    .FirstOrDefaultAsync(m => m.Date.Year == date.Year && m.Date.Month == date.Month);
+
+                if (existingAnalysis != null)
+                {
+                    // Cập nhật dữ liệu hiện có
+                    existingAnalysis.AverageTemperature = request.AvgTemp;
+                    existingAnalysis.AverageHumidity = request.AvgHumidity;
+                    existingAnalysis.TotalPrecipitation = request.TotalPrecip;
+                    existingAnalysis.AverageWindSpeed = request.AvgWind;
+                    existingAnalysis.AveragePressure = request.AvgPressure;
+                    existingAnalysis.MaxTemperature = request.MaxTemp;
+                    existingAnalysis.MinTemperature = request.MinTemp;
+                    existingAnalysis.RainyDays = request.RainyDays;
+                }
+                else
+                {
+                    // Tạo mới dữ liệu phân tích
+                    var analysis = new MonthlyAnalysis
+                    {
+                        Date = date,
+                        AverageTemperature = request.AvgTemp,
+                        AverageHumidity = request.AvgHumidity,
+                        TotalPrecipitation = request.TotalPrecip,
+                        AverageWindSpeed = request.AvgWind,
+                        AveragePressure = request.AvgPressure,
+                        MaxTemperature = request.MaxTemp,
+                        MinTemperature = request.MinTemp,
+                        RainyDays = request.RainyDays
+                    };
+
+                    db.MonthlyAnalyses.Add(analysis);
+                }
+
+                await db.SaveChangesAsync();
+                return Results.Ok();
+            }
+            catch (Exception ex)
+            {
+                return Results.Problem(
+                    title: "Lỗi khi lưu dữ liệu phân tích theo tháng",
+                    detail: ex.Message,
+                    statusCode: 500);
+            }
+        });
     }
 }

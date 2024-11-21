@@ -6,7 +6,8 @@ from .core.config import settings
 from .services.scheduler import WeatherAnalysisScheduler
 from .core.logging import logger
 
-scheduler = WeatherAnalysisScheduler()
+weather_scheduler = WeatherAnalysisScheduler()
+seasonal_scheduler = WeatherAnalysisScheduler()
 async_scheduler = AsyncIOScheduler()
 
 @asynccontextmanager
@@ -14,12 +15,23 @@ async def lifespan(app: FastAPI):
     logger.info("Khởi động ứng dụng Weather Analysis Service")
     # Startup
     async_scheduler.add_job(
-        scheduler.process_weather_data,
+        weather_scheduler.process_weather_data,
         'interval',
         minutes=settings.ANALYSIS_INTERVAL_MINUTES,
         next_run_time=datetime.now()
     )
+    logger.info("Đã thêm job process_weather_data")
+    
+    async_scheduler.add_job(
+        seasonal_scheduler.process_seasonal_data,
+        'interval',
+        minutes=settings.ANALYSIS_INTERVAL_MINUTES,
+        next_run_time=datetime.now()
+    )
+    logger.info("Đã thêm job process_seasonal_data")
+    
     async_scheduler.start()
+    logger.info("Đã khởi động scheduler thành công")
     
     yield
     
