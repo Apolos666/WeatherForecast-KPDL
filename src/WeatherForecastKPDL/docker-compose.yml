@@ -26,8 +26,8 @@ services:
     networks:
       - weathernet
 
-  kafdrop:
-    image: obsidiandynamics/kafdrop    
+  kafka-ui:
+    image: provectuslabs/kafka-ui:latest    
     networks:
       - weathernet
 

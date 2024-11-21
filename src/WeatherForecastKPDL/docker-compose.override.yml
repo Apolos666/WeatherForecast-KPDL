@@ -144,19 +144,19 @@ services:
         }
       }'
 
-  kafdrop:
-    container_name: kafdrop
+  kafka-ui:
+    container_name: kafka-ui
     environment:
-      - KAFKA_BROKERCONNECT=kafka:9092
-      - JVM_OPTS=-Xms32M -Xmx64M
-      - SERVER_SERVLET_CONTEXTPATH=/
+      - KAFKA_CLUSTERS_0_NAME=local
+      - KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS=kafka:9092
+      - KAFKA_CLUSTERS_0_ZOOKEEPER=zookeeper:2181
     ports:
-      - "9000:9000"
+      - "8088:8080"
     depends_on:
       kafka:
         condition: service_healthy
     healthcheck:
-      test: ["CMD", "wget", "--spider", "-q", "http://localhost:9000"]
+      test: ["CMD", "wget", "--spider", "-q", "http://localhost:8080"]
       interval: 30s
       timeout: 10s
       retries: 3
@@ -172,4 +172,4 @@ services:
       kafka:
         condition: service_healthy
       weatherforecast.databaseapi:
-        condition: service_healthy    
+        condition: service_healthy

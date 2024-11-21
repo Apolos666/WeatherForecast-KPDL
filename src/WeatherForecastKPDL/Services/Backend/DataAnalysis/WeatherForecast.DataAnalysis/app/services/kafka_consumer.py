@@ -30,12 +30,6 @@ class WeatherKafkaConsumer:
         try:
             while len(weather_data) < 24:
                 msg = self.consumer.poll(timeout=1.0)
-                if msg is None:
-                    logger.debug("Không nhận được message từ Kafka")
-                    continue
-                if msg.error():
-                    logger.error(f"Lỗi Kafka consumer: {msg.error()}")
-                    continue
                 
                 try:
                     messages_processed += 1
