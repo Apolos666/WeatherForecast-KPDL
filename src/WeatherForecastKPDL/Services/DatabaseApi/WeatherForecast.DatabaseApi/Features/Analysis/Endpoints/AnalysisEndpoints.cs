@@ -4,9 +4,9 @@ using WeatherForecast.DatabaseApi.Data;
 using WeatherForecast.DatabaseApi.Dtos;
 using WeatherForecast.DatabaseApi.Entities;
 
-namespace WeatherForecast.DatabaseApi.Modules;
+namespace WeatherForecast.DatabaseApi.Features.Analysis.Endpoints;
 
-public class AnalysisModule : ICarterModule
+public class AnalysisEndpoints : ICarterModule
 {
     public void AddRoutes(IEndpointRouteBuilder app)
     {
@@ -46,6 +46,7 @@ public class AnalysisModule : ICarterModule
                 }
 
                 await db.SaveChangesAsync();
+
                 return Results.Ok();
             }
             catch (Exception ex)

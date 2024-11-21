@@ -33,3 +33,177 @@ SELECT `Id`
 FROM `DailyAnalyses`
 WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
 2024-11-21 06:47:58.049 +00:00 [INF] Application is shutting down...
+2024-11-21 07:19:57.511 +00:00 [INF] Executed DbCommand (97ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1 FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA='defaultdb' AND TABLE_NAME='__EFMigrationsHistory';
+2024-11-21 07:19:58.367 +00:00 [INF] Executed DbCommand (88ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1 FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA='defaultdb' AND TABLE_NAME='__EFMigrationsHistory';
+2024-11-21 07:19:58.568 +00:00 [INF] Executed DbCommand (95ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `MigrationId`, `ProductVersion`
+FROM `__EFMigrationsHistory`
+ORDER BY `MigrationId`;
+2024-11-21 07:19:58.581 +00:00 [INF] No migrations were applied. The database is already up to date.
+2024-11-21 07:19:58.705 +00:00 [INF] Now listening on: http://[::]:8080
+2024-11-21 07:19:58.707 +00:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-21 07:19:58.707 +00:00 [INF] Hosting environment: Development
+2024-11-21 07:19:58.707 +00:00 [INF] Content root path: /app
+2024-11-21 07:20:02.775 +00:00 [INF] Executed DbCommand (114ms) [Parameters=[@__request_Location_Name_0='?' (Size = 100)], CommandType='"Text"', CommandTimeout='30']
+SELECT `l`.`Id`, `l`.`Country`, `l`.`Lat`, `l`.`Localtime`, `l`.`LocaltimeEpoch`, `l`.`Lon`, `l`.`Name`, `l`.`Region`, `l`.`TzId`
+FROM `Locations` AS `l`
+WHERE `l`.`Name` = @__request_Location_Name_0
+LIMIT 1
+2024-11-21 07:20:03.110 +00:00 [INF] Executed DbCommand (94ms) [Parameters=[@__8__locals1_location_Id_0='?' (DbType = Int32), @__forecastDay_Date_Date_1='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT `w`.`Id`, `w`.`Date`, `w`.`DateEpoch`, `w`.`LocationId`
+FROM `WeatherForecasts` AS `w`
+WHERE (`w`.`LocationId` = @__8__locals1_location_Id_0) AND (CONVERT(`w`.`Date`, date) = @__forecastDay_Date_Date_1)
+LIMIT 1
+2024-11-21 07:20:19.679 +00:00 [INF] Executed DbCommand (90ms) [Parameters=[@__date_Date_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`Id`, `d`.`AverageHumidity`, `d`.`AveragePressure`, `d`.`AverageTemperature`, `d`.`AverageWindSpeed`, `d`.`Date`, `d`.`TotalPrecipitation`
+FROM `DailyAnalyses` AS `d`
+WHERE CONVERT(`d`.`Date`, date) = @__date_Date_0
+LIMIT 1
+2024-11-21 07:20:20.235 +00:00 [INF] Executed DbCommand (93ms) [Parameters=[@p0='?' (DbType = Double), @p1='?' (DbType = Double), @p2='?' (DbType = Double), @p3='?' (DbType = Double), @p4='?' (DbType = DateTime), @p5='?' (DbType = Double)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `DailyAnalyses` (`AverageHumidity`, `AveragePressure`, `AverageTemperature`, `AverageWindSpeed`, `Date`, `TotalPrecipitation`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+SELECT `Id`
+FROM `DailyAnalyses`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+2024-11-21 07:25:17.016 +00:00 [INF] Executed DbCommand (90ms) [Parameters=[@__date_Date_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`Id`, `d`.`AverageHumidity`, `d`.`AveragePressure`, `d`.`AverageTemperature`, `d`.`AverageWindSpeed`, `d`.`Date`, `d`.`TotalPrecipitation`
+FROM `DailyAnalyses` AS `d`
+WHERE CONVERT(`d`.`Date`, date) = @__date_Date_0
+LIMIT 1
+2024-11-21 07:25:17.375 +00:00 [INF] Executed DbCommand (90ms) [Parameters=[@p0='?' (DbType = Double), @p1='?' (DbType = Double), @p2='?' (DbType = Double), @p3='?' (DbType = Double), @p4='?' (DbType = DateTime), @p5='?' (DbType = Double)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `DailyAnalyses` (`AverageHumidity`, `AveragePressure`, `AverageTemperature`, `AverageWindSpeed`, `Date`, `TotalPrecipitation`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+SELECT `Id`
+FROM `DailyAnalyses`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+2024-11-21 07:25:23.006 +00:00 [INF] Application is shutting down...
+2024-11-21 09:04:24.065 +00:00 [INF] Executed DbCommand (98ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1 FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA='defaultdb' AND TABLE_NAME='__EFMigrationsHistory';
+2024-11-21 09:04:24.909 +00:00 [INF] Executed DbCommand (89ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1 FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA='defaultdb' AND TABLE_NAME='__EFMigrationsHistory';
+2024-11-21 09:04:25.122 +00:00 [INF] Executed DbCommand (109ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `MigrationId`, `ProductVersion`
+FROM `__EFMigrationsHistory`
+ORDER BY `MigrationId`;
+2024-11-21 09:04:25.137 +00:00 [INF] No migrations were applied. The database is already up to date.
+2024-11-21 09:04:25.247 +00:00 [INF] Now listening on: http://[::]:8080
+2024-11-21 09:04:25.249 +00:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-21 09:04:25.249 +00:00 [INF] Hosting environment: Development
+2024-11-21 09:04:25.250 +00:00 [INF] Content root path: /app
+2024-11-21 09:04:29.270 +00:00 [INF] Executed DbCommand (124ms) [Parameters=[@__request_Location_Name_0='?' (Size = 100)], CommandType='"Text"', CommandTimeout='30']
+SELECT `l`.`Id`, `l`.`Country`, `l`.`Lat`, `l`.`Localtime`, `l`.`LocaltimeEpoch`, `l`.`Lon`, `l`.`Name`, `l`.`Region`, `l`.`TzId`
+FROM `Locations` AS `l`
+WHERE `l`.`Name` = @__request_Location_Name_0
+LIMIT 1
+2024-11-21 09:04:29.577 +00:00 [INF] Executed DbCommand (152ms) [Parameters=[@__8__locals1_location_Id_0='?' (DbType = Int32), @__forecastDay_Date_Date_1='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT `w`.`Id`, `w`.`Date`, `w`.`DateEpoch`, `w`.`LocationId`
+FROM `WeatherForecasts` AS `w`
+WHERE (`w`.`LocationId` = @__8__locals1_location_Id_0) AND (CONVERT(`w`.`Date`, date) = @__forecastDay_Date_Date_1)
+LIMIT 1
+2024-11-21 09:04:43.960 +00:00 [INF] Executed DbCommand (103ms) [Parameters=[@__date_Date_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`Id`, `d`.`AverageHumidity`, `d`.`AveragePressure`, `d`.`AverageTemperature`, `d`.`AverageWindSpeed`, `d`.`Date`, `d`.`TotalPrecipitation`
+FROM `DailyAnalyses` AS `d`
+WHERE CONVERT(`d`.`Date`, date) = @__date_Date_0
+LIMIT 1
+2024-11-21 09:04:44.597 +00:00 [INF] Executed DbCommand (212ms) [Parameters=[@p0='?' (DbType = Double), @p1='?' (DbType = Double), @p2='?' (DbType = Double), @p3='?' (DbType = Double), @p4='?' (DbType = DateTime), @p5='?' (DbType = Double)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `DailyAnalyses` (`AverageHumidity`, `AveragePressure`, `AverageTemperature`, `AverageWindSpeed`, `Date`, `TotalPrecipitation`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+SELECT `Id`
+FROM `DailyAnalyses`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+2024-11-21 09:05:57.397 +00:00 [INF] Executed DbCommand (291ms) [Parameters=[@__startDate_Date_0='?' (DbType = DateTime), @__endDate_Date_1='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT `t`.`Key` AS `Date`, ROUND(AVG(`t`.`TempC`), 2) AS `AverageTemperature`, ROUND(MAX(`t`.`TempC`), 2) AS `MaxTemperature`, ROUND(MIN(`t`.`TempC`), 2) AS `MinTemperature`, ROUND(AVG(CAST(`t`.`Humidity` AS double)), 2) AS `AverageHumidity`, ROUND(AVG(`t`.`WindKph`), 2) AS `AverageWindSpeed`, ROUND(MAX(`t`.`WindKph`), 2) AS `MaxWindSpeed`, ROUND(COALESCE(SUM(`t`.`PrecipMm`), 0.0), 2) AS `TotalPrecipitation`, ROUND(AVG(`t`.`PressureMb`), 2) AS `AveragePressure`, (
+    SELECT `t0`.`ConditionText`
+    FROM (
+        SELECT `h0`.`Id`, `h0`.`ChanceOfRain`, `h0`.`ChanceOfSnow`, `h0`.`Cloud`, `h0`.`ConditionCode`, `h0`.`ConditionIcon`, `h0`.`ConditionText`, `h0`.`DewpointC`, `h0`.`DewpointF`, `h0`.`FeelslikeC`, `h0`.`FeelslikeF`, `h0`.`GustKph`, `h0`.`GustMph`, `h0`.`HeatindexC`, `h0`.`HeatindexF`, `h0`.`Humidity`, `h0`.`IsDay`, `h0`.`PrecipIn`, `h0`.`PrecipMm`, `h0`.`PressureIn`, `h0`.`PressureMb`, `h0`.`SnowCm`, `h0`.`TempC`, `h0`.`TempF`, `h0`.`Time`, `h0`.`TimeEpoch`, `h0`.`Uv`, `h0`.`VisKm`, `h0`.`VisMiles`, `h0`.`WeatherForecastId`, `h0`.`WillItRain`, `h0`.`WillItSnow`, `h0`.`WindDegree`, `h0`.`WindDir`, `h0`.`WindKph`, `h0`.`WindMph`, `h0`.`WindchillC`, `h0`.`WindchillF`, `w0`.`Id` AS `Id0`, `w0`.`Date`, `w0`.`DateEpoch`, `w0`.`LocationId`, CONVERT(`w0`.`Date`, date) AS `Key`
+        FROM `Hours` AS `h0`
+        INNER JOIN `WeatherForecasts` AS `w0` ON `h0`.`WeatherForecastId` = `w0`.`Id`
+        WHERE (CONVERT(`w0`.`Date`, date) >= @__startDate_Date_0) AND (CONVERT(`w0`.`Date`, date) <= @__endDate_Date_1)
+    ) AS `t0`
+    WHERE (`t`.`Key` = `t0`.`Key`) OR (`t`.`Key` IS NULL AND (`t0`.`Key` IS NULL))
+    GROUP BY `t0`.`ConditionText`
+    ORDER BY COUNT(*) DESC
+    LIMIT 1) AS `MostCommonCondition`, (
+    SELECT `t1`.`WindDir`
+    FROM (
+        SELECT `h1`.`Id`, `h1`.`ChanceOfRain`, `h1`.`ChanceOfSnow`, `h1`.`Cloud`, `h1`.`ConditionCode`, `h1`.`ConditionIcon`, `h1`.`ConditionText`, `h1`.`DewpointC`, `h1`.`DewpointF`, `h1`.`FeelslikeC`, `h1`.`FeelslikeF`, `h1`.`GustKph`, `h1`.`GustMph`, `h1`.`HeatindexC`, `h1`.`HeatindexF`, `h1`.`Humidity`, `h1`.`IsDay`, `h1`.`PrecipIn`, `h1`.`PrecipMm`, `h1`.`PressureIn`, `h1`.`PressureMb`, `h1`.`SnowCm`, `h1`.`TempC`, `h1`.`TempF`, `h1`.`Time`, `h1`.`TimeEpoch`, `h1`.`Uv`, `h1`.`VisKm`, `h1`.`VisMiles`, `h1`.`WeatherForecastId`, `h1`.`WillItRain`, `h1`.`WillItSnow`, `h1`.`WindDegree`, `h1`.`WindDir`, `h1`.`WindKph`, `h1`.`WindMph`, `h1`.`WindchillC`, `h1`.`WindchillF`, `w1`.`Id` AS `Id0`, `w1`.`Date`, `w1`.`DateEpoch`, `w1`.`LocationId`, CONVERT(`w1`.`Date`, date) AS `Key`
+        FROM `Hours` AS `h1`
+        INNER JOIN `WeatherForecasts` AS `w1` ON `h1`.`WeatherForecastId` = `w1`.`Id`
+        WHERE (CONVERT(`w1`.`Date`, date) >= @__startDate_Date_0) AND (CONVERT(`w1`.`Date`, date) <= @__endDate_Date_1)
+    ) AS `t1`
+    WHERE (`t`.`Key` = `t1`.`Key`) OR (`t`.`Key` IS NULL AND (`t1`.`Key` IS NULL))
+    GROUP BY `t1`.`WindDir`
+    ORDER BY COUNT(*) DESC
+    LIMIT 1) AS `MostCommonWindDirection`
+FROM (
+    SELECT `h`.`Humidity`, `h`.`PrecipMm`, `h`.`PressureMb`, `h`.`TempC`, `h`.`WindKph`, CONVERT(`w`.`Date`, date) AS `Key`
+    FROM `Hours` AS `h`
+    INNER JOIN `WeatherForecasts` AS `w` ON `h`.`WeatherForecastId` = `w`.`Id`
+    WHERE (CONVERT(`w`.`Date`, date) >= @__startDate_Date_0) AND (CONVERT(`w`.`Date`, date) <= @__endDate_Date_1)
+) AS `t`
+GROUP BY `t`.`Key`
+2024-11-21 09:07:18.626 +00:00 [INF] Executed DbCommand (91ms) [Parameters=[@__startDate_Date_0='?' (DbType = DateTime), @__endDate_Date_1='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT `t`.`Key` AS `Date`, ROUND(AVG(`t`.`TempC`), 2) AS `AverageTemperature`, ROUND(MAX(`t`.`TempC`), 2) AS `MaxTemperature`, ROUND(MIN(`t`.`TempC`), 2) AS `MinTemperature`, ROUND(AVG(CAST(`t`.`Humidity` AS double)), 2) AS `AverageHumidity`, ROUND(AVG(`t`.`WindKph`), 2) AS `AverageWindSpeed`, ROUND(MAX(`t`.`WindKph`), 2) AS `MaxWindSpeed`, ROUND(COALESCE(SUM(`t`.`PrecipMm`), 0.0), 2) AS `TotalPrecipitation`, ROUND(AVG(`t`.`PressureMb`), 2) AS `AveragePressure`, (
+    SELECT `t0`.`ConditionText`
+    FROM (
+        SELECT `h0`.`Id`, `h0`.`ChanceOfRain`, `h0`.`ChanceOfSnow`, `h0`.`Cloud`, `h0`.`ConditionCode`, `h0`.`ConditionIcon`, `h0`.`ConditionText`, `h0`.`DewpointC`, `h0`.`DewpointF`, `h0`.`FeelslikeC`, `h0`.`FeelslikeF`, `h0`.`GustKph`, `h0`.`GustMph`, `h0`.`HeatindexC`, `h0`.`HeatindexF`, `h0`.`Humidity`, `h0`.`IsDay`, `h0`.`PrecipIn`, `h0`.`PrecipMm`, `h0`.`PressureIn`, `h0`.`PressureMb`, `h0`.`SnowCm`, `h0`.`TempC`, `h0`.`TempF`, `h0`.`Time`, `h0`.`TimeEpoch`, `h0`.`Uv`, `h0`.`VisKm`, `h0`.`VisMiles`, `h0`.`WeatherForecastId`, `h0`.`WillItRain`, `h0`.`WillItSnow`, `h0`.`WindDegree`, `h0`.`WindDir`, `h0`.`WindKph`, `h0`.`WindMph`, `h0`.`WindchillC`, `h0`.`WindchillF`, `w0`.`Id` AS `Id0`, `w0`.`Date`, `w0`.`DateEpoch`, `w0`.`LocationId`, CONVERT(`w0`.`Date`, date) AS `Key`
+        FROM `Hours` AS `h0`
+        INNER JOIN `WeatherForecasts` AS `w0` ON `h0`.`WeatherForecastId` = `w0`.`Id`
+        WHERE (CONVERT(`w0`.`Date`, date) >= @__startDate_Date_0) AND (CONVERT(`w0`.`Date`, date) <= @__endDate_Date_1)
+    ) AS `t0`
+    WHERE (`t`.`Key` = `t0`.`Key`) OR (`t`.`Key` IS NULL AND (`t0`.`Key` IS NULL))
+    GROUP BY `t0`.`ConditionText`
+    ORDER BY COUNT(*) DESC
+    LIMIT 1) AS `MostCommonCondition`, (
+    SELECT `t1`.`WindDir`
+    FROM (
+        SELECT `h1`.`Id`, `h1`.`ChanceOfRain`, `h1`.`ChanceOfSnow`, `h1`.`Cloud`, `h1`.`ConditionCode`, `h1`.`ConditionIcon`, `h1`.`ConditionText`, `h1`.`DewpointC`, `h1`.`DewpointF`, `h1`.`FeelslikeC`, `h1`.`FeelslikeF`, `h1`.`GustKph`, `h1`.`GustMph`, `h1`.`HeatindexC`, `h1`.`HeatindexF`, `h1`.`Humidity`, `h1`.`IsDay`, `h1`.`PrecipIn`, `h1`.`PrecipMm`, `h1`.`PressureIn`, `h1`.`PressureMb`, `h1`.`SnowCm`, `h1`.`TempC`, `h1`.`TempF`, `h1`.`Time`, `h1`.`TimeEpoch`, `h1`.`Uv`, `h1`.`VisKm`, `h1`.`VisMiles`, `h1`.`WeatherForecastId`, `h1`.`WillItRain`, `h1`.`WillItSnow`, `h1`.`WindDegree`, `h1`.`WindDir`, `h1`.`WindKph`, `h1`.`WindMph`, `h1`.`WindchillC`, `h1`.`WindchillF`, `w1`.`Id` AS `Id0`, `w1`.`Date`, `w1`.`DateEpoch`, `w1`.`LocationId`, CONVERT(`w1`.`Date`, date) AS `Key`
+        FROM `Hours` AS `h1`
+        INNER JOIN `WeatherForecasts` AS `w1` ON `h1`.`WeatherForecastId` = `w1`.`Id`
+        WHERE (CONVERT(`w1`.`Date`, date) >= @__startDate_Date_0) AND (CONVERT(`w1`.`Date`, date) <= @__endDate_Date_1)
+    ) AS `t1`
+    WHERE (`t`.`Key` = `t1`.`Key`) OR (`t`.`Key` IS NULL AND (`t1`.`Key` IS NULL))
+    GROUP BY `t1`.`WindDir`
+    ORDER BY COUNT(*) DESC
+    LIMIT 1) AS `MostCommonWindDirection`
+FROM (
+    SELECT `h`.`Humidity`, `h`.`PrecipMm`, `h`.`PressureMb`, `h`.`TempC`, `h`.`WindKph`, CONVERT(`w`.`Date`, date) AS `Key`
+    FROM `Hours` AS `h`
+    INNER JOIN `WeatherForecasts` AS `w` ON `h`.`WeatherForecastId` = `w`.`Id`
+    WHERE (CONVERT(`w`.`Date`, date) >= @__startDate_Date_0) AND (CONVERT(`w`.`Date`, date) <= @__endDate_Date_1)
+) AS `t`
+GROUP BY `t`.`Key`
+2024-11-21 09:07:24.867 +00:00 [INF] Executed DbCommand (92ms) [Parameters=[@__startDate_Date_0='?' (DbType = DateTime), @__endDate_Date_1='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT `t`.`Key` AS `Date`, ROUND(AVG(`t`.`TempC`), 2) AS `AverageTemperature`, ROUND(MAX(`t`.`TempC`), 2) AS `MaxTemperature`, ROUND(MIN(`t`.`TempC`), 2) AS `MinTemperature`, ROUND(AVG(CAST(`t`.`Humidity` AS double)), 2) AS `AverageHumidity`, ROUND(AVG(`t`.`WindKph`), 2) AS `AverageWindSpeed`, ROUND(MAX(`t`.`WindKph`), 2) AS `MaxWindSpeed`, ROUND(COALESCE(SUM(`t`.`PrecipMm`), 0.0), 2) AS `TotalPrecipitation`, ROUND(AVG(`t`.`PressureMb`), 2) AS `AveragePressure`, (
+    SELECT `t0`.`ConditionText`
+    FROM (
+        SELECT `h0`.`Id`, `h0`.`ChanceOfRain`, `h0`.`ChanceOfSnow`, `h0`.`Cloud`, `h0`.`ConditionCode`, `h0`.`ConditionIcon`, `h0`.`ConditionText`, `h0`.`DewpointC`, `h0`.`DewpointF`, `h0`.`FeelslikeC`, `h0`.`FeelslikeF`, `h0`.`GustKph`, `h0`.`GustMph`, `h0`.`HeatindexC`, `h0`.`HeatindexF`, `h0`.`Humidity`, `h0`.`IsDay`, `h0`.`PrecipIn`, `h0`.`PrecipMm`, `h0`.`PressureIn`, `h0`.`PressureMb`, `h0`.`SnowCm`, `h0`.`TempC`, `h0`.`TempF`, `h0`.`Time`, `h0`.`TimeEpoch`, `h0`.`Uv`, `h0`.`VisKm`, `h0`.`VisMiles`, `h0`.`WeatherForecastId`, `h0`.`WillItRain`, `h0`.`WillItSnow`, `h0`.`WindDegree`, `h0`.`WindDir`, `h0`.`WindKph`, `h0`.`WindMph`, `h0`.`WindchillC`, `h0`.`WindchillF`, `w0`.`Id` AS `Id0`, `w0`.`Date`, `w0`.`DateEpoch`, `w0`.`LocationId`, CONVERT(`w0`.`Date`, date) AS `Key`
+        FROM `Hours` AS `h0`
+        INNER JOIN `WeatherForecasts` AS `w0` ON `h0`.`WeatherForecastId` = `w0`.`Id`
+        WHERE (CONVERT(`w0`.`Date`, date) >= @__startDate_Date_0) AND (CONVERT(`w0`.`Date`, date) <= @__endDate_Date_1)
+    ) AS `t0`
+    WHERE (`t`.`Key` = `t0`.`Key`) OR (`t`.`Key` IS NULL AND (`t0`.`Key` IS NULL))
+    GROUP BY `t0`.`ConditionText`
+    ORDER BY COUNT(*) DESC
+    LIMIT 1) AS `MostCommonCondition`, (
+    SELECT `t1`.`WindDir`
+    FROM (
+        SELECT `h1`.`Id`, `h1`.`ChanceOfRain`, `h1`.`ChanceOfSnow`, `h1`.`Cloud`, `h1`.`ConditionCode`, `h1`.`ConditionIcon`, `h1`.`ConditionText`, `h1`.`DewpointC`, `h1`.`DewpointF`, `h1`.`FeelslikeC`, `h1`.`FeelslikeF`, `h1`.`GustKph`, `h1`.`GustMph`, `h1`.`HeatindexC`, `h1`.`HeatindexF`, `h1`.`Humidity`, `h1`.`IsDay`, `h1`.`PrecipIn`, `h1`.`PrecipMm`, `h1`.`PressureIn`, `h1`.`PressureMb`, `h1`.`SnowCm`, `h1`.`TempC`, `h1`.`TempF`, `h1`.`Time`, `h1`.`TimeEpoch`, `h1`.`Uv`, `h1`.`VisKm`, `h1`.`VisMiles`, `h1`.`WeatherForecastId`, `h1`.`WillItRain`, `h1`.`WillItSnow`, `h1`.`WindDegree`, `h1`.`WindDir`, `h1`.`WindKph`, `h1`.`WindMph`, `h1`.`WindchillC`, `h1`.`WindchillF`, `w1`.`Id` AS `Id0`, `w1`.`Date`, `w1`.`DateEpoch`, `w1`.`LocationId`, CONVERT(`w1`.`Date`, date) AS `Key`
+        FROM `Hours` AS `h1`
+        INNER JOIN `WeatherForecasts` AS `w1` ON `h1`.`WeatherForecastId` = `w1`.`Id`
+        WHERE (CONVERT(`w1`.`Date`, date) >= @__startDate_Date_0) AND (CONVERT(`w1`.`Date`, date) <= @__endDate_Date_1)
+    ) AS `t1`
+    WHERE (`t`.`Key` = `t1`.`Key`) OR (`t`.`Key` IS NULL AND (`t1`.`Key` IS NULL))
+    GROUP BY `t1`.`WindDir`
+    ORDER BY COUNT(*) DESC
+    LIMIT 1) AS `MostCommonWindDirection`
+FROM (
+    SELECT `h`.`Humidity`, `h`.`PrecipMm`, `h`.`PressureMb`, `h`.`TempC`, `h`.`WindKph`, CONVERT(`w`.`Date`, date) AS `Key`
+    FROM `Hours` AS `h`
+    INNER JOIN `WeatherForecasts` AS `w` ON `h`.`WeatherForecastId` = `w`.`Id`
+    WHERE (CONVERT(`w`.`Date`, date) >= @__startDate_Date_0) AND (CONVERT(`w`.`Date`, date) <= @__endDate_Date_1)
+) AS `t`
+GROUP BY `t`.`Key`
+2024-11-21 09:07:31.732 +00:00 [INF] Application is shutting down...
