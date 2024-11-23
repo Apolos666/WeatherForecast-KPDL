@@ -49,8 +49,18 @@ services:
   weatherforecast.dataanalysis:
     image: quangtran2/weatherforecastdataanalysis:latest
     networks:
-      - weathernet    
-        
+      - weathernet
+
+  weatherforecast.dataanalysis.worker:
+    image: quangtran2/weatherforecastdataanalysis:latest
+    networks:
+      - weathernet
+
+  weatherforecast.dataanalysis.beat:
+    image: quangtran2/weatherforecastdataanalysis:latest
+    networks:
+      - weathernet
+
 volumes:
   logs:
   zookeeper_data:

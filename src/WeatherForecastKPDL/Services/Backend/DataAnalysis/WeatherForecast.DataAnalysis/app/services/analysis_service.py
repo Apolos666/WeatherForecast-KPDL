@@ -63,6 +63,51 @@ class WeatherAnalysisService:
         # Sẽ implement sau
         pass
 
-    def analyze_correlation(self, data: List[HourlyWeatherData]) -> CorrelationAnalysis:
-        # Sẽ implement sau
-        pass
+    def analyze_correlation(self, hourly_data: List[HourlyWeatherData]) -> CorrelationAnalysis:
+        logger.info(f"Bắt đầu phân tích tương quan với {len(hourly_data)} bản ghi")
+        try:
+            df = pd.DataFrame([vars(data) for data in hourly_data])
+            
+            if df.empty:
+                raise ValueError("Không có dữ liệu để phân tích")
+            
+            # Chuyển đổi cột Time sang datetime để lấy ngày
+            df['Time'] = pd.to_datetime(df['Time'])
+            
+            # Các biến quan trọng cần phân tích tương quan
+            variables = {
+                'TempC': ['Humidity', 'PressureMb', 'WindKph', 'FeelslikeC', 'WindchillC', 'HeatindexC'],
+                'Humidity': ['PressureMb', 'WindKph', 'PrecipMm', 'Cloud'],
+                'PressureMb': ['WindKph', 'Cloud'],
+                'WindKph': ['Cloud', 'WindchillC'],
+                'PrecipMm': ['Cloud', 'Humidity']
+            }
+            
+            correlations = {}
+            for var1, related_vars in variables.items():
+                for var2 in related_vars:
+                    corr_name = f"{var1.lower()}_{var2.lower()}_corr"
+                    correlations[corr_name] = round(df[var1].corr(df[var2]), 3)
+            
+            result = CorrelationAnalysis(
+                date=df['Time'].iloc[0].strftime('%Y-%m-%d'),
+                temp_humidity_corr=correlations['tempc_humidity_corr'],
+                temp_pressure_corr=correlations['tempc_pressuremb_corr'],
+                temp_wind_corr=correlations['tempc_windkph_corr'],
+                humidity_pressure_corr=correlations['humidity_pressuremb_corr'],
+                humidity_wind_corr=correlations['humidity_windkph_corr'],
+                pressure_wind_corr=correlations['pressuremb_windkph_corr'],
+                rain_humidity_corr=correlations['precipmm_humidity_corr'],
+                feels_temp_corr=correlations['tempc_feelslikec_corr'],
+                windchill_temp_corr=correlations['tempc_windchillc_corr'],
+                heatindex_temp_corr=correlations['tempc_heatindexc_corr'],
+                cloud_humidity_corr=correlations['humidity_cloud_corr'],
+                cloud_wind_corr=correlations['windkph_cloud_corr']
+            )
+            
+            logger.info(f"Kết quả phân tích tương quan: {result.model_dump()}")
+            return result
+            
+        except Exception as e:
+            logger.error(f"Lỗi khi phân tích tương quan: {str(e)}")
+            raise

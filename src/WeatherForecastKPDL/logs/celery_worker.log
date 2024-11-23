@@ -1,0 +1,19 @@
+[2024-11-23 10:32:57,673: WARNING/MainProcess] 
+Setting ssl_cert_reqs=CERT_NONE when connecting to redis means that celery will not validate the identity of the redis broker when connecting. This leaves you vulnerable to man in the middle attacks.
+
+[2024-11-23 10:33:01,382: WARNING/MainProcess] /usr/local/lib/python3.11/site-packages/celery/worker/consumer/consumer.py:498: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2024-11-23 10:33:02,635: INFO/MainProcess] Connected to rediss://default:**@weatherforecast-redis-quangprox121-8eb6.h.aivencloud.com:11693//
+[2024-11-23 10:33:02,636: WARNING/MainProcess] /usr/local/lib/python3.11/site-packages/celery/worker/consumer/consumer.py:498: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2024-11-23 10:33:03,465: INFO/MainProcess] mingle: searching for neighbors
+[2024-11-23 10:33:05,741: INFO/MainProcess] mingle: all alone
+[2024-11-23 10:33:07,774: INFO/MainProcess] celery@0255743c8e13 ready.

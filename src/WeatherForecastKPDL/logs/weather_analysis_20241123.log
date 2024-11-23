@@ -1,0 +1,12 @@
+2024-11-23 10:32:57,409 - weather_analysis - INFO - [scheduler.py:20] - Khởi tạo WeatherAnalysisScheduler
+2024-11-23 10:32:57,412 - weather_analysis - INFO - [base.py:15] - Khởi tạo consumer với group daily_analysis_group
+2024-11-23 10:32:57,413 - weather_analysis - INFO - [base.py:15] - Khởi tạo consumer với group seasonal_analysis_group
+2024-11-23 10:32:57,415 - weather_analysis - INFO - [base.py:15] - Khởi tạo consumer với group correlation_analysis_group
+2024-11-23 10:32:57,417 - weather_analysis - INFO - [analysis_service.py:13] - Khởi tạo WeatherAnalysisService
+2024-11-23 10:32:57,420 - weather_analysis - INFO - [database_api.py:8] - Khởi tạo DatabaseApiService
+2024-11-23 10:32:57,465 - weather_analysis - INFO - [scheduler.py:20] - Khởi tạo WeatherAnalysisScheduler
+2024-11-23 10:32:57,469 - weather_analysis - INFO - [base.py:15] - Khởi tạo consumer với group daily_analysis_group
+2024-11-23 10:32:57,470 - weather_analysis - INFO - [base.py:15] - Khởi tạo consumer với group seasonal_analysis_group
+2024-11-23 10:32:57,472 - weather_analysis - INFO - [base.py:15] - Khởi tạo consumer với group correlation_analysis_group
+2024-11-23 10:32:57,473 - weather_analysis - INFO - [analysis_service.py:13] - Khởi tạo WeatherAnalysisService
+2024-11-23 10:32:57,473 - weather_analysis - INFO - [database_api.py:8] - Khởi tạo DatabaseApiService

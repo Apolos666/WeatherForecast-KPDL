@@ -1,28 +1,20 @@
 import logging
 import sys
-from pathlib import Path
-from datetime import datetime
 
 def setup_logging():
-    # Tạo thư mục logs nếu chưa tồn tại
-    log_dir = Path("logs")
-    log_dir.mkdir(exist_ok=True)
+    # Format log chi tiết
+    log_format = '%(asctime)s - %(name)s - %(levelname)s - [%(filename)s:%(lineno)d] - %(message)s'
     
-    # Tạo tên file log với timestamp
-    log_file = log_dir / f"weather_analysis_{datetime.now().strftime('%Y%m%d')}.log"
-    
-    # Cấu hình logging
     logging.basicConfig(
         level=logging.INFO,
-        format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+        format=log_format,
         handlers=[
-            logging.FileHandler(log_file, encoding='utf-8'),    
             logging.StreamHandler(sys.stdout)
         ]
     )
     
     logger = logging.getLogger("weather_analysis")
-    logger.setLevel(logging.DEBUG)  # Cho phép log ở mức DEBUG
+    logger.setLevel(logging.DEBUG)
     
     return logger
 
