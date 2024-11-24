@@ -14,6 +14,7 @@ public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(op
     public DbSet<Hour> Hours { get; set; }
     public DbSet<DailyAnalysis> DailyAnalyses { get; set; }
     public DbSet<CorrelationAnalysis> CorrelationAnalyses { get; set; }
+    public DbSet<SeasonalAnalysis> SeasonalAnalyses { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

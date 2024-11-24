@@ -117,5 +117,58 @@ public class AnalysisEndpoints : ICarterModule
                     statusCode: 500);
             }
         });
+
+        app.MapPost("/api/analysis/seasonal", async (SeasonalAnalysisDto request, AppDbContext db) =>
+        {
+            try
+            {
+                var date = DateTime.Parse(request.Date);
+                var yearMonth = request.YearMonth;
+
+                var existingAnalysis = await db.SeasonalAnalyses
+                    .FirstOrDefaultAsync(s => s.Date.Date == date.Date);
+
+                if (existingAnalysis != null)
+                {
+                    existingAnalysis.YearMonth = request.YearMonth;
+                    existingAnalysis.AvgTemp = request.AvgTemp;
+                    existingAnalysis.AvgHumidity = request.AvgHumidity;
+                    existingAnalysis.TotalPrecip = request.TotalPrecip;
+                    existingAnalysis.AvgWind = request.AvgWind;
+                    existingAnalysis.AvgPressure = request.AvgPressure;
+                    existingAnalysis.MaxTemp = request.MaxTemp;
+                    existingAnalysis.MinTemp = request.MinTemp;
+                    existingAnalysis.RainyHours = request.RainyHours;
+                }
+                else
+                {
+                    var analysis = new SeasonalAnalysis
+                    {
+                        Date = date,
+                        YearMonth = yearMonth,
+                        AvgTemp = request.AvgTemp,
+                        AvgHumidity = request.AvgHumidity,
+                        TotalPrecip = request.TotalPrecip,
+                        AvgWind = request.AvgWind,
+                        AvgPressure = request.AvgPressure,
+                        MaxTemp = request.MaxTemp,
+                        MinTemp = request.MinTemp,
+                        RainyHours = request.RainyHours
+                    };
+
+                    db.SeasonalAnalyses.Add(analysis);
+                }
+
+                await db.SaveChangesAsync();
+                return Results.Ok();
+            }
+            catch (Exception ex)
+            {
+                return Results.Problem(
+                    title: "Lỗi khi lưu phân tích theo mùa",
+                    detail: ex.Message,
+                    statusCode: 500);
+            }
+        });
     }
 }
