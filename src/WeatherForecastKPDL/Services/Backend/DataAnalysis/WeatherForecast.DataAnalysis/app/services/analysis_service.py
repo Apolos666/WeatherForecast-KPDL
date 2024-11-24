@@ -60,8 +60,40 @@ class WeatherAnalysisService:
             raise
 
     def analyze_seasonal_data(self, data: List[HourlyWeatherData]) -> SeasonalAnalysis:
-        # Sẽ implement sau
-        pass
+        logger.info(f"Bắt đầu phân tích dữ liệu theo mùa với {len(data)} bản ghi")
+        try:
+            df = pd.DataFrame([vars(d) for d in data])
+            
+            if df.empty:
+                raise ValueError("Không có dữ liệu để phân tích")
+
+            df['Time'] = pd.to_datetime(df['Time'])
+            df['year_month'] = df['Time'].dt.strftime('%Y-%m')
+
+            last_month = df['year_month'].max()
+            month_data = df[df['year_month'] == last_month]
+
+            if month_data.empty:
+                raise ValueError("Không có dữ liệu để phân tích")
+
+            result = SeasonalAnalysis(
+                date=month_data['Time'].max().strftime('%Y-%m-%d'),
+                year_month=last_month,
+                avg_temp=month_data['TempC'].mean(),
+                avg_humidity=month_data['Humidity'].mean(),
+                total_precip=month_data['PrecipMm'].sum(),
+                avg_wind=month_data['WindKph'].mean(),
+                avg_pressure=month_data['PressureMb'].mean(),
+                max_temp=month_data['TempC'].max(),
+                min_temp=month_data['TempC'].min(),
+                rainy_hours=month_data[month_data['PrecipMm'] > 0].shape[0]
+            )
+
+            logger.info(f"Kết quả phân tích: {result.model_dump()}")
+            return result
+        except Exception as e:
+            logger.error(f"Lỗi khi phân tích dữ liệu theo mùa: {str(e)}")
+            raise
 
     def analyze_correlation(self, hourly_data: List[HourlyWeatherData]) -> CorrelationAnalysis:
         logger.info(f"Bắt đầu phân tích tương quan với {len(hourly_data)} bản ghi")

@@ -1,5 +1,5 @@
 import httpx
-from ..models.analysis import DailyAnalysis, CorrelationAnalysis
+from ..models.analysis import DailyAnalysis, CorrelationAnalysis, SeasonalAnalysis
 from ..core.config import settings
 from ..core.logging import logger
 
@@ -34,4 +34,18 @@ class DatabaseApiService:
             logger.info("Lưu phân tích tương quan thành công")
         except Exception as e:
             logger.error(f"Lỗi khi lưu correlation analysis: {str(e)}")
+            raise
+
+    async def save_seasonal_analysis(self, analysis: SeasonalAnalysis):
+        logger.info(f"Đang lưu phân tích theo mùa cho ngày {analysis.date}")
+        try:
+            async with httpx.AsyncClient() as client:
+                response = await client.post(
+                    f"{self.base_url}/api/analysis/seasonal",
+                    json=analysis.model_dump()
+                )
+                response.raise_for_status()
+            logger.info("Lưu phân tích theo mùa thành công")
+        except Exception as e:
+            logger.error(f"Lỗi khi lưu seasonal analysis: {str(e)}")
             raise

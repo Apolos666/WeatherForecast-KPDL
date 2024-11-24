@@ -39,16 +39,16 @@ class WeatherAnalysisScheduler:
             raise
 
     async def process_seasonal_analysis(self):
-        # logger.info("Bắt đầu phân tích dữ liệu theo mùa")
-        # try:
-        #     hourly_data = self.seasonal_consumer.get_data()
-        #     if hourly_data:
-        #         result = self.analysis_service.analyze_seasonal_data(hourly_data)
-        #         await self.database_api.save_seasonal_analysis(result)
-        #         logger.info("Hoàn thành phân tích theo mùa")
-        # except Exception as e:
-        #     logger.error(f"Lỗi trong quá trình phân tích theo mùa: {str(e)}")
-        #     raise
+        logger.info("Bắt đầu phân tích dữ liệu theo mùa")
+        try:
+            hourly_data = self.seasonal_consumer.get_data()
+            if hourly_data:
+                result = self.analysis_service.analyze_seasonal_data(hourly_data)
+                await self.database_api.save_seasonal_analysis(result)
+                logger.info("Hoàn thành phân tích theo mùa")
+        except Exception as e:
+            logger.error(f"Lỗi trong quá trình phân tích theo mùa: {str(e)}")
+            raise
         pass
 
     async def process_correlation_analysis(self):

@@ -26,20 +26,20 @@ services:
     networks:
       - weathernet
 
-  kafka-ui:
-    image: provectuslabs/kafka-ui:latest    
-    networks:
-      - weathernet
+  # kafka-ui:
+  #   image: provectuslabs/kafka-ui:latest    
+  #   networks:
+  #     - weathernet
 
   debezium:
     image: debezium/connect:2.5
     networks:
       - weathernet
 
-  debezium-ui:
-    image: debezium/debezium-ui:latest
-    networks:
-      - weathernet
+  # debezium-ui:
+  #   image: debezium/debezium-ui:latest
+  #   networks:
+  #     - weathernet
 
   debezium-connector-config:
     image: curlimages/curl

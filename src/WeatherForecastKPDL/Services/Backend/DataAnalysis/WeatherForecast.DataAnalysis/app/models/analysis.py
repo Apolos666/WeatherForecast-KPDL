@@ -33,10 +33,16 @@ class DailyAnalysis(BaseModel):
     avg_pressure: float
 
 class SeasonalAnalysis(BaseModel):
-    season: str
-    start_date: str
-    end_date: str
-    trend_data: List[float]
+    date: str
+    year_month: str
+    avg_temp: float
+    avg_humidity: float
+    total_precip: float
+    avg_wind: float
+    avg_pressure: float
+    max_temp: float
+    min_temp: float
+    rainy_hours: int
     
 class CorrelationAnalysis(BaseModel):
     date: str
