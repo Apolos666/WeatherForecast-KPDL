@@ -170,5 +170,59 @@ public class AnalysisEndpoints : ICarterModule
                     statusCode: 500);
             }
         });
+
+        app.MapGet("/api/analysis/daily", async (AppDbContext db) =>
+        {
+            try
+            {
+                var analyses = await db.DailyAnalyses
+                    .OrderBy(d => d.Date)
+                    .ToListAsync();
+                return Results.Ok(analyses);
+            }
+            catch (Exception ex)
+            {
+                return Results.Problem(
+                    title: "Lỗi khi lấy dữ liệu phân tích hàng ngày",
+                    detail: ex.Message,
+                    statusCode: 500);
+            }
+        });
+
+        app.MapGet("/api/analysis/correlation", async (AppDbContext db) =>
+        {
+            try
+            {
+                var analyses = await db.CorrelationAnalyses
+                    .OrderBy(d => d.Date)
+                    .ToListAsync();
+                return Results.Ok(analyses);
+            }
+            catch (Exception ex)
+            {
+                return Results.Problem(
+                    title: "Lỗi khi lấy dữ liệu phân tích tương quan",
+                    detail: ex.Message,
+                    statusCode: 500);
+            }
+        });
+
+        app.MapGet("/api/analysis/seasonal", async (AppDbContext db) =>
+        {
+            try
+            {
+                var analyses = await db.SeasonalAnalyses
+                    .OrderBy(d => d.Date)
+                    .ToListAsync();
+                return Results.Ok(analyses);
+            }
+            catch (Exception ex)
+            {
+                return Results.Problem(
+                    title: "Lỗi khi lấy dữ liệu phân tích theo mùa",
+                    detail: ex.Message,
+                    statusCode: 500);
+            }
+        });
     }
 }
