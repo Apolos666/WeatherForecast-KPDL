@@ -18,18 +18,27 @@ class WeatherAnalysisScheduler:
     def __init__(self, is_worker: bool = False):
         if not self._initialized:
             logger.info("Khởi tạo WeatherAnalysisScheduler")
+            self.consumers = {}
             if is_worker:
-                self.daily_consumer = DailyWeatherConsumer(settings.KAFKA_BOOTSTRAP_SERVERS)
-                self.seasonal_consumer = SeasonalWeatherConsumer(settings.KAFKA_BOOTSTRAP_SERVERS)
-                self.correlation_consumer = CorrelationWeatherConsumer(settings.KAFKA_BOOTSTRAP_SERVERS)
+                self._initialize_consumers()
             self.analysis_service = WeatherAnalysisService()
             self.database_api = DatabaseApiService()
             self._initialized = True
+    
+    def _initialize_consumers(self):
+        """Khởi tạo consumers theo yêu cầu"""
+        self.consumers = {
+            'daily': DailyWeatherConsumer(settings.KAFKA_BOOTSTRAP_SERVERS),
+            'seasonal': SeasonalWeatherConsumer(settings.KAFKA_BOOTSTRAP_SERVERS),
+            'correlation': CorrelationWeatherConsumer(settings.KAFKA_BOOTSTRAP_SERVERS)
+        }
 
     async def process_daily_analysis(self):
         logger.info("Bắt đầu phân tích dữ liệu hàng ngày")
         try:
-            hourly_data = self.daily_consumer.get_data()
+            if 'daily' not in self.consumers:
+                self.consumers['daily'] = DailyWeatherConsumer(settings.KAFKA_BOOTSTRAP_SERVERS)
+            hourly_data = self.consumers['daily'].get_data()
             if hourly_data:
                 result = self.analysis_service.analyze_daily_data(hourly_data)
                 await self.database_api.save_daily_analysis(result)
@@ -41,7 +50,9 @@ class WeatherAnalysisScheduler:
     async def process_seasonal_analysis(self):
         logger.info("Bắt đầu phân tích dữ liệu theo mùa")
         try:
-            hourly_data = self.seasonal_consumer.get_data()
+            if 'seasonal' not in self.consumers:
+                self.consumers['seasonal'] = SeasonalWeatherConsumer(settings.KAFKA_BOOTSTRAP_SERVERS)
+            hourly_data = self.consumers['seasonal'].get_data()
             if hourly_data:
                 result = self.analysis_service.analyze_seasonal_data(hourly_data)
                 await self.database_api.save_seasonal_analysis(result)
@@ -54,11 +65,13 @@ class WeatherAnalysisScheduler:
     async def process_correlation_analysis(self):
         logger.info("Bắt đầu phân tích tương quan")
         try:
-            hourly_data = self.correlation_consumer.get_data()
+            if 'correlation' not in self.consumers:
+                self.consumers['correlation'] = CorrelationWeatherConsumer(settings.KAFKA_BOOTSTRAP_SERVERS)
+            hourly_data = self.consumers['correlation'].get_data()
             if hourly_data:
                 result = self.analysis_service.analyze_correlation(hourly_data)
                 await self.database_api.save_correlation_analysis(result)
                 logger.info("Hoàn thành phân tích tương quan")
         except Exception as e:
             logger.error(f"Lỗi trong quá trình phân tích tương quan: {str(e)}")
-            raise
+            raise 

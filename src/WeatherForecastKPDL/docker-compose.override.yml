@@ -146,22 +146,22 @@ services:
         }
       }'
 
-  # kafka-ui:
-  #   container_name: kafka-ui
-  #   environment:
-  #     - KAFKA_CLUSTERS_0_NAME=local
-  #     - KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS=kafka:9092
-  #     - KAFKA_CLUSTERS_0_ZOOKEEPER=zookeeper:2181
-  #   ports:
-  #     - "8088:8080"
-  #   depends_on:
-  #     kafka:
-  #       condition: service_healthy
-  #   healthcheck:
-  #     test: ["CMD", "wget", "--spider", "-q", "http://localhost:8080"]
-  #     interval: 30s
-  #     timeout: 10s
-  #     retries: 3
+  kafka-ui:
+    container_name: kafka-ui
+    environment:
+      - KAFKA_CLUSTERS_0_NAME=local
+      - KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS=kafka:9092
+      - KAFKA_CLUSTERS_0_ZOOKEEPER=zookeeper:2181
+    ports:
+      - "8088:8080"
+    depends_on:
+      kafka:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "wget", "--spider", "-q", "http://localhost:8080"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
 
   weatherforecast.dataanalysis:
     container_name: weatherforecast.dataanalysis

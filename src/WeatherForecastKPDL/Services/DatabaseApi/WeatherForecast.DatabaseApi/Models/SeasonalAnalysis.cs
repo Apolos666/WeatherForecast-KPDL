@@ -1,6 +1,7 @@
 namespace WeatherForecast.DatabaseApi.Entities;
 
-public class SeasonalAnalysis {
+public class SeasonalAnalysis
+{
     public int Id { get; set; }
     public DateTime Date { get; set; }
     public string YearMonth { get; set; }

@@ -17,7 +17,7 @@ class DailyWeatherConsumer(BaseWeatherConsumer):
             while len(weather_data) < 24:
                 messages = self.consumer.poll(timeout_ms=5000, max_records=1000)
                 if not messages:
-                    logger.debug("Không nhận được message mới")
+                    logger.debug("Không nhận được message mới trong Daily")
                     continue
                 
                 for tp, msgs in messages.items():

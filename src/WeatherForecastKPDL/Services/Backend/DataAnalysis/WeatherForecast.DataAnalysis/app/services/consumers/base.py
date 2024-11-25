@@ -1,8 +1,12 @@
 import os
+import logging
 from kafka import KafkaConsumer
 from json import loads
 from ...core.logging import logger
 from ...models.analysis import HourlyWeatherData
+
+# Thiết lập mức độ log cho kafka
+logging.getLogger('kafka').setLevel(logging.WARNING)
 
 class BaseWeatherConsumer:
     def __init__(self, bootstrap_servers: str, consumer_type: str):
