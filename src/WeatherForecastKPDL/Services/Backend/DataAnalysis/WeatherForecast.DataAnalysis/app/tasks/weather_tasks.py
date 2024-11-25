@@ -16,7 +16,7 @@ celery_app = Celery('weather_analysis',
     },
     redis_backend_use_ssl={
         'ssl_cert_reqs': ssl.CERT_NONE
-    }
+    },
 )
 
 scheduler = WeatherAnalysisScheduler(is_worker=settings.CELERY_WORKER)
