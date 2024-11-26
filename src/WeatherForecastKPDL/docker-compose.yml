@@ -46,20 +46,20 @@ services:
     networks:
       - weathernet    
 
-  weatherforecast.dataanalysis:
-    image: quangtran2/weatherforecastdataanalysis:latest
-    networks:
-      - weathernet
+  # weatherforecast.dataanalysis:
+  #   image: quangtran2/weatherforecastdataanalysis:latest
+  #   networks:
+  #     - weathernet
 
-  weatherforecast.dataanalysis.worker:
-    image: quangtran2/weatherforecastdataanalysis:latest
-    networks:
-      - weathernet
+  # weatherforecast.dataanalysis.worker:
+  #   image: quangtran2/weatherforecastdataanalysis:latest
+  #   networks:
+  #     - weathernet
 
-  weatherforecast.dataanalysis.beat:
-    image: quangtran2/weatherforecastdataanalysis:latest
-    networks:
-      - weathernet
+  # weatherforecast.dataanalysis.beat:
+  #   image: quangtran2/weatherforecastdataanalysis:latest
+  #   networks:
+  #     - weathernet
 
 volumes:
   logs:
