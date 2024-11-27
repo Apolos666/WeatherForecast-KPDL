@@ -51,7 +51,26 @@ TypeAdapterConfig<DayDto, Day>
     .NewConfig()
     .Map(dest => dest.Id, src => 0);
 
+// Add this before var app = builder.Build();
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowLocalhost", policy =>
+    {
+        policy.WithOrigins("http://localhost:3000")
+              .AllowAnyHeader()
+              .AllowAnyMethod()
+              .AllowCredentials();
+    });
+});
+
 var app = builder.Build();
+
+app.UseCors("AllowLocalhost");
+
+app.MapCarter();
+
+var app = builder.Build();
+app.UseCors("AllowLocalhost");
 
 app.MapCarter();
 
