@@ -13,7 +13,6 @@ public class PredictionEndpoints : ICarterModule
     {
         app.MapGet("/api/prediction/next-day", async (AppDbContext context, HttpClient httpClient, IConfiguration config) =>
         {
-            gi
             try
             {
                 var today = DateTime.UtcNow.Date;
