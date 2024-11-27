@@ -1,4 +1,5 @@
 from pydantic import BaseModel
+from typing import List
 
 class WeatherData(BaseModel):
     Time: str
@@ -9,5 +10,4 @@ class WeatherData(BaseModel):
     Cloud: int
 
 class PredictionRequest(BaseModel):
-    start_date: str
-    end_date: str
+    weather_data: List[WeatherData]

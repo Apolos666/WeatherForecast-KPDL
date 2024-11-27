@@ -35,6 +35,7 @@
     <Folder Include="Data\Configurations\" />
     <Folder Include="Data\Migrations\" />
     <Folder Include="Entities\" />
+    <Folder Include="Features\Prediction\Dtos\" />
     <Folder Include="Modules\" />
   </ItemGroup>
 

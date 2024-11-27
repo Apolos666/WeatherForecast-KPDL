@@ -1,3 +1,4 @@
+import os
 import pandas as pd
 import numpy as np
 from kafka import KafkaConsumer
@@ -8,6 +9,8 @@ import joblib
 from datetime import timedelta
 import logging
 from fastapi import HTTPException
+from typing import List
+from pydantic import BaseModel
 
 # Cấu hình logging
 logging.basicConfig(
@@ -15,27 +18,23 @@ logging.basicConfig(
     format='%(asctime)s - %(levelname)s - %(message)s'
 )
 
+class WeatherData(BaseModel):
+    Time: str
+    TempC: float
+    Humidity: int
+    PressureMb: float
+    WindKph: float
+    Cloud: int
+
 class PredictionService:
     def __init__(self):
         logging.info("Khởi tạo Kafka Consumer cho training...")
         self.consumer_train = KafkaConsumer(
-            'weather-mysql.defaultdb.Hours',
-            bootstrap_servers='localhost:29092',
+            os.getenv("KAFKA_TOPIC", "weather-mysql.defaultdb.Hours"),
+            bootstrap_servers=os.getenv("KAFKA_BOOTSTRAP_SERVERS", "localhost:29092"),
             auto_offset_reset='earliest',
             enable_auto_commit=True,
-            group_id='weather_prediction_train_group',  # Consumer group cho training
-            value_deserializer=lambda x: json.loads(x.decode('utf-8')),
-            consumer_timeout_ms=10000,
-            session_timeout_ms=10000,
-            request_timeout_ms=11000
-        )
-
-        self.consumer_predict = KafkaConsumer(
-            'weather-mysql.defaultdb.Hours',
-            bootstrap_servers='localhost:29092',
-            auto_offset_reset='earliest',
-            enable_auto_commit=True,
-            group_id='weather_prediction_predict_group',  # Consumer group cho prediction
+            group_id=os.getenv("KAFKA_GROUP_ID", "weather_prediction_train_group"),
             value_deserializer=lambda x: json.loads(x.decode('utf-8')),
             consumer_timeout_ms=10000,
             session_timeout_ms=10000,
@@ -151,75 +150,23 @@ class PredictionService:
             'cloud_score': score_cloud
         }
 
-    def predict(self, start_date: str, end_date: str):
+    def predict(self, weather_data: List[WeatherData]):
         logging.info("Bắt đầu quá trình dự đoán...")
         try:
-            # Chuyển đổi ngày tháng
-            start = pd.to_datetime(start_date)
-            end = pd.to_datetime(end_date)
-            if start > end:
-                raise ValueError("Ngày bắt đầu không thể lớn hơn ngày kết thúc")
-
-            # Tạo consumer mới mỗi lần predict
-            consumer_predict = KafkaConsumer(
-                'weather-mysql.defaultdb.Hours',
-                bootstrap_servers='localhost:29092',
-                auto_offset_reset='earliest',
-                enable_auto_commit=False,
-                group_id=f'weather_prediction_predict_group_{pd.Timestamp.now().timestamp()}',
-                value_deserializer=lambda x: json.loads(x.decode('utf-8')),
-                consumer_timeout_ms=30000,
-                session_timeout_ms=30000,
-                request_timeout_ms=31000
-            )
-            
-            # Thu thập dữ liệu
-            data = []
-            message_count = 0
-            
-            for message in consumer_predict:
-                if message.value['payload']['after'] is not None:
-                    message_count += 1
-                    weather_data = message.value['payload']['after']
-                    data.append({
-                        'Time': weather_data['Time'],
-                        'TempC': weather_data['TempC'],
-                        'Humidity': weather_data['Humidity'],
-                        'PressureMb': weather_data['PressureMb'],
-                        'WindKph': weather_data['WindKph'],
-                        'Cloud': weather_data['Cloud']
-                    })
-            
-            consumer_predict.close()
-            
-            df = pd.DataFrame(data)
+            # Chuyển đổi dữ liệu từ request thành DataFrame
+            df = pd.DataFrame([data.dict() for data in weather_data])
             df['Time'] = pd.to_datetime(df['Time'])
-            logging.info(f"Tổng số bản ghi: {len(df)}")
             
-            # Lấy 168 bản ghi gần nhất (7 ngày x 24 giờ)
-            mask = (df['Time'] <= end)
-            recent_data = df[mask].tail(168)
+            if len(df) < 7:
+                raise ValueError(f"Không đủ dữ liệu để dự đoán. Cần ít nhất 7 ngày, hiện có {len(df)} ngày.")
             
-            if len(recent_data) < 168:
-                raise ValueError(f"Không đủ dữ liệu để dự đoán. Cần 168 bản ghi (7 ngày), hiện có {len(recent_data)} bản ghi.")
-            
-            # Tính trung bình theo ngày
-            daily_data = recent_data.groupby(recent_data['Time'].dt.date).agg({
-                'TempC': 'mean',
-                'Humidity': 'mean',
-                'PressureMb': 'mean',
-                'WindKph': 'mean',
-                'Cloud': 'mean'
-            }).reset_index()
-            daily_data['Time'] = pd.to_datetime(daily_data['Time'])
-            
-            if len(daily_data) < 7:
-                raise ValueError(f"Không đủ dữ liệu ngày để dự đoán. Cần 7 ngày, hiện có {len(daily_data)} ngày.")
+            # Lấy 7 bản ghi gần nhất để dự đoán
+            recent_data = df.tail(7)
             
             # Chuẩn bị features cho dự đoán
-            features_temp = daily_data.tail(7)[['Humidity', 'PressureMb', 'WindKph']].values.reshape(1, -1)
-            features_humidity = daily_data.tail(7)[['PressureMb', 'WindKph']].values.reshape(1, -1)
-            features_cloud = daily_data.tail(7)[['Humidity', 'WindKph']].values.reshape(1, -1)
+            features_temp = recent_data[['Humidity', 'PressureMb', 'WindKph']].values.reshape(1, -1)
+            features_humidity = recent_data[['PressureMb', 'WindKph']].values.reshape(1, -1)
+            features_cloud = recent_data[['Humidity', 'WindKph']].values.reshape(1, -1)
             
             # Load và sử dụng các model
             model_temp = joblib.load('temp_prediction_model.joblib')

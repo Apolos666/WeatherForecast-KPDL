@@ -23,6 +23,7 @@ services:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_HTTP_PORTS=8080
       - ConnectionStrings__DefaultConnection=Server=${DB_HOST};Port=${DB_PORT};Database=${DB_NAME};User Id=${DB_USER};Password=${DB_PASSWORD}
+      - PredictionServiceUrl=http://weatherforecast.prediction:8000
     ports:
       - "8084:8080"
     volumes:
@@ -207,3 +208,13 @@ services:
   #       condition: service_healthy
   #     weatherforecast.databaseapi:
   #       condition: service_healthy
+
+  weatherforecastp.prediction:
+    container_name: weatherforecast.prediction
+    environment:
+      - KAFKA_BOOTSTRAP_SERVERS=kafka:9092
+    ports:
+      - "8086:8000"
+    depends_on:
+      kafka:
+        condition: service_healthy

@@ -1,0 +1,198 @@
+2024-11-27 09:14:54.841 +00:00 [INF] Executed DbCommand (96ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1 FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA='defaultdb' AND TABLE_NAME='__EFMigrationsHistory';
+2024-11-27 09:14:55.730 +00:00 [INF] Executed DbCommand (89ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1 FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA='defaultdb' AND TABLE_NAME='__EFMigrationsHistory';
+2024-11-27 09:14:55.926 +00:00 [INF] Executed DbCommand (92ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `MigrationId`, `ProductVersion`
+FROM `__EFMigrationsHistory`
+ORDER BY `MigrationId`;
+2024-11-27 09:14:55.937 +00:00 [INF] No migrations were applied. The database is already up to date.
+2024-11-27 09:14:55.980 +00:00 [INF] Now listening on: http://[::]:8080
+2024-11-27 09:14:55.981 +00:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-27 09:14:55.982 +00:00 [INF] Hosting environment: Development
+2024-11-27 09:14:55.982 +00:00 [INF] Content root path: /app
+2024-11-27 09:15:00.749 +00:00 [INF] Executed DbCommand (116ms) [Parameters=[@__request_Location_Name_0='?' (Size = 100)], CommandType='"Text"', CommandTimeout='30']
+SELECT `l`.`Id`, `l`.`Country`, `l`.`Lat`, `l`.`Localtime`, `l`.`LocaltimeEpoch`, `l`.`Lon`, `l`.`Name`, `l`.`Region`, `l`.`TzId`
+FROM `Locations` AS `l`
+WHERE `l`.`Name` = @__request_Location_Name_0
+LIMIT 1
+2024-11-27 09:15:01.016 +00:00 [INF] Executed DbCommand (92ms) [Parameters=[@__8__locals1_location_Id_0='?' (DbType = Int32), @__forecastDay_Date_Date_1='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT `w`.`Id`, `w`.`Date`, `w`.`DateEpoch`, `w`.`LocationId`
+FROM `WeatherForecasts` AS `w`
+WHERE (`w`.`LocationId` = @__8__locals1_location_Id_0) AND (CONVERT(`w`.`Date`, date) = @__forecastDay_Date_Date_1)
+LIMIT 1
+2024-11-27 09:17:46.904 +00:00 [INF] Application is shutting down...
+2024-11-27 09:23:27.253 +00:00 [INF] Executed DbCommand (95ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1 FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA='defaultdb' AND TABLE_NAME='__EFMigrationsHistory';
+2024-11-27 09:23:28.173 +00:00 [INF] Executed DbCommand (89ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1 FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA='defaultdb' AND TABLE_NAME='__EFMigrationsHistory';
+2024-11-27 09:23:28.371 +00:00 [INF] Executed DbCommand (91ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `MigrationId`, `ProductVersion`
+FROM `__EFMigrationsHistory`
+ORDER BY `MigrationId`;
+2024-11-27 09:23:28.384 +00:00 [INF] No migrations were applied. The database is already up to date.
+2024-11-27 09:23:28.444 +00:00 [INF] Now listening on: http://[::]:8080
+2024-11-27 09:23:28.445 +00:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-27 09:23:28.446 +00:00 [INF] Hosting environment: Development
+2024-11-27 09:23:28.446 +00:00 [INF] Content root path: /app
+2024-11-27 09:23:33.805 +00:00 [INF] Executed DbCommand (119ms) [Parameters=[@__request_Location_Name_0='?' (Size = 100)], CommandType='"Text"', CommandTimeout='30']
+SELECT `l`.`Id`, `l`.`Country`, `l`.`Lat`, `l`.`Localtime`, `l`.`LocaltimeEpoch`, `l`.`Lon`, `l`.`Name`, `l`.`Region`, `l`.`TzId`
+FROM `Locations` AS `l`
+WHERE `l`.`Name` = @__request_Location_Name_0
+LIMIT 1
+2024-11-27 09:23:34.097 +00:00 [INF] Executed DbCommand (91ms) [Parameters=[@__8__locals1_location_Id_0='?' (DbType = Int32), @__forecastDay_Date_Date_1='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT `w`.`Id`, `w`.`Date`, `w`.`DateEpoch`, `w`.`LocationId`
+FROM `WeatherForecasts` AS `w`
+WHERE (`w`.`LocationId` = @__8__locals1_location_Id_0) AND (CONVERT(`w`.`Date`, date) = @__forecastDay_Date_Date_1)
+LIMIT 1
+2024-11-27 09:24:06.403 +00:00 [INF] Application is shutting down...
+2024-11-27 09:26:25.696 +00:00 [INF] Executed DbCommand (95ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1 FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA='defaultdb' AND TABLE_NAME='__EFMigrationsHistory';
+2024-11-27 09:26:26.606 +00:00 [INF] Executed DbCommand (90ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1 FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA='defaultdb' AND TABLE_NAME='__EFMigrationsHistory';
+2024-11-27 09:26:26.802 +00:00 [INF] Executed DbCommand (90ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `MigrationId`, `ProductVersion`
+FROM `__EFMigrationsHistory`
+ORDER BY `MigrationId`;
+2024-11-27 09:26:26.812 +00:00 [INF] No migrations were applied. The database is already up to date.
+2024-11-27 09:26:26.852 +00:00 [INF] Now listening on: http://[::]:8080
+2024-11-27 09:26:26.854 +00:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-27 09:26:26.854 +00:00 [INF] Hosting environment: Development
+2024-11-27 09:26:26.855 +00:00 [INF] Content root path: /app
+2024-11-27 09:26:31.683 +00:00 [INF] Executed DbCommand (123ms) [Parameters=[@__request_Location_Name_0='?' (Size = 100)], CommandType='"Text"', CommandTimeout='30']
+SELECT `l`.`Id`, `l`.`Country`, `l`.`Lat`, `l`.`Localtime`, `l`.`LocaltimeEpoch`, `l`.`Lon`, `l`.`Name`, `l`.`Region`, `l`.`TzId`
+FROM `Locations` AS `l`
+WHERE `l`.`Name` = @__request_Location_Name_0
+LIMIT 1
+2024-11-27 09:26:31.968 +00:00 [INF] Executed DbCommand (93ms) [Parameters=[@__8__locals1_location_Id_0='?' (DbType = Int32), @__forecastDay_Date_Date_1='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT `w`.`Id`, `w`.`Date`, `w`.`DateEpoch`, `w`.`LocationId`
+FROM `WeatherForecasts` AS `w`
+WHERE (`w`.`LocationId` = @__8__locals1_location_Id_0) AND (CONVERT(`w`.`Date`, date) = @__forecastDay_Date_Date_1)
+LIMIT 1
+2024-11-27 09:27:09.370 +00:00 [INF] Executed DbCommand (218ms) [Parameters=[@__eightDaysAgo_0='?' (Size = 50), @__yesterday_1='?' (Size = 50)], CommandType='"Text"', CommandTimeout='30']
+SELECT `h`.`Id`, `h`.`ChanceOfRain`, `h`.`ChanceOfSnow`, `h`.`Cloud`, `h`.`ConditionCode`, `h`.`ConditionIcon`, `h`.`ConditionText`, `h`.`DewpointC`, `h`.`DewpointF`, `h`.`FeelslikeC`, `h`.`FeelslikeF`, `h`.`GustKph`, `h`.`GustMph`, `h`.`HeatindexC`, `h`.`HeatindexF`, `h`.`Humidity`, `h`.`IsDay`, `h`.`PrecipIn`, `h`.`PrecipMm`, `h`.`PressureIn`, `h`.`PressureMb`, `h`.`SnowCm`, `h`.`TempC`, `h`.`TempF`, `h`.`Time`, `h`.`TimeEpoch`, `h`.`Uv`, `h`.`VisKm`, `h`.`VisMiles`, `h`.`WeatherForecastId`, `h`.`WillItRain`, `h`.`WillItSnow`, `h`.`WindDegree`, `h`.`WindDir`, `h`.`WindKph`, `h`.`WindMph`, `h`.`WindchillC`, `h`.`WindchillF`
+FROM `Hours` AS `h`
+WHERE (`h`.`Time` >= @__eightDaysAgo_0) AND (`h`.`Time` <= @__yesterday_1)
+2024-11-27 09:27:09.450 +00:00 [INF] Start processing HTTP request POST http://127.0.0.1:8000/predict
+2024-11-27 09:27:09.452 +00:00 [INF] Sending HTTP request POST http://127.0.0.1:8000/predict
+2024-11-27 09:28:13.201 +00:00 [INF] Application is shutting down...
+2024-11-27 09:35:39.004 +00:00 [INF] Executed DbCommand (96ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1 FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA='defaultdb' AND TABLE_NAME='__EFMigrationsHistory';
+2024-11-27 09:35:39.968 +00:00 [INF] Executed DbCommand (89ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1 FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA='defaultdb' AND TABLE_NAME='__EFMigrationsHistory';
+2024-11-27 09:35:40.166 +00:00 [INF] Executed DbCommand (91ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `MigrationId`, `ProductVersion`
+FROM `__EFMigrationsHistory`
+ORDER BY `MigrationId`;
+2024-11-27 09:35:40.188 +00:00 [INF] No migrations were applied. The database is already up to date.
+2024-11-27 09:35:40.280 +00:00 [INF] Now listening on: http://[::]:8080
+2024-11-27 09:35:40.283 +00:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-27 09:35:40.285 +00:00 [INF] Hosting environment: Development
+2024-11-27 09:35:40.285 +00:00 [INF] Content root path: /app
+2024-11-27 09:35:44.788 +00:00 [INF] Executed DbCommand (115ms) [Parameters=[@__request_Location_Name_0='?' (Size = 100)], CommandType='"Text"', CommandTimeout='30']
+SELECT `l`.`Id`, `l`.`Country`, `l`.`Lat`, `l`.`Localtime`, `l`.`LocaltimeEpoch`, `l`.`Lon`, `l`.`Name`, `l`.`Region`, `l`.`TzId`
+FROM `Locations` AS `l`
+WHERE `l`.`Name` = @__request_Location_Name_0
+LIMIT 1
+2024-11-27 09:35:45.063 +00:00 [INF] Executed DbCommand (92ms) [Parameters=[@__8__locals1_location_Id_0='?' (DbType = Int32), @__forecastDay_Date_Date_1='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT `w`.`Id`, `w`.`Date`, `w`.`DateEpoch`, `w`.`LocationId`
+FROM `WeatherForecasts` AS `w`
+WHERE (`w`.`LocationId` = @__8__locals1_location_Id_0) AND (CONVERT(`w`.`Date`, date) = @__forecastDay_Date_Date_1)
+LIMIT 1
+2024-11-27 09:36:42.349 +00:00 [INF] Application is shutting down...
+2024-11-27 09:41:49.694 +00:00 [INF] Executed DbCommand (95ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1 FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA='defaultdb' AND TABLE_NAME='__EFMigrationsHistory';
+2024-11-27 09:41:50.599 +00:00 [INF] Executed DbCommand (89ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1 FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA='defaultdb' AND TABLE_NAME='__EFMigrationsHistory';
+2024-11-27 09:41:50.799 +00:00 [INF] Executed DbCommand (89ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `MigrationId`, `ProductVersion`
+FROM `__EFMigrationsHistory`
+ORDER BY `MigrationId`;
+2024-11-27 09:41:50.811 +00:00 [INF] No migrations were applied. The database is already up to date.
+2024-11-27 09:41:50.860 +00:00 [INF] Now listening on: http://[::]:8080
+2024-11-27 09:41:50.861 +00:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-27 09:41:50.862 +00:00 [INF] Hosting environment: Development
+2024-11-27 09:41:50.862 +00:00 [INF] Content root path: /app
+2024-11-27 09:41:54.999 +00:00 [INF] Executed DbCommand (134ms) [Parameters=[@__request_Location_Name_0='?' (Size = 100)], CommandType='"Text"', CommandTimeout='30']
+SELECT `l`.`Id`, `l`.`Country`, `l`.`Lat`, `l`.`Localtime`, `l`.`LocaltimeEpoch`, `l`.`Lon`, `l`.`Name`, `l`.`Region`, `l`.`TzId`
+FROM `Locations` AS `l`
+WHERE `l`.`Name` = @__request_Location_Name_0
+LIMIT 1
+2024-11-27 09:41:55.278 +00:00 [INF] Executed DbCommand (92ms) [Parameters=[@__8__locals1_location_Id_0='?' (DbType = Int32), @__forecastDay_Date_Date_1='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT `w`.`Id`, `w`.`Date`, `w`.`DateEpoch`, `w`.`LocationId`
+FROM `WeatherForecasts` AS `w`
+WHERE (`w`.`LocationId` = @__8__locals1_location_Id_0) AND (CONVERT(`w`.`Date`, date) = @__forecastDay_Date_Date_1)
+LIMIT 1
+2024-11-27 09:42:13.313 +00:00 [INF] Executed DbCommand (205ms) [Parameters=[@__eightDaysAgo_0='?' (Size = 50), @__yesterday_1='?' (Size = 50)], CommandType='"Text"', CommandTimeout='30']
+SELECT `h`.`Id`, `h`.`ChanceOfRain`, `h`.`ChanceOfSnow`, `h`.`Cloud`, `h`.`ConditionCode`, `h`.`ConditionIcon`, `h`.`ConditionText`, `h`.`DewpointC`, `h`.`DewpointF`, `h`.`FeelslikeC`, `h`.`FeelslikeF`, `h`.`GustKph`, `h`.`GustMph`, `h`.`HeatindexC`, `h`.`HeatindexF`, `h`.`Humidity`, `h`.`IsDay`, `h`.`PrecipIn`, `h`.`PrecipMm`, `h`.`PressureIn`, `h`.`PressureMb`, `h`.`SnowCm`, `h`.`TempC`, `h`.`TempF`, `h`.`Time`, `h`.`TimeEpoch`, `h`.`Uv`, `h`.`VisKm`, `h`.`VisMiles`, `h`.`WeatherForecastId`, `h`.`WillItRain`, `h`.`WillItSnow`, `h`.`WindDegree`, `h`.`WindDir`, `h`.`WindKph`, `h`.`WindMph`, `h`.`WindchillC`, `h`.`WindchillF`
+FROM `Hours` AS `h`
+WHERE (`h`.`Time` >= @__eightDaysAgo_0) AND (`h`.`Time` <= @__yesterday_1)
+2024-11-27 09:42:13.478 +00:00 [INF] Start processing HTTP request POST http://weatherforecast.prediction:8000/predict
+2024-11-27 09:42:13.481 +00:00 [INF] Sending HTTP request POST http://weatherforecast.prediction:8000/predict
+2024-11-27 09:42:13.538 +00:00 [INF] Received HTTP response headers after 51.2408ms - 404
+2024-11-27 09:42:13.540 +00:00 [INF] End processing HTTP request after 67.6356ms - 404
+2024-11-27 09:43:30.172 +00:00 [INF] Application is shutting down...
+2024-11-27 09:44:19.303 +00:00 [INF] Executed DbCommand (94ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1 FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA='defaultdb' AND TABLE_NAME='__EFMigrationsHistory';
+2024-11-27 09:44:20.246 +00:00 [INF] Executed DbCommand (89ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1 FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA='defaultdb' AND TABLE_NAME='__EFMigrationsHistory';
+2024-11-27 09:44:20.442 +00:00 [INF] Executed DbCommand (90ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `MigrationId`, `ProductVersion`
+FROM `__EFMigrationsHistory`
+ORDER BY `MigrationId`;
+2024-11-27 09:44:20.452 +00:00 [INF] No migrations were applied. The database is already up to date.
+2024-11-27 09:44:20.488 +00:00 [INF] Now listening on: http://[::]:8080
+2024-11-27 09:44:20.490 +00:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-27 09:44:20.490 +00:00 [INF] Hosting environment: Development
+2024-11-27 09:44:20.491 +00:00 [INF] Content root path: /app
+2024-11-27 09:44:25.097 +00:00 [INF] Executed DbCommand (126ms) [Parameters=[@__request_Location_Name_0='?' (Size = 100)], CommandType='"Text"', CommandTimeout='30']
+SELECT `l`.`Id`, `l`.`Country`, `l`.`Lat`, `l`.`Localtime`, `l`.`LocaltimeEpoch`, `l`.`Lon`, `l`.`Name`, `l`.`Region`, `l`.`TzId`
+FROM `Locations` AS `l`
+WHERE `l`.`Name` = @__request_Location_Name_0
+LIMIT 1
+2024-11-27 09:44:25.369 +00:00 [INF] Executed DbCommand (93ms) [Parameters=[@__8__locals1_location_Id_0='?' (DbType = Int32), @__forecastDay_Date_Date_1='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT `w`.`Id`, `w`.`Date`, `w`.`DateEpoch`, `w`.`LocationId`
+FROM `WeatherForecasts` AS `w`
+WHERE (`w`.`LocationId` = @__8__locals1_location_Id_0) AND (CONVERT(`w`.`Date`, date) = @__forecastDay_Date_Date_1)
+LIMIT 1
+2024-11-27 09:44:59.260 +00:00 [INF] Executed DbCommand (197ms) [Parameters=[@__eightDaysAgo_0='?' (Size = 50), @__yesterday_1='?' (Size = 50)], CommandType='"Text"', CommandTimeout='30']
+SELECT `h`.`Id`, `h`.`ChanceOfRain`, `h`.`ChanceOfSnow`, `h`.`Cloud`, `h`.`ConditionCode`, `h`.`ConditionIcon`, `h`.`ConditionText`, `h`.`DewpointC`, `h`.`DewpointF`, `h`.`FeelslikeC`, `h`.`FeelslikeF`, `h`.`GustKph`, `h`.`GustMph`, `h`.`HeatindexC`, `h`.`HeatindexF`, `h`.`Humidity`, `h`.`IsDay`, `h`.`PrecipIn`, `h`.`PrecipMm`, `h`.`PressureIn`, `h`.`PressureMb`, `h`.`SnowCm`, `h`.`TempC`, `h`.`TempF`, `h`.`Time`, `h`.`TimeEpoch`, `h`.`Uv`, `h`.`VisKm`, `h`.`VisMiles`, `h`.`WeatherForecastId`, `h`.`WillItRain`, `h`.`WillItSnow`, `h`.`WindDegree`, `h`.`WindDir`, `h`.`WindKph`, `h`.`WindMph`, `h`.`WindchillC`, `h`.`WindchillF`
+FROM `Hours` AS `h`
+WHERE (`h`.`Time` >= @__eightDaysAgo_0) AND (`h`.`Time` <= @__yesterday_1)
+2024-11-27 09:44:59.322 +00:00 [INF] Start processing HTTP request POST http://weatherforecast.prediction:8000/api/predict
+2024-11-27 09:44:59.324 +00:00 [INF] Sending HTTP request POST http://weatherforecast.prediction:8000/api/predict
+2024-11-27 09:44:59.346 +00:00 [INF] Received HTTP response headers after 19.8955ms - 404
+2024-11-27 09:44:59.347 +00:00 [INF] End processing HTTP request after 28.8739ms - 404
+2024-11-27 09:45:33.496 +00:00 [INF] Application is shutting down...
+2024-11-27 09:46:16.290 +00:00 [INF] Executed DbCommand (98ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1 FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA='defaultdb' AND TABLE_NAME='__EFMigrationsHistory';
+2024-11-27 09:46:17.184 +00:00 [INF] Executed DbCommand (92ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1 FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA='defaultdb' AND TABLE_NAME='__EFMigrationsHistory';
+2024-11-27 09:46:17.394 +00:00 [INF] Executed DbCommand (104ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `MigrationId`, `ProductVersion`
+FROM `__EFMigrationsHistory`
+ORDER BY `MigrationId`;
+2024-11-27 09:46:17.408 +00:00 [INF] No migrations were applied. The database is already up to date.
+2024-11-27 09:46:17.467 +00:00 [INF] Now listening on: http://[::]:8080
+2024-11-27 09:46:17.469 +00:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-27 09:46:17.469 +00:00 [INF] Hosting environment: Development
+2024-11-27 09:46:17.470 +00:00 [INF] Content root path: /app
+2024-11-27 09:46:22.023 +00:00 [INF] Executed DbCommand (151ms) [Parameters=[@__request_Location_Name_0='?' (Size = 100)], CommandType='"Text"', CommandTimeout='30']
+SELECT `l`.`Id`, `l`.`Country`, `l`.`Lat`, `l`.`Localtime`, `l`.`LocaltimeEpoch`, `l`.`Lon`, `l`.`Name`, `l`.`Region`, `l`.`TzId`
+FROM `Locations` AS `l`
+WHERE `l`.`Name` = @__request_Location_Name_0
+LIMIT 1
+2024-11-27 09:46:22.402 +00:00 [INF] Executed DbCommand (97ms) [Parameters=[@__8__locals1_location_Id_0='?' (DbType = Int32), @__forecastDay_Date_Date_1='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT `w`.`Id`, `w`.`Date`, `w`.`DateEpoch`, `w`.`LocationId`
+FROM `WeatherForecasts` AS `w`
+WHERE (`w`.`LocationId` = @__8__locals1_location_Id_0) AND (CONVERT(`w`.`Date`, date) = @__forecastDay_Date_Date_1)
+LIMIT 1
+2024-11-27 09:46:43.833 +00:00 [INF] Executed DbCommand (200ms) [Parameters=[@__eightDaysAgo_0='?' (Size = 50), @__yesterday_1='?' (Size = 50)], CommandType='"Text"', CommandTimeout='30']
+SELECT `h`.`Id`, `h`.`ChanceOfRain`, `h`.`ChanceOfSnow`, `h`.`Cloud`, `h`.`ConditionCode`, `h`.`ConditionIcon`, `h`.`ConditionText`, `h`.`DewpointC`, `h`.`DewpointF`, `h`.`FeelslikeC`, `h`.`FeelslikeF`, `h`.`GustKph`, `h`.`GustMph`, `h`.`HeatindexC`, `h`.`HeatindexF`, `h`.`Humidity`, `h`.`IsDay`, `h`.`PrecipIn`, `h`.`PrecipMm`, `h`.`PressureIn`, `h`.`PressureMb`, `h`.`SnowCm`, `h`.`TempC`, `h`.`TempF`, `h`.`Time`, `h`.`TimeEpoch`, `h`.`Uv`, `h`.`VisKm`, `h`.`VisMiles`, `h`.`WeatherForecastId`, `h`.`WillItRain`, `h`.`WillItSnow`, `h`.`WindDegree`, `h`.`WindDir`, `h`.`WindKph`, `h`.`WindMph`, `h`.`WindchillC`, `h`.`WindchillF`
+FROM `Hours` AS `h`
+WHERE (`h`.`Time` >= @__eightDaysAgo_0) AND (`h`.`Time` <= @__yesterday_1)
+2024-11-27 09:46:43.978 +00:00 [INF] Start processing HTTP request POST http://weatherforecast.prediction:8000/api/prediction/predict
+2024-11-27 09:46:43.980 +00:00 [INF] Sending HTTP request POST http://weatherforecast.prediction:8000/api/prediction/predict
+2024-11-27 09:46:44.258 +00:00 [INF] Received HTTP response headers after 274.4823ms - 200
+2024-11-27 09:46:44.260 +00:00 [INF] End processing HTTP request after 287.2433ms - 200
+2024-11-27 09:46:49.199 +00:00 [INF] Application is shutting down...

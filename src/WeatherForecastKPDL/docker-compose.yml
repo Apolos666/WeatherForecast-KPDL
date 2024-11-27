@@ -61,6 +61,11 @@ services:
   #   networks:
   #     - weathernet
 
+  weatherforecastp.prediction:
+    image: quangtran2/weatherforecastprediction:latest
+    networks:
+      - weathernet
+
 volumes:
   logs:
   zookeeper_data:
