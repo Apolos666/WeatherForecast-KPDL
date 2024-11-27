@@ -23,6 +23,7 @@ services:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_HTTP_PORTS=8080
       - ConnectionStrings__DefaultConnection=Server=${DB_HOST};Port=${DB_PORT};Database=${DB_NAME};User Id=${DB_USER};Password=${DB_PASSWORD}
+      - PredictionServiceUrl=http://weatherforecast.prediction:8000
     ports:
       - "8084:8080"
     volumes:
@@ -54,7 +55,8 @@ services:
     environment:
       - KAFKA_BROKER_ID=1
       - KAFKA_ZOOKEEPER_CONNECT=zookeeper:2181
-      - KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://kafka:9092,PLAINTEXT_HOST://kafka:29092
+      - KAFKA_LISTENERS=PLAINTEXT://0.0.0.0:9092,PLAINTEXT_HOST://0.0.0.0:29092
+      - KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://kafka:9092,PLAINTEXT_HOST://localhost:29092
       - KAFKA_LISTENER_SECURITY_PROTOCOL_MAP=PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
       - KAFKA_INTER_BROKER_LISTENER_NAME=PLAINTEXT
       - KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR=1
@@ -163,46 +165,56 @@ services:
       timeout: 10s
       retries: 3
 
-  weatherforecast.dataanalysis:
-    container_name: weatherforecast.dataanalysis
+  # weatherforecast.dataanalysis:
+  #   container_name: weatherforecast.dataanalysis
+  #   environment:
+  #     - KAFKA_BOOTSTRAP_SERVERS=kafka:9092
+  #     - DATABASE_API_URL=http://weatherforecast.databaseapi:8080
+  #     - REDIS_URL=${REDIS_URL}
+  #   ports:
+  #     - "8087:8000"
+  #   depends_on:
+  #     kafka:
+  #       condition: service_healthy
+  #     weatherforecast.databaseapi:
+  #       condition: service_healthy
+
+  # weatherforecast.dataanalysis.worker:
+  #   container_name: weatherforecast.dataanalysis.worker
+  #   command: celery -A app.tasks.weather_tasks worker --loglevel=info
+  #   environment:
+  #     - WORKER_ID=worker
+  #     - KAFKA_BOOTSTRAP_SERVERS=kafka:9092
+  #     - DATABASE_API_URL=http://weatherforecast.databaseapi:8080
+  #     - REDIS_URL=${REDIS_URL}
+  #     - CELERY_WORKER=true
+  #   depends_on:
+  #     kafka:
+  #       condition: service_healthy
+  #     weatherforecast.databaseapi:
+  #       condition: service_healthy
+
+  # weatherforecast.dataanalysis.beat:
+  #   container_name: weatherforecast.dataanalysis.beat
+  #   command: celery -A app.tasks.weather_tasks beat --loglevel=info
+  #   environment:
+  #     - WORKER_ID=beat
+  #     - KAFKA_BOOTSTRAP_SERVERS=kafka:9092
+  #     - DATABASE_API_URL=http://weatherforecast.databaseapi:8080
+  #     - REDIS_URL=${REDIS_URL}
+  #     - CELERY_WORKER=false
+  #   depends_on:
+  #     kafka:
+  #       condition: service_healthy
+  #     weatherforecast.databaseapi:
+  #       condition: service_healthy
+
+  weatherforecastp.prediction:
+    container_name: weatherforecast.prediction
     environment:
       - KAFKA_BOOTSTRAP_SERVERS=kafka:9092
-      - DATABASE_API_URL=http://weatherforecast.databaseapi:8080
-      - REDIS_URL=${REDIS_URL}
     ports:
-      - "8087:8000"
+      - "8086:8000"
     depends_on:
       kafka:
-        condition: service_healthy
-      weatherforecast.databaseapi:
-        condition: service_healthy
-
-  weatherforecast.dataanalysis.worker:
-    container_name: weatherforecast.dataanalysis.worker
-    command: celery -A app.tasks.weather_tasks worker --loglevel=info
-    environment:
-      - WORKER_ID=worker
-      - KAFKA_BOOTSTRAP_SERVERS=kafka:9092
-      - DATABASE_API_URL=http://weatherforecast.databaseapi:8080
-      - REDIS_URL=${REDIS_URL}
-      - CELERY_WORKER=true
-    depends_on:
-      kafka:
-        condition: service_healthy
-      weatherforecast.databaseapi:
-        condition: service_healthy
-
-  weatherforecast.dataanalysis.beat:
-    container_name: weatherforecast.dataanalysis.beat
-    command: celery -A app.tasks.weather_tasks beat --loglevel=info
-    environment:
-      - WORKER_ID=beat
-      - KAFKA_BOOTSTRAP_SERVERS=kafka:9092
-      - DATABASE_API_URL=http://weatherforecast.databaseapi:8080
-      - REDIS_URL=${REDIS_URL}
-      - CELERY_WORKER=false
-    depends_on:
-      kafka:
-        condition: service_healthy
-      weatherforecast.databaseapi:
         condition: service_healthy
