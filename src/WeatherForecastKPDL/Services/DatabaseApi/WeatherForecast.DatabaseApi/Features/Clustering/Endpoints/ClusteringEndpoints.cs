@@ -46,15 +46,18 @@ public class ClusteringEndpoints : ICarterModule
             }
         });
 
-        app.MapGet("/api/analysis/spiderchart", async (AppDbContext db) =>
+        app.MapGet("/api/analysis/spiderchart", async (int? year, AppDbContext db) =>
         {
             try
             {
-                var spiderChartData = await db.SpiderChartDatas
-                    .OrderBy(s => s.Year)
-                    .ThenBy(s => s.Season)
-                    .ThenBy(s => s.HalfYear)
-                    .ToListAsync();
+                var query = db.SpiderChartDatas.AsQueryable();
+
+                if (year.HasValue)
+                {
+                    query = query.Where(s => s.Year == year.Value);
+                }
+
+                var spiderChartData = await query.ToListAsync();
                 return Results.Ok(spiderChartData);
             }
             catch (Exception ex)

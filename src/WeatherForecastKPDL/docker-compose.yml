@@ -66,6 +66,11 @@ services:
     networks:
       - weathernet
 
+  weatherforecastp.clustering:
+    image: quangtran2/weatherforecastclustering:latest
+    networks:
+      - weathernet
+
 volumes:
   logs:
   zookeeper_data:
