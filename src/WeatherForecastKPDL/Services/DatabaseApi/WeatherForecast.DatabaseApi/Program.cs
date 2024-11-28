@@ -65,12 +65,6 @@ builder.Services.AddCors(options =>
 });
 
 var app = builder.Build();
-
-app.UseCors("AllowLocalhost");
-
-app.MapCarter();
-
-var app = builder.Build();
 app.UseCors("AllowLocalhost");
 
 app.MapCarter();
