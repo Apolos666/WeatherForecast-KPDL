@@ -61,15 +61,15 @@ services:
   #   networks:
   #     - weathernet
 
-  weatherforecastp.prediction:
-    image: quangtran2/weatherforecastprediction:latest
-    networks:
-      - weathernet
+  # weatherforecastp.prediction:
+  #   image: quangtran2/weatherforecastprediction:latest
+  #   networks:
+  #     - weathernet
 
-  weatherforecastp.clustering:
-    image: quangtran2/weatherforecastclustering:latest
-    networks:
-      - weathernet
+  # weatherforecastp.clustering:
+  #   image: quangtran2/weatherforecastclustering:latest
+  #   networks:
+  #     - weathernet
 
 volumes:
   logs:

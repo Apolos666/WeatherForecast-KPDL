@@ -209,25 +209,25 @@ services:
   #     weatherforecast.databaseapi:
   #       condition: service_healthy
 
-  weatherforecastp.prediction:
-    container_name: weatherforecast.prediction
-    environment:
-      - KAFKA_BOOTSTRAP_SERVERS=kafka:9092
-    ports:
-      - "8086:8000"
-    depends_on:
-      kafka:
-        condition: service_healthy
+  # weatherforecastp.prediction:
+  #   container_name: weatherforecast.prediction
+  #   environment:
+  #     - KAFKA_BOOTSTRAP_SERVERS=kafka:9092
+  #   ports:
+  #     - "8086:8000"
+  #   depends_on:
+  #     kafka:
+  #       condition: service_healthy
 
-  weatherforecastp.clustering:
-    container_name: weatherforecast.clustering
-    environment:
-      - KAFKA_BOOTSTRAP_SERVERS=kafka:9092
-      - KAFKA_TOPIC=weather-mysql.defaultdb.Hours
-      - KAFKA_SPIDER_CHART_CONSUMER_GROUP_ID=spider-chart-consumer-group
-      - API_URL=http://weatherforecast.databaseapi:8080
-    ports:
-      - "8089:8000"
-    depends_on:
-      kafka:
-        condition: service_healthy      
+  # weatherforecastp.clustering:
+  #   container_name: weatherforecast.clustering
+  #   environment:
+  #     - KAFKA_BOOTSTRAP_SERVERS=kafka:9092
+  #     - KAFKA_TOPIC=weather-mysql.defaultdb.Hours
+  #     - KAFKA_SPIDER_CHART_CONSUMER_GROUP_ID=spider-chart-consumer-group
+  #     - API_URL=http://weatherforecast.databaseapi:8080
+  #   ports:
+  #     - "8089:8000"
+  #   depends_on:
+  #     kafka:
+  #       condition: service_healthy      

@@ -1,12 +1,26 @@
 import os
 import logging
 from kafka import KafkaConsumer
+from kafka.consumer.subscription_state import ConsumerRebalanceListener
 from json import loads
 from ...core.logging import logger
 from ...models.analysis import HourlyWeatherData
 
 # Thiết lập mức độ log cho kafka
 logging.getLogger('kafka').setLevel(logging.WARNING)
+
+class WeatherConsumerRebalanceListener(ConsumerRebalanceListener):
+    def __init__(self, consumer):
+        self.consumer = consumer
+
+    def on_partitions_revoked(self, revoked):
+        logger.info(f"Partitions revoked: {revoked}")
+
+    def on_partitions_assigned(self, assigned):
+        logger.info(f"Partitions assigned: {assigned}")
+        for partition in assigned:
+            position = self.consumer.position(partition)
+            logger.info(f"Starting position for partition {partition.partition}: {position}")
 
 class BaseWeatherConsumer:
     def __init__(self, bootstrap_servers: str, consumer_type: str):
@@ -27,10 +41,16 @@ class BaseWeatherConsumer:
                 auto_offset_reset='earliest',
                 enable_auto_commit=False,
                 value_deserializer=lambda x: loads(x.decode('utf-8')),
-                session_timeout_ms=10000
+                session_timeout_ms=30000,
+                max_poll_interval_ms=600000,
+                max_poll_records=2000
             )
+
+            # Create and use the rebalance listener
+            self.rebalance_listener = WeatherConsumerRebalanceListener(self.consumer)
+            self.consumer.subscribe([self.topic], listener=self.rebalance_listener)
             
-            # Kiểm tra kết nối
+            # Check connection and log info
             topics = self.consumer.topics()
             if self.topic not in topics:
                 logger.error(f"Topic {self.topic} không tồn tại")
