@@ -206,12 +206,19 @@ public class AnalysisEndpoints : ICarterModule
             }
         });
 
-        app.MapGet("/api/analysis/correlation", async (AppDbContext db) =>
+        app.MapGet("/api/analysis/correlation", async (int year, AppDbContext db) =>
         {
             try
             {
                 var analyses = await db.CorrelationAnalyses
+                    .Where(a => a.Time.Year == year)
                     .ToListAsync();
+
+                if (analyses.Count == 0)
+                {
+                    return Results.NotFound($"Không tìm thấy dữ liệu phân tích tương quan cho năm {year}");
+                }
+
                 return Results.Ok(analyses);
             }
             catch (Exception ex)

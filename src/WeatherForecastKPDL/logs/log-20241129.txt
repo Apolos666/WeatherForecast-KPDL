@@ -2096,3 +2096,31 @@ FROM `CorrelationAnalyses` AS `c`
 WHERE CONVERT(`c`.`Time`, date) = @__date_Date_0
 LIMIT 1
 2024-11-29 10:35:47.032 +00:00 [INF] Application is shutting down...
+2024-11-29 10:44:26.667 +00:00 [INF] Executed DbCommand (101ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1 FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA='defaultdb' AND TABLE_NAME='__EFMigrationsHistory';
+2024-11-29 10:44:27.626 +00:00 [INF] Executed DbCommand (96ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1 FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA='defaultdb' AND TABLE_NAME='__EFMigrationsHistory';
+2024-11-29 10:44:27.851 +00:00 [INF] Executed DbCommand (97ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `MigrationId`, `ProductVersion`
+FROM `__EFMigrationsHistory`
+ORDER BY `MigrationId`;
+2024-11-29 10:44:27.870 +00:00 [INF] No migrations were applied. The database is already up to date.
+2024-11-29 10:44:27.946 +00:00 [INF] Now listening on: http://[::]:8080
+2024-11-29 10:44:27.948 +00:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-29 10:44:27.949 +00:00 [INF] Hosting environment: Development
+2024-11-29 10:44:27.949 +00:00 [INF] Content root path: /app
+2024-11-29 10:44:33.091 +00:00 [INF] Executed DbCommand (151ms) [Parameters=[@__request_Location_Name_0='?' (Size = 100)], CommandType='"Text"', CommandTimeout='30']
+SELECT `l`.`Id`, `l`.`Country`, `l`.`Lat`, `l`.`Localtime`, `l`.`LocaltimeEpoch`, `l`.`Lon`, `l`.`Name`, `l`.`Region`, `l`.`TzId`
+FROM `Locations` AS `l`
+WHERE `l`.`Name` = @__request_Location_Name_0
+LIMIT 1
+2024-11-29 10:44:33.375 +00:00 [INF] Executed DbCommand (97ms) [Parameters=[@__8__locals1_location_Id_0='?' (DbType = Int32), @__forecastDay_Date_Date_1='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT `w`.`Id`, `w`.`Date`, `w`.`DateEpoch`, `w`.`LocationId`
+FROM `WeatherForecasts` AS `w`
+WHERE (`w`.`LocationId` = @__8__locals1_location_Id_0) AND (CONVERT(`w`.`Date`, date) = @__forecastDay_Date_Date_1)
+LIMIT 1
+2024-11-29 10:45:07.525 +00:00 [INF] Executed DbCommand (105ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `c`.`Id`, `c`.`CloudHumidityCorrelation`, `c`.`CloudPressureMbCorrelation`, `c`.`CloudTempCCorrelation`, `c`.`CloudWindKphCorrelation`, `c`.`HumidityCloudCorrelation`, `c`.`HumidityPressureMbCorrelation`, `c`.`HumidityTempCCorrelation`, `c`.`HumidityWindKphCorrelation`, `c`.`PressureMbCloudCorrelation`, `c`.`PressureMbHumidityCorrelation`, `c`.`PressureMbTempCCorrelation`, `c`.`PressureMbWindKphCorrelation`, `c`.`TempCCloudCorrelation`, `c`.`TempCHumidityCorrelation`, `c`.`TempCPressureMbCorrelation`, `c`.`TempCWindKphCorrelation`, `c`.`Time`, `c`.`WindKphCloudCorrelation`, `c`.`WindKphHumidityCorrelation`, `c`.`WindKphPressureMbCorrelation`, `c`.`WindKphTempCCorrelation`
+FROM `CorrelationAnalyses` AS `c`
+WHERE EXTRACT(year FROM `c`.`Time`) = @__year_0
+2024-11-29 10:45:19.031 +00:00 [INF] Application is shutting down...
