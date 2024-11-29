@@ -17,7 +17,7 @@ class Settings(BaseSettings):
     # Schedule intervals (seconds)
     DAILY_ANALYSIS_SCHEDULE: float = 30.0  # 30 giây chạy một lần
     CORRELATION_ANALYSIS_SCHEDULE: float = 60.0  # 5 phút 
-    SEASONAL_ANALYSIS_SCHEDULE: float = 300.0  # 5 phút
+    SEASONAL_ANALYSIS_SCHEDULE: float = 60.0  # 5 phút
 
     # Schedule enabled flags
     DAILY_ANALYSIS_ENABLED: bool = True
