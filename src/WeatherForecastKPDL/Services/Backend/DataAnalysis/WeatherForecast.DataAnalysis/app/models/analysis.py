@@ -46,15 +46,23 @@ class SeasonalAnalysis(BaseModel):
     
 class CorrelationAnalysis(BaseModel):
     date: str
-    temp_humidity_corr: float
-    temp_pressure_corr: float
-    temp_wind_corr: float
-    humidity_pressure_corr: float
-    humidity_wind_corr: float
-    pressure_wind_corr: float
-    rain_humidity_corr: float
-    feels_temp_corr: float
-    windchill_temp_corr: float
-    heatindex_temp_corr: float
-    cloud_humidity_corr: float
-    cloud_wind_corr: float
+    temp_humidity_corr: Optional[float] = None
+    temp_pressure_corr: Optional[float] = None
+    temp_wind_corr: Optional[float] = None
+    temp_cloud_corr: Optional[float] = None
+    humidity_temp_corr: Optional[float] = None
+    humidity_pressure_corr: Optional[float] = None
+    humidity_wind_corr: Optional[float] = None
+    humidity_cloud_corr: Optional[float] = None
+    pressure_temp_corr: Optional[float] = None
+    pressure_humidity_corr: Optional[float] = None
+    pressure_wind_corr: Optional[float] = None
+    pressure_cloud_corr: Optional[float] = None
+    wind_temp_corr: Optional[float] = None
+    wind_humidity_corr: Optional[float] = None
+    wind_pressure_corr: Optional[float] = None
+    wind_cloud_corr: Optional[float] = None
+    cloud_temp_corr: Optional[float] = None
+    cloud_humidity_corr: Optional[float] = None
+    cloud_pressure_corr: Optional[float] = None
+    cloud_wind_corr: Optional[float] = None

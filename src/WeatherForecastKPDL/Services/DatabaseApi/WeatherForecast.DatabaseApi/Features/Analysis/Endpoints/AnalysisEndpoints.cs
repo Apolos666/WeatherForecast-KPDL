@@ -64,43 +64,59 @@ public class AnalysisEndpoints : ICarterModule
         {
             try
             {
-                var date = DateTime.Parse(request.Date);
+                var date = request.Date;
 
                 var existingAnalysis = await db.CorrelationAnalyses
-                    .FirstOrDefaultAsync(d => d.Date.Date == date.Date);
+                    .FirstOrDefaultAsync(d => d.Time.Date == date.Date);
 
                 if (existingAnalysis != null)
                 {
-                    existingAnalysis.TempHumidityCorrelation = request.TempHumidityCorr;
-                    existingAnalysis.TempPressureCorrelation = request.TempPressureCorr;
-                    existingAnalysis.TempWindCorrelation = request.TempWindCorr;
-                    existingAnalysis.HumidityPressureCorrelation = request.HumidityPressureCorr;
-                    existingAnalysis.HumidityWindCorrelation = request.HumidityWindCorr;
-                    existingAnalysis.PressureWindCorrelation = request.PressureWindCorr;
-                    existingAnalysis.RainHumidityCorrelation = request.RainHumidityCorr;
-                    existingAnalysis.FeelsTempCorrelation = request.FeelingTempCorr;
-                    existingAnalysis.WindchillTempCorrelation = request.WindchillTempCorr;
-                    existingAnalysis.HeatindexTempCorrelation = request.HeatindexTempCorr;
-                    existingAnalysis.CloudHumidityCorrelation = request.CloudHumidityCorr;
-                    existingAnalysis.CloudWindCorrelation = request.CloudWindCorr;
+                    existingAnalysis.TempCHumidityCorrelation = request.TempCHumidityCorrelation;
+                    existingAnalysis.TempCPressureMbCorrelation = request.TempCPressureMbCorrelation;
+                    existingAnalysis.TempCWindKphCorrelation = request.TempCWindKphCorrelation;
+                    existingAnalysis.TempCCloudCorrelation = request.TempCCloudCorrelation;
+                    existingAnalysis.HumidityTempCCorrelation = request.HumidityTempCCorrelation;
+                    existingAnalysis.HumidityPressureMbCorrelation = request.HumidityPressureMbCorrelation;
+                    existingAnalysis.HumidityWindKphCorrelation = request.HumidityWindKphCorrelation;
+                    existingAnalysis.HumidityCloudCorrelation = request.HumidityCloudCorrelation;
+                    existingAnalysis.PressureMbTempCCorrelation = request.PressureMbTempCCorrelation;
+                    existingAnalysis.PressureMbHumidityCorrelation = request.PressureMbHumidityCorrelation;
+                    existingAnalysis.PressureMbWindKphCorrelation = request.PressureMbWindKphCorrelation;
+                    existingAnalysis.PressureMbCloudCorrelation = request.PressureMbCloudCorrelation;
+                    existingAnalysis.WindKphTempCCorrelation = request.WindKphTempCCorrelation;
+                    existingAnalysis.WindKphHumidityCorrelation = request.WindKphHumidityCorrelation;
+                    existingAnalysis.WindKphPressureMbCorrelation = request.WindKphPressureMbCorrelation;
+                    existingAnalysis.WindKphCloudCorrelation = request.WindKphCloudCorrelation;
+                    existingAnalysis.CloudTempCCorrelation = request.CloudTempCCorrelation;
+                    existingAnalysis.CloudHumidityCorrelation = request.CloudHumidityCorrelation;
+                    existingAnalysis.CloudPressureMbCorrelation = request.CloudPressureMbCorrelation;
+                    existingAnalysis.CloudWindKphCorrelation = request.CloudWindKphCorrelation;
                 }
                 else
                 {
                     var analysis = new CorrelationAnalysis
                     {
-                        Date = date,
-                        TempHumidityCorrelation = request.TempHumidityCorr,
-                        TempPressureCorrelation = request.TempPressureCorr,
-                        TempWindCorrelation = request.TempWindCorr,
-                        HumidityPressureCorrelation = request.HumidityPressureCorr,
-                        HumidityWindCorrelation = request.HumidityWindCorr,
-                        PressureWindCorrelation = request.PressureWindCorr,
-                        RainHumidityCorrelation = request.RainHumidityCorr,
-                        FeelsTempCorrelation = request.FeelingTempCorr,
-                        WindchillTempCorrelation = request.WindchillTempCorr,
-                        HeatindexTempCorrelation = request.HeatindexTempCorr,
-                        CloudHumidityCorrelation = request.CloudHumidityCorr,
-                        CloudWindCorrelation = request.CloudWindCorr
+                        Time = date,
+                        TempCHumidityCorrelation = request.TempCHumidityCorrelation,
+                        TempCPressureMbCorrelation = request.TempCPressureMbCorrelation,
+                        TempCWindKphCorrelation = request.TempCWindKphCorrelation,
+                        TempCCloudCorrelation = request.TempCCloudCorrelation,
+                        HumidityTempCCorrelation = request.HumidityTempCCorrelation,
+                        HumidityPressureMbCorrelation = request.HumidityPressureMbCorrelation,
+                        HumidityWindKphCorrelation = request.HumidityWindKphCorrelation,
+                        HumidityCloudCorrelation = request.HumidityCloudCorrelation,
+                        PressureMbTempCCorrelation = request.PressureMbTempCCorrelation,
+                        PressureMbHumidityCorrelation = request.PressureMbHumidityCorrelation,
+                        PressureMbWindKphCorrelation = request.PressureMbWindKphCorrelation,
+                        PressureMbCloudCorrelation = request.PressureMbCloudCorrelation,
+                        WindKphTempCCorrelation = request.WindKphTempCCorrelation,
+                        WindKphHumidityCorrelation = request.WindKphHumidityCorrelation,
+                        WindKphPressureMbCorrelation = request.WindKphPressureMbCorrelation,
+                        WindKphCloudCorrelation = request.WindKphCloudCorrelation,
+                        CloudTempCCorrelation = request.CloudTempCCorrelation,
+                        CloudHumidityCorrelation = request.CloudHumidityCorrelation,
+                        CloudPressureMbCorrelation = request.CloudPressureMbCorrelation,
+                        CloudWindKphCorrelation = request.CloudWindKphCorrelation
                     };
 
                     db.CorrelationAnalyses.Add(analysis);
@@ -117,6 +133,7 @@ public class AnalysisEndpoints : ICarterModule
                     statusCode: 500);
             }
         });
+
 
         app.MapPost("/api/analysis/seasonal", async (SeasonalAnalysisDto request, AppDbContext db) =>
         {
@@ -194,7 +211,6 @@ public class AnalysisEndpoints : ICarterModule
             try
             {
                 var analyses = await db.CorrelationAnalyses
-                    .OrderBy(d => d.Date)
                     .ToListAsync();
                 return Results.Ok(analyses);
             }

@@ -165,69 +165,69 @@ services:
       timeout: 10s
       retries: 3
 
-  # weatherforecast.dataanalysis:
-  #   container_name: weatherforecast.dataanalysis
-  #   environment:
-  #     - KAFKA_BOOTSTRAP_SERVERS=kafka:9092
-  #     - DATABASE_API_URL=http://weatherforecast.databaseapi:8080
-  #     - REDIS_URL=${REDIS_URL}
-  #   ports:
-  #     - "8087:8000"
-  #   depends_on:
-  #     kafka:
-  #       condition: service_healthy
-  #     weatherforecast.databaseapi:
-  #       condition: service_healthy
-
-  # weatherforecast.dataanalysis.worker:
-  #   container_name: weatherforecast.dataanalysis.worker
-  #   command: celery -A app.tasks.weather_tasks worker --loglevel=info
-  #   environment:
-  #     - WORKER_ID=worker
-  #     - KAFKA_BOOTSTRAP_SERVERS=kafka:9092
-  #     - DATABASE_API_URL=http://weatherforecast.databaseapi:8080
-  #     - REDIS_URL=${REDIS_URL}
-  #     - CELERY_WORKER=true
-  #   depends_on:
-  #     kafka:
-  #       condition: service_healthy
-  #     weatherforecast.databaseapi:
-  #       condition: service_healthy
-
-  # weatherforecast.dataanalysis.beat:
-  #   container_name: weatherforecast.dataanalysis.beat
-  #   command: celery -A app.tasks.weather_tasks beat --loglevel=info
-  #   environment:
-  #     - WORKER_ID=beat
-  #     - KAFKA_BOOTSTRAP_SERVERS=kafka:9092
-  #     - DATABASE_API_URL=http://weatherforecast.databaseapi:8080
-  #     - REDIS_URL=${REDIS_URL}
-  #     - CELERY_WORKER=false
-  #   depends_on:
-  #     kafka:
-  #       condition: service_healthy
-  #     weatherforecast.databaseapi:
-  #       condition: service_healthy
-
-  weatherforecastp.prediction:
-    container_name: weatherforecast.prediction
+  weatherforecast.dataanalysis:
+    container_name: weatherforecast.dataanalysis
     environment:
       - KAFKA_BOOTSTRAP_SERVERS=kafka:9092
+      - DATABASE_API_URL=http://weatherforecast.databaseapi:8080
+      - REDIS_URL=${REDIS_URL}
     ports:
-      - "8086:8000"
+      - "8087:8000"
     depends_on:
       kafka:
         condition: service_healthy
+      weatherforecast.databaseapi:
+        condition: service_healthy
 
-  weatherforecastp.clustering:
-    container_name: weatherforecast.clustering
+  weatherforecast.dataanalysis.worker:
+    container_name: weatherforecast.dataanalysis.worker
+    command: celery -A app.tasks.weather_tasks worker --loglevel=info
     environment:
+      - WORKER_ID=worker
       - KAFKA_BOOTSTRAP_SERVERS=kafka:9092
-      - KAFKA_TOPIC=weather-mysql.defaultdb.Hours
-      - KAFKA_SPIDER_CHART_CONSUMER_GROUP_ID=spider-chart-consumer-group
-      - API_URL=http://weatherforecast.databaseapi:8080
-    ports:
-      - "8089:8000"
+      - DATABASE_API_URL=http://weatherforecast.databaseapi:8080
+      - REDIS_URL=${REDIS_URL}
+      - CELERY_WORKER=true
     depends_on:
       kafka:
-        condition: service_healthy      
+        condition: service_healthy
+      weatherforecast.databaseapi:
+        condition: service_healthy
+
+  weatherforecast.dataanalysis.beat:
+    container_name: weatherforecast.dataanalysis.beat
+    command: celery -A app.tasks.weather_tasks beat --loglevel=info
+    environment:
+      - WORKER_ID=beat
+      - KAFKA_BOOTSTRAP_SERVERS=kafka:9092
+      - DATABASE_API_URL=http://weatherforecast.databaseapi:8080
+      - REDIS_URL=${REDIS_URL}
+      - CELERY_WORKER=false
+    depends_on:
+      kafka:
+        condition: service_healthy
+      weatherforecast.databaseapi:
+        condition: service_healthy
+
+  # weatherforecastp.prediction:
+  #   container_name: weatherforecast.prediction
+  #   environment:
+  #     - KAFKA_BOOTSTRAP_SERVERS=kafka:9092
+  #   ports:
+  #     - "8086:8000"
+  #   depends_on:
+  #     kafka:
+  #       condition: service_healthy
+
+  # weatherforecastp.clustering:
+  #   container_name: weatherforecast.clustering
+  #   environment:
+  #     - KAFKA_BOOTSTRAP_SERVERS=kafka:9092
+  #     - KAFKA_TOPIC=weather-mysql.defaultdb.Hours
+  #     - KAFKA_SPIDER_CHART_CONSUMER_GROUP_ID=spider-chart-consumer-group
+  #     - API_URL=http://weatherforecast.databaseapi:8080
+  #   ports:
+  #     - "8089:8000"
+  #   depends_on:
+  #     kafka:
+  #       condition: service_healthy      

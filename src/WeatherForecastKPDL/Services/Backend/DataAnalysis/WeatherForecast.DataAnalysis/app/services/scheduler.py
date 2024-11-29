@@ -1,6 +1,6 @@
 from asyncio import gather
 from .consumers import DailyWeatherConsumer, SeasonalWeatherConsumer, CorrelationWeatherConsumer
-from .analysis_service import WeatherAnalysisService
+from .analysis_process import WeatherAnalysisService
 from .database_api import DatabaseApiService
 from ..core.config import settings
 from ..core.logging import logger
