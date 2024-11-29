@@ -2124,3 +2124,116 @@ SELECT `c`.`Id`, `c`.`CloudHumidityCorrelation`, `c`.`CloudPressureMbCorrelation
 FROM `CorrelationAnalyses` AS `c`
 WHERE EXTRACT(year FROM `c`.`Time`) = @__year_0
 2024-11-29 10:45:19.031 +00:00 [INF] Application is shutting down...
+2024-11-29 13:06:34.394 +00:00 [INF] Executed DbCommand (111ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1 FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA='defaultdb' AND TABLE_NAME='__EFMigrationsHistory';
+2024-11-29 13:06:35.409 +00:00 [INF] Executed DbCommand (105ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1 FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA='defaultdb' AND TABLE_NAME='__EFMigrationsHistory';
+2024-11-29 13:06:35.632 +00:00 [INF] Executed DbCommand (105ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `MigrationId`, `ProductVersion`
+FROM `__EFMigrationsHistory`
+ORDER BY `MigrationId`;
+2024-11-29 13:06:35.642 +00:00 [INF] No migrations were applied. The database is already up to date.
+2024-11-29 13:06:35.676 +00:00 [INF] Now listening on: http://[::]:8080
+2024-11-29 13:06:35.678 +00:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-29 13:06:35.679 +00:00 [INF] Hosting environment: Development
+2024-11-29 13:06:35.679 +00:00 [INF] Content root path: /app
+2024-11-29 13:06:39.892 +00:00 [INF] Executed DbCommand (139ms) [Parameters=[@__request_Location_Name_0='?' (Size = 100)], CommandType='"Text"', CommandTimeout='30']
+SELECT `l`.`Id`, `l`.`Country`, `l`.`Lat`, `l`.`Localtime`, `l`.`LocaltimeEpoch`, `l`.`Lon`, `l`.`Name`, `l`.`Region`, `l`.`TzId`
+FROM `Locations` AS `l`
+WHERE `l`.`Name` = @__request_Location_Name_0
+LIMIT 1
+2024-11-29 13:06:40.197 +00:00 [INF] Executed DbCommand (108ms) [Parameters=[@__8__locals1_location_Id_0='?' (DbType = Int32), @__forecastDay_Date_Date_1='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT `w`.`Id`, `w`.`Date`, `w`.`DateEpoch`, `w`.`LocationId`
+FROM `WeatherForecasts` AS `w`
+WHERE (`w`.`LocationId` = @__8__locals1_location_Id_0) AND (CONVERT(`w`.`Date`, date) = @__forecastDay_Date_Date_1)
+LIMIT 1
+2024-11-29 13:10:37.795 +00:00 [INF] Executed DbCommand (162ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1 FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA='defaultdb' AND TABLE_NAME='__EFMigrationsHistory';
+2024-11-29 13:10:42.179 +00:00 [INF] Executed DbCommand (542ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1 FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA='defaultdb' AND TABLE_NAME='__EFMigrationsHistory';
+2024-11-29 13:10:42.435 +00:00 [INF] Executed DbCommand (115ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `MigrationId`, `ProductVersion`
+FROM `__EFMigrationsHistory`
+ORDER BY `MigrationId`;
+2024-11-29 13:10:42.452 +00:00 [INF] No migrations were applied. The database is already up to date.
+2024-11-29 13:10:42.511 +00:00 [INF] Now listening on: http://[::]:8080
+2024-11-29 13:10:42.513 +00:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-29 13:10:42.514 +00:00 [INF] Hosting environment: Development
+2024-11-29 13:10:42.514 +00:00 [INF] Content root path: /app
+2024-11-29 13:10:48.338 +00:00 [INF] Executed DbCommand (140ms) [Parameters=[@__request_Location_Name_0='?' (Size = 100)], CommandType='"Text"', CommandTimeout='30']
+SELECT `l`.`Id`, `l`.`Country`, `l`.`Lat`, `l`.`Localtime`, `l`.`LocaltimeEpoch`, `l`.`Lon`, `l`.`Name`, `l`.`Region`, `l`.`TzId`
+FROM `Locations` AS `l`
+WHERE `l`.`Name` = @__request_Location_Name_0
+LIMIT 1
+2024-11-29 13:10:48.677 +00:00 [INF] Executed DbCommand (119ms) [Parameters=[@__8__locals1_location_Id_0='?' (DbType = Int32), @__forecastDay_Date_Date_1='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT `w`.`Id`, `w`.`Date`, `w`.`DateEpoch`, `w`.`LocationId`
+FROM `WeatherForecasts` AS `w`
+WHERE (`w`.`LocationId` = @__8__locals1_location_Id_0) AND (CONVERT(`w`.`Date`, date) = @__forecastDay_Date_Date_1)
+LIMIT 1
+2024-11-29 13:19:49.334 +00:00 [INF] Executed DbCommand (120ms) [Parameters=[@__date_Date_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`Id`, `d`.`AverageHumidity`, `d`.`AveragePressure`, `d`.`AverageTemperature`, `d`.`AverageWindSpeed`, `d`.`Date`, `d`.`TotalPrecipitation`
+FROM `DailyAnalyses` AS `d`
+WHERE CONVERT(`d`.`Date`, date) = @__date_Date_0
+LIMIT 1
+2024-11-29 13:19:49.893 +00:00 [INF] Executed DbCommand (133ms) [Parameters=[@p0='?' (DbType = Double), @p1='?' (DbType = Double), @p2='?' (DbType = Double), @p3='?' (DbType = Double), @p4='?' (DbType = DateTime), @p5='?' (DbType = Double)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `DailyAnalyses` (`AverageHumidity`, `AveragePressure`, `AverageTemperature`, `AverageWindSpeed`, `Date`, `TotalPrecipitation`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+SELECT `Id`
+FROM `DailyAnalyses`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+2024-11-29 13:22:38.386 +00:00 [INF] Executed DbCommand (496ms) [Parameters=[@__date_Date_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`Id`, `d`.`AverageHumidity`, `d`.`AveragePressure`, `d`.`AverageTemperature`, `d`.`AverageWindSpeed`, `d`.`Date`, `d`.`TotalPrecipitation`
+FROM `DailyAnalyses` AS `d`
+WHERE CONVERT(`d`.`Date`, date) = @__date_Date_0
+LIMIT 1
+2024-11-29 13:22:39.285 +00:00 [INF] Executed DbCommand (158ms) [Parameters=[@p0='?' (DbType = Double), @p1='?' (DbType = Double), @p2='?' (DbType = Double), @p3='?' (DbType = Double), @p4='?' (DbType = DateTime), @p5='?' (DbType = Double)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `DailyAnalyses` (`AverageHumidity`, `AveragePressure`, `AverageTemperature`, `AverageWindSpeed`, `Date`, `TotalPrecipitation`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+SELECT `Id`
+FROM `DailyAnalyses`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+2024-11-29 13:23:21.936 +00:00 [INF] Executed DbCommand (118ms) [Parameters=[@__date_Date_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`Id`, `d`.`AverageHumidity`, `d`.`AveragePressure`, `d`.`AverageTemperature`, `d`.`AverageWindSpeed`, `d`.`Date`, `d`.`TotalPrecipitation`
+FROM `DailyAnalyses` AS `d`
+WHERE CONVERT(`d`.`Date`, date) = @__date_Date_0
+LIMIT 1
+2024-11-29 13:23:22.404 +00:00 [INF] Executed DbCommand (114ms) [Parameters=[@p0='?' (DbType = Double), @p1='?' (DbType = Double), @p2='?' (DbType = Double), @p3='?' (DbType = Double), @p4='?' (DbType = DateTime), @p5='?' (DbType = Double)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `DailyAnalyses` (`AverageHumidity`, `AveragePressure`, `AverageTemperature`, `AverageWindSpeed`, `Date`, `TotalPrecipitation`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+SELECT `Id`
+FROM `DailyAnalyses`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+2024-11-29 13:23:50.741 +00:00 [INF] Executed DbCommand (123ms) [Parameters=[@__date_Date_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`Id`, `d`.`AverageHumidity`, `d`.`AveragePressure`, `d`.`AverageTemperature`, `d`.`AverageWindSpeed`, `d`.`Date`, `d`.`TotalPrecipitation`
+FROM `DailyAnalyses` AS `d`
+WHERE CONVERT(`d`.`Date`, date) = @__date_Date_0
+LIMIT 1
+2024-11-29 13:23:51.221 +00:00 [INF] Executed DbCommand (123ms) [Parameters=[@p0='?' (DbType = Double), @p1='?' (DbType = Double), @p2='?' (DbType = Double), @p3='?' (DbType = Double), @p4='?' (DbType = DateTime), @p5='?' (DbType = Double)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `DailyAnalyses` (`AverageHumidity`, `AveragePressure`, `AverageTemperature`, `AverageWindSpeed`, `Date`, `TotalPrecipitation`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+SELECT `Id`
+FROM `DailyAnalyses`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+2024-11-29 13:24:20.681 +00:00 [INF] Executed DbCommand (114ms) [Parameters=[@__date_Date_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`Id`, `d`.`AverageHumidity`, `d`.`AveragePressure`, `d`.`AverageTemperature`, `d`.`AverageWindSpeed`, `d`.`Date`, `d`.`TotalPrecipitation`
+FROM `DailyAnalyses` AS `d`
+WHERE CONVERT(`d`.`Date`, date) = @__date_Date_0
+LIMIT 1
+2024-11-29 13:24:21.148 +00:00 [INF] Executed DbCommand (115ms) [Parameters=[@p0='?' (DbType = Double), @p1='?' (DbType = Double), @p2='?' (DbType = Double), @p3='?' (DbType = Double), @p4='?' (DbType = DateTime), @p5='?' (DbType = Double)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `DailyAnalyses` (`AverageHumidity`, `AveragePressure`, `AverageTemperature`, `AverageWindSpeed`, `Date`, `TotalPrecipitation`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+SELECT `Id`
+FROM `DailyAnalyses`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+2024-11-29 13:24:51.032 +00:00 [INF] Executed DbCommand (114ms) [Parameters=[@__date_Date_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`Id`, `d`.`AverageHumidity`, `d`.`AveragePressure`, `d`.`AverageTemperature`, `d`.`AverageWindSpeed`, `d`.`Date`, `d`.`TotalPrecipitation`
+FROM `DailyAnalyses` AS `d`
+WHERE CONVERT(`d`.`Date`, date) = @__date_Date_0
+LIMIT 1
+2024-11-29 13:24:51.511 +00:00 [INF] Executed DbCommand (124ms) [Parameters=[@p0='?' (DbType = Double), @p1='?' (DbType = Double), @p2='?' (DbType = Double), @p3='?' (DbType = Double), @p4='?' (DbType = DateTime), @p5='?' (DbType = Double)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `DailyAnalyses` (`AverageHumidity`, `AveragePressure`, `AverageTemperature`, `AverageWindSpeed`, `Date`, `TotalPrecipitation`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+SELECT `Id`
+FROM `DailyAnalyses`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+2024-11-29 13:25:34.781 +00:00 [INF] Application is shutting down...
