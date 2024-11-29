@@ -1,30 +1,34 @@
-"use client";
-import Link from "next/link";
-import React from "react";
-import { usePathname } from "next/navigation";
-import { FaChartBar, FaChartPie, FaChartLine } from "react-icons/fa";
-import Image from "next/image";
+'use client';
+import Link from 'next/link';
+import React from 'react';
+import { usePathname } from 'next/navigation';
+import { FaChartBar, FaChartPie, FaChartLine } from 'react-icons/fa';
+import Image from 'next/image';
 
 const Sidebar = () => {
   const pathname = usePathname();
 
   const menuItems = [
-    { label: "Pattern 1", icon: <FaChartLine />, link: "/pattern1" },
-    { label: "Pattern 2", icon: <FaChartBar />, link: "/pattern2" },
-    { label: "Pattern 3", icon: <FaChartPie />, link: "/pattern3" },
-    { label: "Pattern 4", icon: <FaChartLine />, link: "/pattern4" },
-    { label: "Pattern 5", icon: <FaChartBar />, link: "/pattern5" },
-    { label: "Pattern 6", icon: <FaChartPie />, link: "/pattern6" },
-    { label: "Pattern 7", icon: <FaChartLine />, link: "/pattern7" },
+    {
+      label: 'Raw Data Pattern',
+      icon: <FaChartLine />,
+      link: '/pattern1/date',
+    },
+    { label: 'Daily Pattern', icon: <FaChartBar />, link: '/pattern2' },
+    { label: 'Seasonal Pattern', icon: <FaChartPie />, link: '/pattern3' },
+    { label: 'Correlation Pattern', icon: <FaChartLine />, link: '/pattern4' },
+    { label: 'Pattern 5', icon: <FaChartBar />, link: '/pattern5' },
+    { label: 'Pattern 6', icon: <FaChartPie />, link: '/pattern6' },
+    { label: 'Pattern 7', icon: <FaChartLine />, link: '/pattern7' },
   ];
 
   return (
     <div className="fixed top-0 left-0 h-full w-72 bg-[#212531] shadow-lg transition-transform transform duration-300 ease-in-out translate-x-0 md:translate-x-0">
       {/* Header */}
       <div className="px-6 py-4 border-b  border-gray-600">
-        <Link href={"/"}>
+        <Link href={'/'}>
           <h5 className="flex flex-row justify-center items-center gap-4 text-xl font-semibold text-white tracking-wide">
-            <Image src={"/cloudy.png"} width={28} height={28} alt="logo" />
+            <Image src={'/cloudy.png'} width={28} height={28} alt="logo" />
             <span className="mt-2">Weather Forecast</span>
           </h5>
         </Link>
@@ -43,8 +47,8 @@ const Sidebar = () => {
               <div
                 className={`flex items-center justify-between p-3 rounded-lg cursor-pointer transition-transform ease-in-out duration-200 ${
                   isActive
-                    ? "bg-blue-600 text-white scale-105"
-                    : "hover:bg-gray-700 hover:text-gray-200 hover:scale-105"
+                    ? 'bg-blue-600 text-white scale-105'
+                    : 'hover:bg-gray-700 hover:text-gray-200 hover:scale-105'
                 }`}
               >
                 <div className="flex items-center space-x-4 text-gray-300">
@@ -60,7 +64,7 @@ const Sidebar = () => {
       {/* Footer */}
       <div className="absolute bottom-4 left-0 w-full px-4 text-center">
         <p className="text-gray-400 text-xs">
-          Made with{" "}
+          Made with{' '}
           <a
             href="https://react-icons.github.io/react-icons/"
             target="_blank"

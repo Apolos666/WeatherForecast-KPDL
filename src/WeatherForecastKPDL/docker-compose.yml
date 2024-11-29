@@ -27,7 +27,7 @@ services:
       - weathernet
 
   kafka-ui:
-    image: provectuslabs/kafka-ui:latest    
+    image: provectuslabs/kafka-ui:latest
     networks:
       - weathernet
 
@@ -44,13 +44,21 @@ services:
   debezium-connector-config:
     image: curlimages/curl
     networks:
-      - weathernet    
+      - weathernet
 
   # weatherforecast.dataanalysis:
   #   image: quangtran2/weatherforecastdataanalysis:latest
   #   networks:
   #     - weathernet
+  # weatherforecast.dataanalysis:
+  #   image: quangtran2/weatherforecastdataanalysis:latest
+  #   networks:
+  #     - weathernet
 
+  # weatherforecast.dataanalysis.worker:
+  #   image: quangtran2/weatherforecastdataanalysis:latest
+  #   networks:
+  #     - weathernet
   # weatherforecast.dataanalysis.worker:
   #   image: quangtran2/weatherforecastdataanalysis:latest
   #   networks:
