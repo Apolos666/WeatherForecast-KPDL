@@ -2237,3 +2237,170 @@ SELECT `Id`
 FROM `DailyAnalyses`
 WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
 2024-11-29 13:25:34.781 +00:00 [INF] Application is shutting down...
+2024-11-29 14:03:17.444 +00:00 [INF] Executed DbCommand (126ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1 FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA='defaultdb' AND TABLE_NAME='__EFMigrationsHistory';
+2024-11-29 14:03:19.369 +00:00 [INF] Executed DbCommand (457ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1 FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA='defaultdb' AND TABLE_NAME='__EFMigrationsHistory';
+2024-11-29 14:03:19.673 +00:00 [INF] Executed DbCommand (132ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `MigrationId`, `ProductVersion`
+FROM `__EFMigrationsHistory`
+ORDER BY `MigrationId`;
+2024-11-29 14:03:19.685 +00:00 [INF] No migrations were applied. The database is already up to date.
+2024-11-29 14:03:19.735 +00:00 [INF] Now listening on: http://[::]:8080
+2024-11-29 14:03:19.737 +00:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-29 14:03:19.737 +00:00 [INF] Hosting environment: Development
+2024-11-29 14:03:19.738 +00:00 [INF] Content root path: /app
+2024-11-29 14:03:28.638 +00:00 [INF] Executed DbCommand (150ms) [Parameters=[@__request_Location_Name_0='?' (Size = 100)], CommandType='"Text"', CommandTimeout='30']
+SELECT `l`.`Id`, `l`.`Country`, `l`.`Lat`, `l`.`Localtime`, `l`.`LocaltimeEpoch`, `l`.`Lon`, `l`.`Name`, `l`.`Region`, `l`.`TzId`
+FROM `Locations` AS `l`
+WHERE `l`.`Name` = @__request_Location_Name_0
+LIMIT 1
+2024-11-29 14:03:29.017 +00:00 [INF] Executed DbCommand (127ms) [Parameters=[@__8__locals1_location_Id_0='?' (DbType = Int32), @__forecastDay_Date_Date_1='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT `w`.`Id`, `w`.`Date`, `w`.`DateEpoch`, `w`.`LocationId`
+FROM `WeatherForecasts` AS `w`
+WHERE (`w`.`LocationId` = @__8__locals1_location_Id_0) AND (CONVERT(`w`.`Date`, date) = @__forecastDay_Date_Date_1)
+LIMIT 1
+2024-11-29 14:05:20.396 +00:00 [INF] Executed DbCommand (112ms) [Parameters=[@__date_Date_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`RainyHours`, `s`.`TotalPrecip`, `s`.`YearMonth`
+FROM `SeasonalAnalyses` AS `s`
+WHERE CONVERT(`s`.`Date`, date) = @__date_Date_0
+LIMIT 1
+2024-11-29 14:05:20.953 +00:00 [INF] Executed DbCommand (160ms) [Parameters=[@p0='?' (DbType = Double), @p1='?' (DbType = Double), @p2='?' (DbType = Double), @p3='?' (DbType = Double), @p4='?' (DbType = DateTime), @p5='?' (DbType = Double), @p6='?' (DbType = Double), @p7='?' (DbType = Int32), @p8='?' (DbType = Double), @p9='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `SeasonalAnalyses` (`AvgHumidity`, `AvgPressure`, `AvgTemp`, `AvgWind`, `Date`, `MaxTemp`, `MinTemp`, `RainyHours`, `TotalPrecip`, `YearMonth`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9);
+SELECT `Id`
+FROM `SeasonalAnalyses`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+2024-11-29 14:06:02.689 +00:00 [INF] Executed DbCommand (150ms) [Parameters=[@__date_Date_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`RainyHours`, `s`.`TotalPrecip`, `s`.`YearMonth`
+FROM `SeasonalAnalyses` AS `s`
+WHERE CONVERT(`s`.`Date`, date) = @__date_Date_0
+LIMIT 1
+2024-11-29 14:06:03.234 +00:00 [INF] Executed DbCommand (140ms) [Parameters=[@p0='?' (DbType = Double), @p1='?' (DbType = Double), @p2='?' (DbType = Double), @p3='?' (DbType = Double), @p4='?' (DbType = DateTime), @p5='?' (DbType = Double), @p6='?' (DbType = Double), @p7='?' (DbType = Int32), @p8='?' (DbType = Double), @p9='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `SeasonalAnalyses` (`AvgHumidity`, `AvgPressure`, `AvgTemp`, `AvgWind`, `Date`, `MaxTemp`, `MinTemp`, `RainyHours`, `TotalPrecip`, `YearMonth`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9);
+SELECT `Id`
+FROM `SeasonalAnalyses`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+2024-11-29 14:06:05.648 +00:00 [INF] Executed DbCommand (110ms) [Parameters=[@__date_Date_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`RainyHours`, `s`.`TotalPrecip`, `s`.`YearMonth`
+FROM `SeasonalAnalyses` AS `s`
+WHERE CONVERT(`s`.`Date`, date) = @__date_Date_0
+LIMIT 1
+2024-11-29 14:06:06.142 +00:00 [INF] Executed DbCommand (112ms) [Parameters=[@p0='?' (DbType = Double), @p1='?' (DbType = Double), @p2='?' (DbType = Double), @p3='?' (DbType = Double), @p4='?' (DbType = DateTime), @p5='?' (DbType = Double), @p6='?' (DbType = Double), @p7='?' (DbType = Int32), @p8='?' (DbType = Double), @p9='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `SeasonalAnalyses` (`AvgHumidity`, `AvgPressure`, `AvgTemp`, `AvgWind`, `Date`, `MaxTemp`, `MinTemp`, `RainyHours`, `TotalPrecip`, `YearMonth`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9);
+SELECT `Id`
+FROM `SeasonalAnalyses`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+2024-11-29 14:07:03.196 +00:00 [INF] Executed DbCommand (491ms) [Parameters=[@__date_Date_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`RainyHours`, `s`.`TotalPrecip`, `s`.`YearMonth`
+FROM `SeasonalAnalyses` AS `s`
+WHERE CONVERT(`s`.`Date`, date) = @__date_Date_0
+LIMIT 1
+2024-11-29 14:07:03.749 +00:00 [INF] Executed DbCommand (150ms) [Parameters=[@p0='?' (DbType = Double), @p1='?' (DbType = Double), @p2='?' (DbType = Double), @p3='?' (DbType = Double), @p4='?' (DbType = DateTime), @p5='?' (DbType = Double), @p6='?' (DbType = Double), @p7='?' (DbType = Int32), @p8='?' (DbType = Double), @p9='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `SeasonalAnalyses` (`AvgHumidity`, `AvgPressure`, `AvgTemp`, `AvgWind`, `Date`, `MaxTemp`, `MinTemp`, `RainyHours`, `TotalPrecip`, `YearMonth`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9);
+SELECT `Id`
+FROM `SeasonalAnalyses`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+2024-11-29 14:08:02.795 +00:00 [INF] Executed DbCommand (111ms) [Parameters=[@__date_Date_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`RainyHours`, `s`.`TotalPrecip`, `s`.`YearMonth`
+FROM `SeasonalAnalyses` AS `s`
+WHERE CONVERT(`s`.`Date`, date) = @__date_Date_0
+LIMIT 1
+2024-11-29 14:08:03.796 +00:00 [INF] Executed DbCommand (114ms) [Parameters=[@p0='?' (DbType = Double), @p1='?' (DbType = Double), @p2='?' (DbType = Double), @p3='?' (DbType = Double), @p4='?' (DbType = DateTime), @p5='?' (DbType = Double), @p6='?' (DbType = Double), @p7='?' (DbType = Int32), @p8='?' (DbType = Double), @p9='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `SeasonalAnalyses` (`AvgHumidity`, `AvgPressure`, `AvgTemp`, `AvgWind`, `Date`, `MaxTemp`, `MinTemp`, `RainyHours`, `TotalPrecip`, `YearMonth`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9);
+SELECT `Id`
+FROM `SeasonalAnalyses`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+2024-11-29 14:09:02.768 +00:00 [INF] Executed DbCommand (115ms) [Parameters=[@__date_Date_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`RainyHours`, `s`.`TotalPrecip`, `s`.`YearMonth`
+FROM `SeasonalAnalyses` AS `s`
+WHERE CONVERT(`s`.`Date`, date) = @__date_Date_0
+LIMIT 1
+2024-11-29 14:09:03.321 +00:00 [INF] Executed DbCommand (155ms) [Parameters=[@p0='?' (DbType = Double), @p1='?' (DbType = Double), @p2='?' (DbType = Double), @p3='?' (DbType = Double), @p4='?' (DbType = DateTime), @p5='?' (DbType = Double), @p6='?' (DbType = Double), @p7='?' (DbType = Int32), @p8='?' (DbType = Double), @p9='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `SeasonalAnalyses` (`AvgHumidity`, `AvgPressure`, `AvgTemp`, `AvgWind`, `Date`, `MaxTemp`, `MinTemp`, `RainyHours`, `TotalPrecip`, `YearMonth`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9);
+SELECT `Id`
+FROM `SeasonalAnalyses`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+2024-11-29 14:10:02.720 +00:00 [INF] Executed DbCommand (112ms) [Parameters=[@__date_Date_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`RainyHours`, `s`.`TotalPrecip`, `s`.`YearMonth`
+FROM `SeasonalAnalyses` AS `s`
+WHERE CONVERT(`s`.`Date`, date) = @__date_Date_0
+LIMIT 1
+2024-11-29 14:10:03.503 +00:00 [INF] Executed DbCommand (116ms) [Parameters=[@p0='?' (DbType = Double), @p1='?' (DbType = Double), @p2='?' (DbType = Double), @p3='?' (DbType = Double), @p4='?' (DbType = DateTime), @p5='?' (DbType = Double), @p6='?' (DbType = Double), @p7='?' (DbType = Int32), @p8='?' (DbType = Double), @p9='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `SeasonalAnalyses` (`AvgHumidity`, `AvgPressure`, `AvgTemp`, `AvgWind`, `Date`, `MaxTemp`, `MinTemp`, `RainyHours`, `TotalPrecip`, `YearMonth`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9);
+SELECT `Id`
+FROM `SeasonalAnalyses`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+2024-11-29 14:11:07.584 +00:00 [INF] Executed DbCommand (116ms) [Parameters=[@__date_Date_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`RainyHours`, `s`.`TotalPrecip`, `s`.`YearMonth`
+FROM `SeasonalAnalyses` AS `s`
+WHERE CONVERT(`s`.`Date`, date) = @__date_Date_0
+LIMIT 1
+2024-11-29 14:11:08.125 +00:00 [INF] Executed DbCommand (142ms) [Parameters=[@p0='?' (DbType = Double), @p1='?' (DbType = Double), @p2='?' (DbType = Double), @p3='?' (DbType = Double), @p4='?' (DbType = DateTime), @p5='?' (DbType = Double), @p6='?' (DbType = Double), @p7='?' (DbType = Int32), @p8='?' (DbType = Double), @p9='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `SeasonalAnalyses` (`AvgHumidity`, `AvgPressure`, `AvgTemp`, `AvgWind`, `Date`, `MaxTemp`, `MinTemp`, `RainyHours`, `TotalPrecip`, `YearMonth`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9);
+SELECT `Id`
+FROM `SeasonalAnalyses`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+2024-11-29 14:12:02.773 +00:00 [INF] Executed DbCommand (110ms) [Parameters=[@__date_Date_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`RainyHours`, `s`.`TotalPrecip`, `s`.`YearMonth`
+FROM `SeasonalAnalyses` AS `s`
+WHERE CONVERT(`s`.`Date`, date) = @__date_Date_0
+LIMIT 1
+2024-11-29 14:12:03.809 +00:00 [INF] Executed DbCommand (656ms) [Parameters=[@p0='?' (DbType = Double), @p1='?' (DbType = Double), @p2='?' (DbType = Double), @p3='?' (DbType = Double), @p4='?' (DbType = DateTime), @p5='?' (DbType = Double), @p6='?' (DbType = Double), @p7='?' (DbType = Int32), @p8='?' (DbType = Double), @p9='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `SeasonalAnalyses` (`AvgHumidity`, `AvgPressure`, `AvgTemp`, `AvgWind`, `Date`, `MaxTemp`, `MinTemp`, `RainyHours`, `TotalPrecip`, `YearMonth`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9);
+SELECT `Id`
+FROM `SeasonalAnalyses`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+2024-11-29 14:13:02.895 +00:00 [INF] Executed DbCommand (113ms) [Parameters=[@__date_Date_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`RainyHours`, `s`.`TotalPrecip`, `s`.`YearMonth`
+FROM `SeasonalAnalyses` AS `s`
+WHERE CONVERT(`s`.`Date`, date) = @__date_Date_0
+LIMIT 1
+2024-11-29 14:13:03.428 +00:00 [INF] Executed DbCommand (151ms) [Parameters=[@p0='?' (DbType = Double), @p1='?' (DbType = Double), @p2='?' (DbType = Double), @p3='?' (DbType = Double), @p4='?' (DbType = DateTime), @p5='?' (DbType = Double), @p6='?' (DbType = Double), @p7='?' (DbType = Int32), @p8='?' (DbType = Double), @p9='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `SeasonalAnalyses` (`AvgHumidity`, `AvgPressure`, `AvgTemp`, `AvgWind`, `Date`, `MaxTemp`, `MinTemp`, `RainyHours`, `TotalPrecip`, `YearMonth`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9);
+SELECT `Id`
+FROM `SeasonalAnalyses`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+2024-11-29 14:14:02.806 +00:00 [INF] Executed DbCommand (139ms) [Parameters=[@__date_Date_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`RainyHours`, `s`.`TotalPrecip`, `s`.`YearMonth`
+FROM `SeasonalAnalyses` AS `s`
+WHERE CONVERT(`s`.`Date`, date) = @__date_Date_0
+LIMIT 1
+2024-11-29 14:14:03.777 +00:00 [INF] Executed DbCommand (608ms) [Parameters=[@p0='?' (DbType = Double), @p1='?' (DbType = Double), @p2='?' (DbType = Double), @p3='?' (DbType = Double), @p4='?' (DbType = DateTime), @p5='?' (DbType = Double), @p6='?' (DbType = Double), @p7='?' (DbType = Int32), @p8='?' (DbType = Double), @p9='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `SeasonalAnalyses` (`AvgHumidity`, `AvgPressure`, `AvgTemp`, `AvgWind`, `Date`, `MaxTemp`, `MinTemp`, `RainyHours`, `TotalPrecip`, `YearMonth`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9);
+SELECT `Id`
+FROM `SeasonalAnalyses`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+2024-11-29 14:15:03.063 +00:00 [INF] Executed DbCommand (112ms) [Parameters=[@__date_Date_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`RainyHours`, `s`.`TotalPrecip`, `s`.`YearMonth`
+FROM `SeasonalAnalyses` AS `s`
+WHERE CONVERT(`s`.`Date`, date) = @__date_Date_0
+LIMIT 1
+2024-11-29 14:15:03.542 +00:00 [INF] Executed DbCommand (146ms) [Parameters=[@p0='?' (DbType = Double), @p1='?' (DbType = Double), @p2='?' (DbType = Double), @p3='?' (DbType = Double), @p4='?' (DbType = DateTime), @p5='?' (DbType = Double), @p6='?' (DbType = Double), @p7='?' (DbType = Int32), @p8='?' (DbType = Double), @p9='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `SeasonalAnalyses` (`AvgHumidity`, `AvgPressure`, `AvgTemp`, `AvgWind`, `Date`, `MaxTemp`, `MinTemp`, `RainyHours`, `TotalPrecip`, `YearMonth`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9);
+SELECT `Id`
+FROM `SeasonalAnalyses`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+2024-11-29 14:16:07.732 +00:00 [INF] Executed DbCommand (107ms) [Parameters=[@__date_Date_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`RainyHours`, `s`.`TotalPrecip`, `s`.`YearMonth`
+FROM `SeasonalAnalyses` AS `s`
+WHERE CONVERT(`s`.`Date`, date) = @__date_Date_0
+LIMIT 1
+2024-11-29 14:16:08.264 +00:00 [INF] Executed DbCommand (143ms) [Parameters=[@p0='?' (DbType = Double), @p1='?' (DbType = Double), @p2='?' (DbType = Double), @p3='?' (DbType = Double), @p4='?' (DbType = DateTime), @p5='?' (DbType = Double), @p6='?' (DbType = Double), @p7='?' (DbType = Int32), @p8='?' (DbType = Double), @p9='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `SeasonalAnalyses` (`AvgHumidity`, `AvgPressure`, `AvgTemp`, `AvgWind`, `Date`, `MaxTemp`, `MinTemp`, `RainyHours`, `TotalPrecip`, `YearMonth`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9);
+SELECT `Id`
+FROM `SeasonalAnalyses`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+2024-11-29 14:16:47.077 +00:00 [INF] Application is shutting down...
