@@ -1,3 +1,5 @@
+import asyncio
+from typing import List
 import httpx
 from ..models.analysis import DailyAnalysis, CorrelationAnalysis, SeasonalAnalysis
 from ..core.config import settings
@@ -36,16 +38,24 @@ class DatabaseApiService:
             logger.error(f"Lỗi khi lưu correlation analysis: {str(e)}")
             raise
 
-    async def save_seasonal_analysis(self, analysis: SeasonalAnalysis):
-        logger.info(f"Đang lưu phân tích theo mùa cho ngày {analysis.date}")
+    async def save_seasonal_analysis(self, analyses: List[SeasonalAnalysis]):
+        logger.info(f"Đang lưu {len(analyses)} phân tích theo quý")
         try:
             async with httpx.AsyncClient() as client:
-                response = await client.post(
-                    f"{self.base_url}/api/analysis/seasonal",
-                    json=analysis.model_dump()
-                )
-                response.raise_for_status()
-            logger.info("Lưu phân tích theo mùa thành công")
+                tasks = []
+                for analysis in analyses:
+                    logger.info(f"Chuẩn bị lưu phân tích theo mùa cho ngày {analysis.date}")
+                    task = client.post(
+                        f"{self.base_url}/api/analysis/seasonal",
+                        json=analysis.model_dump()
+                    )
+                    tasks.append(task)
+                
+                responses = await asyncio.gather(*tasks)
+                for response in responses:
+                    response.raise_for_status()
+                    
+                logger.info("Lưu phân tích theo mùa thành công")
         except Exception as e:
             logger.error(f"Lỗi khi lưu seasonal analysis: {str(e)}")
             raise

@@ -34,7 +34,8 @@ class DailyAnalysis(BaseModel):
 
 class SeasonalAnalysis(BaseModel):
     date: str
-    year_month: str
+    year: int
+    quarter: int
     avg_temp: float
     avg_humidity: float
     total_precip: float
@@ -42,7 +43,6 @@ class SeasonalAnalysis(BaseModel):
     avg_pressure: float
     max_temp: float
     min_temp: float
-    rainy_hours: int
     
 class CorrelationAnalysis(BaseModel):
     date: str

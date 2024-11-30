@@ -2,12 +2,16 @@ using System.Text.Json.Serialization;
 
 namespace WeatherForecast.DatabaseApi.Dtos;
 
-public class SeasonalAnalysisDto {
+public class SeasonalAnalysisDto
+{
     [JsonPropertyName("date")]
     public string Date { get; set; }
 
-    [JsonPropertyName("year_month")]
-    public string YearMonth { get; set; }
+    [JsonPropertyName("year")]
+    public int Year { get; set; }
+
+    [JsonPropertyName("quarter")]
+    public int Quarter { get; set; }
 
     [JsonPropertyName("avg_temp")]
     public double AvgTemp { get; set; }
@@ -29,7 +33,4 @@ public class SeasonalAnalysisDto {
 
     [JsonPropertyName("min_temp")]
     public double MinTemp { get; set; }
-
-    [JsonPropertyName("rainy_hours")]
-    public int RainyHours { get; set; }
 }

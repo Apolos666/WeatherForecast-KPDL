@@ -67,30 +67,52 @@ class WeatherAnalysisService:
             if df.empty:
                 raise ValueError("Không có dữ liệu để phân tích")
 
+            # Convert Time to datetime and set as index
             df['Time'] = pd.to_datetime(df['Time'])
-            df['year_month'] = df['Time'].dt.strftime('%Y-%m')
+            df.set_index('Time', inplace=True)
 
-            last_month = df['year_month'].max()
-            month_data = df[df['year_month'] == last_month]
+            # Perform daily resampling with proper aggregations
+            seasonal_data = df.resample('D').agg({
+                'TempC': ['mean', 'max', 'min'],
+                'Humidity': 'mean',
+                'PrecipMm': 'sum',
+                'WindKph': 'mean',
+                'PressureMb': 'mean'
+            })
 
-            if month_data.empty:
-                raise ValueError("Không có dữ liệu để phân tích")
+            # Flatten column names
+            seasonal_data.columns = ['avg_temp', 'max_temp', 'min_temp', 'avg_humidity', 
+                                'total_precip', 'avg_wind', 'avg_pressure']
+            
+            seasonal_data = seasonal_data.reset_index()
 
-            result = SeasonalAnalysis(
-                date=month_data['Time'].max().strftime('%Y-%m-%d'),
-                year_month=last_month,
-                avg_temp=month_data['TempC'].mean(),
-                avg_humidity=month_data['Humidity'].mean(),
-                total_precip=month_data['PrecipMm'].sum(),
-                avg_wind=month_data['WindKph'].mean(),
-                avg_pressure=month_data['PressureMb'].mean(),
-                max_temp=month_data['TempC'].max(),
-                min_temp=month_data['TempC'].min(),
-                rainy_hours=month_data[month_data['PrecipMm'] > 0].shape[0]
-            )
+            # Extract date components
+            seasonal_data['date'] = seasonal_data['Time'].dt.strftime('%Y-%m-%d')
+            seasonal_data['year'] = seasonal_data['Time'].dt.year
+            seasonal_data['quarter'] = seasonal_data['Time'].dt.quarter
 
-            logger.info(f"Kết quả phân tích: {result.model_dump()}")
-            return result
+            # Convert to list of SeasonalAnalysis objects
+            seasonal_analysis_list = []
+
+            for _, row in seasonal_data.iterrows():
+                analysis = SeasonalAnalysis(
+                    date=row['date'],
+                    year=int(row['year']),
+                    quarter=int(row['quarter']),  # Note: matches the typo in your model
+                    avg_temp=float(row['avg_temp']),
+                    max_temp=float(row['max_temp']),
+                    min_temp=float(row['min_temp']),
+                    avg_humidity=float(row['avg_humidity']),
+                    total_precip=float(row['total_precip']),
+                    avg_wind=float(row['avg_wind']),
+                    avg_pressure=float(row['avg_pressure'])
+                )
+                seasonal_analysis_list.append(analysis)
+
+                logger.info(f"Đã phân tích và chuyển dữ liệu hourly thành {len(seasonal_analysis_list)} dòng daily có chứa quarter")
+
+            return seasonal_analysis_list
+            
         except Exception as e:
             logger.error(f"Lỗi khi phân tích dữ liệu theo mùa: {str(e)}")
             raise

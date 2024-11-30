@@ -140,14 +140,15 @@ public class AnalysisEndpoints : ICarterModule
             try
             {
                 var date = DateTime.Parse(request.Date);
-                var yearMonth = request.YearMonth;
 
                 var existingAnalysis = await db.SeasonalAnalyses
-                    .FirstOrDefaultAsync(s => s.Date.Date == date.Date);
+                    .FirstOrDefaultAsync(s => s.Date == request.Date);
 
                 if (existingAnalysis != null)
                 {
-                    existingAnalysis.YearMonth = request.YearMonth;
+                    existingAnalysis.Date = request.Date;
+                    existingAnalysis.Year = request.Year;
+                    existingAnalysis.Quarter = request.Quarter;
                     existingAnalysis.AvgTemp = request.AvgTemp;
                     existingAnalysis.AvgHumidity = request.AvgHumidity;
                     existingAnalysis.TotalPrecip = request.TotalPrecip;
@@ -155,22 +156,21 @@ public class AnalysisEndpoints : ICarterModule
                     existingAnalysis.AvgPressure = request.AvgPressure;
                     existingAnalysis.MaxTemp = request.MaxTemp;
                     existingAnalysis.MinTemp = request.MinTemp;
-                    existingAnalysis.RainyHours = request.RainyHours;
                 }
                 else
                 {
                     var analysis = new SeasonalAnalysis
                     {
-                        Date = date,
-                        YearMonth = yearMonth,
+                        Date = request.Date,
+                        Year = request.Year,
+                        Quarter = request.Quarter,
                         AvgTemp = request.AvgTemp,
                         AvgHumidity = request.AvgHumidity,
                         TotalPrecip = request.TotalPrecip,
                         AvgWind = request.AvgWind,
                         AvgPressure = request.AvgPressure,
                         MaxTemp = request.MaxTemp,
-                        MinTemp = request.MinTemp,
-                        RainyHours = request.RainyHours
+                        MinTemp = request.MinTemp
                     };
 
                     db.SeasonalAnalyses.Add(analysis);
@@ -215,9 +215,7 @@ public class AnalysisEndpoints : ICarterModule
                     .ToListAsync();
 
                 if (analyses.Count == 0)
-                {
                     return Results.NotFound($"Không tìm thấy dữ liệu phân tích tương quan cho năm {year}");
-                }
 
                 return Results.Ok(analyses);
             }
@@ -230,13 +228,22 @@ public class AnalysisEndpoints : ICarterModule
             }
         });
 
-        app.MapGet("/api/analysis/seasonal", async (AppDbContext db) =>
+        app.MapGet("/api/analysis/seasonal", async (int? year, int? quarter, AppDbContext db) =>
         {
             try
             {
-                var analyses = await db.SeasonalAnalyses
-                    .OrderBy(d => d.Date)
+                var query = db.SeasonalAnalyses.AsQueryable();
+
+                if (year.HasValue) query = query.Where(s => s.Year == year.Value);
+
+                if (quarter.HasValue) query = query.Where(s => s.Quarter == quarter.Value);
+
+                var analyses = await query
+                    .OrderBy(s => s.Date)
                     .ToListAsync();
+
+                if (analyses.Count == 0) return Results.NotFound("Không tìm thấy dữ liệu phân tích theo mùa phù hợp");
+
                 return Results.Ok(analyses);
             }
             catch (Exception ex)
