@@ -18,7 +18,6 @@ const useGetDailyData = () => {
       }
 
       const data = await response.json();
-      console.log('API Response data:', data);
       return { ok: true, data };
     } catch (error) {
       console.error(error);

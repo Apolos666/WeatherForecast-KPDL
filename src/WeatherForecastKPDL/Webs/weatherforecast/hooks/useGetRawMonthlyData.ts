@@ -21,7 +21,6 @@ const useGetRawMonthlyData = (monthRange: number) => {
       }
 
       const data = await response.json();
-      console.log('API Response data:', data);
       return { ok: true, data };
     } catch (error) {
       console.error('API Error:', error);
