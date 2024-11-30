@@ -102,8 +102,7 @@ const SecondPattern = () => {
                 {
                   x: date,
                   y: averageHumidity,
-                  type: 'scatter',
-                  mode: 'lines+markers',
+                  type: 'bar',
                   name: 'Avg Humidity',
                   line: { color: '#FFD700' },
                 },
@@ -135,8 +134,8 @@ const SecondPattern = () => {
                   x: date,
                   y: averagePressure,
                   type: 'scatter',
-                  mode: 'lines+markers',
-                  name: 'Temperature',
+                  fill: 'tozeroy',
+                  name: 'Pressure',
                   line: { color: '#FF634' },
                 },
               ]}
@@ -164,18 +163,16 @@ const SecondPattern = () => {
               data={[
                 {
                   x: date,
-                  y: averageWindSpeed,
-                  type: 'scatter',
-                  mode: 'lines+markers',
+                  y: averagePressure,
+                  type: 'box',
                   name: 'Wind Speed',
-                  line: { color: '#4682B4' },
+                  marker: { color: 'blue' },
                 },
               ]}
               layout={{
-                title: { text: 'Wind Speed', font: { size: 16 } },
-                xaxis: { title: { text: 'Date', font: { size: 14 } } },
-                yaxis: { title: { text: 'Wind Speed', font: { size: 14 } } },
-                margin: { l: 40, r: 20, t: 40, b: 50 },
+                title: 'Wind Speed Distribution',
+                xaxis: { title: 'Date' },
+                yaxis: { title: 'Wind Speed (km/h)' },
               }}
               style={{ width: '100%', height: '300px' }}
             />
