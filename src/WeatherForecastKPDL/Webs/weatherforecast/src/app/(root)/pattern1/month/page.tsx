@@ -151,7 +151,6 @@ const RawMonthlyData = () => {
                     {
                       x: date,
                       y: averageTemperature,
-                      fill: 'tozeroy',
                       type: 'scatter',
                       mode: 'lines+markers',
                       name: 'Average Temperature',
@@ -160,7 +159,6 @@ const RawMonthlyData = () => {
                     {
                       x: date,
                       y: maxTemperature,
-                      fill: 'tozeroy',
                       type: 'scatter',
                       mode: 'lines+markers',
                       name: 'Max Temperature',
@@ -169,7 +167,6 @@ const RawMonthlyData = () => {
                     {
                       x: date,
                       y: minTemperature,
-                      fill: 'tozeroy',
                       type: 'scatter',
                       mode: 'lines+markers',
                       name: 'Min Temperature',
@@ -216,7 +213,7 @@ const RawMonthlyData = () => {
                     {
                       x: date,
                       y: averageHumidity,
-                      type: 'bar',
+                      type: 'scatter',
                       mode: 'lines+markers',
                       name: 'Average Humidity',
                       line: { color: '#FFD700' }, // Gold

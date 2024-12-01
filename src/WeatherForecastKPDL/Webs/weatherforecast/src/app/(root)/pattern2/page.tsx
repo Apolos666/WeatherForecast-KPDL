@@ -72,7 +72,6 @@ const SecondPattern = () => {
                   x: date,
                   y: averageTemperature,
                   type: 'scatter',
-                  mode: 'lines+markers',
                   name: 'Avg Temperature',
                   line: { color: '#1E90FF' },
                 },
@@ -102,7 +101,7 @@ const SecondPattern = () => {
                 {
                   x: date,
                   y: averageHumidity,
-                  type: 'bar',
+                  type: 'scatter',
                   name: 'Avg Humidity',
                   line: { color: '#FFD700' },
                 },
@@ -134,16 +133,15 @@ const SecondPattern = () => {
                   x: date,
                   y: averagePressure,
                   type: 'scatter',
-                  fill: 'tozeroy',
-                  name: 'Pressure',
-                  line: { color: '#FF634' },
+                  name: 'Avg Pressure',
+                  line: { color: '#FF6347' },
                 },
               ]}
               layout={{
-                title: { text: 'Pressure', font: { size: 16 } },
+                title: { text: 'Average Pressure', font: { size: 16 } },
                 xaxis: { title: { text: 'Date', font: { size: 14 } } },
                 yaxis: {
-                  title: { text: 'Pressure', font: { size: 14 } },
+                  title: { text: 'Pressure (hPa)', font: { size: 14 } },
                 },
                 margin: { l: 40, r: 20, t: 40, b: 50 },
               }}
@@ -163,16 +161,17 @@ const SecondPattern = () => {
               data={[
                 {
                   x: date,
-                  y: averagePressure,
-                  type: 'box',
-                  name: 'Wind Speed',
-                  marker: { color: 'blue' },
+                  y: averageWindSpeed,
+                  type: 'scatter',
+                  name: 'Avg Wind Speed',
+                  line: { color: '#32CD32' },
                 },
               ]}
               layout={{
-                title: 'Wind Speed Distribution',
-                xaxis: { title: 'Date' },
-                yaxis: { title: 'Wind Speed (km/h)' },
+                title: { text: 'Average Wind Speed', font: { size: 16 } },
+                xaxis: { title: { text: 'Date', font: { size: 14 } } },
+                yaxis: { title: { text: 'Wind Speed (km/h)', font: { size: 14 } } },
+                margin: { l: 40, r: 20, t: 40, b: 50 },
               }}
               style={{ width: '100%', height: '300px' }}
             />

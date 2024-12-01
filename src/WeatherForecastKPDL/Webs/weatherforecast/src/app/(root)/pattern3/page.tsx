@@ -134,10 +134,11 @@ const ThirdPattern = () => {
       y: items.map((item) => item.avgHumidity),
       name: `Quý ${quarter}`,
       type: 'scatter' as const,
-      mode: 'lines',
-      fill: 'tonexty',
+      mode: 'lines+markers',
       marker: {
-        color: ['#FF6B6B', '#4ECDC4', '#45B7D1', '#96CEB4'][Number(quarter) - 1]
+        size: 8,
+        symbol: ['circle', 'square', 'diamond', 'star'][Number(quarter) - 1],
+        color: ['#FF6B6B', '#4ECDC4', '#45B7D1', '#96CEB4'][Number(quarter) - 1],
       },
       hovertemplate:
         'Ngày: %{x}<br>' +
@@ -166,9 +167,12 @@ const ThirdPattern = () => {
       x: items.map((item) => item.date),
       y: items.map((item) => item.avgPressure),
       name: `Quý ${quarter}`,
-      type: 'bar' as const,
+      type: 'scatter' as const,
+      mode: 'lines+markers',
       marker: {
-        color: ['#FF6B6B', '#4ECDC4', '#45B7D1', '#96CEB4'][Number(quarter) - 1]
+        size: 8,
+        symbol: ['circle', 'square', 'diamond', 'star'][Number(quarter) - 1],
+        color: ['#FF6B6B', '#4ECDC4', '#45B7D1', '#96CEB4'][Number(quarter) - 1],
       },
       hovertemplate:
         'Ngày: %{x}<br>' +
@@ -198,12 +202,11 @@ const ThirdPattern = () => {
       y: items.map((item) => item.avgWind),
       name: `Quý ${quarter}`,
       type: 'scatter' as const,
-      mode: 'markers',
+      mode: 'lines+markers',
       marker: {
-        size: items.map(item => item.avgWind * 5),
-        symbol: 'circle',
+        size: 8,
+        symbol: ['circle', 'square', 'diamond', 'star'][Number(quarter) - 1],
         color: ['#FF6B6B', '#4ECDC4', '#45B7D1', '#96CEB4'][Number(quarter) - 1],
-        opacity: 0.7
       },
       hovertemplate:
         'Ngày: %{x}<br>' +
