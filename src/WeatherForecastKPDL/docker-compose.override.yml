@@ -102,8 +102,8 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
-      start_period: 15s
-
+      start_period: 15s  
+      
   # debezium-ui:
   #   container_name: debezium-ui
   #   ports:
@@ -119,34 +119,37 @@ services:
   #     timeout: 10s
   #     retries: 3
 
+  # debezium-connector-config:
+  #   container_name: debezium-connector-config
+  #   depends_on:
+  #     debezium:
+  #       condition: service_healthy
+  #   restart: on-failure
+  #   command: >
+  #     curl -X DELETE http://debezium:8083/connectors/weather-mysql-connector || true &&
+  #     curl -X PUT http://debezium:8083/connectors/weather-mysql-connector/config -H "Content-Type: application/json" -d '{
+  #       "connector.class": "io.debezium.connector.mysql.MySqlConnector",
+  #       "database.hostname": "'${DB_HOST}'",
+  #       "database.port": "'${DB_PORT}'",
+  #       "database.user": "'${DB_USER}'",
+  #       "database.password": "'${DB_PASSWORD}'",
+  #       "database.server.id": "1",
+  #       "database.include.list": "'${DB_NAME}'",
+  #       "schema.history.internal.kafka.bootstrap.servers": "kafka:9092",
+  #       "schema.history.internal.kafka.topic": "schema-changes.weather",
+  #       "include.schema.changes": "true",
+  #       "topic.prefix": "weather-mysql"
+  #     }'
+
   debezium-connector-config:
     container_name: debezium-connector-config
     depends_on:
       debezium:
         condition: service_healthy
     restart: on-failure
-    command: >
-      -X POST http://debezium:8083/connectors -H "Content-Type: application/json" -d '{
-        "name": "weather-mysql-connector",
-        "config": {
-          "connector.class": "io.debezium.connector.mysql.MySqlConnector",
-          "database.hostname": "'${DB_HOST}'",
-          "database.port": "'${DB_PORT}'",
-          "database.user": "'${DB_USER}'",
-          "database.password": "'${DB_PASSWORD}'",
-          "database.server.name": "weather-mysql",
-          "database.server.id": "1",
-          "database.include.list": "'${DB_NAME}'",
-
-          "schema.history.internal.kafka.bootstrap.servers": "kafka:9092",
-          "schema.history.internal.kafka.topic": "schema-changes.weather",
-          
-          "include.schema.changes": "true",
-          "topic.prefix": "weather-mysql",
-          "database.history.store.only.captured.tables.ddl": "true",
-          "snapshot.mode": "initial"
-        }
-      }'
+    volumes:
+      - ./register-connector.sh:/register-connector.sh
+    command: ["/bin/sh", "/register-connector.sh"]
 
   kafka-ui:
     container_name: kafka-ui
