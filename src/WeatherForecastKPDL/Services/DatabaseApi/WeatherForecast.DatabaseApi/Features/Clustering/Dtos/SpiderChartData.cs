@@ -10,9 +10,6 @@ public class SpiderChartDataDto
     [JsonPropertyName("season")]
     public string Season { get; set; }
 
-    [JsonPropertyName("half_year")]
-    public string HalfYear { get; set; }
-
-    [JsonPropertyName("number_of_days")]
+    [JsonPropertyName("numberofdays")]
     public int NumberOfDays { get; set; }
 }

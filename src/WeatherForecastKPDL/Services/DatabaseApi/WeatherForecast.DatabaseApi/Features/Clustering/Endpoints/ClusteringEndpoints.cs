@@ -15,7 +15,7 @@ public class ClusteringEndpoints : ICarterModule
             try
             {
                 var existingData = await db.SpiderChartDatas
-                    .FirstOrDefaultAsync(s => s.Year == request.Year && s.Season == request.Season && s.HalfYear == request.HalfYear);
+                    .FirstOrDefaultAsync(s => s.Year == request.Year && s.Season == request.Season);
 
                 if (existingData != null)
                 {
@@ -27,7 +27,6 @@ public class ClusteringEndpoints : ICarterModule
                     {
                         Year = request.Year,
                         Season = request.Season,
-                        HalfYear = request.HalfYear,
                         NumberOfDays = request.NumberOfDays
                     };
 

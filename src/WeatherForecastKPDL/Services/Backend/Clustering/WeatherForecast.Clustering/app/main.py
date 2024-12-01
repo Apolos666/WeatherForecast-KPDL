@@ -1,11 +1,15 @@
+from contextlib import asynccontextmanager
 from fastapi import FastAPI
-from routes import clustering_routes
-import logging
+from .core.logging import logger
 
-# Cấu hình logging
-logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    logger.info("Khởi động ứng dụng Weather Clustering Service")
+    yield
+    logger.info("Tắt ứng dụng Weather Clustering Service")
 
-app = FastAPI()
+app = FastAPI(lifespan=lifespan)
 
-# Đăng ký các route
-app.include_router(clustering_routes.router, prefix="/api/clustering", tags=["clustering"])
+@app.get("/")
+async def root():
+    return {"message": "Weather Clustering Service is running"}

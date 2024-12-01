@@ -1,6 +1,32 @@
+from pydantic_settings import BaseSettings
+from dotenv import load_dotenv
 import os
 
-KAFKA_BOOTSTRAP_SERVERS = os.getenv("KAFKA_BOOTSTRAP_SERVERS", "localhost:29092")
-KAFKA_TOPIC = os.getenv("KAFKA_TOPIC", "weather-mysql.defaultdb.Hours")
-KAFKA_SPIDER_CHART_CONSUMER_GROUP_ID = os.getenv("KAFKA_SPIDER_CHART_CONSUMER_GROUP_ID", "spider-chart-consumer-group")
-API_URL = os.getenv("API_URL", "http://localhost:8084")
+load_dotenv()
+
+class Settings(BaseSettings):
+    worker_id: str = os.getenv("WORKER_ID", "default")
+    KAFKA_BOOTSTRAP_SERVERS: str = os.getenv("KAFKA_BOOTSTRAP_SERVERS", "localhost:29092")
+    DATABASE_API_URL: str = os.getenv("DATABASE_API_URL", "http://localhost:8084")
+    KAFKA_GROUP_ID: str = os.getenv("KAFKA_GROUP_ID", "weather_analysis_group")
+    KAFKA_TOPIC: str = os.getenv("KAFKA_TOPIC", "weather-mysql.defaultdb.Hours")
+    REDIS_URL: str = os.getenv("REDIS_URL", "")
+    CELERY_WORKER: bool = os.getenv("CELERY_WORKER", "false").lower() == "true"
+
+    # Schedule intervals (seconds)
+    SPIDER_CHART_SCHEDULE: float = 60.0  # 30 giây chạy một lần
+
+    # Schedule enabled flags
+    SPIDER_CHART_CLUSTERING_ENABLED: bool = True
+
+    class Config:
+        env_file = ".env"
+        env_file_encoding = 'utf-8'
+
+    @property
+    def celery_broker_url(self):
+        if 'rediss://' in self.REDIS_URL and 'ssl_cert_reqs' not in self.REDIS_URL:
+            return f"{self.REDIS_URL}?ssl_cert_reqs=CERT_NONE"
+        return self.REDIS_URL
+
+settings = Settings()

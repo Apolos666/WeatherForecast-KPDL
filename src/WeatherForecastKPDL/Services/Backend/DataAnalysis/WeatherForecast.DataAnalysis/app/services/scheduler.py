@@ -6,8 +6,8 @@ from ..core.config import settings
 from ..core.logging import logger
 from typing import Optional
 
-class WeatherAnalysisScheduler:
-    _instance: Optional['WeatherAnalysisScheduler'] = None
+class WeatherClusteringScheduler:
+    _instance: Optional['WeatherClusteringScheduler'] = None
     
     def __new__(cls, *args, **kwargs):
         if cls._instance is None:

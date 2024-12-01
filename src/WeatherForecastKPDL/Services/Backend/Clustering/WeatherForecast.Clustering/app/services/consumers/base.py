@@ -4,7 +4,7 @@ from kafka import KafkaConsumer
 from kafka.consumer.subscription_state import ConsumerRebalanceListener
 from json import loads
 from ...core.logging import logger
-from ...models.analysis import HourlyWeatherData
+from ...models.clustering import HourlyWeatherData
 
 # Thiết lập mức độ log cho kafka
 logging.getLogger('kafka').setLevel(logging.WARNING)
