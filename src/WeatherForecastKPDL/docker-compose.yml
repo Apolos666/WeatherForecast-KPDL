@@ -46,19 +46,6 @@ services:
     networks:
       - weathernet
 
-  # weatherforecast.dataanalysis:
-  #   image: quangtran2/weatherforecastdataanalysis:latest
-  #   networks:
-  #     - weathernet
-  # weatherforecast.dataanalysis:
-  #   image: quangtran2/weatherforecastdataanalysis:latest
-  #   networks:
-  #     - weathernet
-
-  # weatherforecast.dataanalysis.worker:
-  #   image: quangtran2/weatherforecastdataanalysis:latest
-  #   networks:
-  #     - weathernet
   # weatherforecast.dataanalysis.worker:
   #   image: quangtran2/weatherforecastdataanalysis:latest
   #   networks:
@@ -69,21 +56,39 @@ services:
   #   networks:
   #     - weathernet
 
-  # weatherforecastp.prediction:
-  #   image: quangtran2/weatherforecastprediction:latest
-  #   networks:
-  #     - weathernet
+  weatherforecastp.prediction:
+    image: quangtran2/weatherforecastprediction:latest
+    volumes:
+      - prediction_models:/app/trained_models
+    networks:
+      - weathernet
 
-  # weatherforecastp.clustering:
+  weatherforecast.prediction.worker:
+    image: quangtran2/weatherforecastprediction:latest
+    networks:
+      - weathernet
+
+  weatherforecast.prediction.beat:
+    image: quangtran2/weatherforecastprediction:latest
+    networks:
+      - weathernet
+
+  # weatherforecast.clustering.worker:
   #   image: quangtran2/weatherforecastclustering:latest
   #   networks:
   #     - weathernet
+
+  # weatherforecast.clustering.beat:
+  #   image: quangtran2/weatherforecastclustering:latest
+  #   networks:
+  #     - weathernet    
 
 volumes:
   logs:
   zookeeper_data:
   zookeeper_log:
   kafka_data:
+  prediction_models:
 
 networks:
   weathernet:

@@ -19,5 +19,7 @@ public class PredictionResponseDto
 {
     public double predicted_temperature { get; set; }
     public double predicted_humidity { get; set; }
+    public double predicted_pressure { get; set; }
+    public double predicted_wind { get; set; }
     public double predicted_cloud { get; set; }
 }
