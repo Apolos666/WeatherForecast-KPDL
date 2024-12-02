@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import 'react-datepicker/dist/react-datepicker.css';
 import useGetSeasonalData from '../../../../hooks/useGetSeasonalData';
+import useGetSpiderChartData from '../../../../hooks/useGetSpiderChartData';
 import Plot from 'react-plotly.js';
 import { toast } from 'react-toastify';
 import { Data, Layout } from 'plotly.js';
@@ -33,12 +34,23 @@ interface Divider {
   };
 }
 
+interface SpiderWeatherData {
+  id: number;
+  year: number;
+  season: string;
+  numberOfDays: number;
+}
+
 const ThirdPattern = () => {
   const [data, setData] = useState<WeatherData[]>([]);
   const [year, setYear] = useState('');
   const [quarter, setQuarter] = useState('');
 
-  const { getSeasonalData, loading } = useGetSeasonalData(year, quarter);
+  const [spiderData, setSpiderData] = useState<SpiderWeatherData[]>([]);
+
+  const { getSeasonalData } = useGetSeasonalData(year, quarter);
+
+  const { getSpiderChartData } = useGetSpiderChartData();
 
   const fetchData = async () => {
     try {
@@ -54,8 +66,23 @@ const ThirdPattern = () => {
     }
   };
 
+  const fetchSpiderData = async () => {
+    try {
+      const result = await getSpiderChartData();
+
+      if (result.ok) {
+        setSpiderData(result.data);
+      } else {
+        toast.error('Error fetching data');
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   useEffect(() => {
     fetchData();
+    fetchSpiderData();
   }, []);
 
   useEffect(() => {
@@ -138,7 +165,9 @@ const ThirdPattern = () => {
       marker: {
         size: 8,
         symbol: ['circle', 'square', 'diamond', 'star'][Number(quarter) - 1],
-        color: ['#FF6B6B', '#4ECDC4', '#45B7D1', '#96CEB4'][Number(quarter) - 1],
+        color: ['#FF6B6B', '#4ECDC4', '#45B7D1', '#96CEB4'][
+          Number(quarter) - 1
+        ],
       },
       hovertemplate:
         'Ngày: %{x}<br>' +
@@ -172,7 +201,9 @@ const ThirdPattern = () => {
       marker: {
         size: 8,
         symbol: ['circle', 'square', 'diamond', 'star'][Number(quarter) - 1],
-        color: ['#FF6B6B', '#4ECDC4', '#45B7D1', '#96CEB4'][Number(quarter) - 1],
+        color: ['#FF6B6B', '#4ECDC4', '#45B7D1', '#96CEB4'][
+          Number(quarter) - 1
+        ],
       },
       hovertemplate:
         'Ngày: %{x}<br>' +
@@ -206,7 +237,9 @@ const ThirdPattern = () => {
       marker: {
         size: 8,
         symbol: ['circle', 'square', 'diamond', 'star'][Number(quarter) - 1],
-        color: ['#FF6B6B', '#4ECDC4', '#45B7D1', '#96CEB4'][Number(quarter) - 1],
+        color: ['#FF6B6B', '#4ECDC4', '#45B7D1', '#96CEB4'][
+          Number(quarter) - 1
+        ],
       },
       hovertemplate:
         'Ngày: %{x}<br>' +
@@ -260,6 +293,13 @@ const ThirdPattern = () => {
     }));
   };
 
+  const categories = ['Mùa Xuân', 'Mùa Hạ', 'Mùa Thu', 'Mùa Đông'];
+
+  const values = categories.map((season) => {
+    const match = spiderData.find((item) => item.season === season);
+    return match ? match.numberOfDays : 0;
+  });
+
   return (
     <div className="p-8 bg-[url('/bg3.jpg')] bg-cover bg-center shadow-lg min-h-screen space-y-10">
       <div className="p-8 h-full w-full bg-gray-400 rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10 space-y-10">
@@ -306,65 +346,15 @@ const ThirdPattern = () => {
           </button>
         </div>
 
-        <div className="space-y-4">
-          <div className="bg-white p-4 rounded-lg shadow-md">
-            <Plot
-              data={organizeDataByQuarter()}
-              layout={{
-                title: 'Nhiệt độ trung bình theo quý',
-                xaxis: {
-                  title: 'Thời gian',
-                  tickangle: 45,
-                  showgrid: true,
-                  gridcolor: 'rgba(156, 156, 156, 0.1)',
-                  zeroline: false,
-                },
-                yaxis: {
-                  title: 'Nhiệt độ (°C)',
-                  zeroline: false,
-                },
-                shapes: createQuarterDividers(),
-                showlegend: true,
-                legend: {
-                  orientation: 'h',
-                  y: -0.2,
-                  x: 0.5,
-                  xanchor: 'center',
-                },
-                hovermode: 'closest',
-                plot_bgcolor: 'white',
-                annotations: [
-                  {
-                    x: 1.02,
-                    y: 1.1,
-                    xref: 'paper',
-                    yref: 'paper',
-                    text:
-                      'Chú thích:<br>' +
-                      '⭕ Quý 1 | ⬛ Quý 2 | ♦️ Quý 3 | ⭐ Quý 4',
-                    showarrow: false,
-                    font: { size: 12 },
-                    align: 'right',
-                  },
-                ],
-                margin: {
-                  l: 50,
-                  r: 50,
-                  t: 50,
-                  b: 100,
-                },
-                height: 500,
-              }}
-              style={{ width: '100%', height: '100%' }}
-              config={{
-                displayModeBar: true,
-                scrollZoom: true,
-              }}
-            />
-          </div>
-
-          <div className="grid grid-cols-2 gap-4">
-            <div className="bg-white p-4 rounded-xl shadow-md">
+        <div className="space-y-6">
+          {/* Hàng đầu tiên: Chart độ ẩm và Spider chart */}
+          <div className="grid grid-cols-5 gap-6">
+            {/* Chart độ ẩm */}
+            <div className="col-span-3 bg-white p-6 rounded-xl shadow-md">
+              <h2 className="text-2xl font-semibold text-gray-800 mb-4 flex items-center gap-2">
+                <i className="fas fa-tint text-blue-500"></i>
+                Biểu đồ độ ẩm theo quý
+              </h2>
               <Plot
                 data={organizeHumidityByQuarter()}
                 layout={{
@@ -419,116 +409,120 @@ const ThirdPattern = () => {
                 }}
               />
             </div>
-            <div className="bg-white p-4 rounded-xl shadow-md">
+
+            {/* Spider chart */}
+            <div className="col-span-2 bg-white p-6 rounded-xl shadow-md">
+              <h2 className="text-2xl font-semibold text-gray-800 mb-4 flex items-center gap-2">
+                <i className="fas fa-chart-pie text-blue-500"></i>
+                Phân bố số ngày theo mùa
+              </h2>
               <Plot
-                data={organizePressureByQuarter()}
+                data={[
+                  {
+                    type: 'scatterpolar',
+                    r: values,
+                    theta: categories,
+                    fill: 'toself',
+                    name: 'Số ngày theo mùa',
+                    marker: { color: '#3B82F6' },
+                    fillcolor: 'rgba(59, 130, 246, 0.5)',
+                    line: { color: '#1D4ED8', width: 2 },
+                    hovertemplate:
+                      'Mùa: %{theta}<br>' +
+                      'Số ngày: %{r}<br>' +
+                      '<extra></extra>',
+                  },
+                ]}
                 layout={{
-                  title: 'Áp suất trung bình',
-                  xaxis: {
-                    title: 'Thời gian',
-                    tickangle: 45,
-                    showgrid: true,
-                    gridcolor: 'rgba(156, 156, 156, 0.1)',
-                    zeroline: false,
-                  },
-                  yaxis: {
-                    title: 'Áp suất (hPa)',
-                    zeroline: false,
-                  },
-                  showlegend: true,
-                  legend: {
-                    orientation: 'h',
-                    y: -0.2,
-                    x: 0.5,
-                    xanchor: 'center',
-                  },
-                  hovermode: 'closest',
-                  plot_bgcolor: 'white',
-                  margin: {
-                    l: 50,
-                    r: 50,
-                    t: 50,
-                    b: 100,
-                  },
-                  shapes: createQuarterDividers(),
-                  annotations: [
-                    {
-                      x: 1.02,
-                      y: 1.1,
-                      xref: 'paper',
-                      yref: 'paper',
-                      text:
-                        'Chú thích:<br>' +
-                        '⭕ Quý 1 | ⬛ Quý 2 | ♦️ Quý 3 | ⭐ Quý 4',
-                      showarrow: false,
-                      font: { size: 12 },
-                      align: 'right',
+                  polar: {
+                    radialaxis: {
+                      visible: true,
+                      title: {
+                        text: 'Số ngày',
+                        font: { size: 14, color: '#374151' },
+                      },
+                      tickfont: { size: 12, color: '#374151' },
+                      gridcolor: 'rgba(156, 163, 175, 0.3)',
+                      linecolor: 'rgba(156, 163, 175, 0.5)',
                     },
-                  ],
+                    angularaxis: {
+                      tickfont: { size: 14, color: '#374151' },
+                      gridcolor: 'rgba(156, 163, 175, 0.3)',
+                      linecolor: 'rgba(156, 163, 175, 0.5)',
+                    },
+                    bgcolor: 'white',
+                  },
+                  paper_bgcolor: 'white',
+                  plot_bgcolor: 'white',
+                  showlegend: false,
+                  margin: { t: 50, b: 50, l: 50, r: 50 },
                   height: 400,
                 }}
                 style={{ width: '100%', height: '100%' }}
-                config={{
-                  displayModeBar: true,
-                  scrollZoom: true,
-                }}
+                config={{ responsive: true }}
               />
             </div>
-            <div className="col-span-2 bg-white p-4 rounded-xl shadow-md">
-              <Plot
-                data={organizeWindByQuarter()}
-                layout={{
-                  title: 'Tốc độ gió trung bình',
-                  xaxis: {
-                    title: 'Thời gian',
-                    tickangle: 45,
-                    showgrid: true,
-                    gridcolor: 'rgba(156, 156, 156, 0.1)',
-                    zeroline: false,
+          </div>
+
+          {/* Hàng thứ hai: Chart nhiệt độ */}
+          <div className="bg-white p-6 rounded-xl shadow-md">
+            <h2 className="text-2xl font-semibold text-gray-800 mb-4 flex items-center gap-2">
+              <i className="fas fa-temperature-high text-blue-500"></i>
+              Biểu đồ nhiệt độ theo quý
+            </h2>
+            <Plot
+              data={organizeDataByQuarter()}
+              layout={{
+                title: 'Nhiệt độ trung bình theo quý',
+                xaxis: {
+                  title: 'Thời gian',
+                  tickangle: 45,
+                  showgrid: true,
+                  gridcolor: 'rgba(156, 156, 156, 0.1)',
+                  zeroline: false,
+                },
+                yaxis: {
+                  title: 'Nhiệt độ (°C)',
+                  zeroline: false,
+                },
+                shapes: createQuarterDividers(),
+                showlegend: true,
+                legend: {
+                  orientation: 'h',
+                  y: -0.2,
+                  x: 0.5,
+                  xanchor: 'center',
+                },
+                hovermode: 'closest',
+                plot_bgcolor: 'white',
+                annotations: [
+                  {
+                    x: 1.02,
+                    y: 1.1,
+                    xref: 'paper',
+                    yref: 'paper',
+                    text:
+                      'Chú thích:<br>' +
+                      '⭕ Quý 1 | ⬛ Quý 2 | ♦️ Quý 3 | ⭐ Quý 4',
+                    showarrow: false,
+                    font: { size: 12 },
+                    align: 'right',
                   },
-                  yaxis: {
-                    title: 'Tốc độ gió (m/s)',
-                    zeroline: false,
-                  },
-                  showlegend: true,
-                  legend: {
-                    orientation: 'h',
-                    y: -0.2,
-                    x: 0.5,
-                    xanchor: 'center',
-                  },
-                  hovermode: 'closest',
-                  plot_bgcolor: 'white',
-                  margin: {
-                    l: 50,
-                    r: 50,
-                    t: 50,
-                    b: 100,
-                  },
-                  shapes: createQuarterDividers(),
-                  annotations: [
-                    {
-                      x: 1.02,
-                      y: 1.1,
-                      xref: 'paper',
-                      yref: 'paper',
-                      text:
-                        'Chú thích:<br>' +
-                        '⭕ Quý 1 | ⬛ Quý 2 | ♦️ Quý 3 | ⭐ Quý 4',
-                      showarrow: false,
-                      font: { size: 12 },
-                      align: 'right',
-                    },
-                  ],
-                  height: 400,
-                }}
-                style={{ width: '100%', height: '100%' }}
-                config={{
-                  displayModeBar: true,
-                  scrollZoom: true,
-                }}
-              />
-            </div>
+                ],
+                margin: {
+                  l: 50,
+                  r: 50,
+                  t: 50,
+                  b: 100,
+                },
+                height: 400,
+              }}
+              style={{ width: '100%', height: '100%' }}
+              config={{
+                displayModeBar: true,
+                scrollZoom: true,
+              }}
+            />
           </div>
         </div>
       </div>

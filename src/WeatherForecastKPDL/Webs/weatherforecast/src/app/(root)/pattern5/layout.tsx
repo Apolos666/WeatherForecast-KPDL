@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Spider Chart',
+  title: 'Prediction Next Day',
 };
 
 export default async function Pattern5Layout({

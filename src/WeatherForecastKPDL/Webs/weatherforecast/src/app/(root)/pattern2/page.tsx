@@ -72,8 +72,15 @@ const SecondPattern = () => {
                   x: date,
                   y: averageTemperature,
                   type: 'scatter',
-                  name: 'Avg Temperature',
+                  fill: 'tozeroy',
+                  fillcolor: 'rgba(30, 144, 255, 0.3)',
                   line: { color: '#1E90FF' },
+                  mode: 'lines+markers',
+                  marker: {
+                    size: 4,
+                    color: '#1E90FF',
+                    opacity: 0.7
+                  }
                 },
               ]}
               layout={{
@@ -83,6 +90,10 @@ const SecondPattern = () => {
                   title: { text: 'Temperature (°C)', font: { size: 14 } },
                 },
                 margin: { l: 40, r: 20, t: 40, b: 50 },
+                transition: {
+                  duration: 1000,
+                  easing: 'cubic-in-out'
+                }
               }}
               style={{ width: '100%', height: '300px' }}
             />
@@ -102,8 +113,10 @@ const SecondPattern = () => {
                   x: date,
                   y: averageHumidity,
                   type: 'scatter',
-                  name: 'Avg Humidity',
+                  fill: 'tozeroy',
+                  fillcolor: 'rgba(255, 215, 0, 0.3)',
                   line: { color: '#FFD700' },
+                  mode: 'lines',
                 },
               ]}
               layout={{
@@ -111,6 +124,10 @@ const SecondPattern = () => {
                 xaxis: { title: { text: 'Date', font: { size: 14 } } },
                 yaxis: { title: { text: 'Humidity (%)', font: { size: 14 } } },
                 margin: { l: 40, r: 20, t: 40, b: 50 },
+                transition: {
+                  duration: 1000,
+                  easing: 'cubic-in-out'
+                }
               }}
               style={{ width: '100%', height: '300px' }}
             />
@@ -133,8 +150,10 @@ const SecondPattern = () => {
                   x: date,
                   y: averagePressure,
                   type: 'scatter',
-                  name: 'Avg Pressure',
+                  fill: 'tozeroy',
+                  fillcolor: 'rgba(255, 99, 71, 0.3)',
                   line: { color: '#FF6347' },
+                  mode: 'lines',
                 },
               ]}
               layout={{
@@ -144,6 +163,10 @@ const SecondPattern = () => {
                   title: { text: 'Pressure (hPa)', font: { size: 14 } },
                 },
                 margin: { l: 40, r: 20, t: 40, b: 50 },
+                transition: {
+                  duration: 1000,
+                  easing: 'cubic-in-out'
+                }
               }}
               style={{ width: '100%', height: '300px' }}
             />
@@ -163,15 +186,23 @@ const SecondPattern = () => {
                   x: date,
                   y: averageWindSpeed,
                   type: 'scatter',
-                  name: 'Avg Wind Speed',
+                  fill: 'tozeroy',
+                  fillcolor: 'rgba(50, 205, 50, 0.3)',
                   line: { color: '#32CD32' },
+                  mode: 'lines',
                 },
               ]}
               layout={{
                 title: { text: 'Average Wind Speed', font: { size: 16 } },
                 xaxis: { title: { text: 'Date', font: { size: 14 } } },
-                yaxis: { title: { text: 'Wind Speed (km/h)', font: { size: 14 } } },
+                yaxis: {
+                  title: { text: 'Wind Speed (km/h)', font: { size: 14 } },
+                },
                 margin: { l: 40, r: 20, t: 40, b: 50 },
+                transition: {
+                  duration: 1000,
+                  easing: 'cubic-in-out'
+                }
               }}
               style={{ width: '100%', height: '300px' }}
             />
