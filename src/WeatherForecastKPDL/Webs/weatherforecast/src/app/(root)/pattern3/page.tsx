@@ -31,6 +31,7 @@ interface Divider {
     color: string;
     width: number;
     dash: 'solid' | 'dot' | 'dash' | 'longdash' | 'dashdot' | 'longdashdot';
+    spape: 'linear' | 'spline';
   };
 }
 
@@ -133,8 +134,9 @@ const ThirdPattern = () => {
           yref: 'paper',
           line: {
             color: 'rgba(156, 156, 156, 0.5)',
-            width: 2,
+            width: 3,
             dash: 'dash',
+            spape: 'spline',
           },
         });
       }
@@ -168,6 +170,9 @@ const ThirdPattern = () => {
         color: ['#FF6B6B', '#4ECDC4', '#45B7D1', '#96CEB4'][
           Number(quarter) - 1
         ],
+      },
+      line: {
+        shape: 'spline',
       },
       hovertemplate:
         'Ngày: %{x}<br>' +
@@ -282,6 +287,9 @@ const ThirdPattern = () => {
         color: ['#FF6B6B', '#4ECDC4', '#45B7D1', '#96CEB4'][
           Number(quarter) - 1
         ],
+      },
+      line: {
+        shape: 'spline',
       },
       hovertemplate:
         'Ngày: %{x}<br>' +

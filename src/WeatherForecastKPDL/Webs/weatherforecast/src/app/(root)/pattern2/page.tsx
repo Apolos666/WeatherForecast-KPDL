@@ -74,13 +74,13 @@ const SecondPattern = () => {
                   type: 'scatter',
                   fill: 'tozeroy',
                   fillcolor: 'rgba(30, 144, 255, 0.3)',
-                  line: { color: '#1E90FF' },
+                  line: { color: '#1E90FF', shape: 'spline', width: 3 },
                   mode: 'lines+markers',
                   marker: {
                     size: 4,
                     color: '#1E90FF',
-                    opacity: 0.7
-                  }
+                    opacity: 0.7,
+                  },
                 },
               ]}
               layout={{
@@ -92,8 +92,8 @@ const SecondPattern = () => {
                 margin: { l: 40, r: 20, t: 40, b: 50 },
                 transition: {
                   duration: 1000,
-                  easing: 'cubic-in-out'
-                }
+                  easing: 'cubic-in-out',
+                },
               }}
               style={{ width: '100%', height: '300px' }}
             />
@@ -115,8 +115,8 @@ const SecondPattern = () => {
                   type: 'scatter',
                   fill: 'tozeroy',
                   fillcolor: 'rgba(255, 215, 0, 0.3)',
-                  line: { color: '#FFD700' },
-                  mode: 'lines',
+                  line: { color: '#FFD700', shape: 'spline', width: 3 },
+                  mode: 'lines+markers',
                 },
               ]}
               layout={{
@@ -126,8 +126,8 @@ const SecondPattern = () => {
                 margin: { l: 40, r: 20, t: 40, b: 50 },
                 transition: {
                   duration: 1000,
-                  easing: 'cubic-in-out'
-                }
+                  easing: 'cubic-in-out',
+                },
               }}
               style={{ width: '100%', height: '300px' }}
             />
@@ -152,8 +152,8 @@ const SecondPattern = () => {
                   type: 'scatter',
                   fill: 'tozeroy',
                   fillcolor: 'rgba(255, 99, 71, 0.3)',
-                  line: { color: '#FF6347' },
-                  mode: 'lines',
+                  line: { color: '#FF6347', shape: 'spline', width: 3 },
+                  mode: 'lines+markers',
                 },
               ]}
               layout={{
@@ -165,8 +165,8 @@ const SecondPattern = () => {
                 margin: { l: 40, r: 20, t: 40, b: 50 },
                 transition: {
                   duration: 1000,
-                  easing: 'cubic-in-out'
-                }
+                  easing: 'cubic-in-out',
+                },
               }}
               style={{ width: '100%', height: '300px' }}
             />
@@ -188,8 +188,8 @@ const SecondPattern = () => {
                   type: 'scatter',
                   fill: 'tozeroy',
                   fillcolor: 'rgba(50, 205, 50, 0.3)',
-                  line: { color: '#32CD32' },
-                  mode: 'lines',
+                  line: { color: '#32CD32', shape: 'spline', width: 3 },
+                  mode: 'lines+markers',
                 },
               ]}
               layout={{
@@ -201,8 +201,8 @@ const SecondPattern = () => {
                 margin: { l: 40, r: 20, t: 40, b: 50 },
                 transition: {
                   duration: 1000,
-                  easing: 'cubic-in-out'
-                }
+                  easing: 'cubic-in-out',
+                },
               }}
               style={{ width: '100%', height: '300px' }}
             />
