@@ -1,6 +1,6 @@
+using System.Reflection;
 using Microsoft.EntityFrameworkCore;
 using WeatherForecast.DatabaseApi.Entities;
-using System.Reflection;
 using WeatherForecast.DatabaseApi.Models;
 
 namespace WeatherForecast.DatabaseApi.Data;
@@ -16,6 +16,7 @@ public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(op
     public DbSet<CorrelationAnalysis> CorrelationAnalyses { get; set; }
     public DbSet<SeasonalAnalysis> SeasonalAnalyses { get; set; }
     public DbSet<SpiderChartData> SpiderChartDatas { get; set; }
+    public DbSet<Centroid> Centroids { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

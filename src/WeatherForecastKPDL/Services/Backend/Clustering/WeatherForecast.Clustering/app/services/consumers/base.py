@@ -94,7 +94,7 @@ class BaseWeatherConsumer:
     def __del__(self):
         try:
             if hasattr(self, 'consumer'):
-                self.consumer.close()
-                logger.info(f"Đã đóng consumer group {self.group_id}")
+                self.consumer.close(autocommit=False)
+                logger.info(f"Closed consumer group {self.group_id}")
         except Exception as e:
-            logger.error(f"Lỗi khi đóng consumer: {str(e)}")
+            logger.error(f"Error closing consumer: {str(e)}")

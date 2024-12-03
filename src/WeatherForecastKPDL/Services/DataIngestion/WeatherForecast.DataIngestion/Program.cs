@@ -20,19 +20,19 @@ var host = Host.CreateDefaultBuilder(args)
 
         // Cấu hình HttpClient với các tối ưu
         services.AddHttpClient<WeatherForecastService>(client =>
-        {
-            client.Timeout = TimeSpan.FromSeconds(30);
-            client.DefaultRequestHeaders.Add("Accept", "application/json");
-        })
-        .SetHandlerLifetime(TimeSpan.FromMinutes(5))
-        .ConfigurePrimaryHttpMessageHandler(() => new SocketsHttpHandler
-        {
-            PooledConnectionLifetime = TimeSpan.FromMinutes(5),
-            KeepAlivePingPolicy = HttpKeepAlivePingPolicy.WithActiveRequests,
-            EnableMultipleHttp2Connections = true,
-            MaxConnectionsPerServer = 10,
-            PooledConnectionIdleTimeout = TimeSpan.FromMinutes(2)
-        });
+            {
+                client.Timeout = TimeSpan.FromSeconds(30);
+                client.DefaultRequestHeaders.Add("Accept", "application/json");
+            })
+            .SetHandlerLifetime(TimeSpan.FromMinutes(5))
+            .ConfigurePrimaryHttpMessageHandler(() => new SocketsHttpHandler
+            {
+                PooledConnectionLifetime = TimeSpan.FromMinutes(5),
+                KeepAlivePingPolicy = HttpKeepAlivePingPolicy.WithActiveRequests,
+                EnableMultipleHttp2Connections = true,
+                MaxConnectionsPerServer = 10,
+                PooledConnectionIdleTimeout = TimeSpan.FromMinutes(2)
+            });
 
         // Đăng ký Weather Service như một Hosted Service
         services.AddHostedService<WeatherForecastService>();

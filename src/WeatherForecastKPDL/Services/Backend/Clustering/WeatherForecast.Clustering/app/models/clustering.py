@@ -1,4 +1,5 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
+
 
 class HourlyWeatherData(BaseModel):
     Id: int
@@ -22,7 +23,44 @@ class HourlyWeatherData(BaseModel):
     ChanceOfRain: int
     WillItRain: int
 
+
 class SpiderChartData(BaseModel):
-    Year: int  
+    Year: int
     Season: str
-    NumberOfDays: int    
+    NumberOfDays: int
+
+
+class Centroid(BaseModel):
+    SpringCentroid: float
+    SummerCentroid: float
+    AutumnCentroid: float
+    WinterCentroid: float
+
+
+class CentroidDto(BaseModel):
+    id: int
+    springCentroid: float
+    summerCentroid: float
+    autumnCentroid: float
+    winterCentroid: float
+
+
+class PredictionData(BaseModel):
+    predicted_temperature: float
+    predicted_humidity: float
+    predicted_pressure: float
+    predicted_wind: float
+    predicted_cloud: float
+
+
+class SeasonProbability(BaseModel):
+    Spring: float
+    Summer: float
+    Autumn: float
+    Winter: float
+
+    def dict(self, *args, **kwargs):
+        d = super().model_dump(*args, **kwargs)
+        for key in d:
+            d[key] = round(d[key], 6)
+        return d

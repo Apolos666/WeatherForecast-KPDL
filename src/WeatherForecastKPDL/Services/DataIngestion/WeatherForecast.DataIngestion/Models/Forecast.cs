@@ -4,6 +4,5 @@ namespace WeatherForecast.DataIngestion.Models;
 
 public class Forecast
 {
-    [JsonPropertyName("forecastday")]
-    public List<ForecastDay> ForecastDay { get; set; }
+    [JsonPropertyName("forecastday")] public List<ForecastDay> ForecastDay { get; set; }
 }

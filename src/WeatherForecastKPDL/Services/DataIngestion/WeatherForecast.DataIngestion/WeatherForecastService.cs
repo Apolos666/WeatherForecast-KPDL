@@ -7,15 +7,15 @@ namespace WeatherForecast.DataIngestion;
 
 public class WeatherForecastService : BackgroundService
 {
-    private readonly HttpClient _httpClient;
-    private readonly IConfiguration _configuration;
-    private readonly ILogger<WeatherForecastService> _logger;
-    private readonly ILastProcessedDateService _lastProcessedDateService;
+    private readonly TimeSpan _apiDelayInterval = TimeSpan.FromSeconds(15);
     private readonly string _apiKey;
     private readonly string _apiUrl;
+    private readonly IConfiguration _configuration;
     private readonly string _databaseApiUrl;
+    private readonly HttpClient _httpClient;
+    private readonly ILastProcessedDateService _lastProcessedDateService;
+    private readonly ILogger<WeatherForecastService> _logger;
     private readonly TimeSpan _updateInterval = TimeSpan.FromHours(24);
-    private readonly TimeSpan _apiDelayInterval = TimeSpan.FromSeconds(15);
 
     public WeatherForecastService(
         HttpClient httpClient,
@@ -35,7 +35,6 @@ public class WeatherForecastService : BackgroundService
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
     {
         while (!stoppingToken.IsCancellationRequested)
-        {
             try
             {
                 var currentDate = await _lastProcessedDateService.GetLastProcessedDate();
@@ -81,7 +80,6 @@ public class WeatherForecastService : BackgroundService
                 _logger.LogError(ex, "Lỗi không mong muốn trong quá trình xử lý dữ liệu");
                 await Task.Delay(TimeSpan.FromMinutes(5), stoppingToken);
             }
-        }
     }
 
     private async Task ProcessWeatherData(WeatherApiResponse weatherData, CancellationToken stoppingToken)
@@ -96,16 +94,12 @@ public class WeatherForecastService : BackgroundService
             using var response = await _httpClient.PostAsync(_databaseApiUrl, content, stoppingToken);
 
             if (response.IsSuccessStatusCode)
-            {
                 _logger.LogInformation("Đã lưu thành công dữ liệu thời tiết cho {Location} vào database",
                     weatherData.Location.Name);
-            }
             else
-            {
                 _logger.LogError("Lỗi khi lưu dữ liệu thời tiết. Status code: {StatusCode}, Content: {Content}",
                     response.StatusCode,
                     await response.Content.ReadAsStringAsync(stoppingToken));
-            }
         }
         catch (Exception ex)
         {

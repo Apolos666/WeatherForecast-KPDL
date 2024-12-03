@@ -1,23 +1,24 @@
+using System.Reflection;
 using Carter;
-using Microsoft.EntityFrameworkCore;
-using WeatherForecast.DatabaseApi.Extensions;
-using Microsoft.AspNetCore.Diagnostics.HealthChecks;
-using Microsoft.Extensions.Diagnostics.HealthChecks;
 using HealthChecks.UI.Client;
-using Serilog;
-using WeatherForecast.DatabaseApi.Data;
 using Mapster;
+using Microsoft.AspNetCore.Diagnostics.HealthChecks;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Diagnostics.HealthChecks;
+using Serilog;
+using Serilog.Events;
+using StackExchange.Redis;
+using WeatherForecast.DatabaseApi.Data;
 using WeatherForecast.DatabaseApi.Dtos;
 using WeatherForecast.DatabaseApi.Entities;
-using System.Reflection;
-using StackExchange.Redis;
+using WeatherForecast.DatabaseApi.Extensions;
 using WeatherForecast.DatabaseApi.Infrastructure.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
 Log.Logger = new LoggerConfiguration()
     .MinimumLevel.Information()
-    .MinimumLevel.Override("Microsoft.AspNetCore", Serilog.Events.LogEventLevel.Warning)
+    .MinimumLevel.Override("Microsoft.AspNetCore", LogEventLevel.Warning)
     .WriteTo.Console()
     .WriteTo.File("logs/log-.txt", rollingInterval: RollingInterval.Day)
     .CreateLogger();
@@ -27,7 +28,7 @@ builder.Services.AddHttpClient();
 
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseMySql(builder.Configuration.GetConnectionString("DefaultConnection"),
-    new MySqlServerVersion(new Version(8, 0, 21))));
+        new MySqlServerVersion(new Version(8, 0, 21))));
 
 builder.Services.AddCarter();
 
@@ -58,9 +59,9 @@ builder.Services.AddCors(options =>
     options.AddPolicy("AllowLocalhost", policy =>
     {
         policy.WithOrigins("http://localhost:3000")
-              .AllowAnyHeader()
-              .AllowAnyMethod()
-              .AllowCredentials();
+            .AllowAnyHeader()
+            .AllowAnyMethod()
+            .AllowCredentials();
     });
 });
 

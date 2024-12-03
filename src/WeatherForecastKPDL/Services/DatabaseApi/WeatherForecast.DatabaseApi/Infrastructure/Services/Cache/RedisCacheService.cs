@@ -1,13 +1,13 @@
-using StackExchange.Redis;
 using System.Text.Json;
+using StackExchange.Redis;
 
 namespace WeatherForecast.DatabaseApi.Infrastructure.Services;
 
 public class RedisCacheService(IConnectionMultiplexer redis) : ICacheService
 {
-    private readonly IConnectionMultiplexer _redis = redis;
-    private readonly IDatabase _db = redis.GetDatabase();
     private static readonly TimeSpan DefaultExpiration = TimeSpan.FromMinutes(10);
+    private readonly IDatabase _db = redis.GetDatabase();
+    private readonly IConnectionMultiplexer _redis = redis;
 
     public async Task<T?> GetAsync<T>(string key)
     {

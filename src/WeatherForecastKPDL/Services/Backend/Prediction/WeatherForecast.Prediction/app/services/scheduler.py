@@ -17,23 +17,24 @@ class WeatherPredictionScheduler:
     def __init__(self, is_worker: bool = False):
         if not self._initialized:
             logger.info("Khởi tạo WeatherPredictionTrainingScheduler")
-            self.consumers = {}
-            if is_worker:
-                self._initialize_consumers()
+            self.consumers = None
             self.prediction_service = PredictionService()
             self._initialized = True
+            if is_worker:
+                self._initialize_consumers()
     
     def _initialize_consumers(self):
         """Khởi tạo consumers theo yêu cầu"""
-        self.consumers = {
-            'prediction': prediction_consumer.PredictionWeatherConsumer(settings.KAFKA_BOOTSTRAP_SERVERS),
-        }
+        if self.consumers is None:
+            self.consumers = {
+                'prediction': prediction_consumer.PredictionWeatherConsumer(settings.KAFKA_BOOTSTRAP_SERVERS),
+            }
 
     async def process_prediction_training(self):
         logger.info("Bắt đầu traing dữ liệu")
         try:
-            if 'prediction' not in self.consumers:
-                self.consumers['prediction'] = prediction_consumer.PredictionWeatherConsumer(settings.KAFKA_BOOTSTRAP_SERVERS)
+            if not self.consumers:
+                raise RuntimeError("Consumers not initialized")
             training_data = self.consumers['prediction'].get_data()
             if training_data:
                 self.prediction_service.train_model(training_data)

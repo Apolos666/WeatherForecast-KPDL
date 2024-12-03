@@ -36,10 +36,7 @@ public class WeatherEndpoints : ICarterModule
                             w.LocationId == location.Id &&
                             w.Date.Date == forecastDay.Date.Date);
 
-                    if (existingForecast != null)
-                    {
-                        continue; // Bỏ qua nếu đã có dữ liệu
-                    }
+                    if (existingForecast != null) continue; // Bỏ qua nếu đã có dữ liệu
 
                     var forecast = new Entities.WeatherForecast
                     {
@@ -66,31 +63,32 @@ public class WeatherEndpoints : ICarterModule
             }
         });
 
-        app.MapGet("/api/weather/date-range", async ([AsParameters] DateRangeQueryParameters parameters, AppDbContext db, ICacheService cache) =>
-        {
-            try
+        app.MapGet("/api/weather/date-range",
+            async ([AsParameters] DateRangeQueryParameters parameters, AppDbContext db, ICacheService cache) =>
             {
-                string cacheKey = $"weather_date_range_{parameters.FromDate:yyyyMMdd}_{parameters.ToDate:yyyyMMdd}";
+                try
+                {
+                    var cacheKey = $"weather_date_range_{parameters.FromDate:yyyyMMdd}_{parameters.ToDate:yyyyMMdd}";
 
-                var data = await cache.GetOrSetAsync(cacheKey,
-                    async () => await GetDailyWeatherData(db, parameters.FromDate, parameters.ToDate));
+                    var data = await cache.GetOrSetAsync(cacheKey,
+                        async () => await GetDailyWeatherData(db, parameters.FromDate, parameters.ToDate));
 
-                return Results.Ok(data);
-            }
-            catch (Exception ex)
-            {
-                return Results.Problem(
-                    title: "Lỗi khi truy vấn dữ liệu",
-                    detail: ex.Message,
-                    statusCode: 500);
-            }
-        });
+                    return Results.Ok(data);
+                }
+                catch (Exception ex)
+                {
+                    return Results.Problem(
+                        title: "Lỗi khi truy vấn dữ liệu",
+                        detail: ex.Message,
+                        statusCode: 500);
+                }
+            });
 
         app.MapGet("/api/weather/weeks-ago", async ([FromQuery] int weeksAgo, AppDbContext db, ICacheService cache) =>
         {
             try
             {
-                string cacheKey = $"weather_weeks_ago_{weeksAgo}";
+                var cacheKey = $"weather_weeks_ago_{weeksAgo}";
 
                 var data = await cache.GetOrSetAsync(cacheKey, async () =>
                 {
@@ -114,7 +112,7 @@ public class WeatherEndpoints : ICarterModule
         {
             try
             {
-                string cacheKey = $"weather_months_ago_{monthsAgo}";
+                var cacheKey = $"weather_months_ago_{monthsAgo}";
 
                 var data = await cache.GetOrSetAsync(cacheKey, async () =>
                 {
@@ -147,7 +145,7 @@ public class WeatherEndpoints : ICarterModule
         var query = db.Hours
             .Include(h => h.WeatherForecast)
             .Where(h => h.WeatherForecast.Date.Date >= startDate.Date &&
-                       h.WeatherForecast.Date.Date <= endDate.Date);
+                        h.WeatherForecast.Date.Date <= endDate.Date);
 
         // In ra số lượng record trước khi group
         var count = await query.CountAsync();

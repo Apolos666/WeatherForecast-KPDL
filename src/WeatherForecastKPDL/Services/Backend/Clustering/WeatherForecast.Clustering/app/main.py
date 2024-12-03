@@ -1,6 +1,7 @@
 from contextlib import asynccontextmanager
 from fastapi import FastAPI
 from .core.logging import logger
+from .api.endpoints import clustering as clustering_router
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
@@ -10,6 +11,9 @@ async def lifespan(app: FastAPI):
 
 app = FastAPI(lifespan=lifespan)
 
+app.include_router(clustering_router.router, prefix="/api/clustering", tags=["clustering"])
+
 @app.get("/")
 async def root():
     return {"message": "Weather Clustering Service is running"}
+

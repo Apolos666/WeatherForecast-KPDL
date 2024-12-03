@@ -8,16 +8,18 @@ class Settings(BaseSettings):
     worker_id: str = os.getenv("WORKER_ID", "default")
     KAFKA_BOOTSTRAP_SERVERS: str = os.getenv("KAFKA_BOOTSTRAP_SERVERS", "localhost:29092")
     DATABASE_API_URL: str = os.getenv("DATABASE_API_URL", "http://localhost:8084")
-    KAFKA_GROUP_ID: str = os.getenv("KAFKA_GROUP_ID", "weather_analysis_group")
+    KAFKA_GROUP_ID: str = os.getenv("KAFKA_GROUP_ID", "weather_clustering_group")
     KAFKA_TOPIC: str = os.getenv("KAFKA_TOPIC", "weather-mysql.defaultdb.Hours")
     REDIS_URL: str = os.getenv("REDIS_URL", "")
     CELERY_WORKER: bool = os.getenv("CELERY_WORKER", "false").lower() == "true"
 
     # Schedule intervals (seconds)
-    SPIDER_CHART_SCHEDULE: float = 60.0  # 30 giây chạy một lần
+    SPIDER_CHART_SCHEDULE: float = 600.0 
+    CENTROID_SCHEDULE: float = 31536000.0
 
     # Schedule enabled flags
     SPIDER_CHART_CLUSTERING_ENABLED: bool = True
+    CENTROID_CLUSTERING_ENABLED: bool = True
 
     class Config:
         env_file = ".env"

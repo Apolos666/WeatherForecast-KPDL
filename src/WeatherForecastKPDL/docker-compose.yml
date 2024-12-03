@@ -1,8 +1,8 @@
 services:
-  weatherforecast.dataingestion:
-    image: quangtran2/weatherforecastdataingestion:latest
-    networks:
-      - weathernet
+  # weatherforecast.dataingestion:
+  #   image: quangtran2/weatherforecastdataingestion:latest
+  #   networks:
+  #     - weathernet
 
   weatherforecast.databaseapi:
     image: quangtran2/weatherforecastdatabaseapi:latest
@@ -32,7 +32,7 @@ services:
       - weathernet
 
   debezium:
-    image: debezium/connect:2.5
+    image: debezium/connect:3.0.0.Final
     networks:
       - weathernet
 
@@ -41,20 +41,20 @@ services:
   #   networks:
   #     - weathernet
 
-  debezium-connector-config:
-    image: curlimages/curl
+  # debezium-connector-config:
+  #   image: curlimages/curl
+  #   networks:
+  #     - weathernet
+
+  weatherforecast.dataanalysis.worker:
+    image: quangtran2/weatherforecastdataanalysis:latest
     networks:
       - weathernet
 
-  # weatherforecast.dataanalysis.worker:
-  #   image: quangtran2/weatherforecastdataanalysis:latest
-  #   networks:
-  #     - weathernet
-
-  # weatherforecast.dataanalysis.beat:
-  #   image: quangtran2/weatherforecastdataanalysis:latest
-  #   networks:
-  #     - weathernet
+  weatherforecast.dataanalysis.beat:
+    image: quangtran2/weatherforecastdataanalysis:latest
+    networks:
+      - weathernet
 
   weatherforecastp.prediction:
     image: quangtran2/weatherforecastprediction:latest
@@ -73,15 +73,20 @@ services:
     networks:
       - weathernet
 
-  # weatherforecast.clustering.worker:
-  #   image: quangtran2/weatherforecastclustering:latest
-  #   networks:
-  #     - weathernet
+  weatherforecast.clustering:
+    image: quangtran2/weatherforecastclustering:latest
+    networks:
+      - weathernet    
 
-  # weatherforecast.clustering.beat:
-  #   image: quangtran2/weatherforecastclustering:latest
-  #   networks:
-  #     - weathernet    
+  weatherforecast.clustering.worker:
+    image: quangtran2/weatherforecastclustering:latest
+    networks:
+      - weathernet
+
+  weatherforecast.clustering.beat:
+    image: quangtran2/weatherforecastclustering:latest
+    networks:
+      - weathernet    
 
 volumes:
   logs:

@@ -5,9 +5,9 @@ namespace WeatherForecast.DataIngestion.Services;
 public class RedisLastProcessedDateService : ILastProcessedDateService
 {
     private const string KEY = "weather:last_processed_date";
-    private readonly IConnectionMultiplexer _redis;
-    private readonly ILogger<RedisLastProcessedDateService> _logger;
     private readonly DateTime _defaultStartDate;
+    private readonly ILogger<RedisLastProcessedDateService> _logger;
+    private readonly IConnectionMultiplexer _redis;
 
     public RedisLastProcessedDateService(
         IConnectionMultiplexer redis,
@@ -25,10 +25,7 @@ public class RedisLastProcessedDateService : ILastProcessedDateService
             var db = _redis.GetDatabase();
             var value = await db.StringGetAsync(KEY);
 
-            if (value.HasValue && DateTime.TryParse(value, out DateTime date))
-            {
-                return date;
-            }
+            if (value.HasValue && DateTime.TryParse(value, out var date)) return date;
 
             _logger.LogInformation(
                 "Không tìm thấy ngày xử lý trong Redis. Bắt đầu từ ngày mặc định: {DefaultDate}",

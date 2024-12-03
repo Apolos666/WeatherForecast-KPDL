@@ -4,6 +4,5 @@ namespace WeatherForecast.DatabaseApi.Dtos;
 
 public class ForecastDto
 {
-    [JsonPropertyName("forecastday")]
-    public List<ForecastDayDto> ForecastDay { get; set; }
+    [JsonPropertyName("forecastday")] public List<ForecastDayDto> ForecastDay { get; set; }
 }

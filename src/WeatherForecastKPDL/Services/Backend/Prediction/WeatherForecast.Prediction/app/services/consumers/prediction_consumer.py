@@ -7,7 +7,7 @@ from kafka.structs import OffsetAndMetadata
 
 class PredictionWeatherConsumer(BaseWeatherConsumer):
     def __init__(self, bootstrap_servers: str):
-        super().__init__(bootstrap_servers, "correlation_analysis")
+        super().__init__(bootstrap_servers, "prediction_consumer")
         self._last_processed_offset = None
 
     def _store_offset(self, partition, offset):
@@ -30,7 +30,7 @@ class PredictionWeatherConsumer(BaseWeatherConsumer):
             return None      
             
     def get_data(self) -> List[HourlyWeatherData]:
-        logger.info("Bắt đầu lấy dữ liệu cho phân tích tương quan")
+        logger.info("Bắt đầu lấy dữ liệu cho dự đoán")
         weather_data = []
         last_valid_offset = None
         last_valid_tp = None

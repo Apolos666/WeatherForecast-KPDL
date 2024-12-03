@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("WeatherForecast.BuildingBlock")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f900afa30a4b7d10e9a420c75fc5e20ab8a967f9")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a127182f9a14a345a41795154853f53972da6c51")]
 [assembly: System.Reflection.AssemblyProductAttribute("WeatherForecast.BuildingBlock")]
 [assembly: System.Reflection.AssemblyTitleAttribute("WeatherForecast.BuildingBlock")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

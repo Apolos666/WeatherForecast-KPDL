@@ -1,4 +1,3 @@
-
 namespace WeatherForecast.DatabaseApi.Dtos;
 
 public class WeatherDataResponse

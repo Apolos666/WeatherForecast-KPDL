@@ -1,14 +1,12 @@
 import ssl
 from celery import Celery
-from celery.schedules import crontab
 import asyncio
 from ..services.scheduler import WeatherPredictionScheduler
 from ..core.config import settings
 from ..core.logging import logger
-from celery.signals import worker_ready
-import os
+from celery.signals import worker_ready, worker_shutdown
 
-celery_app = Celery('weather_analysis',
+celery_app = Celery('weather_prediction',
     broker=settings.REDIS_URL,
     backend=settings.REDIS_URL,
     broker_use_ssl={
@@ -21,7 +19,13 @@ celery_app = Celery('weather_analysis',
 
 scheduler = WeatherPredictionScheduler(is_worker=settings.CELERY_WORKER)
 
-@celery_app.task
+@worker_shutdown.connect
+def cleanup(sender, **kwargs):
+    if scheduler.consumers:
+        for consumer in scheduler.consumers.values():
+            consumer.close()
+
+@celery_app.task(name="app.tasks.prediction_tasks.process_prediction_training")
 def process_prediction_training():
     logger.info("Bắt đầu task traing dữ liệu")
     loop = None
@@ -49,8 +53,10 @@ beat_schedule = {}
 
 if settings.PREDICTION_TRAINING_ENABLED:
     beat_schedule['prediction-training'] = {
-        'task': 'app.tasks.weather_tasks.process_prediction_training',
-        'schedule': settings.PREDICTION_TRAINING_SCHEDULE
+        'task': 'app.tasks.prediction_tasks.process_prediction_training',
+        'schedule': settings.PREDICTION_TRAINING_SCHEDULE,
+        'options': {'queue': 'prediction_tasks'}
     }
 
 celery_app.conf.beat_schedule = beat_schedule 
+celery_app.conf.task_routes = {'app.tasks.prediction_tasks.*': {'queue': 'prediction_tasks'}}
