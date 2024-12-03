@@ -149,7 +149,7 @@ services:
 
   weatherforecast.dataanalysis.worker:
     container_name: weatherforecast.dataanalysis.worker
-    command: celery -A app.tasks.weather_tasks.celery_app worker --queues=weather_tasks --loglevel=info
+    command: celery -A app.tasks.weather_tasks.celery_app worker --queues=weather_tasks --loglevel=info --concurrency=1 
     environment:
       - WORKER_ID=worker
       - KAFKA_BOOTSTRAP_SERVERS=kafka:9092
@@ -192,7 +192,7 @@ services:
 
   weatherforecast.prediction.worker:
     container_name: weatherforecast.prediction.worker
-    command: celery -A app.tasks.prediction_tasks.celery_app worker --queues=prediction_tasks --loglevel=info
+    command: celery -A app.tasks.prediction_tasks.celery_app worker --queues=prediction_tasks --loglevel=info --concurrency=1 
     environment:
       - WORKER_ID=worker
       - KAFKA_BOOTSTRAP_SERVERS=kafka:9092
@@ -234,7 +234,7 @@ services:
 
   weatherforecast.clustering.worker:
     container_name: weatherforecast.clustering.worker
-    command: celery -A app.tasks.clustering_tasks.celery_app worker --queues=clustering_tasks --loglevel=info
+    command: celery -A app.tasks.clustering_tasks.celery_app worker --queues=clustering_tasks --loglevel=info --concurrency=1 
     environment:
       - WORKER_ID=worker
       - KAFKA_BOOTSTRAP_SERVERS=kafka:9092
