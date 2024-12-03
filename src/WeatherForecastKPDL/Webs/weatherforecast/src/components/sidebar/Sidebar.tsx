@@ -17,9 +17,7 @@ const Sidebar = () => {
     { label: 'Daily Pattern', icon: <FaChartBar />, link: '/pattern2' },
     { label: 'Seasonal Pattern', icon: <FaChartPie />, link: '/pattern3' },
     { label: 'Correlation Pattern', icon: <FaChartLine />, link: '/pattern4' },
-    { label: 'Pattern 5', icon: <FaChartBar />, link: '/pattern5' },
-    { label: 'Pattern 6', icon: <FaChartPie />, link: '/pattern6' },
-    { label: 'Pattern 7', icon: <FaChartLine />, link: '/pattern7' },
+    { label: 'Prediction', icon: <FaChartBar />, link: '/pattern5' },
   ];
 
   return (

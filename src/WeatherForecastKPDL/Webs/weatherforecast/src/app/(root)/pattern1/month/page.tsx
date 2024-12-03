@@ -154,7 +154,7 @@ const RawMonthlyData = () => {
                       type: 'scatter',
                       mode: 'lines+markers',
                       name: 'Average Temperature',
-                      line: { color: '#1E90FF' }, // Blue
+                      line: { color: '#1E90FF', shape: 'spline', width: 3 }, // Blue
                     },
                     {
                       x: date,
@@ -162,7 +162,7 @@ const RawMonthlyData = () => {
                       type: 'scatter',
                       mode: 'lines+markers',
                       name: 'Max Temperature',
-                      line: { color: '#FF4500' }, // Red
+                      line: { color: '#FF4500', shape: 'spline', width: 3 }, // Red
                     },
                     {
                       x: date,
@@ -170,7 +170,7 @@ const RawMonthlyData = () => {
                       type: 'scatter',
                       mode: 'lines+markers',
                       name: 'Min Temperature',
-                      line: { color: '#32CD32' }, // Green
+                      line: { color: '#32CD32', shape: 'spline', width: 3 }, // Green
                     },
                   ]}
                   layout={{
@@ -216,7 +216,7 @@ const RawMonthlyData = () => {
                       type: 'scatter',
                       mode: 'lines+markers',
                       name: 'Average Humidity',
-                      line: { color: '#FFD700' }, // Gold
+                      line: { color: '#FFD700', shape: 'spline', width: 3 }, // Gold
                     },
                   ]}
                   layout={{
@@ -288,7 +288,7 @@ const RawMonthlyData = () => {
                       type: 'scatter',
                       mode: 'lines+markers',
                       name: 'Average Pressure',
-                      line: { color: '#FF6347' }, // Tomato
+                      line: { color: '#FF6347', shape: 'spline', width: 3 }, // Tomato
                     },
                   ]}
                   layout={{
@@ -334,7 +334,7 @@ const RawMonthlyData = () => {
                       type: 'scatter',
                       mode: 'lines+markers',
                       name: 'Average Wind Speed',
-                      line: { color: '#4682B4' }, // Steel Blue
+                      line: { color: '#4682B4', shape: 'spline', width: 3 }, // Steel Blue
                     },
                     {
                       x: date,
@@ -342,7 +342,7 @@ const RawMonthlyData = () => {
                       type: 'scatter',
                       mode: 'lines+markers',
                       name: 'Max Wind Speed',
-                      line: { color: '#FF8C00' }, // Dark Orange
+                      line: { color: '#FF8C00', shape: 'spline', width: 3 }, // Dark Orange
                     },
                   ]}
                   layout={{
