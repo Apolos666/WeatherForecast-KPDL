@@ -58,7 +58,30 @@ def process_centroid_clustering():
         if loop is not None:
             loop.run_until_complete(loop.shutdown_asyncgens())
             loop.close()
-            
+
+@celery_app.task(name="app.tasks.clustering_tasks.reset_spider_chart_consumer")
+def reset_spider_chart_consumer():
+    logger.info("Bắt đầu reset Spider Chart Consumer về earliest offset")
+    try:
+        if scheduler.consumers and 'spider_chart' in scheduler.consumers:
+            consumer = scheduler.consumers['spider_chart'].consumer
+            # Chờ để đảm bảo consumer đã được assign partitions
+            while not consumer.assignment():
+                consumer.poll(timeout_ms=1000)
+                
+            # Reset tất cả partitions về earliest
+            for partition in consumer.assignment():
+                logger.info(f"Đang reset partition {partition.partition} về earliest offset")
+                consumer.seek_to_beginning(partition)
+                # Verify position sau khi seek
+                new_position = consumer.position(partition)
+                logger.info(f"Đã reset partition {partition.partition} về offset {new_position}")
+                
+            logger.info("Đã reset thành công Spider Chart Consumer về earliest offset")
+            return {"status": "success"}
+    except Exception as e:
+        logger.error(f"Lỗi khi reset Spider Chart Consumer: {str(e)}")
+        return {"status": "error", "message": str(e)}
 
 @worker_ready.connect
 def at_start(sender, **kwargs):
@@ -75,6 +98,12 @@ if settings.SPIDER_CHART_CLUSTERING_ENABLED:
     beat_schedule['clustering_spider'] = {
         'task': 'app.tasks.clustering_tasks.process_spider_chart_clustering',
         'schedule': settings.SPIDER_CHART_SCHEDULE,
+        'options': {'queue': 'clustering_tasks'}
+    }
+
+    beat_schedule['reset_spider_consumer'] = {
+        'task': 'app.tasks.clustering_tasks.reset_spider_chart_consumer',
+        'schedule': settings.RESET_SPIDER_CHART_SCHEDULE, 
         'options': {'queue': 'clustering_tasks'}
     }
     

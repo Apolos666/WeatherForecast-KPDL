@@ -1,8 +1,8 @@
 services:
-  # weatherforecast.dataingestion:
-  #   image: quangtran2/weatherforecastdataingestion:latest
-  #   networks:
-  #     - weathernet
+  weatherforecast.dataingestion:
+    image: quangtran2/weatherforecastdataingestion:latest
+    networks:
+      - weathernet
 
   weatherforecast.databaseapi:
     image: quangtran2/weatherforecastdatabaseapi:latest
@@ -46,47 +46,47 @@ services:
   #   networks:
   #     - weathernet
 
-  weatherforecast.dataanalysis.worker:
-    image: quangtran2/weatherforecastdataanalysis:latest
-    networks:
-      - weathernet
+  # weatherforecast.dataanalysis.worker:
+  #   image: quangtran2/weatherforecastdataanalysis:latest
+  #   networks:
+  #     - weathernet
 
-  weatherforecast.dataanalysis.beat:
-    image: quangtran2/weatherforecastdataanalysis:latest
-    networks:
-      - weathernet
+  # weatherforecast.dataanalysis.beat:
+  #   image: quangtran2/weatherforecastdataanalysis:latest
+  #   networks:
+  #     - weathernet
 
-  weatherforecastp.prediction:
-    image: quangtran2/weatherforecastprediction:latest
-    volumes:
-      - prediction_models:/app/trained_models
-    networks:
-      - weathernet
+  # weatherforecastp.prediction:
+  #   image: quangtran2/weatherforecastprediction:latest
+  #   volumes:
+  #     - prediction_models:/app/trained_models
+  #   networks:
+  #     - weathernet
 
-  weatherforecast.prediction.worker:
-    image: quangtran2/weatherforecastprediction:latest
-    networks:
-      - weathernet
+  # weatherforecast.prediction.worker:
+  #   image: quangtran2/weatherforecastprediction:latest
+  #   networks:
+  #     - weathernet
 
-  weatherforecast.prediction.beat:
-    image: quangtran2/weatherforecastprediction:latest
-    networks:
-      - weathernet
+  # weatherforecast.prediction.beat:
+  #   image: quangtran2/weatherforecastprediction:latest
+  #   networks:
+  #     - weathernet
 
-  weatherforecast.clustering:
-    image: quangtran2/weatherforecastclustering:latest
-    networks:
-      - weathernet    
+  # weatherforecast.clustering:
+  #   image: quangtran2/weatherforecastclustering:latest
+  #   networks:
+  #     - weathernet    
 
-  weatherforecast.clustering.worker:
-    image: quangtran2/weatherforecastclustering:latest
-    networks:
-      - weathernet
+  # weatherforecast.clustering.worker:
+  #   image: quangtran2/weatherforecastclustering:latest
+  #   networks:
+  #     - weathernet
 
-  weatherforecast.clustering.beat:
-    image: quangtran2/weatherforecastclustering:latest
-    networks:
-      - weathernet    
+  # weatherforecast.clustering.beat:
+  #   image: quangtran2/weatherforecastclustering:latest
+  #   networks:
+  #     - weathernet    
 
 volumes:
   logs:
