@@ -14,7 +14,8 @@ class Settings(BaseSettings):
     CELERY_WORKER: bool = os.getenv("CELERY_WORKER", "false").lower() == "true"
 
     # Schedule intervals (seconds)
-    SPIDER_CHART_SCHEDULE: float = 600.0 
+    SPIDER_CHART_SCHEDULE: float = 60.0 
+    RESET_SPIDER_CHART_SCHEDULE: float = 15552000.0
     CENTROID_SCHEDULE: float = 31536000.0
 
     # Schedule enabled flags

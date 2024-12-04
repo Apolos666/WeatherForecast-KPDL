@@ -4863,3 +4863,1246 @@ SELECT `Id`
 FROM `DailyAnalyses`
 WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
 2024-12-03 12:54:38.707 +00:00 [INF] Application is shutting down...
+2024-12-03 13:28:15.367 +00:00 [INF] Executed DbCommand (102ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1 FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA='defaultdb' AND TABLE_NAME='__EFMigrationsHistory';
+2024-12-03 13:28:16.362 +00:00 [INF] Executed DbCommand (101ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1 FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA='defaultdb' AND TABLE_NAME='__EFMigrationsHistory';
+2024-12-03 13:28:16.575 +00:00 [INF] Executed DbCommand (96ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `MigrationId`, `ProductVersion`
+FROM `__EFMigrationsHistory`
+ORDER BY `MigrationId`;
+2024-12-03 13:28:16.591 +00:00 [INF] No migrations were applied. The database is already up to date.
+2024-12-03 13:28:16.677 +00:00 [INF] Now listening on: http://[::]:8080
+2024-12-03 13:28:16.679 +00:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-12-03 13:28:16.680 +00:00 [INF] Hosting environment: Development
+2024-12-03 13:28:16.680 +00:00 [INF] Content root path: /app
+2024-12-03 13:28:59.495 +00:00 [INF] Executed DbCommand (183ms) [Parameters=[@__date_Date_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`Id`, `d`.`AverageHumidity`, `d`.`AveragePressure`, `d`.`AverageTemperature`, `d`.`AverageWindSpeed`, `d`.`Date`, `d`.`TotalPrecipitation`
+FROM `DailyAnalyses` AS `d`
+WHERE CONVERT(`d`.`Date`, date) = @__date_Date_0
+LIMIT 1
+2024-12-03 13:29:00.235 +00:00 [INF] Executed DbCommand (177ms) [Parameters=[@p0='?' (DbType = Double), @p1='?' (DbType = Double), @p2='?' (DbType = Double), @p3='?' (DbType = Double), @p4='?' (DbType = DateTime), @p5='?' (DbType = Double)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `DailyAnalyses` (`AverageHumidity`, `AveragePressure`, `AverageTemperature`, `AverageWindSpeed`, `Date`, `TotalPrecipitation`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+SELECT `Id`
+FROM `DailyAnalyses`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+2024-12-03 13:29:15.260 +00:00 [INF] Executed DbCommand (101ms) [Parameters=[@p0='?' (DbType = Double), @p1='?' (DbType = Double), @p2='?' (DbType = Double), @p3='?' (DbType = Double)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `Centroids` (`AutumnCentroid`, `SpringCentroid`, `SummerCentroid`, `WinterCentroid`)
+VALUES (@p0, @p1, @p2, @p3);
+SELECT `Id`
+FROM `Centroids`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+2024-12-03 13:29:19.382 +00:00 [INF] Executed DbCommand (107ms) [Parameters=[@__date_Date_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`Id`, `d`.`AverageHumidity`, `d`.`AveragePressure`, `d`.`AverageTemperature`, `d`.`AverageWindSpeed`, `d`.`Date`, `d`.`TotalPrecipitation`
+FROM `DailyAnalyses` AS `d`
+WHERE CONVERT(`d`.`Date`, date) = @__date_Date_0
+LIMIT 1
+2024-12-03 13:29:19.782 +00:00 [INF] Executed DbCommand (99ms) [Parameters=[@p0='?' (DbType = Double), @p1='?' (DbType = Double), @p2='?' (DbType = Double), @p3='?' (DbType = Double), @p4='?' (DbType = DateTime), @p5='?' (DbType = Double)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `DailyAnalyses` (`AverageHumidity`, `AveragePressure`, `AverageTemperature`, `AverageWindSpeed`, `Date`, `TotalPrecipitation`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+SELECT `Id`
+FROM `DailyAnalyses`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+2024-12-03 13:29:20.365 +00:00 [INF] Executed DbCommand (101ms) [Parameters=[@__date_Date_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`Id`, `d`.`AverageHumidity`, `d`.`AveragePressure`, `d`.`AverageTemperature`, `d`.`AverageWindSpeed`, `d`.`Date`, `d`.`TotalPrecipitation`
+FROM `DailyAnalyses` AS `d`
+WHERE CONVERT(`d`.`Date`, date) = @__date_Date_0
+LIMIT 1
+2024-12-03 13:29:20.757 +00:00 [INF] Executed DbCommand (96ms) [Parameters=[@p0='?' (DbType = Double), @p1='?' (DbType = Double), @p2='?' (DbType = Double), @p3='?' (DbType = Double), @p4='?' (DbType = DateTime), @p5='?' (DbType = Double)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `DailyAnalyses` (`AverageHumidity`, `AveragePressure`, `AverageTemperature`, `AverageWindSpeed`, `Date`, `TotalPrecipitation`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+SELECT `Id`
+FROM `DailyAnalyses`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+2024-12-03 13:29:21.383 +00:00 [INF] Executed DbCommand (107ms) [Parameters=[@__date_Date_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`Id`, `d`.`AverageHumidity`, `d`.`AveragePressure`, `d`.`AverageTemperature`, `d`.`AverageWindSpeed`, `d`.`Date`, `d`.`TotalPrecipitation`
+FROM `DailyAnalyses` AS `d`
+WHERE CONVERT(`d`.`Date`, date) = @__date_Date_0
+LIMIT 1
+2024-12-03 13:29:21.783 +00:00 [INF] Executed DbCommand (98ms) [Parameters=[@p0='?' (DbType = Double), @p1='?' (DbType = Double), @p2='?' (DbType = Double), @p3='?' (DbType = Double), @p4='?' (DbType = DateTime), @p5='?' (DbType = Double)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `DailyAnalyses` (`AverageHumidity`, `AveragePressure`, `AverageTemperature`, `AverageWindSpeed`, `Date`, `TotalPrecipitation`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+SELECT `Id`
+FROM `DailyAnalyses`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+2024-12-03 13:29:32.808 +00:00 [INF] Executed DbCommand (98ms) [Parameters=[@__date_Date_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`Id`, `d`.`AverageHumidity`, `d`.`AveragePressure`, `d`.`AverageTemperature`, `d`.`AverageWindSpeed`, `d`.`Date`, `d`.`TotalPrecipitation`
+FROM `DailyAnalyses` AS `d`
+WHERE CONVERT(`d`.`Date`, date) = @__date_Date_0
+LIMIT 1
+2024-12-03 13:29:33.217 +00:00 [INF] Executed DbCommand (101ms) [Parameters=[@p0='?' (DbType = Double), @p1='?' (DbType = Double), @p2='?' (DbType = Double), @p3='?' (DbType = Double), @p4='?' (DbType = DateTime), @p5='?' (DbType = Double)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `DailyAnalyses` (`AverageHumidity`, `AveragePressure`, `AverageTemperature`, `AverageWindSpeed`, `Date`, `TotalPrecipitation`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+SELECT `Id`
+FROM `DailyAnalyses`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+2024-12-03 13:29:39.008 +00:00 [INF] Executed DbCommand (99ms) [Parameters=[@__date_Date_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`Id`, `d`.`AverageHumidity`, `d`.`AveragePressure`, `d`.`AverageTemperature`, `d`.`AverageWindSpeed`, `d`.`Date`, `d`.`TotalPrecipitation`
+FROM `DailyAnalyses` AS `d`
+WHERE CONVERT(`d`.`Date`, date) = @__date_Date_0
+LIMIT 1
+2024-12-03 13:29:39.408 +00:00 [INF] Executed DbCommand (97ms) [Parameters=[@p0='?' (DbType = Double), @p1='?' (DbType = Double), @p2='?' (DbType = Double), @p3='?' (DbType = Double), @p4='?' (DbType = DateTime), @p5='?' (DbType = Double)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `DailyAnalyses` (`AverageHumidity`, `AveragePressure`, `AverageTemperature`, `AverageWindSpeed`, `Date`, `TotalPrecipitation`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+SELECT `Id`
+FROM `DailyAnalyses`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+2024-12-03 13:29:39.979 +00:00 [INF] Executed DbCommand (101ms) [Parameters=[@__date_Date_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`Id`, `d`.`AverageHumidity`, `d`.`AveragePressure`, `d`.`AverageTemperature`, `d`.`AverageWindSpeed`, `d`.`Date`, `d`.`TotalPrecipitation`
+FROM `DailyAnalyses` AS `d`
+WHERE CONVERT(`d`.`Date`, date) = @__date_Date_0
+LIMIT 1
+2024-12-03 13:29:40.368 +00:00 [INF] Executed DbCommand (101ms) [Parameters=[@p0='?' (DbType = Double), @p1='?' (DbType = Double), @p2='?' (DbType = Double), @p3='?' (DbType = Double), @p4='?' (DbType = DateTime), @p5='?' (DbType = Double)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `DailyAnalyses` (`AverageHumidity`, `AveragePressure`, `AverageTemperature`, `AverageWindSpeed`, `Date`, `TotalPrecipitation`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+SELECT `Id`
+FROM `DailyAnalyses`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+2024-12-03 13:29:51.352 +00:00 [INF] Executed DbCommand (95ms) [Parameters=[@__date_Date_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`Id`, `d`.`AverageHumidity`, `d`.`AveragePressure`, `d`.`AverageTemperature`, `d`.`AverageWindSpeed`, `d`.`Date`, `d`.`TotalPrecipitation`
+FROM `DailyAnalyses` AS `d`
+WHERE CONVERT(`d`.`Date`, date) = @__date_Date_0
+LIMIT 1
+2024-12-03 13:29:51.739 +00:00 [INF] Executed DbCommand (96ms) [Parameters=[@p0='?' (DbType = Double), @p1='?' (DbType = Double), @p2='?' (DbType = Double), @p3='?' (DbType = Double), @p4='?' (DbType = DateTime), @p5='?' (DbType = Double)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `DailyAnalyses` (`AverageHumidity`, `AveragePressure`, `AverageTemperature`, `AverageWindSpeed`, `Date`, `TotalPrecipitation`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+SELECT `Id`
+FROM `DailyAnalyses`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+2024-12-03 13:29:52.290 +00:00 [INF] Executed DbCommand (96ms) [Parameters=[@__date_Date_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`Id`, `d`.`AverageHumidity`, `d`.`AveragePressure`, `d`.`AverageTemperature`, `d`.`AverageWindSpeed`, `d`.`Date`, `d`.`TotalPrecipitation`
+FROM `DailyAnalyses` AS `d`
+WHERE CONVERT(`d`.`Date`, date) = @__date_Date_0
+LIMIT 1
+2024-12-03 13:29:52.672 +00:00 [INF] Executed DbCommand (95ms) [Parameters=[@p0='?' (DbType = Double), @p1='?' (DbType = Double), @p2='?' (DbType = Double), @p3='?' (DbType = Double), @p4='?' (DbType = DateTime), @p5='?' (DbType = Double)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `DailyAnalyses` (`AverageHumidity`, `AveragePressure`, `AverageTemperature`, `AverageWindSpeed`, `Date`, `TotalPrecipitation`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+SELECT `Id`
+FROM `DailyAnalyses`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+2024-12-03 13:30:07.995 +00:00 [INF] Executed DbCommand (94ms) [Parameters=[@__date_Date_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`Id`, `d`.`AverageHumidity`, `d`.`AveragePressure`, `d`.`AverageTemperature`, `d`.`AverageWindSpeed`, `d`.`Date`, `d`.`TotalPrecipitation`
+FROM `DailyAnalyses` AS `d`
+WHERE CONVERT(`d`.`Date`, date) = @__date_Date_0
+LIMIT 1
+2024-12-03 13:30:08.376 +00:00 [INF] Executed DbCommand (95ms) [Parameters=[@p0='?' (DbType = Double), @p1='?' (DbType = Double), @p2='?' (DbType = Double), @p3='?' (DbType = Double), @p4='?' (DbType = DateTime), @p5='?' (DbType = Double)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `DailyAnalyses` (`AverageHumidity`, `AveragePressure`, `AverageTemperature`, `AverageWindSpeed`, `Date`, `TotalPrecipitation`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+SELECT `Id`
+FROM `DailyAnalyses`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+2024-12-03 13:30:18.125 +00:00 [INF] Executed DbCommand (95ms) [Parameters=[@__date_Date_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`Id`, `d`.`AverageHumidity`, `d`.`AveragePressure`, `d`.`AverageTemperature`, `d`.`AverageWindSpeed`, `d`.`Date`, `d`.`TotalPrecipitation`
+FROM `DailyAnalyses` AS `d`
+WHERE CONVERT(`d`.`Date`, date) = @__date_Date_0
+LIMIT 1
+2024-12-03 13:30:18.506 +00:00 [INF] Executed DbCommand (95ms) [Parameters=[@p0='?' (DbType = Double), @p1='?' (DbType = Double), @p2='?' (DbType = Double), @p3='?' (DbType = Double), @p4='?' (DbType = DateTime), @p5='?' (DbType = Double)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `DailyAnalyses` (`AverageHumidity`, `AveragePressure`, `AverageTemperature`, `AverageWindSpeed`, `Date`, `TotalPrecipitation`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+SELECT `Id`
+FROM `DailyAnalyses`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+2024-12-03 13:30:43.094 +00:00 [INF] Executed DbCommand (96ms) [Parameters=[@__date_Date_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`Id`, `d`.`AverageHumidity`, `d`.`AveragePressure`, `d`.`AverageTemperature`, `d`.`AverageWindSpeed`, `d`.`Date`, `d`.`TotalPrecipitation`
+FROM `DailyAnalyses` AS `d`
+WHERE CONVERT(`d`.`Date`, date) = @__date_Date_0
+LIMIT 1
+2024-12-03 13:30:43.482 +00:00 [INF] Executed DbCommand (97ms) [Parameters=[@p0='?' (DbType = Double), @p1='?' (DbType = Double), @p2='?' (DbType = Double), @p3='?' (DbType = Double), @p4='?' (DbType = DateTime), @p5='?' (DbType = Double)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `DailyAnalyses` (`AverageHumidity`, `AveragePressure`, `AverageTemperature`, `AverageWindSpeed`, `Date`, `TotalPrecipitation`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+SELECT `Id`
+FROM `DailyAnalyses`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+2024-12-03 13:30:48.040 +00:00 [INF] Executed DbCommand (98ms) [Parameters=[@__date_Date_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`Id`, `d`.`AverageHumidity`, `d`.`AveragePressure`, `d`.`AverageTemperature`, `d`.`AverageWindSpeed`, `d`.`Date`, `d`.`TotalPrecipitation`
+FROM `DailyAnalyses` AS `d`
+WHERE CONVERT(`d`.`Date`, date) = @__date_Date_0
+LIMIT 1
+2024-12-03 13:30:48.431 +00:00 [INF] Executed DbCommand (98ms) [Parameters=[@p0='?' (DbType = Double), @p1='?' (DbType = Double), @p2='?' (DbType = Double), @p3='?' (DbType = Double), @p4='?' (DbType = DateTime), @p5='?' (DbType = Double)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `DailyAnalyses` (`AverageHumidity`, `AveragePressure`, `AverageTemperature`, `AverageWindSpeed`, `Date`, `TotalPrecipitation`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+SELECT `Id`
+FROM `DailyAnalyses`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+2024-12-03 13:31:08.001 +00:00 [INF] Executed DbCommand (96ms) [Parameters=[@__date_Date_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`Id`, `d`.`AverageHumidity`, `d`.`AveragePressure`, `d`.`AverageTemperature`, `d`.`AverageWindSpeed`, `d`.`Date`, `d`.`TotalPrecipitation`
+FROM `DailyAnalyses` AS `d`
+WHERE CONVERT(`d`.`Date`, date) = @__date_Date_0
+LIMIT 1
+2024-12-03 13:31:08.390 +00:00 [INF] Executed DbCommand (99ms) [Parameters=[@p0='?' (DbType = Double), @p1='?' (DbType = Double), @p2='?' (DbType = Double), @p3='?' (DbType = Double), @p4='?' (DbType = DateTime), @p5='?' (DbType = Double)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `DailyAnalyses` (`AverageHumidity`, `AveragePressure`, `AverageTemperature`, `AverageWindSpeed`, `Date`, `TotalPrecipitation`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+SELECT `Id`
+FROM `DailyAnalyses`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+2024-12-03 13:31:17.912 +00:00 [INF] Executed DbCommand (97ms) [Parameters=[@__date_Date_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`Id`, `d`.`AverageHumidity`, `d`.`AveragePressure`, `d`.`AverageTemperature`, `d`.`AverageWindSpeed`, `d`.`Date`, `d`.`TotalPrecipitation`
+FROM `DailyAnalyses` AS `d`
+WHERE CONVERT(`d`.`Date`, date) = @__date_Date_0
+LIMIT 1
+2024-12-03 13:31:18.300 +00:00 [INF] Executed DbCommand (97ms) [Parameters=[@p0='?' (DbType = Double), @p1='?' (DbType = Double), @p2='?' (DbType = Double), @p3='?' (DbType = Double), @p4='?' (DbType = DateTime), @p5='?' (DbType = Double)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `DailyAnalyses` (`AverageHumidity`, `AveragePressure`, `AverageTemperature`, `AverageWindSpeed`, `Date`, `TotalPrecipitation`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+SELECT `Id`
+FROM `DailyAnalyses`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+2024-12-03 13:31:43.093 +00:00 [INF] Executed DbCommand (97ms) [Parameters=[@__date_Date_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`Id`, `d`.`AverageHumidity`, `d`.`AveragePressure`, `d`.`AverageTemperature`, `d`.`AverageWindSpeed`, `d`.`Date`, `d`.`TotalPrecipitation`
+FROM `DailyAnalyses` AS `d`
+WHERE CONVERT(`d`.`Date`, date) = @__date_Date_0
+LIMIT 1
+2024-12-03 13:31:43.481 +00:00 [INF] Executed DbCommand (96ms) [Parameters=[@p0='?' (DbType = Double), @p1='?' (DbType = Double), @p2='?' (DbType = Double), @p3='?' (DbType = Double), @p4='?' (DbType = DateTime), @p5='?' (DbType = Double)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `DailyAnalyses` (`AverageHumidity`, `AveragePressure`, `AverageTemperature`, `AverageWindSpeed`, `Date`, `TotalPrecipitation`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+SELECT `Id`
+FROM `DailyAnalyses`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+2024-12-03 13:31:47.870 +00:00 [INF] Executed DbCommand (96ms) [Parameters=[@__date_Date_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`Id`, `d`.`AverageHumidity`, `d`.`AveragePressure`, `d`.`AverageTemperature`, `d`.`AverageWindSpeed`, `d`.`Date`, `d`.`TotalPrecipitation`
+FROM `DailyAnalyses` AS `d`
+WHERE CONVERT(`d`.`Date`, date) = @__date_Date_0
+LIMIT 1
+2024-12-03 13:31:48.254 +00:00 [INF] Executed DbCommand (97ms) [Parameters=[@p0='?' (DbType = Double), @p1='?' (DbType = Double), @p2='?' (DbType = Double), @p3='?' (DbType = Double), @p4='?' (DbType = DateTime), @p5='?' (DbType = Double)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `DailyAnalyses` (`AverageHumidity`, `AveragePressure`, `AverageTemperature`, `AverageWindSpeed`, `Date`, `TotalPrecipitation`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+SELECT `Id`
+FROM `DailyAnalyses`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+2024-12-03 13:32:08.052 +00:00 [INF] Executed DbCommand (96ms) [Parameters=[@__date_Date_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`Id`, `d`.`AverageHumidity`, `d`.`AveragePressure`, `d`.`AverageTemperature`, `d`.`AverageWindSpeed`, `d`.`Date`, `d`.`TotalPrecipitation`
+FROM `DailyAnalyses` AS `d`
+WHERE CONVERT(`d`.`Date`, date) = @__date_Date_0
+LIMIT 1
+2024-12-03 13:32:08.440 +00:00 [INF] Executed DbCommand (98ms) [Parameters=[@p0='?' (DbType = Double), @p1='?' (DbType = Double), @p2='?' (DbType = Double), @p3='?' (DbType = Double), @p4='?' (DbType = DateTime), @p5='?' (DbType = Double)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `DailyAnalyses` (`AverageHumidity`, `AveragePressure`, `AverageTemperature`, `AverageWindSpeed`, `Date`, `TotalPrecipitation`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+SELECT `Id`
+FROM `DailyAnalyses`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+2024-12-03 13:32:17.880 +00:00 [INF] Executed DbCommand (97ms) [Parameters=[@__date_Date_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`Id`, `d`.`AverageHumidity`, `d`.`AveragePressure`, `d`.`AverageTemperature`, `d`.`AverageWindSpeed`, `d`.`Date`, `d`.`TotalPrecipitation`
+FROM `DailyAnalyses` AS `d`
+WHERE CONVERT(`d`.`Date`, date) = @__date_Date_0
+LIMIT 1
+2024-12-03 13:32:18.266 +00:00 [INF] Executed DbCommand (96ms) [Parameters=[@p0='?' (DbType = Double), @p1='?' (DbType = Double), @p2='?' (DbType = Double), @p3='?' (DbType = Double), @p4='?' (DbType = DateTime), @p5='?' (DbType = Double)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `DailyAnalyses` (`AverageHumidity`, `AveragePressure`, `AverageTemperature`, `AverageWindSpeed`, `Date`, `TotalPrecipitation`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+SELECT `Id`
+FROM `DailyAnalyses`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+2024-12-03 13:32:31.645 +00:00 [INF] Executed DbCommand (96ms) [Parameters=[@__date_Date_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`Id`, `d`.`AverageHumidity`, `d`.`AveragePressure`, `d`.`AverageTemperature`, `d`.`AverageWindSpeed`, `d`.`Date`, `d`.`TotalPrecipitation`
+FROM `DailyAnalyses` AS `d`
+WHERE CONVERT(`d`.`Date`, date) = @__date_Date_0
+LIMIT 1
+2024-12-03 13:32:32.031 +00:00 [INF] Executed DbCommand (97ms) [Parameters=[@p0='?' (DbType = Double), @p1='?' (DbType = Double), @p2='?' (DbType = Double), @p3='?' (DbType = Double), @p4='?' (DbType = DateTime), @p5='?' (DbType = Double)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `DailyAnalyses` (`AverageHumidity`, `AveragePressure`, `AverageTemperature`, `AverageWindSpeed`, `Date`, `TotalPrecipitation`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+SELECT `Id`
+FROM `DailyAnalyses`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+2024-12-03 13:32:41.487 +00:00 [INF] Executed DbCommand (109ms) [Parameters=[@__startDate_Date_0='?' (DbType = DateTime), @__endDate_Date_1='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM `Hours` AS `h`
+INNER JOIN `WeatherForecasts` AS `w` ON `h`.`WeatherForecastId` = `w`.`Id`
+WHERE (CONVERT(`w`.`Date`, date) >= @__startDate_Date_0) AND (CONVERT(`w`.`Date`, date) <= @__endDate_Date_1)
+2024-12-03 13:32:41.960 +00:00 [INF] Executed DbCommand (317ms) [Parameters=[@__startDate_Date_0='?' (DbType = DateTime), @__endDate_Date_1='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT `t`.`Key` AS `Date`, ROUND(AVG(`t`.`TempC`), 2) AS `AverageTemperature`, ROUND(MAX(`t`.`TempC`), 2) AS `MaxTemperature`, ROUND(MIN(`t`.`TempC`), 2) AS `MinTemperature`, ROUND(AVG(CAST(`t`.`Humidity` AS double)), 2) AS `AverageHumidity`, ROUND(AVG(`t`.`WindKph`), 2) AS `AverageWindSpeed`, ROUND(MAX(`t`.`WindKph`), 2) AS `MaxWindSpeed`, ROUND(COALESCE(SUM(`t`.`PrecipMm`), 0.0), 2) AS `TotalPrecipitation`, ROUND(AVG(`t`.`PressureMb`), 2) AS `AveragePressure`, (
+    SELECT `t0`.`ConditionText`
+    FROM (
+        SELECT `h0`.`Id`, `h0`.`ChanceOfRain`, `h0`.`ChanceOfSnow`, `h0`.`Cloud`, `h0`.`ConditionCode`, `h0`.`ConditionIcon`, `h0`.`ConditionText`, `h0`.`DewpointC`, `h0`.`DewpointF`, `h0`.`FeelslikeC`, `h0`.`FeelslikeF`, `h0`.`GustKph`, `h0`.`GustMph`, `h0`.`HeatindexC`, `h0`.`HeatindexF`, `h0`.`Humidity`, `h0`.`IsDay`, `h0`.`PrecipIn`, `h0`.`PrecipMm`, `h0`.`PressureIn`, `h0`.`PressureMb`, `h0`.`SnowCm`, `h0`.`TempC`, `h0`.`TempF`, `h0`.`Time`, `h0`.`TimeEpoch`, `h0`.`Uv`, `h0`.`VisKm`, `h0`.`VisMiles`, `h0`.`WeatherForecastId`, `h0`.`WillItRain`, `h0`.`WillItSnow`, `h0`.`WindDegree`, `h0`.`WindDir`, `h0`.`WindKph`, `h0`.`WindMph`, `h0`.`WindchillC`, `h0`.`WindchillF`, `w0`.`Id` AS `Id0`, `w0`.`Date`, `w0`.`DateEpoch`, `w0`.`LocationId`, CONVERT(`w0`.`Date`, date) AS `Key`
+        FROM `Hours` AS `h0`
+        INNER JOIN `WeatherForecasts` AS `w0` ON `h0`.`WeatherForecastId` = `w0`.`Id`
+        WHERE (CONVERT(`w0`.`Date`, date) >= @__startDate_Date_0) AND (CONVERT(`w0`.`Date`, date) <= @__endDate_Date_1)
+    ) AS `t0`
+    WHERE (`t`.`Key` = `t0`.`Key`) OR (`t`.`Key` IS NULL AND (`t0`.`Key` IS NULL))
+    GROUP BY `t0`.`ConditionText`
+    ORDER BY COUNT(*) DESC
+    LIMIT 1) AS `MostCommonCondition`, (
+    SELECT `t1`.`WindDir`
+    FROM (
+        SELECT `h1`.`Id`, `h1`.`ChanceOfRain`, `h1`.`ChanceOfSnow`, `h1`.`Cloud`, `h1`.`ConditionCode`, `h1`.`ConditionIcon`, `h1`.`ConditionText`, `h1`.`DewpointC`, `h1`.`DewpointF`, `h1`.`FeelslikeC`, `h1`.`FeelslikeF`, `h1`.`GustKph`, `h1`.`GustMph`, `h1`.`HeatindexC`, `h1`.`HeatindexF`, `h1`.`Humidity`, `h1`.`IsDay`, `h1`.`PrecipIn`, `h1`.`PrecipMm`, `h1`.`PressureIn`, `h1`.`PressureMb`, `h1`.`SnowCm`, `h1`.`TempC`, `h1`.`TempF`, `h1`.`Time`, `h1`.`TimeEpoch`, `h1`.`Uv`, `h1`.`VisKm`, `h1`.`VisMiles`, `h1`.`WeatherForecastId`, `h1`.`WillItRain`, `h1`.`WillItSnow`, `h1`.`WindDegree`, `h1`.`WindDir`, `h1`.`WindKph`, `h1`.`WindMph`, `h1`.`WindchillC`, `h1`.`WindchillF`, `w1`.`Id` AS `Id0`, `w1`.`Date`, `w1`.`DateEpoch`, `w1`.`LocationId`, CONVERT(`w1`.`Date`, date) AS `Key`
+        FROM `Hours` AS `h1`
+        INNER JOIN `WeatherForecasts` AS `w1` ON `h1`.`WeatherForecastId` = `w1`.`Id`
+        WHERE (CONVERT(`w1`.`Date`, date) >= @__startDate_Date_0) AND (CONVERT(`w1`.`Date`, date) <= @__endDate_Date_1)
+    ) AS `t1`
+    WHERE (`t`.`Key` = `t1`.`Key`) OR (`t`.`Key` IS NULL AND (`t1`.`Key` IS NULL))
+    GROUP BY `t1`.`WindDir`
+    ORDER BY COUNT(*) DESC
+    LIMIT 1) AS `MostCommonWindDirection`
+FROM (
+    SELECT `h`.`Humidity`, `h`.`PrecipMm`, `h`.`PressureMb`, `h`.`TempC`, `h`.`WindKph`, CONVERT(`w`.`Date`, date) AS `Key`
+    FROM `Hours` AS `h`
+    INNER JOIN `WeatherForecasts` AS `w` ON `h`.`WeatherForecastId` = `w`.`Id`
+    WHERE (CONVERT(`w`.`Date`, date) >= @__startDate_Date_0) AND (CONVERT(`w`.`Date`, date) <= @__endDate_Date_1)
+) AS `t`
+GROUP BY `t`.`Key`
+2024-12-03 13:32:43.092 +00:00 [INF] Executed DbCommand (96ms) [Parameters=[@__date_Date_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`Id`, `d`.`AverageHumidity`, `d`.`AveragePressure`, `d`.`AverageTemperature`, `d`.`AverageWindSpeed`, `d`.`Date`, `d`.`TotalPrecipitation`
+FROM `DailyAnalyses` AS `d`
+WHERE CONVERT(`d`.`Date`, date) = @__date_Date_0
+LIMIT 1
+2024-12-03 13:32:43.477 +00:00 [INF] Executed DbCommand (96ms) [Parameters=[@p0='?' (DbType = Double), @p1='?' (DbType = Double), @p2='?' (DbType = Double), @p3='?' (DbType = Double), @p4='?' (DbType = DateTime), @p5='?' (DbType = Double)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `DailyAnalyses` (`AverageHumidity`, `AveragePressure`, `AverageTemperature`, `AverageWindSpeed`, `Date`, `TotalPrecipitation`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+SELECT `Id`
+FROM `DailyAnalyses`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+2024-12-03 13:32:44.034 +00:00 [INF] Executed DbCommand (96ms) [Parameters=[@__date_Date_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`Id`, `d`.`AverageHumidity`, `d`.`AveragePressure`, `d`.`AverageTemperature`, `d`.`AverageWindSpeed`, `d`.`Date`, `d`.`TotalPrecipitation`
+FROM `DailyAnalyses` AS `d`
+WHERE CONVERT(`d`.`Date`, date) = @__date_Date_0
+LIMIT 1
+2024-12-03 13:32:44.420 +00:00 [INF] Executed DbCommand (96ms) [Parameters=[@p0='?' (DbType = Double), @p1='?' (DbType = Double), @p2='?' (DbType = Double), @p3='?' (DbType = Double), @p4='?' (DbType = DateTime), @p5='?' (DbType = Double)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `DailyAnalyses` (`AverageHumidity`, `AveragePressure`, `AverageTemperature`, `AverageWindSpeed`, `Date`, `TotalPrecipitation`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+SELECT `Id`
+FROM `DailyAnalyses`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+2024-12-03 13:32:44.931 +00:00 [INF] Executed DbCommand (99ms) [Parameters=[@__startDate_Date_0='?' (DbType = DateTime), @__endDate_Date_1='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM `Hours` AS `h`
+INNER JOIN `WeatherForecasts` AS `w` ON `h`.`WeatherForecastId` = `w`.`Id`
+WHERE (CONVERT(`w`.`Date`, date) >= @__startDate_Date_0) AND (CONVERT(`w`.`Date`, date) <= @__endDate_Date_1)
+2024-12-03 13:32:45.139 +00:00 [INF] Executed DbCommand (108ms) [Parameters=[@__startDate_Date_0='?' (DbType = DateTime), @__endDate_Date_1='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT `t`.`Key` AS `Date`, ROUND(AVG(`t`.`TempC`), 2) AS `AverageTemperature`, ROUND(MAX(`t`.`TempC`), 2) AS `MaxTemperature`, ROUND(MIN(`t`.`TempC`), 2) AS `MinTemperature`, ROUND(AVG(CAST(`t`.`Humidity` AS double)), 2) AS `AverageHumidity`, ROUND(AVG(`t`.`WindKph`), 2) AS `AverageWindSpeed`, ROUND(MAX(`t`.`WindKph`), 2) AS `MaxWindSpeed`, ROUND(COALESCE(SUM(`t`.`PrecipMm`), 0.0), 2) AS `TotalPrecipitation`, ROUND(AVG(`t`.`PressureMb`), 2) AS `AveragePressure`, (
+    SELECT `t0`.`ConditionText`
+    FROM (
+        SELECT `h0`.`Id`, `h0`.`ChanceOfRain`, `h0`.`ChanceOfSnow`, `h0`.`Cloud`, `h0`.`ConditionCode`, `h0`.`ConditionIcon`, `h0`.`ConditionText`, `h0`.`DewpointC`, `h0`.`DewpointF`, `h0`.`FeelslikeC`, `h0`.`FeelslikeF`, `h0`.`GustKph`, `h0`.`GustMph`, `h0`.`HeatindexC`, `h0`.`HeatindexF`, `h0`.`Humidity`, `h0`.`IsDay`, `h0`.`PrecipIn`, `h0`.`PrecipMm`, `h0`.`PressureIn`, `h0`.`PressureMb`, `h0`.`SnowCm`, `h0`.`TempC`, `h0`.`TempF`, `h0`.`Time`, `h0`.`TimeEpoch`, `h0`.`Uv`, `h0`.`VisKm`, `h0`.`VisMiles`, `h0`.`WeatherForecastId`, `h0`.`WillItRain`, `h0`.`WillItSnow`, `h0`.`WindDegree`, `h0`.`WindDir`, `h0`.`WindKph`, `h0`.`WindMph`, `h0`.`WindchillC`, `h0`.`WindchillF`, `w0`.`Id` AS `Id0`, `w0`.`Date`, `w0`.`DateEpoch`, `w0`.`LocationId`, CONVERT(`w0`.`Date`, date) AS `Key`
+        FROM `Hours` AS `h0`
+        INNER JOIN `WeatherForecasts` AS `w0` ON `h0`.`WeatherForecastId` = `w0`.`Id`
+        WHERE (CONVERT(`w0`.`Date`, date) >= @__startDate_Date_0) AND (CONVERT(`w0`.`Date`, date) <= @__endDate_Date_1)
+    ) AS `t0`
+    WHERE (`t`.`Key` = `t0`.`Key`) OR (`t`.`Key` IS NULL AND (`t0`.`Key` IS NULL))
+    GROUP BY `t0`.`ConditionText`
+    ORDER BY COUNT(*) DESC
+    LIMIT 1) AS `MostCommonCondition`, (
+    SELECT `t1`.`WindDir`
+    FROM (
+        SELECT `h1`.`Id`, `h1`.`ChanceOfRain`, `h1`.`ChanceOfSnow`, `h1`.`Cloud`, `h1`.`ConditionCode`, `h1`.`ConditionIcon`, `h1`.`ConditionText`, `h1`.`DewpointC`, `h1`.`DewpointF`, `h1`.`FeelslikeC`, `h1`.`FeelslikeF`, `h1`.`GustKph`, `h1`.`GustMph`, `h1`.`HeatindexC`, `h1`.`HeatindexF`, `h1`.`Humidity`, `h1`.`IsDay`, `h1`.`PrecipIn`, `h1`.`PrecipMm`, `h1`.`PressureIn`, `h1`.`PressureMb`, `h1`.`SnowCm`, `h1`.`TempC`, `h1`.`TempF`, `h1`.`Time`, `h1`.`TimeEpoch`, `h1`.`Uv`, `h1`.`VisKm`, `h1`.`VisMiles`, `h1`.`WeatherForecastId`, `h1`.`WillItRain`, `h1`.`WillItSnow`, `h1`.`WindDegree`, `h1`.`WindDir`, `h1`.`WindKph`, `h1`.`WindMph`, `h1`.`WindchillC`, `h1`.`WindchillF`, `w1`.`Id` AS `Id0`, `w1`.`Date`, `w1`.`DateEpoch`, `w1`.`LocationId`, CONVERT(`w1`.`Date`, date) AS `Key`
+        FROM `Hours` AS `h1`
+        INNER JOIN `WeatherForecasts` AS `w1` ON `h1`.`WeatherForecastId` = `w1`.`Id`
+        WHERE (CONVERT(`w1`.`Date`, date) >= @__startDate_Date_0) AND (CONVERT(`w1`.`Date`, date) <= @__endDate_Date_1)
+    ) AS `t1`
+    WHERE (`t`.`Key` = `t1`.`Key`) OR (`t`.`Key` IS NULL AND (`t1`.`Key` IS NULL))
+    GROUP BY `t1`.`WindDir`
+    ORDER BY COUNT(*) DESC
+    LIMIT 1) AS `MostCommonWindDirection`
+FROM (
+    SELECT `h`.`Humidity`, `h`.`PrecipMm`, `h`.`PressureMb`, `h`.`TempC`, `h`.`WindKph`, CONVERT(`w`.`Date`, date) AS `Key`
+    FROM `Hours` AS `h`
+    INNER JOIN `WeatherForecasts` AS `w` ON `h`.`WeatherForecastId` = `w`.`Id`
+    WHERE (CONVERT(`w`.`Date`, date) >= @__startDate_Date_0) AND (CONVERT(`w`.`Date`, date) <= @__endDate_Date_1)
+) AS `t`
+GROUP BY `t`.`Key`
+2024-12-03 13:32:51.813 +00:00 [INF] Executed DbCommand (101ms) [Parameters=[@__startDate_Date_0='?' (DbType = DateTime), @__endDate_Date_1='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM `Hours` AS `h`
+INNER JOIN `WeatherForecasts` AS `w` ON `h`.`WeatherForecastId` = `w`.`Id`
+WHERE (CONVERT(`w`.`Date`, date) >= @__startDate_Date_0) AND (CONVERT(`w`.`Date`, date) <= @__endDate_Date_1)
+2024-12-03 13:32:52.240 +00:00 [INF] Executed DbCommand (328ms) [Parameters=[@__startDate_Date_0='?' (DbType = DateTime), @__endDate_Date_1='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT `t`.`Key` AS `Date`, ROUND(AVG(`t`.`TempC`), 2) AS `AverageTemperature`, ROUND(MAX(`t`.`TempC`), 2) AS `MaxTemperature`, ROUND(MIN(`t`.`TempC`), 2) AS `MinTemperature`, ROUND(AVG(CAST(`t`.`Humidity` AS double)), 2) AS `AverageHumidity`, ROUND(AVG(`t`.`WindKph`), 2) AS `AverageWindSpeed`, ROUND(MAX(`t`.`WindKph`), 2) AS `MaxWindSpeed`, ROUND(COALESCE(SUM(`t`.`PrecipMm`), 0.0), 2) AS `TotalPrecipitation`, ROUND(AVG(`t`.`PressureMb`), 2) AS `AveragePressure`, (
+    SELECT `t0`.`ConditionText`
+    FROM (
+        SELECT `h0`.`Id`, `h0`.`ChanceOfRain`, `h0`.`ChanceOfSnow`, `h0`.`Cloud`, `h0`.`ConditionCode`, `h0`.`ConditionIcon`, `h0`.`ConditionText`, `h0`.`DewpointC`, `h0`.`DewpointF`, `h0`.`FeelslikeC`, `h0`.`FeelslikeF`, `h0`.`GustKph`, `h0`.`GustMph`, `h0`.`HeatindexC`, `h0`.`HeatindexF`, `h0`.`Humidity`, `h0`.`IsDay`, `h0`.`PrecipIn`, `h0`.`PrecipMm`, `h0`.`PressureIn`, `h0`.`PressureMb`, `h0`.`SnowCm`, `h0`.`TempC`, `h0`.`TempF`, `h0`.`Time`, `h0`.`TimeEpoch`, `h0`.`Uv`, `h0`.`VisKm`, `h0`.`VisMiles`, `h0`.`WeatherForecastId`, `h0`.`WillItRain`, `h0`.`WillItSnow`, `h0`.`WindDegree`, `h0`.`WindDir`, `h0`.`WindKph`, `h0`.`WindMph`, `h0`.`WindchillC`, `h0`.`WindchillF`, `w0`.`Id` AS `Id0`, `w0`.`Date`, `w0`.`DateEpoch`, `w0`.`LocationId`, CONVERT(`w0`.`Date`, date) AS `Key`
+        FROM `Hours` AS `h0`
+        INNER JOIN `WeatherForecasts` AS `w0` ON `h0`.`WeatherForecastId` = `w0`.`Id`
+        WHERE (CONVERT(`w0`.`Date`, date) >= @__startDate_Date_0) AND (CONVERT(`w0`.`Date`, date) <= @__endDate_Date_1)
+    ) AS `t0`
+    WHERE (`t`.`Key` = `t0`.`Key`) OR (`t`.`Key` IS NULL AND (`t0`.`Key` IS NULL))
+    GROUP BY `t0`.`ConditionText`
+    ORDER BY COUNT(*) DESC
+    LIMIT 1) AS `MostCommonCondition`, (
+    SELECT `t1`.`WindDir`
+    FROM (
+        SELECT `h1`.`Id`, `h1`.`ChanceOfRain`, `h1`.`ChanceOfSnow`, `h1`.`Cloud`, `h1`.`ConditionCode`, `h1`.`ConditionIcon`, `h1`.`ConditionText`, `h1`.`DewpointC`, `h1`.`DewpointF`, `h1`.`FeelslikeC`, `h1`.`FeelslikeF`, `h1`.`GustKph`, `h1`.`GustMph`, `h1`.`HeatindexC`, `h1`.`HeatindexF`, `h1`.`Humidity`, `h1`.`IsDay`, `h1`.`PrecipIn`, `h1`.`PrecipMm`, `h1`.`PressureIn`, `h1`.`PressureMb`, `h1`.`SnowCm`, `h1`.`TempC`, `h1`.`TempF`, `h1`.`Time`, `h1`.`TimeEpoch`, `h1`.`Uv`, `h1`.`VisKm`, `h1`.`VisMiles`, `h1`.`WeatherForecastId`, `h1`.`WillItRain`, `h1`.`WillItSnow`, `h1`.`WindDegree`, `h1`.`WindDir`, `h1`.`WindKph`, `h1`.`WindMph`, `h1`.`WindchillC`, `h1`.`WindchillF`, `w1`.`Id` AS `Id0`, `w1`.`Date`, `w1`.`DateEpoch`, `w1`.`LocationId`, CONVERT(`w1`.`Date`, date) AS `Key`
+        FROM `Hours` AS `h1`
+        INNER JOIN `WeatherForecasts` AS `w1` ON `h1`.`WeatherForecastId` = `w1`.`Id`
+        WHERE (CONVERT(`w1`.`Date`, date) >= @__startDate_Date_0) AND (CONVERT(`w1`.`Date`, date) <= @__endDate_Date_1)
+    ) AS `t1`
+    WHERE (`t`.`Key` = `t1`.`Key`) OR (`t`.`Key` IS NULL AND (`t1`.`Key` IS NULL))
+    GROUP BY `t1`.`WindDir`
+    ORDER BY COUNT(*) DESC
+    LIMIT 1) AS `MostCommonWindDirection`
+FROM (
+    SELECT `h`.`Humidity`, `h`.`PrecipMm`, `h`.`PressureMb`, `h`.`TempC`, `h`.`WindKph`, CONVERT(`w`.`Date`, date) AS `Key`
+    FROM `Hours` AS `h`
+    INNER JOIN `WeatherForecasts` AS `w` ON `h`.`WeatherForecastId` = `w`.`Id`
+    WHERE (CONVERT(`w`.`Date`, date) >= @__startDate_Date_0) AND (CONVERT(`w`.`Date`, date) <= @__endDate_Date_1)
+) AS `t`
+GROUP BY `t`.`Key`
+2024-12-03 13:33:07.999 +00:00 [INF] Executed DbCommand (101ms) [Parameters=[@__date_Date_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`Id`, `d`.`AverageHumidity`, `d`.`AveragePressure`, `d`.`AverageTemperature`, `d`.`AverageWindSpeed`, `d`.`Date`, `d`.`TotalPrecipitation`
+FROM `DailyAnalyses` AS `d`
+WHERE CONVERT(`d`.`Date`, date) = @__date_Date_0
+LIMIT 1
+2024-12-03 13:33:08.395 +00:00 [INF] Executed DbCommand (99ms) [Parameters=[@p0='?' (DbType = Double), @p1='?' (DbType = Double), @p2='?' (DbType = Double), @p3='?' (DbType = Double), @p4='?' (DbType = DateTime), @p5='?' (DbType = Double)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `DailyAnalyses` (`AverageHumidity`, `AveragePressure`, `AverageTemperature`, `AverageWindSpeed`, `Date`, `TotalPrecipitation`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+SELECT `Id`
+FROM `DailyAnalyses`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+2024-12-03 13:33:11.724 +00:00 [INF] Executed DbCommand (100ms) [Parameters=[@__startDate_Date_0='?' (DbType = DateTime), @__endDate_Date_1='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM `Hours` AS `h`
+INNER JOIN `WeatherForecasts` AS `w` ON `h`.`WeatherForecastId` = `w`.`Id`
+WHERE (CONVERT(`w`.`Date`, date) >= @__startDate_Date_0) AND (CONVERT(`w`.`Date`, date) <= @__endDate_Date_1)
+2024-12-03 13:33:11.929 +00:00 [INF] Executed DbCommand (104ms) [Parameters=[@__startDate_Date_0='?' (DbType = DateTime), @__endDate_Date_1='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT `t`.`Key` AS `Date`, ROUND(AVG(`t`.`TempC`), 2) AS `AverageTemperature`, ROUND(MAX(`t`.`TempC`), 2) AS `MaxTemperature`, ROUND(MIN(`t`.`TempC`), 2) AS `MinTemperature`, ROUND(AVG(CAST(`t`.`Humidity` AS double)), 2) AS `AverageHumidity`, ROUND(AVG(`t`.`WindKph`), 2) AS `AverageWindSpeed`, ROUND(MAX(`t`.`WindKph`), 2) AS `MaxWindSpeed`, ROUND(COALESCE(SUM(`t`.`PrecipMm`), 0.0), 2) AS `TotalPrecipitation`, ROUND(AVG(`t`.`PressureMb`), 2) AS `AveragePressure`, (
+    SELECT `t0`.`ConditionText`
+    FROM (
+        SELECT `h0`.`Id`, `h0`.`ChanceOfRain`, `h0`.`ChanceOfSnow`, `h0`.`Cloud`, `h0`.`ConditionCode`, `h0`.`ConditionIcon`, `h0`.`ConditionText`, `h0`.`DewpointC`, `h0`.`DewpointF`, `h0`.`FeelslikeC`, `h0`.`FeelslikeF`, `h0`.`GustKph`, `h0`.`GustMph`, `h0`.`HeatindexC`, `h0`.`HeatindexF`, `h0`.`Humidity`, `h0`.`IsDay`, `h0`.`PrecipIn`, `h0`.`PrecipMm`, `h0`.`PressureIn`, `h0`.`PressureMb`, `h0`.`SnowCm`, `h0`.`TempC`, `h0`.`TempF`, `h0`.`Time`, `h0`.`TimeEpoch`, `h0`.`Uv`, `h0`.`VisKm`, `h0`.`VisMiles`, `h0`.`WeatherForecastId`, `h0`.`WillItRain`, `h0`.`WillItSnow`, `h0`.`WindDegree`, `h0`.`WindDir`, `h0`.`WindKph`, `h0`.`WindMph`, `h0`.`WindchillC`, `h0`.`WindchillF`, `w0`.`Id` AS `Id0`, `w0`.`Date`, `w0`.`DateEpoch`, `w0`.`LocationId`, CONVERT(`w0`.`Date`, date) AS `Key`
+        FROM `Hours` AS `h0`
+        INNER JOIN `WeatherForecasts` AS `w0` ON `h0`.`WeatherForecastId` = `w0`.`Id`
+        WHERE (CONVERT(`w0`.`Date`, date) >= @__startDate_Date_0) AND (CONVERT(`w0`.`Date`, date) <= @__endDate_Date_1)
+    ) AS `t0`
+    WHERE (`t`.`Key` = `t0`.`Key`) OR (`t`.`Key` IS NULL AND (`t0`.`Key` IS NULL))
+    GROUP BY `t0`.`ConditionText`
+    ORDER BY COUNT(*) DESC
+    LIMIT 1) AS `MostCommonCondition`, (
+    SELECT `t1`.`WindDir`
+    FROM (
+        SELECT `h1`.`Id`, `h1`.`ChanceOfRain`, `h1`.`ChanceOfSnow`, `h1`.`Cloud`, `h1`.`ConditionCode`, `h1`.`ConditionIcon`, `h1`.`ConditionText`, `h1`.`DewpointC`, `h1`.`DewpointF`, `h1`.`FeelslikeC`, `h1`.`FeelslikeF`, `h1`.`GustKph`, `h1`.`GustMph`, `h1`.`HeatindexC`, `h1`.`HeatindexF`, `h1`.`Humidity`, `h1`.`IsDay`, `h1`.`PrecipIn`, `h1`.`PrecipMm`, `h1`.`PressureIn`, `h1`.`PressureMb`, `h1`.`SnowCm`, `h1`.`TempC`, `h1`.`TempF`, `h1`.`Time`, `h1`.`TimeEpoch`, `h1`.`Uv`, `h1`.`VisKm`, `h1`.`VisMiles`, `h1`.`WeatherForecastId`, `h1`.`WillItRain`, `h1`.`WillItSnow`, `h1`.`WindDegree`, `h1`.`WindDir`, `h1`.`WindKph`, `h1`.`WindMph`, `h1`.`WindchillC`, `h1`.`WindchillF`, `w1`.`Id` AS `Id0`, `w1`.`Date`, `w1`.`DateEpoch`, `w1`.`LocationId`, CONVERT(`w1`.`Date`, date) AS `Key`
+        FROM `Hours` AS `h1`
+        INNER JOIN `WeatherForecasts` AS `w1` ON `h1`.`WeatherForecastId` = `w1`.`Id`
+        WHERE (CONVERT(`w1`.`Date`, date) >= @__startDate_Date_0) AND (CONVERT(`w1`.`Date`, date) <= @__endDate_Date_1)
+    ) AS `t1`
+    WHERE (`t`.`Key` = `t1`.`Key`) OR (`t`.`Key` IS NULL AND (`t1`.`Key` IS NULL))
+    GROUP BY `t1`.`WindDir`
+    ORDER BY COUNT(*) DESC
+    LIMIT 1) AS `MostCommonWindDirection`
+FROM (
+    SELECT `h`.`Humidity`, `h`.`PrecipMm`, `h`.`PressureMb`, `h`.`TempC`, `h`.`WindKph`, CONVERT(`w`.`Date`, date) AS `Key`
+    FROM `Hours` AS `h`
+    INNER JOIN `WeatherForecasts` AS `w` ON `h`.`WeatherForecastId` = `w`.`Id`
+    WHERE (CONVERT(`w`.`Date`, date) >= @__startDate_Date_0) AND (CONVERT(`w`.`Date`, date) <= @__endDate_Date_1)
+) AS `t`
+GROUP BY `t`.`Key`
+2024-12-03 13:33:17.620 +00:00 [INF] Executed DbCommand (99ms) [Parameters=[@__startDate_Date_0='?' (DbType = DateTime), @__endDate_Date_1='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM `Hours` AS `h`
+INNER JOIN `WeatherForecasts` AS `w` ON `h`.`WeatherForecastId` = `w`.`Id`
+WHERE (CONVERT(`w`.`Date`, date) >= @__startDate_Date_0) AND (CONVERT(`w`.`Date`, date) <= @__endDate_Date_1)
+2024-12-03 13:33:17.833 +00:00 [INF] Executed DbCommand (113ms) [Parameters=[@__startDate_Date_0='?' (DbType = DateTime), @__endDate_Date_1='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT `t`.`Key` AS `Date`, ROUND(AVG(`t`.`TempC`), 2) AS `AverageTemperature`, ROUND(MAX(`t`.`TempC`), 2) AS `MaxTemperature`, ROUND(MIN(`t`.`TempC`), 2) AS `MinTemperature`, ROUND(AVG(CAST(`t`.`Humidity` AS double)), 2) AS `AverageHumidity`, ROUND(AVG(`t`.`WindKph`), 2) AS `AverageWindSpeed`, ROUND(MAX(`t`.`WindKph`), 2) AS `MaxWindSpeed`, ROUND(COALESCE(SUM(`t`.`PrecipMm`), 0.0), 2) AS `TotalPrecipitation`, ROUND(AVG(`t`.`PressureMb`), 2) AS `AveragePressure`, (
+    SELECT `t0`.`ConditionText`
+    FROM (
+        SELECT `h0`.`Id`, `h0`.`ChanceOfRain`, `h0`.`ChanceOfSnow`, `h0`.`Cloud`, `h0`.`ConditionCode`, `h0`.`ConditionIcon`, `h0`.`ConditionText`, `h0`.`DewpointC`, `h0`.`DewpointF`, `h0`.`FeelslikeC`, `h0`.`FeelslikeF`, `h0`.`GustKph`, `h0`.`GustMph`, `h0`.`HeatindexC`, `h0`.`HeatindexF`, `h0`.`Humidity`, `h0`.`IsDay`, `h0`.`PrecipIn`, `h0`.`PrecipMm`, `h0`.`PressureIn`, `h0`.`PressureMb`, `h0`.`SnowCm`, `h0`.`TempC`, `h0`.`TempF`, `h0`.`Time`, `h0`.`TimeEpoch`, `h0`.`Uv`, `h0`.`VisKm`, `h0`.`VisMiles`, `h0`.`WeatherForecastId`, `h0`.`WillItRain`, `h0`.`WillItSnow`, `h0`.`WindDegree`, `h0`.`WindDir`, `h0`.`WindKph`, `h0`.`WindMph`, `h0`.`WindchillC`, `h0`.`WindchillF`, `w0`.`Id` AS `Id0`, `w0`.`Date`, `w0`.`DateEpoch`, `w0`.`LocationId`, CONVERT(`w0`.`Date`, date) AS `Key`
+        FROM `Hours` AS `h0`
+        INNER JOIN `WeatherForecasts` AS `w0` ON `h0`.`WeatherForecastId` = `w0`.`Id`
+        WHERE (CONVERT(`w0`.`Date`, date) >= @__startDate_Date_0) AND (CONVERT(`w0`.`Date`, date) <= @__endDate_Date_1)
+    ) AS `t0`
+    WHERE (`t`.`Key` = `t0`.`Key`) OR (`t`.`Key` IS NULL AND (`t0`.`Key` IS NULL))
+    GROUP BY `t0`.`ConditionText`
+    ORDER BY COUNT(*) DESC
+    LIMIT 1) AS `MostCommonCondition`, (
+    SELECT `t1`.`WindDir`
+    FROM (
+        SELECT `h1`.`Id`, `h1`.`ChanceOfRain`, `h1`.`ChanceOfSnow`, `h1`.`Cloud`, `h1`.`ConditionCode`, `h1`.`ConditionIcon`, `h1`.`ConditionText`, `h1`.`DewpointC`, `h1`.`DewpointF`, `h1`.`FeelslikeC`, `h1`.`FeelslikeF`, `h1`.`GustKph`, `h1`.`GustMph`, `h1`.`HeatindexC`, `h1`.`HeatindexF`, `h1`.`Humidity`, `h1`.`IsDay`, `h1`.`PrecipIn`, `h1`.`PrecipMm`, `h1`.`PressureIn`, `h1`.`PressureMb`, `h1`.`SnowCm`, `h1`.`TempC`, `h1`.`TempF`, `h1`.`Time`, `h1`.`TimeEpoch`, `h1`.`Uv`, `h1`.`VisKm`, `h1`.`VisMiles`, `h1`.`WeatherForecastId`, `h1`.`WillItRain`, `h1`.`WillItSnow`, `h1`.`WindDegree`, `h1`.`WindDir`, `h1`.`WindKph`, `h1`.`WindMph`, `h1`.`WindchillC`, `h1`.`WindchillF`, `w1`.`Id` AS `Id0`, `w1`.`Date`, `w1`.`DateEpoch`, `w1`.`LocationId`, CONVERT(`w1`.`Date`, date) AS `Key`
+        FROM `Hours` AS `h1`
+        INNER JOIN `WeatherForecasts` AS `w1` ON `h1`.`WeatherForecastId` = `w1`.`Id`
+        WHERE (CONVERT(`w1`.`Date`, date) >= @__startDate_Date_0) AND (CONVERT(`w1`.`Date`, date) <= @__endDate_Date_1)
+    ) AS `t1`
+    WHERE (`t`.`Key` = `t1`.`Key`) OR (`t`.`Key` IS NULL AND (`t1`.`Key` IS NULL))
+    GROUP BY `t1`.`WindDir`
+    ORDER BY COUNT(*) DESC
+    LIMIT 1) AS `MostCommonWindDirection`
+FROM (
+    SELECT `h`.`Humidity`, `h`.`PrecipMm`, `h`.`PressureMb`, `h`.`TempC`, `h`.`WindKph`, CONVERT(`w`.`Date`, date) AS `Key`
+    FROM `Hours` AS `h`
+    INNER JOIN `WeatherForecasts` AS `w` ON `h`.`WeatherForecastId` = `w`.`Id`
+    WHERE (CONVERT(`w`.`Date`, date) >= @__startDate_Date_0) AND (CONVERT(`w`.`Date`, date) <= @__endDate_Date_1)
+) AS `t`
+GROUP BY `t`.`Key`
+2024-12-03 13:33:17.925 +00:00 [INF] Executed DbCommand (96ms) [Parameters=[@__date_Date_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`Id`, `d`.`AverageHumidity`, `d`.`AveragePressure`, `d`.`AverageTemperature`, `d`.`AverageWindSpeed`, `d`.`Date`, `d`.`TotalPrecipitation`
+FROM `DailyAnalyses` AS `d`
+WHERE CONVERT(`d`.`Date`, date) = @__date_Date_0
+LIMIT 1
+2024-12-03 13:33:18.312 +00:00 [INF] Executed DbCommand (96ms) [Parameters=[@p0='?' (DbType = Double), @p1='?' (DbType = Double), @p2='?' (DbType = Double), @p3='?' (DbType = Double), @p4='?' (DbType = DateTime), @p5='?' (DbType = Double)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `DailyAnalyses` (`AverageHumidity`, `AveragePressure`, `AverageTemperature`, `AverageWindSpeed`, `Date`, `TotalPrecipitation`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+SELECT `Id`
+FROM `DailyAnalyses`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+2024-12-03 13:33:22.736 +00:00 [INF] Executed DbCommand (96ms) [Parameters=[@__startDate_Date_0='?' (DbType = DateTime), @__endDate_Date_1='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM `Hours` AS `h`
+INNER JOIN `WeatherForecasts` AS `w` ON `h`.`WeatherForecastId` = `w`.`Id`
+WHERE (CONVERT(`w`.`Date`, date) >= @__startDate_Date_0) AND (CONVERT(`w`.`Date`, date) <= @__endDate_Date_1)
+2024-12-03 13:33:22.960 +00:00 [INF] Executed DbCommand (125ms) [Parameters=[@__startDate_Date_0='?' (DbType = DateTime), @__endDate_Date_1='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT `t`.`Key` AS `Date`, ROUND(AVG(`t`.`TempC`), 2) AS `AverageTemperature`, ROUND(MAX(`t`.`TempC`), 2) AS `MaxTemperature`, ROUND(MIN(`t`.`TempC`), 2) AS `MinTemperature`, ROUND(AVG(CAST(`t`.`Humidity` AS double)), 2) AS `AverageHumidity`, ROUND(AVG(`t`.`WindKph`), 2) AS `AverageWindSpeed`, ROUND(MAX(`t`.`WindKph`), 2) AS `MaxWindSpeed`, ROUND(COALESCE(SUM(`t`.`PrecipMm`), 0.0), 2) AS `TotalPrecipitation`, ROUND(AVG(`t`.`PressureMb`), 2) AS `AveragePressure`, (
+    SELECT `t0`.`ConditionText`
+    FROM (
+        SELECT `h0`.`Id`, `h0`.`ChanceOfRain`, `h0`.`ChanceOfSnow`, `h0`.`Cloud`, `h0`.`ConditionCode`, `h0`.`ConditionIcon`, `h0`.`ConditionText`, `h0`.`DewpointC`, `h0`.`DewpointF`, `h0`.`FeelslikeC`, `h0`.`FeelslikeF`, `h0`.`GustKph`, `h0`.`GustMph`, `h0`.`HeatindexC`, `h0`.`HeatindexF`, `h0`.`Humidity`, `h0`.`IsDay`, `h0`.`PrecipIn`, `h0`.`PrecipMm`, `h0`.`PressureIn`, `h0`.`PressureMb`, `h0`.`SnowCm`, `h0`.`TempC`, `h0`.`TempF`, `h0`.`Time`, `h0`.`TimeEpoch`, `h0`.`Uv`, `h0`.`VisKm`, `h0`.`VisMiles`, `h0`.`WeatherForecastId`, `h0`.`WillItRain`, `h0`.`WillItSnow`, `h0`.`WindDegree`, `h0`.`WindDir`, `h0`.`WindKph`, `h0`.`WindMph`, `h0`.`WindchillC`, `h0`.`WindchillF`, `w0`.`Id` AS `Id0`, `w0`.`Date`, `w0`.`DateEpoch`, `w0`.`LocationId`, CONVERT(`w0`.`Date`, date) AS `Key`
+        FROM `Hours` AS `h0`
+        INNER JOIN `WeatherForecasts` AS `w0` ON `h0`.`WeatherForecastId` = `w0`.`Id`
+        WHERE (CONVERT(`w0`.`Date`, date) >= @__startDate_Date_0) AND (CONVERT(`w0`.`Date`, date) <= @__endDate_Date_1)
+    ) AS `t0`
+    WHERE (`t`.`Key` = `t0`.`Key`) OR (`t`.`Key` IS NULL AND (`t0`.`Key` IS NULL))
+    GROUP BY `t0`.`ConditionText`
+    ORDER BY COUNT(*) DESC
+    LIMIT 1) AS `MostCommonCondition`, (
+    SELECT `t1`.`WindDir`
+    FROM (
+        SELECT `h1`.`Id`, `h1`.`ChanceOfRain`, `h1`.`ChanceOfSnow`, `h1`.`Cloud`, `h1`.`ConditionCode`, `h1`.`ConditionIcon`, `h1`.`ConditionText`, `h1`.`DewpointC`, `h1`.`DewpointF`, `h1`.`FeelslikeC`, `h1`.`FeelslikeF`, `h1`.`GustKph`, `h1`.`GustMph`, `h1`.`HeatindexC`, `h1`.`HeatindexF`, `h1`.`Humidity`, `h1`.`IsDay`, `h1`.`PrecipIn`, `h1`.`PrecipMm`, `h1`.`PressureIn`, `h1`.`PressureMb`, `h1`.`SnowCm`, `h1`.`TempC`, `h1`.`TempF`, `h1`.`Time`, `h1`.`TimeEpoch`, `h1`.`Uv`, `h1`.`VisKm`, `h1`.`VisMiles`, `h1`.`WeatherForecastId`, `h1`.`WillItRain`, `h1`.`WillItSnow`, `h1`.`WindDegree`, `h1`.`WindDir`, `h1`.`WindKph`, `h1`.`WindMph`, `h1`.`WindchillC`, `h1`.`WindchillF`, `w1`.`Id` AS `Id0`, `w1`.`Date`, `w1`.`DateEpoch`, `w1`.`LocationId`, CONVERT(`w1`.`Date`, date) AS `Key`
+        FROM `Hours` AS `h1`
+        INNER JOIN `WeatherForecasts` AS `w1` ON `h1`.`WeatherForecastId` = `w1`.`Id`
+        WHERE (CONVERT(`w1`.`Date`, date) >= @__startDate_Date_0) AND (CONVERT(`w1`.`Date`, date) <= @__endDate_Date_1)
+    ) AS `t1`
+    WHERE (`t`.`Key` = `t1`.`Key`) OR (`t`.`Key` IS NULL AND (`t1`.`Key` IS NULL))
+    GROUP BY `t1`.`WindDir`
+    ORDER BY COUNT(*) DESC
+    LIMIT 1) AS `MostCommonWindDirection`
+FROM (
+    SELECT `h`.`Humidity`, `h`.`PrecipMm`, `h`.`PressureMb`, `h`.`TempC`, `h`.`WindKph`, CONVERT(`w`.`Date`, date) AS `Key`
+    FROM `Hours` AS `h`
+    INNER JOIN `WeatherForecasts` AS `w` ON `h`.`WeatherForecastId` = `w`.`Id`
+    WHERE (CONVERT(`w`.`Date`, date) >= @__startDate_Date_0) AND (CONVERT(`w`.`Date`, date) <= @__endDate_Date_1)
+) AS `t`
+GROUP BY `t`.`Key`
+2024-12-03 13:33:24.912 +00:00 [INF] Executed DbCommand (96ms) [Parameters=[@__startDate_Date_0='?' (DbType = DateTime), @__endDate_Date_1='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM `Hours` AS `h`
+INNER JOIN `WeatherForecasts` AS `w` ON `h`.`WeatherForecastId` = `w`.`Id`
+WHERE (CONVERT(`w`.`Date`, date) >= @__startDate_Date_0) AND (CONVERT(`w`.`Date`, date) <= @__endDate_Date_1)
+2024-12-03 13:33:25.143 +00:00 [INF] Executed DbCommand (134ms) [Parameters=[@__startDate_Date_0='?' (DbType = DateTime), @__endDate_Date_1='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT `t`.`Key` AS `Date`, ROUND(AVG(`t`.`TempC`), 2) AS `AverageTemperature`, ROUND(MAX(`t`.`TempC`), 2) AS `MaxTemperature`, ROUND(MIN(`t`.`TempC`), 2) AS `MinTemperature`, ROUND(AVG(CAST(`t`.`Humidity` AS double)), 2) AS `AverageHumidity`, ROUND(AVG(`t`.`WindKph`), 2) AS `AverageWindSpeed`, ROUND(MAX(`t`.`WindKph`), 2) AS `MaxWindSpeed`, ROUND(COALESCE(SUM(`t`.`PrecipMm`), 0.0), 2) AS `TotalPrecipitation`, ROUND(AVG(`t`.`PressureMb`), 2) AS `AveragePressure`, (
+    SELECT `t0`.`ConditionText`
+    FROM (
+        SELECT `h0`.`Id`, `h0`.`ChanceOfRain`, `h0`.`ChanceOfSnow`, `h0`.`Cloud`, `h0`.`ConditionCode`, `h0`.`ConditionIcon`, `h0`.`ConditionText`, `h0`.`DewpointC`, `h0`.`DewpointF`, `h0`.`FeelslikeC`, `h0`.`FeelslikeF`, `h0`.`GustKph`, `h0`.`GustMph`, `h0`.`HeatindexC`, `h0`.`HeatindexF`, `h0`.`Humidity`, `h0`.`IsDay`, `h0`.`PrecipIn`, `h0`.`PrecipMm`, `h0`.`PressureIn`, `h0`.`PressureMb`, `h0`.`SnowCm`, `h0`.`TempC`, `h0`.`TempF`, `h0`.`Time`, `h0`.`TimeEpoch`, `h0`.`Uv`, `h0`.`VisKm`, `h0`.`VisMiles`, `h0`.`WeatherForecastId`, `h0`.`WillItRain`, `h0`.`WillItSnow`, `h0`.`WindDegree`, `h0`.`WindDir`, `h0`.`WindKph`, `h0`.`WindMph`, `h0`.`WindchillC`, `h0`.`WindchillF`, `w0`.`Id` AS `Id0`, `w0`.`Date`, `w0`.`DateEpoch`, `w0`.`LocationId`, CONVERT(`w0`.`Date`, date) AS `Key`
+        FROM `Hours` AS `h0`
+        INNER JOIN `WeatherForecasts` AS `w0` ON `h0`.`WeatherForecastId` = `w0`.`Id`
+        WHERE (CONVERT(`w0`.`Date`, date) >= @__startDate_Date_0) AND (CONVERT(`w0`.`Date`, date) <= @__endDate_Date_1)
+    ) AS `t0`
+    WHERE (`t`.`Key` = `t0`.`Key`) OR (`t`.`Key` IS NULL AND (`t0`.`Key` IS NULL))
+    GROUP BY `t0`.`ConditionText`
+    ORDER BY COUNT(*) DESC
+    LIMIT 1) AS `MostCommonCondition`, (
+    SELECT `t1`.`WindDir`
+    FROM (
+        SELECT `h1`.`Id`, `h1`.`ChanceOfRain`, `h1`.`ChanceOfSnow`, `h1`.`Cloud`, `h1`.`ConditionCode`, `h1`.`ConditionIcon`, `h1`.`ConditionText`, `h1`.`DewpointC`, `h1`.`DewpointF`, `h1`.`FeelslikeC`, `h1`.`FeelslikeF`, `h1`.`GustKph`, `h1`.`GustMph`, `h1`.`HeatindexC`, `h1`.`HeatindexF`, `h1`.`Humidity`, `h1`.`IsDay`, `h1`.`PrecipIn`, `h1`.`PrecipMm`, `h1`.`PressureIn`, `h1`.`PressureMb`, `h1`.`SnowCm`, `h1`.`TempC`, `h1`.`TempF`, `h1`.`Time`, `h1`.`TimeEpoch`, `h1`.`Uv`, `h1`.`VisKm`, `h1`.`VisMiles`, `h1`.`WeatherForecastId`, `h1`.`WillItRain`, `h1`.`WillItSnow`, `h1`.`WindDegree`, `h1`.`WindDir`, `h1`.`WindKph`, `h1`.`WindMph`, `h1`.`WindchillC`, `h1`.`WindchillF`, `w1`.`Id` AS `Id0`, `w1`.`Date`, `w1`.`DateEpoch`, `w1`.`LocationId`, CONVERT(`w1`.`Date`, date) AS `Key`
+        FROM `Hours` AS `h1`
+        INNER JOIN `WeatherForecasts` AS `w1` ON `h1`.`WeatherForecastId` = `w1`.`Id`
+        WHERE (CONVERT(`w1`.`Date`, date) >= @__startDate_Date_0) AND (CONVERT(`w1`.`Date`, date) <= @__endDate_Date_1)
+    ) AS `t1`
+    WHERE (`t`.`Key` = `t1`.`Key`) OR (`t`.`Key` IS NULL AND (`t1`.`Key` IS NULL))
+    GROUP BY `t1`.`WindDir`
+    ORDER BY COUNT(*) DESC
+    LIMIT 1) AS `MostCommonWindDirection`
+FROM (
+    SELECT `h`.`Humidity`, `h`.`PrecipMm`, `h`.`PressureMb`, `h`.`TempC`, `h`.`WindKph`, CONVERT(`w`.`Date`, date) AS `Key`
+    FROM `Hours` AS `h`
+    INNER JOIN `WeatherForecasts` AS `w` ON `h`.`WeatherForecastId` = `w`.`Id`
+    WHERE (CONVERT(`w`.`Date`, date) >= @__startDate_Date_0) AND (CONVERT(`w`.`Date`, date) <= @__endDate_Date_1)
+) AS `t`
+GROUP BY `t`.`Key`
+2024-12-03 13:33:26.117 +00:00 [INF] Executed DbCommand (96ms) [Parameters=[@__date_Date_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`Id`, `d`.`AverageHumidity`, `d`.`AveragePressure`, `d`.`AverageTemperature`, `d`.`AverageWindSpeed`, `d`.`Date`, `d`.`TotalPrecipitation`
+FROM `DailyAnalyses` AS `d`
+WHERE CONVERT(`d`.`Date`, date) = @__date_Date_0
+LIMIT 1
+2024-12-03 13:33:26.502 +00:00 [INF] Executed DbCommand (96ms) [Parameters=[@p0='?' (DbType = Double), @p1='?' (DbType = Double), @p2='?' (DbType = Double), @p3='?' (DbType = Double), @p4='?' (DbType = DateTime), @p5='?' (DbType = Double)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `DailyAnalyses` (`AverageHumidity`, `AveragePressure`, `AverageTemperature`, `AverageWindSpeed`, `Date`, `TotalPrecipitation`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+SELECT `Id`
+FROM `DailyAnalyses`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+2024-12-03 13:33:34.581 +00:00 [INF] Executed DbCommand (96ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`Id`, `d`.`AverageHumidity`, `d`.`AveragePressure`, `d`.`AverageTemperature`, `d`.`AverageWindSpeed`, `d`.`Date`, `d`.`TotalPrecipitation`
+FROM `DailyAnalyses` AS `d`
+ORDER BY `d`.`Date`
+2024-12-03 13:33:34.783 +00:00 [INF] Executed DbCommand (97ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`Id`, `d`.`AverageHumidity`, `d`.`AveragePressure`, `d`.`AverageTemperature`, `d`.`AverageWindSpeed`, `d`.`Date`, `d`.`TotalPrecipitation`
+FROM `DailyAnalyses` AS `d`
+ORDER BY `d`.`Date`
+2024-12-03 13:33:47.756 +00:00 [INF] Executed DbCommand (202ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+ORDER BY `s`.`Date`
+2024-12-03 13:33:47.975 +00:00 [INF] Executed DbCommand (97ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+ORDER BY `s`.`Date`
+2024-12-03 13:33:51.306 +00:00 [INF] Executed DbCommand (96ms) [Parameters=[@__date_Date_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`Id`, `d`.`AverageHumidity`, `d`.`AveragePressure`, `d`.`AverageTemperature`, `d`.`AverageWindSpeed`, `d`.`Date`, `d`.`TotalPrecipitation`
+FROM `DailyAnalyses` AS `d`
+WHERE CONVERT(`d`.`Date`, date) = @__date_Date_0
+LIMIT 1
+2024-12-03 13:33:51.694 +00:00 [INF] Executed DbCommand (100ms) [Parameters=[@p0='?' (DbType = Double), @p1='?' (DbType = Double), @p2='?' (DbType = Double), @p3='?' (DbType = Double), @p4='?' (DbType = DateTime), @p5='?' (DbType = Double)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `DailyAnalyses` (`AverageHumidity`, `AveragePressure`, `AverageTemperature`, `AverageWindSpeed`, `Date`, `TotalPrecipitation`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+SELECT `Id`
+FROM `DailyAnalyses`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+2024-12-03 13:33:57.878 +00:00 [INF] Executed DbCommand (96ms) [Parameters=[@__year_Value_0='?' (DbType = Int32), @__quarter_Value_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE (`s`.`Year` = @__year_Value_0) AND (`s`.`Quarter` = @__quarter_Value_1)
+ORDER BY `s`.`Date`
+2024-12-03 13:33:58.032 +00:00 [INF] Executed DbCommand (98ms) [Parameters=[@__year_Value_0='?' (DbType = Int32), @__quarter_Value_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE (`s`.`Year` = @__year_Value_0) AND (`s`.`Quarter` = @__quarter_Value_1)
+ORDER BY `s`.`Date`
+2024-12-03 13:33:58.113 +00:00 [INF] Executed DbCommand (98ms) [Parameters=[@__year_Value_0='?' (DbType = Int32), @__quarter_Value_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE (`s`.`Year` = @__year_Value_0) AND (`s`.`Quarter` = @__quarter_Value_1)
+ORDER BY `s`.`Date`
+2024-12-03 13:33:58.300 +00:00 [INF] Executed DbCommand (101ms) [Parameters=[@__year_Value_0='?' (DbType = Int32), @__quarter_Value_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE (`s`.`Year` = @__year_Value_0) AND (`s`.`Quarter` = @__quarter_Value_1)
+ORDER BY `s`.`Date`
+2024-12-03 13:34:08.257 +00:00 [INF] Executed DbCommand (100ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `c`.`Id`, `c`.`CloudHumidityCorrelation`, `c`.`CloudPressureMbCorrelation`, `c`.`CloudTempCCorrelation`, `c`.`CloudWindKphCorrelation`, `c`.`HumidityCloudCorrelation`, `c`.`HumidityPressureMbCorrelation`, `c`.`HumidityTempCCorrelation`, `c`.`HumidityWindKphCorrelation`, `c`.`PressureMbCloudCorrelation`, `c`.`PressureMbHumidityCorrelation`, `c`.`PressureMbTempCCorrelation`, `c`.`PressureMbWindKphCorrelation`, `c`.`TempCCloudCorrelation`, `c`.`TempCHumidityCorrelation`, `c`.`TempCPressureMbCorrelation`, `c`.`TempCWindKphCorrelation`, `c`.`Time`, `c`.`WindKphCloudCorrelation`, `c`.`WindKphHumidityCorrelation`, `c`.`WindKphPressureMbCorrelation`, `c`.`WindKphTempCCorrelation`
+FROM `CorrelationAnalyses` AS `c`
+WHERE EXTRACT(year FROM `c`.`Time`) = @__year_0
+2024-12-03 13:34:08.479 +00:00 [INF] Executed DbCommand (99ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `c`.`Id`, `c`.`CloudHumidityCorrelation`, `c`.`CloudPressureMbCorrelation`, `c`.`CloudTempCCorrelation`, `c`.`CloudWindKphCorrelation`, `c`.`HumidityCloudCorrelation`, `c`.`HumidityPressureMbCorrelation`, `c`.`HumidityTempCCorrelation`, `c`.`HumidityWindKphCorrelation`, `c`.`PressureMbCloudCorrelation`, `c`.`PressureMbHumidityCorrelation`, `c`.`PressureMbTempCCorrelation`, `c`.`PressureMbWindKphCorrelation`, `c`.`TempCCloudCorrelation`, `c`.`TempCHumidityCorrelation`, `c`.`TempCPressureMbCorrelation`, `c`.`TempCWindKphCorrelation`, `c`.`Time`, `c`.`WindKphCloudCorrelation`, `c`.`WindKphHumidityCorrelation`, `c`.`WindKphPressureMbCorrelation`, `c`.`WindKphTempCCorrelation`
+FROM `CorrelationAnalyses` AS `c`
+WHERE EXTRACT(year FROM `c`.`Time`) = @__year_0
+2024-12-03 13:34:15.123 +00:00 [INF] Executed DbCommand (238ms) [Parameters=[@__eightDaysAgo_0='?' (Size = 50), @__yesterday_1='?' (Size = 50)], CommandType='"Text"', CommandTimeout='30']
+SELECT `h`.`Id`, `h`.`ChanceOfRain`, `h`.`ChanceOfSnow`, `h`.`Cloud`, `h`.`ConditionCode`, `h`.`ConditionIcon`, `h`.`ConditionText`, `h`.`DewpointC`, `h`.`DewpointF`, `h`.`FeelslikeC`, `h`.`FeelslikeF`, `h`.`GustKph`, `h`.`GustMph`, `h`.`HeatindexC`, `h`.`HeatindexF`, `h`.`Humidity`, `h`.`IsDay`, `h`.`PrecipIn`, `h`.`PrecipMm`, `h`.`PressureIn`, `h`.`PressureMb`, `h`.`SnowCm`, `h`.`TempC`, `h`.`TempF`, `h`.`Time`, `h`.`TimeEpoch`, `h`.`Uv`, `h`.`VisKm`, `h`.`VisMiles`, `h`.`WeatherForecastId`, `h`.`WillItRain`, `h`.`WillItSnow`, `h`.`WindDegree`, `h`.`WindDir`, `h`.`WindKph`, `h`.`WindMph`, `h`.`WindchillC`, `h`.`WindchillF`
+FROM `Hours` AS `h`
+WHERE (`h`.`Time` >= @__eightDaysAgo_0) AND (`h`.`Time` <= @__yesterday_1)
+2024-12-03 13:34:15.180 +00:00 [INF] Start processing HTTP request POST http://weatherforecast.prediction:8000/api/prediction/predict
+2024-12-03 13:34:15.183 +00:00 [INF] Sending HTTP request POST http://weatherforecast.prediction:8000/api/prediction/predict
+2024-12-03 13:34:15.618 +00:00 [INF] Received HTTP response headers after 433.559ms - 200
+2024-12-03 13:34:15.619 +00:00 [INF] End processing HTTP request after 443.2449ms - 200
+2024-12-03 13:34:15.943 +00:00 [INF] Executed DbCommand (219ms) [Parameters=[@__eightDaysAgo_0='?' (Size = 50), @__yesterday_1='?' (Size = 50)], CommandType='"Text"', CommandTimeout='30']
+SELECT `h`.`Id`, `h`.`ChanceOfRain`, `h`.`ChanceOfSnow`, `h`.`Cloud`, `h`.`ConditionCode`, `h`.`ConditionIcon`, `h`.`ConditionText`, `h`.`DewpointC`, `h`.`DewpointF`, `h`.`FeelslikeC`, `h`.`FeelslikeF`, `h`.`GustKph`, `h`.`GustMph`, `h`.`HeatindexC`, `h`.`HeatindexF`, `h`.`Humidity`, `h`.`IsDay`, `h`.`PrecipIn`, `h`.`PrecipMm`, `h`.`PressureIn`, `h`.`PressureMb`, `h`.`SnowCm`, `h`.`TempC`, `h`.`TempF`, `h`.`Time`, `h`.`TimeEpoch`, `h`.`Uv`, `h`.`VisKm`, `h`.`VisMiles`, `h`.`WeatherForecastId`, `h`.`WillItRain`, `h`.`WillItSnow`, `h`.`WindDegree`, `h`.`WindDir`, `h`.`WindKph`, `h`.`WindMph`, `h`.`WindchillC`, `h`.`WindchillF`
+FROM `Hours` AS `h`
+WHERE (`h`.`Time` >= @__eightDaysAgo_0) AND (`h`.`Time` <= @__yesterday_1)
+2024-12-03 13:34:15.946 +00:00 [INF] Start processing HTTP request POST http://weatherforecast.prediction:8000/api/prediction/predict
+2024-12-03 13:34:15.947 +00:00 [INF] Sending HTTP request POST http://weatherforecast.prediction:8000/api/prediction/predict
+2024-12-03 13:34:16.473 +00:00 [INF] Received HTTP response headers after 526.0695ms - 200
+2024-12-03 13:34:16.474 +00:00 [INF] End processing HTTP request after 527.7469ms - 200
+2024-12-03 13:34:30.616 +00:00 [INF] Executed DbCommand (99ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `c`.`Id`, `c`.`CloudHumidityCorrelation`, `c`.`CloudPressureMbCorrelation`, `c`.`CloudTempCCorrelation`, `c`.`CloudWindKphCorrelation`, `c`.`HumidityCloudCorrelation`, `c`.`HumidityPressureMbCorrelation`, `c`.`HumidityTempCCorrelation`, `c`.`HumidityWindKphCorrelation`, `c`.`PressureMbCloudCorrelation`, `c`.`PressureMbHumidityCorrelation`, `c`.`PressureMbTempCCorrelation`, `c`.`PressureMbWindKphCorrelation`, `c`.`TempCCloudCorrelation`, `c`.`TempCHumidityCorrelation`, `c`.`TempCPressureMbCorrelation`, `c`.`TempCWindKphCorrelation`, `c`.`Time`, `c`.`WindKphCloudCorrelation`, `c`.`WindKphHumidityCorrelation`, `c`.`WindKphPressureMbCorrelation`, `c`.`WindKphTempCCorrelation`
+FROM `CorrelationAnalyses` AS `c`
+WHERE EXTRACT(year FROM `c`.`Time`) = @__year_0
+2024-12-03 13:34:30.814 +00:00 [INF] Executed DbCommand (98ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `c`.`Id`, `c`.`CloudHumidityCorrelation`, `c`.`CloudPressureMbCorrelation`, `c`.`CloudTempCCorrelation`, `c`.`CloudWindKphCorrelation`, `c`.`HumidityCloudCorrelation`, `c`.`HumidityPressureMbCorrelation`, `c`.`HumidityTempCCorrelation`, `c`.`HumidityWindKphCorrelation`, `c`.`PressureMbCloudCorrelation`, `c`.`PressureMbHumidityCorrelation`, `c`.`PressureMbTempCCorrelation`, `c`.`PressureMbWindKphCorrelation`, `c`.`TempCCloudCorrelation`, `c`.`TempCHumidityCorrelation`, `c`.`TempCPressureMbCorrelation`, `c`.`TempCWindKphCorrelation`, `c`.`Time`, `c`.`WindKphCloudCorrelation`, `c`.`WindKphHumidityCorrelation`, `c`.`WindKphPressureMbCorrelation`, `c`.`WindKphTempCCorrelation`
+FROM `CorrelationAnalyses` AS `c`
+WHERE EXTRACT(year FROM `c`.`Time`) = @__year_0
+2024-12-03 13:34:33.756 +00:00 [INF] Executed DbCommand (216ms) [Parameters=[@__eightDaysAgo_0='?' (Size = 50), @__yesterday_1='?' (Size = 50)], CommandType='"Text"', CommandTimeout='30']
+SELECT `h`.`Id`, `h`.`ChanceOfRain`, `h`.`ChanceOfSnow`, `h`.`Cloud`, `h`.`ConditionCode`, `h`.`ConditionIcon`, `h`.`ConditionText`, `h`.`DewpointC`, `h`.`DewpointF`, `h`.`FeelslikeC`, `h`.`FeelslikeF`, `h`.`GustKph`, `h`.`GustMph`, `h`.`HeatindexC`, `h`.`HeatindexF`, `h`.`Humidity`, `h`.`IsDay`, `h`.`PrecipIn`, `h`.`PrecipMm`, `h`.`PressureIn`, `h`.`PressureMb`, `h`.`SnowCm`, `h`.`TempC`, `h`.`TempF`, `h`.`Time`, `h`.`TimeEpoch`, `h`.`Uv`, `h`.`VisKm`, `h`.`VisMiles`, `h`.`WeatherForecastId`, `h`.`WillItRain`, `h`.`WillItSnow`, `h`.`WindDegree`, `h`.`WindDir`, `h`.`WindKph`, `h`.`WindMph`, `h`.`WindchillC`, `h`.`WindchillF`
+FROM `Hours` AS `h`
+WHERE (`h`.`Time` >= @__eightDaysAgo_0) AND (`h`.`Time` <= @__yesterday_1)
+2024-12-03 13:34:33.759 +00:00 [INF] Start processing HTTP request POST http://weatherforecast.prediction:8000/api/prediction/predict
+2024-12-03 13:34:33.759 +00:00 [INF] Sending HTTP request POST http://weatherforecast.prediction:8000/api/prediction/predict
+2024-12-03 13:34:33.868 +00:00 [INF] Received HTTP response headers after 108.118ms - 200
+2024-12-03 13:34:33.868 +00:00 [INF] End processing HTTP request after 109.4631ms - 200
+2024-12-03 13:34:34.100 +00:00 [INF] Executed DbCommand (129ms) [Parameters=[@__eightDaysAgo_0='?' (Size = 50), @__yesterday_1='?' (Size = 50)], CommandType='"Text"', CommandTimeout='30']
+SELECT `h`.`Id`, `h`.`ChanceOfRain`, `h`.`ChanceOfSnow`, `h`.`Cloud`, `h`.`ConditionCode`, `h`.`ConditionIcon`, `h`.`ConditionText`, `h`.`DewpointC`, `h`.`DewpointF`, `h`.`FeelslikeC`, `h`.`FeelslikeF`, `h`.`GustKph`, `h`.`GustMph`, `h`.`HeatindexC`, `h`.`HeatindexF`, `h`.`Humidity`, `h`.`IsDay`, `h`.`PrecipIn`, `h`.`PrecipMm`, `h`.`PressureIn`, `h`.`PressureMb`, `h`.`SnowCm`, `h`.`TempC`, `h`.`TempF`, `h`.`Time`, `h`.`TimeEpoch`, `h`.`Uv`, `h`.`VisKm`, `h`.`VisMiles`, `h`.`WeatherForecastId`, `h`.`WillItRain`, `h`.`WillItSnow`, `h`.`WindDegree`, `h`.`WindDir`, `h`.`WindKph`, `h`.`WindMph`, `h`.`WindchillC`, `h`.`WindchillF`
+FROM `Hours` AS `h`
+WHERE (`h`.`Time` >= @__eightDaysAgo_0) AND (`h`.`Time` <= @__yesterday_1)
+2024-12-03 13:34:34.102 +00:00 [INF] Start processing HTTP request POST http://weatherforecast.prediction:8000/api/prediction/predict
+2024-12-03 13:34:34.102 +00:00 [INF] Sending HTTP request POST http://weatherforecast.prediction:8000/api/prediction/predict
+2024-12-03 13:34:34.195 +00:00 [INF] Received HTTP response headers after 92.1177ms - 200
+2024-12-03 13:34:34.195 +00:00 [INF] End processing HTTP request after 93.4262ms - 200
+2024-12-03 13:34:35.482 +00:00 [INF] Executed DbCommand (198ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+ORDER BY `s`.`Date`
+2024-12-03 13:34:35.688 +00:00 [INF] Executed DbCommand (102ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+ORDER BY `s`.`Date`
+2024-12-03 13:34:37.886 +00:00 [INF] Executed DbCommand (98ms) [Parameters=[@__date_Date_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`Id`, `d`.`AverageHumidity`, `d`.`AveragePressure`, `d`.`AverageTemperature`, `d`.`AverageWindSpeed`, `d`.`Date`, `d`.`TotalPrecipitation`
+FROM `DailyAnalyses` AS `d`
+WHERE CONVERT(`d`.`Date`, date) = @__date_Date_0
+LIMIT 1
+2024-12-03 13:34:38.277 +00:00 [INF] Executed DbCommand (98ms) [Parameters=[@p0='?' (DbType = Double), @p1='?' (DbType = Double), @p2='?' (DbType = Double), @p3='?' (DbType = Double), @p4='?' (DbType = DateTime), @p5='?' (DbType = Double)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `DailyAnalyses` (`AverageHumidity`, `AveragePressure`, `AverageTemperature`, `AverageWindSpeed`, `Date`, `TotalPrecipitation`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+SELECT `Id`
+FROM `DailyAnalyses`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+2024-12-03 13:34:38.833 +00:00 [INF] Executed DbCommand (97ms) [Parameters=[@__date_Date_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`Id`, `d`.`AverageHumidity`, `d`.`AveragePressure`, `d`.`AverageTemperature`, `d`.`AverageWindSpeed`, `d`.`Date`, `d`.`TotalPrecipitation`
+FROM `DailyAnalyses` AS `d`
+WHERE CONVERT(`d`.`Date`, date) = @__date_Date_0
+LIMIT 1
+2024-12-03 13:34:39.223 +00:00 [INF] Executed DbCommand (98ms) [Parameters=[@p0='?' (DbType = Double), @p1='?' (DbType = Double), @p2='?' (DbType = Double), @p3='?' (DbType = Double), @p4='?' (DbType = DateTime), @p5='?' (DbType = Double)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `DailyAnalyses` (`AverageHumidity`, `AveragePressure`, `AverageTemperature`, `AverageWindSpeed`, `Date`, `TotalPrecipitation`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+SELECT `Id`
+FROM `DailyAnalyses`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+2024-12-03 13:34:51.333 +00:00 [INF] Executed DbCommand (99ms) [Parameters=[@__date_Date_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`Id`, `d`.`AverageHumidity`, `d`.`AveragePressure`, `d`.`AverageTemperature`, `d`.`AverageWindSpeed`, `d`.`Date`, `d`.`TotalPrecipitation`
+FROM `DailyAnalyses` AS `d`
+WHERE CONVERT(`d`.`Date`, date) = @__date_Date_0
+LIMIT 1
+2024-12-03 13:34:51.734 +00:00 [INF] Executed DbCommand (99ms) [Parameters=[@p0='?' (DbType = Double), @p1='?' (DbType = Double), @p2='?' (DbType = Double), @p3='?' (DbType = Double), @p4='?' (DbType = DateTime), @p5='?' (DbType = Double)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `DailyAnalyses` (`AverageHumidity`, `AveragePressure`, `AverageTemperature`, `AverageWindSpeed`, `Date`, `TotalPrecipitation`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+SELECT `Id`
+FROM `DailyAnalyses`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+2024-12-03 13:35:02.893 +00:00 [INF] Executed DbCommand (99ms) [Parameters=[@__date_Date_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`Id`, `d`.`AverageHumidity`, `d`.`AveragePressure`, `d`.`AverageTemperature`, `d`.`AverageWindSpeed`, `d`.`Date`, `d`.`TotalPrecipitation`
+FROM `DailyAnalyses` AS `d`
+WHERE CONVERT(`d`.`Date`, date) = @__date_Date_0
+LIMIT 1
+2024-12-03 13:35:03.293 +00:00 [INF] Executed DbCommand (99ms) [Parameters=[@p0='?' (DbType = Double), @p1='?' (DbType = Double), @p2='?' (DbType = Double), @p3='?' (DbType = Double), @p4='?' (DbType = DateTime), @p5='?' (DbType = Double)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `DailyAnalyses` (`AverageHumidity`, `AveragePressure`, `AverageTemperature`, `AverageWindSpeed`, `Date`, `TotalPrecipitation`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+SELECT `Id`
+FROM `DailyAnalyses`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+2024-12-03 13:35:06.306 +00:00 [INF] Executed DbCommand (98ms) [Parameters=[@__date_Date_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`Id`, `d`.`AverageHumidity`, `d`.`AveragePressure`, `d`.`AverageTemperature`, `d`.`AverageWindSpeed`, `d`.`Date`, `d`.`TotalPrecipitation`
+FROM `DailyAnalyses` AS `d`
+WHERE CONVERT(`d`.`Date`, date) = @__date_Date_0
+LIMIT 1
+2024-12-03 13:35:06.702 +00:00 [INF] Executed DbCommand (100ms) [Parameters=[@p0='?' (DbType = Double), @p1='?' (DbType = Double), @p2='?' (DbType = Double), @p3='?' (DbType = Double), @p4='?' (DbType = DateTime), @p5='?' (DbType = Double)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `DailyAnalyses` (`AverageHumidity`, `AveragePressure`, `AverageTemperature`, `AverageWindSpeed`, `Date`, `TotalPrecipitation`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+SELECT `Id`
+FROM `DailyAnalyses`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+2024-12-03 13:35:26.216 +00:00 [INF] Executed DbCommand (99ms) [Parameters=[@__date_Date_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`Id`, `d`.`AverageHumidity`, `d`.`AveragePressure`, `d`.`AverageTemperature`, `d`.`AverageWindSpeed`, `d`.`Date`, `d`.`TotalPrecipitation`
+FROM `DailyAnalyses` AS `d`
+WHERE CONVERT(`d`.`Date`, date) = @__date_Date_0
+LIMIT 1
+2024-12-03 13:35:26.612 +00:00 [INF] Executed DbCommand (98ms) [Parameters=[@p0='?' (DbType = Double), @p1='?' (DbType = Double), @p2='?' (DbType = Double), @p3='?' (DbType = Double), @p4='?' (DbType = DateTime), @p5='?' (DbType = Double)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `DailyAnalyses` (`AverageHumidity`, `AveragePressure`, `AverageTemperature`, `AverageWindSpeed`, `Date`, `TotalPrecipitation`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+SELECT `Id`
+FROM `DailyAnalyses`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+2024-12-03 13:35:31.092 +00:00 [INF] Executed DbCommand (198ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+ORDER BY `s`.`Date`
+2024-12-03 13:35:31.300 +00:00 [INF] Executed DbCommand (100ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+ORDER BY `s`.`Date`
+2024-12-03 13:35:38.017 +00:00 [INF] Executed DbCommand (98ms) [Parameters=[@__date_Date_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`Id`, `d`.`AverageHumidity`, `d`.`AveragePressure`, `d`.`AverageTemperature`, `d`.`AverageWindSpeed`, `d`.`Date`, `d`.`TotalPrecipitation`
+FROM `DailyAnalyses` AS `d`
+WHERE CONVERT(`d`.`Date`, date) = @__date_Date_0
+LIMIT 1
+2024-12-03 13:35:38.411 +00:00 [INF] Executed DbCommand (99ms) [Parameters=[@p0='?' (DbType = Double), @p1='?' (DbType = Double), @p2='?' (DbType = Double), @p3='?' (DbType = Double), @p4='?' (DbType = DateTime), @p5='?' (DbType = Double)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `DailyAnalyses` (`AverageHumidity`, `AveragePressure`, `AverageTemperature`, `AverageWindSpeed`, `Date`, `TotalPrecipitation`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+SELECT `Id`
+FROM `DailyAnalyses`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+2024-12-03 13:35:38.971 +00:00 [INF] Executed DbCommand (98ms) [Parameters=[@__date_Date_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`Id`, `d`.`AverageHumidity`, `d`.`AveragePressure`, `d`.`AverageTemperature`, `d`.`AverageWindSpeed`, `d`.`Date`, `d`.`TotalPrecipitation`
+FROM `DailyAnalyses` AS `d`
+WHERE CONVERT(`d`.`Date`, date) = @__date_Date_0
+LIMIT 1
+2024-12-03 13:35:39.365 +00:00 [INF] Executed DbCommand (98ms) [Parameters=[@p0='?' (DbType = Double), @p1='?' (DbType = Double), @p2='?' (DbType = Double), @p3='?' (DbType = Double), @p4='?' (DbType = DateTime), @p5='?' (DbType = Double)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `DailyAnalyses` (`AverageHumidity`, `AveragePressure`, `AverageTemperature`, `AverageWindSpeed`, `Date`, `TotalPrecipitation`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+SELECT `Id`
+FROM `DailyAnalyses`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+2024-12-03 13:35:47.911 +00:00 [INF] Executed DbCommand (98ms) [Parameters=[@__date_Date_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`Id`, `d`.`AverageHumidity`, `d`.`AveragePressure`, `d`.`AverageTemperature`, `d`.`AverageWindSpeed`, `d`.`Date`, `d`.`TotalPrecipitation`
+FROM `DailyAnalyses` AS `d`
+WHERE CONVERT(`d`.`Date`, date) = @__date_Date_0
+LIMIT 1
+2024-12-03 13:35:48.311 +00:00 [INF] Executed DbCommand (101ms) [Parameters=[@p0='?' (DbType = Double), @p1='?' (DbType = Double), @p2='?' (DbType = Double), @p3='?' (DbType = Double), @p4='?' (DbType = DateTime), @p5='?' (DbType = Double)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `DailyAnalyses` (`AverageHumidity`, `AveragePressure`, `AverageTemperature`, `AverageWindSpeed`, `Date`, `TotalPrecipitation`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+SELECT `Id`
+FROM `DailyAnalyses`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+2024-12-03 13:35:51.410 +00:00 [INF] Executed DbCommand (98ms) [Parameters=[@__date_Date_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`Id`, `d`.`AverageHumidity`, `d`.`AveragePressure`, `d`.`AverageTemperature`, `d`.`AverageWindSpeed`, `d`.`Date`, `d`.`TotalPrecipitation`
+FROM `DailyAnalyses` AS `d`
+WHERE CONVERT(`d`.`Date`, date) = @__date_Date_0
+LIMIT 1
+2024-12-03 13:35:51.804 +00:00 [INF] Executed DbCommand (99ms) [Parameters=[@p0='?' (DbType = Double), @p1='?' (DbType = Double), @p2='?' (DbType = Double), @p3='?' (DbType = Double), @p4='?' (DbType = DateTime), @p5='?' (DbType = Double)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `DailyAnalyses` (`AverageHumidity`, `AveragePressure`, `AverageTemperature`, `AverageWindSpeed`, `Date`, `TotalPrecipitation`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+SELECT `Id`
+FROM `DailyAnalyses`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+2024-12-03 13:36:08.371 +00:00 [INF] Executed DbCommand (97ms) [Parameters=[@__year_Value_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`NumberOfDays`, `s`.`Season`, `s`.`Year`
+FROM `SpiderChartDatas` AS `s`
+WHERE `s`.`Year` = @__year_Value_0
+2024-12-03 13:36:08.461 +00:00 [INF] Executed DbCommand (197ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+ORDER BY `s`.`Date`
+2024-12-03 13:36:08.583 +00:00 [INF] Executed DbCommand (96ms) [Parameters=[@__year_Value_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`NumberOfDays`, `s`.`Season`, `s`.`Year`
+FROM `SpiderChartDatas` AS `s`
+WHERE `s`.`Year` = @__year_Value_0
+2024-12-03 13:36:08.668 +00:00 [INF] Executed DbCommand (101ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+ORDER BY `s`.`Date`
+2024-12-03 13:36:16.745 +00:00 [INF] Executed DbCommand (99ms) [Parameters=[@__year_Value_0='?' (DbType = Int32), @__quarter_Value_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE (`s`.`Year` = @__year_Value_0) AND (`s`.`Quarter` = @__quarter_Value_1)
+ORDER BY `s`.`Date`
+2024-12-03 13:36:16.892 +00:00 [INF] Executed DbCommand (97ms) [Parameters=[@__year_Value_0='?' (DbType = Int32), @__quarter_Value_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE (`s`.`Year` = @__year_Value_0) AND (`s`.`Quarter` = @__quarter_Value_1)
+ORDER BY `s`.`Date`
+2024-12-03 13:36:17.633 +00:00 [INF] Executed DbCommand (96ms) [Parameters=[@__year_Value_0='?' (DbType = Int32), @__quarter_Value_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE (`s`.`Year` = @__year_Value_0) AND (`s`.`Quarter` = @__quarter_Value_1)
+ORDER BY `s`.`Date`
+2024-12-03 13:36:17.797 +00:00 [INF] Executed DbCommand (100ms) [Parameters=[@__year_Value_0='?' (DbType = Int32), @__quarter_Value_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE (`s`.`Year` = @__year_Value_0) AND (`s`.`Quarter` = @__quarter_Value_1)
+ORDER BY `s`.`Date`
+2024-12-03 13:36:42.778 +00:00 [INF] Executed DbCommand (100ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `c`.`Id`, `c`.`CloudHumidityCorrelation`, `c`.`CloudPressureMbCorrelation`, `c`.`CloudTempCCorrelation`, `c`.`CloudWindKphCorrelation`, `c`.`HumidityCloudCorrelation`, `c`.`HumidityPressureMbCorrelation`, `c`.`HumidityTempCCorrelation`, `c`.`HumidityWindKphCorrelation`, `c`.`PressureMbCloudCorrelation`, `c`.`PressureMbHumidityCorrelation`, `c`.`PressureMbTempCCorrelation`, `c`.`PressureMbWindKphCorrelation`, `c`.`TempCCloudCorrelation`, `c`.`TempCHumidityCorrelation`, `c`.`TempCPressureMbCorrelation`, `c`.`TempCWindKphCorrelation`, `c`.`Time`, `c`.`WindKphCloudCorrelation`, `c`.`WindKphHumidityCorrelation`, `c`.`WindKphPressureMbCorrelation`, `c`.`WindKphTempCCorrelation`
+FROM `CorrelationAnalyses` AS `c`
+WHERE EXTRACT(year FROM `c`.`Time`) = @__year_0
+2024-12-03 13:36:42.980 +00:00 [INF] Executed DbCommand (98ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `c`.`Id`, `c`.`CloudHumidityCorrelation`, `c`.`CloudPressureMbCorrelation`, `c`.`CloudTempCCorrelation`, `c`.`CloudWindKphCorrelation`, `c`.`HumidityCloudCorrelation`, `c`.`HumidityPressureMbCorrelation`, `c`.`HumidityTempCCorrelation`, `c`.`HumidityWindKphCorrelation`, `c`.`PressureMbCloudCorrelation`, `c`.`PressureMbHumidityCorrelation`, `c`.`PressureMbTempCCorrelation`, `c`.`PressureMbWindKphCorrelation`, `c`.`TempCCloudCorrelation`, `c`.`TempCHumidityCorrelation`, `c`.`TempCPressureMbCorrelation`, `c`.`TempCWindKphCorrelation`, `c`.`Time`, `c`.`WindKphCloudCorrelation`, `c`.`WindKphHumidityCorrelation`, `c`.`WindKphPressureMbCorrelation`, `c`.`WindKphTempCCorrelation`
+FROM `CorrelationAnalyses` AS `c`
+WHERE EXTRACT(year FROM `c`.`Time`) = @__year_0
+2024-12-03 13:36:44.367 +00:00 [INF] Executed DbCommand (97ms) [Parameters=[@__year_Value_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`NumberOfDays`, `s`.`Season`, `s`.`Year`
+FROM `SpiderChartDatas` AS `s`
+WHERE `s`.`Year` = @__year_Value_0
+2024-12-03 13:36:44.470 +00:00 [INF] Executed DbCommand (198ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+ORDER BY `s`.`Date`
+2024-12-03 13:36:44.568 +00:00 [INF] Executed DbCommand (97ms) [Parameters=[@__year_Value_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`NumberOfDays`, `s`.`Season`, `s`.`Year`
+FROM `SpiderChartDatas` AS `s`
+WHERE `s`.`Year` = @__year_Value_0
+2024-12-03 13:36:44.683 +00:00 [INF] Executed DbCommand (107ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+ORDER BY `s`.`Date`
+2024-12-03 13:36:47.916 +00:00 [INF] Executed DbCommand (99ms) [Parameters=[@__date_Date_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`Id`, `d`.`AverageHumidity`, `d`.`AveragePressure`, `d`.`AverageTemperature`, `d`.`AverageWindSpeed`, `d`.`Date`, `d`.`TotalPrecipitation`
+FROM `DailyAnalyses` AS `d`
+WHERE CONVERT(`d`.`Date`, date) = @__date_Date_0
+LIMIT 1
+2024-12-03 13:36:48.312 +00:00 [INF] Executed DbCommand (99ms) [Parameters=[@p0='?' (DbType = Double), @p1='?' (DbType = Double), @p2='?' (DbType = Double), @p3='?' (DbType = Double), @p4='?' (DbType = DateTime), @p5='?' (DbType = Double)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `DailyAnalyses` (`AverageHumidity`, `AveragePressure`, `AverageTemperature`, `AverageWindSpeed`, `Date`, `TotalPrecipitation`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+SELECT `Id`
+FROM `DailyAnalyses`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+2024-12-03 13:36:51.363 +00:00 [INF] Executed DbCommand (100ms) [Parameters=[@__date_Date_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`Id`, `d`.`AverageHumidity`, `d`.`AveragePressure`, `d`.`AverageTemperature`, `d`.`AverageWindSpeed`, `d`.`Date`, `d`.`TotalPrecipitation`
+FROM `DailyAnalyses` AS `d`
+WHERE CONVERT(`d`.`Date`, date) = @__date_Date_0
+LIMIT 1
+2024-12-03 13:36:51.757 +00:00 [INF] Executed DbCommand (99ms) [Parameters=[@p0='?' (DbType = Double), @p1='?' (DbType = Double), @p2='?' (DbType = Double), @p3='?' (DbType = Double), @p4='?' (DbType = DateTime), @p5='?' (DbType = Double)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `DailyAnalyses` (`AverageHumidity`, `AveragePressure`, `AverageTemperature`, `AverageWindSpeed`, `Date`, `TotalPrecipitation`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+SELECT `Id`
+FROM `DailyAnalyses`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+2024-12-03 13:37:21.426 +00:00 [INF] Start processing HTTP request GET http://weatherforecast.clustering:8000/api/clustering/get-precent-next-day-belong-to
+2024-12-03 13:37:21.426 +00:00 [INF] Sending HTTP request GET http://weatherforecast.clustering:8000/api/clustering/get-precent-next-day-belong-to
+2024-12-03 13:37:22.293 +00:00 [INF] Executed DbCommand (212ms) [Parameters=[@__eightDaysAgo_0='?' (Size = 50), @__yesterday_1='?' (Size = 50)], CommandType='"Text"', CommandTimeout='30']
+SELECT `h`.`Id`, `h`.`ChanceOfRain`, `h`.`ChanceOfSnow`, `h`.`Cloud`, `h`.`ConditionCode`, `h`.`ConditionIcon`, `h`.`ConditionText`, `h`.`DewpointC`, `h`.`DewpointF`, `h`.`FeelslikeC`, `h`.`FeelslikeF`, `h`.`GustKph`, `h`.`GustMph`, `h`.`HeatindexC`, `h`.`HeatindexF`, `h`.`Humidity`, `h`.`IsDay`, `h`.`PrecipIn`, `h`.`PrecipMm`, `h`.`PressureIn`, `h`.`PressureMb`, `h`.`SnowCm`, `h`.`TempC`, `h`.`TempF`, `h`.`Time`, `h`.`TimeEpoch`, `h`.`Uv`, `h`.`VisKm`, `h`.`VisMiles`, `h`.`WeatherForecastId`, `h`.`WillItRain`, `h`.`WillItSnow`, `h`.`WindDegree`, `h`.`WindDir`, `h`.`WindKph`, `h`.`WindMph`, `h`.`WindchillC`, `h`.`WindchillF`
+FROM `Hours` AS `h`
+WHERE (`h`.`Time` >= @__eightDaysAgo_0) AND (`h`.`Time` <= @__yesterday_1)
+2024-12-03 13:37:22.296 +00:00 [INF] Start processing HTTP request POST http://weatherforecast.prediction:8000/api/prediction/predict
+2024-12-03 13:37:22.296 +00:00 [INF] Sending HTTP request POST http://weatherforecast.prediction:8000/api/prediction/predict
+2024-12-03 13:37:22.411 +00:00 [INF] Received HTTP response headers after 114.247ms - 200
+2024-12-03 13:37:22.411 +00:00 [INF] End processing HTTP request after 115.3782ms - 200
+2024-12-03 13:37:22.656 +00:00 [INF] Executed DbCommand (98ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `c`.`Id`, `c`.`AutumnCentroid`, `c`.`SpringCentroid`, `c`.`SummerCentroid`, `c`.`WinterCentroid`
+FROM `Centroids` AS `c`
+ORDER BY `c`.`Id` DESC
+LIMIT 1
+2024-12-03 13:37:22.686 +00:00 [INF] Received HTTP response headers after 1259.7476ms - 200
+2024-12-03 13:37:22.687 +00:00 [INF] End processing HTTP request after 1261.2034ms - 200
+2024-12-03 13:38:02.922 +00:00 [INF] Executed DbCommand (98ms) [Parameters=[@__date_Date_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`Id`, `d`.`AverageHumidity`, `d`.`AveragePressure`, `d`.`AverageTemperature`, `d`.`AverageWindSpeed`, `d`.`Date`, `d`.`TotalPrecipitation`
+FROM `DailyAnalyses` AS `d`
+WHERE CONVERT(`d`.`Date`, date) = @__date_Date_0
+LIMIT 1
+2024-12-03 13:38:03.319 +00:00 [INF] Executed DbCommand (99ms) [Parameters=[@p0='?' (DbType = Double), @p1='?' (DbType = Double), @p2='?' (DbType = Double), @p3='?' (DbType = Double), @p4='?' (DbType = DateTime), @p5='?' (DbType = Double)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `DailyAnalyses` (`AverageHumidity`, `AveragePressure`, `AverageTemperature`, `AverageWindSpeed`, `Date`, `TotalPrecipitation`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+SELECT `Id`
+FROM `DailyAnalyses`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+2024-12-03 13:38:06.492 +00:00 [INF] Executed DbCommand (98ms) [Parameters=[@__date_Date_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`Id`, `d`.`AverageHumidity`, `d`.`AveragePressure`, `d`.`AverageTemperature`, `d`.`AverageWindSpeed`, `d`.`Date`, `d`.`TotalPrecipitation`
+FROM `DailyAnalyses` AS `d`
+WHERE CONVERT(`d`.`Date`, date) = @__date_Date_0
+LIMIT 1
+2024-12-03 13:38:06.890 +00:00 [INF] Executed DbCommand (100ms) [Parameters=[@p0='?' (DbType = Double), @p1='?' (DbType = Double), @p2='?' (DbType = Double), @p3='?' (DbType = Double), @p4='?' (DbType = DateTime), @p5='?' (DbType = Double)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `DailyAnalyses` (`AverageHumidity`, `AveragePressure`, `AverageTemperature`, `AverageWindSpeed`, `Date`, `TotalPrecipitation`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+SELECT `Id`
+FROM `DailyAnalyses`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+2024-12-03 13:38:17.923 +00:00 [INF] Executed DbCommand (98ms) [Parameters=[@__date_Date_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`Id`, `d`.`AverageHumidity`, `d`.`AveragePressure`, `d`.`AverageTemperature`, `d`.`AverageWindSpeed`, `d`.`Date`, `d`.`TotalPrecipitation`
+FROM `DailyAnalyses` AS `d`
+WHERE CONVERT(`d`.`Date`, date) = @__date_Date_0
+LIMIT 1
+2024-12-03 13:38:18.322 +00:00 [INF] Executed DbCommand (102ms) [Parameters=[@p0='?' (DbType = Double), @p1='?' (DbType = Double), @p2='?' (DbType = Double), @p3='?' (DbType = Double), @p4='?' (DbType = DateTime), @p5='?' (DbType = Double)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `DailyAnalyses` (`AverageHumidity`, `AveragePressure`, `AverageTemperature`, `AverageWindSpeed`, `Date`, `TotalPrecipitation`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+SELECT `Id`
+FROM `DailyAnalyses`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+2024-12-03 13:38:37.890 +00:00 [INF] Executed DbCommand (98ms) [Parameters=[@__date_Date_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`Id`, `d`.`AverageHumidity`, `d`.`AveragePressure`, `d`.`AverageTemperature`, `d`.`AverageWindSpeed`, `d`.`Date`, `d`.`TotalPrecipitation`
+FROM `DailyAnalyses` AS `d`
+WHERE CONVERT(`d`.`Date`, date) = @__date_Date_0
+LIMIT 1
+2024-12-03 13:38:38.284 +00:00 [INF] Executed DbCommand (100ms) [Parameters=[@p0='?' (DbType = Double), @p1='?' (DbType = Double), @p2='?' (DbType = Double), @p3='?' (DbType = Double), @p4='?' (DbType = DateTime), @p5='?' (DbType = Double)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `DailyAnalyses` (`AverageHumidity`, `AveragePressure`, `AverageTemperature`, `AverageWindSpeed`, `Date`, `TotalPrecipitation`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+SELECT `Id`
+FROM `DailyAnalyses`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+2024-12-03 13:38:38.843 +00:00 [INF] Executed DbCommand (99ms) [Parameters=[@__date_Date_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`Id`, `d`.`AverageHumidity`, `d`.`AveragePressure`, `d`.`AverageTemperature`, `d`.`AverageWindSpeed`, `d`.`Date`, `d`.`TotalPrecipitation`
+FROM `DailyAnalyses` AS `d`
+WHERE CONVERT(`d`.`Date`, date) = @__date_Date_0
+LIMIT 1
+2024-12-03 13:38:39.237 +00:00 [INF] Executed DbCommand (99ms) [Parameters=[@p0='?' (DbType = Double), @p1='?' (DbType = Double), @p2='?' (DbType = Double), @p3='?' (DbType = Double), @p4='?' (DbType = DateTime), @p5='?' (DbType = Double)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `DailyAnalyses` (`AverageHumidity`, `AveragePressure`, `AverageTemperature`, `AverageWindSpeed`, `Date`, `TotalPrecipitation`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+SELECT `Id`
+FROM `DailyAnalyses`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+2024-12-03 13:38:51.359 +00:00 [INF] Executed DbCommand (100ms) [Parameters=[@__date_Date_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`Id`, `d`.`AverageHumidity`, `d`.`AveragePressure`, `d`.`AverageTemperature`, `d`.`AverageWindSpeed`, `d`.`Date`, `d`.`TotalPrecipitation`
+FROM `DailyAnalyses` AS `d`
+WHERE CONVERT(`d`.`Date`, date) = @__date_Date_0
+LIMIT 1
+2024-12-03 13:38:51.754 +00:00 [INF] Executed DbCommand (100ms) [Parameters=[@p0='?' (DbType = Double), @p1='?' (DbType = Double), @p2='?' (DbType = Double), @p3='?' (DbType = Double), @p4='?' (DbType = DateTime), @p5='?' (DbType = Double)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `DailyAnalyses` (`AverageHumidity`, `AveragePressure`, `AverageTemperature`, `AverageWindSpeed`, `Date`, `TotalPrecipitation`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+SELECT `Id`
+FROM `DailyAnalyses`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+2024-12-03 13:39:02.913 +00:00 [INF] Executed DbCommand (99ms) [Parameters=[@__date_Date_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`Id`, `d`.`AverageHumidity`, `d`.`AveragePressure`, `d`.`AverageTemperature`, `d`.`AverageWindSpeed`, `d`.`Date`, `d`.`TotalPrecipitation`
+FROM `DailyAnalyses` AS `d`
+WHERE CONVERT(`d`.`Date`, date) = @__date_Date_0
+LIMIT 1
+2024-12-03 13:39:03.307 +00:00 [INF] Executed DbCommand (98ms) [Parameters=[@p0='?' (DbType = Double), @p1='?' (DbType = Double), @p2='?' (DbType = Double), @p3='?' (DbType = Double), @p4='?' (DbType = DateTime), @p5='?' (DbType = Double)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `DailyAnalyses` (`AverageHumidity`, `AveragePressure`, `AverageTemperature`, `AverageWindSpeed`, `Date`, `TotalPrecipitation`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+SELECT `Id`
+FROM `DailyAnalyses`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+2024-12-03 13:39:06.456 +00:00 [INF] Executed DbCommand (99ms) [Parameters=[@__date_Date_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`Id`, `d`.`AverageHumidity`, `d`.`AveragePressure`, `d`.`AverageTemperature`, `d`.`AverageWindSpeed`, `d`.`Date`, `d`.`TotalPrecipitation`
+FROM `DailyAnalyses` AS `d`
+WHERE CONVERT(`d`.`Date`, date) = @__date_Date_0
+LIMIT 1
+2024-12-03 13:39:06.849 +00:00 [INF] Executed DbCommand (98ms) [Parameters=[@p0='?' (DbType = Double), @p1='?' (DbType = Double), @p2='?' (DbType = Double), @p3='?' (DbType = Double), @p4='?' (DbType = DateTime), @p5='?' (DbType = Double)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `DailyAnalyses` (`AverageHumidity`, `AveragePressure`, `AverageTemperature`, `AverageWindSpeed`, `Date`, `TotalPrecipitation`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+SELECT `Id`
+FROM `DailyAnalyses`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+2024-12-03 13:39:17.937 +00:00 [INF] Executed DbCommand (98ms) [Parameters=[@__date_Date_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`Id`, `d`.`AverageHumidity`, `d`.`AveragePressure`, `d`.`AverageTemperature`, `d`.`AverageWindSpeed`, `d`.`Date`, `d`.`TotalPrecipitation`
+FROM `DailyAnalyses` AS `d`
+WHERE CONVERT(`d`.`Date`, date) = @__date_Date_0
+LIMIT 1
+2024-12-03 13:39:18.331 +00:00 [INF] Executed DbCommand (99ms) [Parameters=[@p0='?' (DbType = Double), @p1='?' (DbType = Double), @p2='?' (DbType = Double), @p3='?' (DbType = Double), @p4='?' (DbType = DateTime), @p5='?' (DbType = Double)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `DailyAnalyses` (`AverageHumidity`, `AveragePressure`, `AverageTemperature`, `AverageWindSpeed`, `Date`, `TotalPrecipitation`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+SELECT `Id`
+FROM `DailyAnalyses`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+2024-12-03 13:39:51.360 +00:00 [INF] Executed DbCommand (98ms) [Parameters=[@__date_Date_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`Id`, `d`.`AverageHumidity`, `d`.`AveragePressure`, `d`.`AverageTemperature`, `d`.`AverageWindSpeed`, `d`.`Date`, `d`.`TotalPrecipitation`
+FROM `DailyAnalyses` AS `d`
+WHERE CONVERT(`d`.`Date`, date) = @__date_Date_0
+LIMIT 1
+2024-12-03 13:39:51.755 +00:00 [INF] Executed DbCommand (99ms) [Parameters=[@p0='?' (DbType = Double), @p1='?' (DbType = Double), @p2='?' (DbType = Double), @p3='?' (DbType = Double), @p4='?' (DbType = DateTime), @p5='?' (DbType = Double)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `DailyAnalyses` (`AverageHumidity`, `AveragePressure`, `AverageTemperature`, `AverageWindSpeed`, `Date`, `TotalPrecipitation`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+SELECT `Id`
+FROM `DailyAnalyses`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+2024-12-03 13:40:02.955 +00:00 [INF] Executed DbCommand (99ms) [Parameters=[@__date_Date_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`Id`, `d`.`AverageHumidity`, `d`.`AveragePressure`, `d`.`AverageTemperature`, `d`.`AverageWindSpeed`, `d`.`Date`, `d`.`TotalPrecipitation`
+FROM `DailyAnalyses` AS `d`
+WHERE CONVERT(`d`.`Date`, date) = @__date_Date_0
+LIMIT 1
+2024-12-03 13:40:03.349 +00:00 [INF] Executed DbCommand (99ms) [Parameters=[@p0='?' (DbType = Double), @p1='?' (DbType = Double), @p2='?' (DbType = Double), @p3='?' (DbType = Double), @p4='?' (DbType = DateTime), @p5='?' (DbType = Double)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `DailyAnalyses` (`AverageHumidity`, `AveragePressure`, `AverageTemperature`, `AverageWindSpeed`, `Date`, `TotalPrecipitation`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+SELECT `Id`
+FROM `DailyAnalyses`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+2024-12-03 13:40:06.365 +00:00 [INF] Executed DbCommand (99ms) [Parameters=[@__date_Date_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`Id`, `d`.`AverageHumidity`, `d`.`AveragePressure`, `d`.`AverageTemperature`, `d`.`AverageWindSpeed`, `d`.`Date`, `d`.`TotalPrecipitation`
+FROM `DailyAnalyses` AS `d`
+WHERE CONVERT(`d`.`Date`, date) = @__date_Date_0
+LIMIT 1
+2024-12-03 13:40:06.761 +00:00 [INF] Executed DbCommand (99ms) [Parameters=[@p0='?' (DbType = Double), @p1='?' (DbType = Double), @p2='?' (DbType = Double), @p3='?' (DbType = Double), @p4='?' (DbType = DateTime), @p5='?' (DbType = Double)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `DailyAnalyses` (`AverageHumidity`, `AveragePressure`, `AverageTemperature`, `AverageWindSpeed`, `Date`, `TotalPrecipitation`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+SELECT `Id`
+FROM `DailyAnalyses`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+2024-12-03 13:40:17.908 +00:00 [INF] Executed DbCommand (98ms) [Parameters=[@__date_Date_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`Id`, `d`.`AverageHumidity`, `d`.`AveragePressure`, `d`.`AverageTemperature`, `d`.`AverageWindSpeed`, `d`.`Date`, `d`.`TotalPrecipitation`
+FROM `DailyAnalyses` AS `d`
+WHERE CONVERT(`d`.`Date`, date) = @__date_Date_0
+LIMIT 1
+2024-12-03 13:40:18.302 +00:00 [INF] Executed DbCommand (98ms) [Parameters=[@p0='?' (DbType = Double), @p1='?' (DbType = Double), @p2='?' (DbType = Double), @p3='?' (DbType = Double), @p4='?' (DbType = DateTime), @p5='?' (DbType = Double)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `DailyAnalyses` (`AverageHumidity`, `AveragePressure`, `AverageTemperature`, `AverageWindSpeed`, `Date`, `TotalPrecipitation`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+SELECT `Id`
+FROM `DailyAnalyses`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+2024-12-03 13:40:51.371 +00:00 [INF] Executed DbCommand (100ms) [Parameters=[@__date_Date_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`Id`, `d`.`AverageHumidity`, `d`.`AveragePressure`, `d`.`AverageTemperature`, `d`.`AverageWindSpeed`, `d`.`Date`, `d`.`TotalPrecipitation`
+FROM `DailyAnalyses` AS `d`
+WHERE CONVERT(`d`.`Date`, date) = @__date_Date_0
+LIMIT 1
+2024-12-03 13:40:51.766 +00:00 [INF] Executed DbCommand (98ms) [Parameters=[@p0='?' (DbType = Double), @p1='?' (DbType = Double), @p2='?' (DbType = Double), @p3='?' (DbType = Double), @p4='?' (DbType = DateTime), @p5='?' (DbType = Double)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `DailyAnalyses` (`AverageHumidity`, `AveragePressure`, `AverageTemperature`, `AverageWindSpeed`, `Date`, `TotalPrecipitation`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+SELECT `Id`
+FROM `DailyAnalyses`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+2024-12-03 13:41:02.905 +00:00 [INF] Executed DbCommand (98ms) [Parameters=[@__date_Date_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`Id`, `d`.`AverageHumidity`, `d`.`AveragePressure`, `d`.`AverageTemperature`, `d`.`AverageWindSpeed`, `d`.`Date`, `d`.`TotalPrecipitation`
+FROM `DailyAnalyses` AS `d`
+WHERE CONVERT(`d`.`Date`, date) = @__date_Date_0
+LIMIT 1
+2024-12-03 13:41:03.302 +00:00 [INF] Executed DbCommand (98ms) [Parameters=[@p0='?' (DbType = Double), @p1='?' (DbType = Double), @p2='?' (DbType = Double), @p3='?' (DbType = Double), @p4='?' (DbType = DateTime), @p5='?' (DbType = Double)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `DailyAnalyses` (`AverageHumidity`, `AveragePressure`, `AverageTemperature`, `AverageWindSpeed`, `Date`, `TotalPrecipitation`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+SELECT `Id`
+FROM `DailyAnalyses`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+2024-12-03 13:41:06.449 +00:00 [INF] Executed DbCommand (98ms) [Parameters=[@__date_Date_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`Id`, `d`.`AverageHumidity`, `d`.`AveragePressure`, `d`.`AverageTemperature`, `d`.`AverageWindSpeed`, `d`.`Date`, `d`.`TotalPrecipitation`
+FROM `DailyAnalyses` AS `d`
+WHERE CONVERT(`d`.`Date`, date) = @__date_Date_0
+LIMIT 1
+2024-12-03 13:41:06.845 +00:00 [INF] Executed DbCommand (100ms) [Parameters=[@p0='?' (DbType = Double), @p1='?' (DbType = Double), @p2='?' (DbType = Double), @p3='?' (DbType = Double), @p4='?' (DbType = DateTime), @p5='?' (DbType = Double)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `DailyAnalyses` (`AverageHumidity`, `AveragePressure`, `AverageTemperature`, `AverageWindSpeed`, `Date`, `TotalPrecipitation`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+SELECT `Id`
+FROM `DailyAnalyses`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+2024-12-03 13:41:17.918 +00:00 [INF] Executed DbCommand (98ms) [Parameters=[@__date_Date_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`Id`, `d`.`AverageHumidity`, `d`.`AveragePressure`, `d`.`AverageTemperature`, `d`.`AverageWindSpeed`, `d`.`Date`, `d`.`TotalPrecipitation`
+FROM `DailyAnalyses` AS `d`
+WHERE CONVERT(`d`.`Date`, date) = @__date_Date_0
+LIMIT 1
+2024-12-03 13:41:18.311 +00:00 [INF] Executed DbCommand (99ms) [Parameters=[@p0='?' (DbType = Double), @p1='?' (DbType = Double), @p2='?' (DbType = Double), @p3='?' (DbType = Double), @p4='?' (DbType = DateTime), @p5='?' (DbType = Double)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `DailyAnalyses` (`AverageHumidity`, `AveragePressure`, `AverageTemperature`, `AverageWindSpeed`, `Date`, `TotalPrecipitation`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+SELECT `Id`
+FROM `DailyAnalyses`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+2024-12-03 13:41:47.916 +00:00 [INF] Executed DbCommand (99ms) [Parameters=[@__date_Date_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`Id`, `d`.`AverageHumidity`, `d`.`AveragePressure`, `d`.`AverageTemperature`, `d`.`AverageWindSpeed`, `d`.`Date`, `d`.`TotalPrecipitation`
+FROM `DailyAnalyses` AS `d`
+WHERE CONVERT(`d`.`Date`, date) = @__date_Date_0
+LIMIT 1
+2024-12-03 13:41:48.309 +00:00 [INF] Executed DbCommand (98ms) [Parameters=[@p0='?' (DbType = Double), @p1='?' (DbType = Double), @p2='?' (DbType = Double), @p3='?' (DbType = Double), @p4='?' (DbType = DateTime), @p5='?' (DbType = Double)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `DailyAnalyses` (`AverageHumidity`, `AveragePressure`, `AverageTemperature`, `AverageWindSpeed`, `Date`, `TotalPrecipitation`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+SELECT `Id`
+FROM `DailyAnalyses`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+2024-12-03 13:42:02.904 +00:00 [INF] Executed DbCommand (98ms) [Parameters=[@__date_Date_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`Id`, `d`.`AverageHumidity`, `d`.`AveragePressure`, `d`.`AverageTemperature`, `d`.`AverageWindSpeed`, `d`.`Date`, `d`.`TotalPrecipitation`
+FROM `DailyAnalyses` AS `d`
+WHERE CONVERT(`d`.`Date`, date) = @__date_Date_0
+LIMIT 1
+2024-12-03 13:42:03.306 +00:00 [INF] Executed DbCommand (99ms) [Parameters=[@p0='?' (DbType = Double), @p1='?' (DbType = Double), @p2='?' (DbType = Double), @p3='?' (DbType = Double), @p4='?' (DbType = DateTime), @p5='?' (DbType = Double)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `DailyAnalyses` (`AverageHumidity`, `AveragePressure`, `AverageTemperature`, `AverageWindSpeed`, `Date`, `TotalPrecipitation`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+SELECT `Id`
+FROM `DailyAnalyses`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+2024-12-03 13:42:26.124 +00:00 [INF] Executed DbCommand (100ms) [Parameters=[@__date_Date_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`Id`, `d`.`AverageHumidity`, `d`.`AveragePressure`, `d`.`AverageTemperature`, `d`.`AverageWindSpeed`, `d`.`Date`, `d`.`TotalPrecipitation`
+FROM `DailyAnalyses` AS `d`
+WHERE CONVERT(`d`.`Date`, date) = @__date_Date_0
+LIMIT 1
+2024-12-03 13:42:26.519 +00:00 [INF] Executed DbCommand (99ms) [Parameters=[@p0='?' (DbType = Double), @p1='?' (DbType = Double), @p2='?' (DbType = Double), @p3='?' (DbType = Double), @p4='?' (DbType = DateTime), @p5='?' (DbType = Double)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `DailyAnalyses` (`AverageHumidity`, `AveragePressure`, `AverageTemperature`, `AverageWindSpeed`, `Date`, `TotalPrecipitation`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+SELECT `Id`
+FROM `DailyAnalyses`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+2024-12-03 13:42:32.982 +00:00 [INF] Executed DbCommand (99ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`Id`, `d`.`AverageHumidity`, `d`.`AveragePressure`, `d`.`AverageTemperature`, `d`.`AverageWindSpeed`, `d`.`Date`, `d`.`TotalPrecipitation`
+FROM `DailyAnalyses` AS `d`
+ORDER BY `d`.`Date`
+2024-12-03 13:42:33.187 +00:00 [INF] Executed DbCommand (99ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`Id`, `d`.`AverageHumidity`, `d`.`AveragePressure`, `d`.`AverageTemperature`, `d`.`AverageWindSpeed`, `d`.`Date`, `d`.`TotalPrecipitation`
+FROM `DailyAnalyses` AS `d`
+ORDER BY `d`.`Date`
+2024-12-03 13:42:37.998 +00:00 [INF] Executed DbCommand (99ms) [Parameters=[@__date_Date_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`Id`, `d`.`AverageHumidity`, `d`.`AveragePressure`, `d`.`AverageTemperature`, `d`.`AverageWindSpeed`, `d`.`Date`, `d`.`TotalPrecipitation`
+FROM `DailyAnalyses` AS `d`
+WHERE CONVERT(`d`.`Date`, date) = @__date_Date_0
+LIMIT 1
+2024-12-03 13:42:38.391 +00:00 [INF] Executed DbCommand (98ms) [Parameters=[@p0='?' (DbType = Double), @p1='?' (DbType = Double), @p2='?' (DbType = Double), @p3='?' (DbType = Double), @p4='?' (DbType = DateTime), @p5='?' (DbType = Double)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `DailyAnalyses` (`AverageHumidity`, `AveragePressure`, `AverageTemperature`, `AverageWindSpeed`, `Date`, `TotalPrecipitation`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+SELECT `Id`
+FROM `DailyAnalyses`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+2024-12-03 13:42:38.980 +00:00 [INF] Executed DbCommand (99ms) [Parameters=[@__date_Date_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`Id`, `d`.`AverageHumidity`, `d`.`AveragePressure`, `d`.`AverageTemperature`, `d`.`AverageWindSpeed`, `d`.`Date`, `d`.`TotalPrecipitation`
+FROM `DailyAnalyses` AS `d`
+WHERE CONVERT(`d`.`Date`, date) = @__date_Date_0
+LIMIT 1
+2024-12-03 13:42:39.376 +00:00 [INF] Executed DbCommand (100ms) [Parameters=[@p0='?' (DbType = Double), @p1='?' (DbType = Double), @p2='?' (DbType = Double), @p3='?' (DbType = Double), @p4='?' (DbType = DateTime), @p5='?' (DbType = Double)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `DailyAnalyses` (`AverageHumidity`, `AveragePressure`, `AverageTemperature`, `AverageWindSpeed`, `Date`, `TotalPrecipitation`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+SELECT `Id`
+FROM `DailyAnalyses`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+2024-12-03 13:42:42.461 +00:00 [INF] Executed DbCommand (98ms) [Parameters=[@__year_Value_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`NumberOfDays`, `s`.`Season`, `s`.`Year`
+FROM `SpiderChartDatas` AS `s`
+WHERE `s`.`Year` = @__year_Value_0
+2024-12-03 13:42:42.660 +00:00 [INF] Executed DbCommand (98ms) [Parameters=[@__year_Value_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`NumberOfDays`, `s`.`Season`, `s`.`Year`
+FROM `SpiderChartDatas` AS `s`
+WHERE `s`.`Year` = @__year_Value_0
+2024-12-03 13:42:43.337 +00:00 [INF] Executed DbCommand (207ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+ORDER BY `s`.`Date`
+2024-12-03 13:42:43.562 +00:00 [INF] Executed DbCommand (109ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+ORDER BY `s`.`Date`
+2024-12-03 13:42:47.952 +00:00 [INF] Executed DbCommand (101ms) [Parameters=[@__date_Date_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`Id`, `d`.`AverageHumidity`, `d`.`AveragePressure`, `d`.`AverageTemperature`, `d`.`AverageWindSpeed`, `d`.`Date`, `d`.`TotalPrecipitation`
+FROM `DailyAnalyses` AS `d`
+WHERE CONVERT(`d`.`Date`, date) = @__date_Date_0
+LIMIT 1
+2024-12-03 13:42:48.356 +00:00 [INF] Executed DbCommand (101ms) [Parameters=[@p0='?' (DbType = Double), @p1='?' (DbType = Double), @p2='?' (DbType = Double), @p3='?' (DbType = Double), @p4='?' (DbType = DateTime), @p5='?' (DbType = Double)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `DailyAnalyses` (`AverageHumidity`, `AveragePressure`, `AverageTemperature`, `AverageWindSpeed`, `Date`, `TotalPrecipitation`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+SELECT `Id`
+FROM `DailyAnalyses`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+2024-12-03 13:43:02.964 +00:00 [INF] Executed DbCommand (101ms) [Parameters=[@__date_Date_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`Id`, `d`.`AverageHumidity`, `d`.`AveragePressure`, `d`.`AverageTemperature`, `d`.`AverageWindSpeed`, `d`.`Date`, `d`.`TotalPrecipitation`
+FROM `DailyAnalyses` AS `d`
+WHERE CONVERT(`d`.`Date`, date) = @__date_Date_0
+LIMIT 1
+2024-12-03 13:43:03.374 +00:00 [INF] Executed DbCommand (104ms) [Parameters=[@p0='?' (DbType = Double), @p1='?' (DbType = Double), @p2='?' (DbType = Double), @p3='?' (DbType = Double), @p4='?' (DbType = DateTime), @p5='?' (DbType = Double)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `DailyAnalyses` (`AverageHumidity`, `AveragePressure`, `AverageTemperature`, `AverageWindSpeed`, `Date`, `TotalPrecipitation`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+SELECT `Id`
+FROM `DailyAnalyses`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+2024-12-03 13:43:06.495 +00:00 [INF] Executed DbCommand (102ms) [Parameters=[@__date_Date_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`Id`, `d`.`AverageHumidity`, `d`.`AveragePressure`, `d`.`AverageTemperature`, `d`.`AverageWindSpeed`, `d`.`Date`, `d`.`TotalPrecipitation`
+FROM `DailyAnalyses` AS `d`
+WHERE CONVERT(`d`.`Date`, date) = @__date_Date_0
+LIMIT 1
+2024-12-03 13:43:06.900 +00:00 [INF] Executed DbCommand (101ms) [Parameters=[@p0='?' (DbType = Double), @p1='?' (DbType = Double), @p2='?' (DbType = Double), @p3='?' (DbType = Double), @p4='?' (DbType = DateTime), @p5='?' (DbType = Double)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `DailyAnalyses` (`AverageHumidity`, `AveragePressure`, `AverageTemperature`, `AverageWindSpeed`, `Date`, `TotalPrecipitation`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+SELECT `Id`
+FROM `DailyAnalyses`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+2024-12-03 13:43:17.913 +00:00 [INF] Executed DbCommand (102ms) [Parameters=[@__date_Date_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`Id`, `d`.`AverageHumidity`, `d`.`AveragePressure`, `d`.`AverageTemperature`, `d`.`AverageWindSpeed`, `d`.`Date`, `d`.`TotalPrecipitation`
+FROM `DailyAnalyses` AS `d`
+WHERE CONVERT(`d`.`Date`, date) = @__date_Date_0
+LIMIT 1
+2024-12-03 13:43:18.319 +00:00 [INF] Executed DbCommand (102ms) [Parameters=[@p0='?' (DbType = Double), @p1='?' (DbType = Double), @p2='?' (DbType = Double), @p3='?' (DbType = Double), @p4='?' (DbType = DateTime), @p5='?' (DbType = Double)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `DailyAnalyses` (`AverageHumidity`, `AveragePressure`, `AverageTemperature`, `AverageWindSpeed`, `Date`, `TotalPrecipitation`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+SELECT `Id`
+FROM `DailyAnalyses`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+2024-12-03 13:43:38.014 +00:00 [INF] Executed DbCommand (102ms) [Parameters=[@__date_Date_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`Id`, `d`.`AverageHumidity`, `d`.`AveragePressure`, `d`.`AverageTemperature`, `d`.`AverageWindSpeed`, `d`.`Date`, `d`.`TotalPrecipitation`
+FROM `DailyAnalyses` AS `d`
+WHERE CONVERT(`d`.`Date`, date) = @__date_Date_0
+LIMIT 1
+2024-12-03 13:43:38.421 +00:00 [INF] Executed DbCommand (103ms) [Parameters=[@p0='?' (DbType = Double), @p1='?' (DbType = Double), @p2='?' (DbType = Double), @p3='?' (DbType = Double), @p4='?' (DbType = DateTime), @p5='?' (DbType = Double)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `DailyAnalyses` (`AverageHumidity`, `AveragePressure`, `AverageTemperature`, `AverageWindSpeed`, `Date`, `TotalPrecipitation`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+SELECT `Id`
+FROM `DailyAnalyses`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+2024-12-03 13:43:48.030 +00:00 [INF] Executed DbCommand (101ms) [Parameters=[@__date_Date_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`Id`, `d`.`AverageHumidity`, `d`.`AveragePressure`, `d`.`AverageTemperature`, `d`.`AverageWindSpeed`, `d`.`Date`, `d`.`TotalPrecipitation`
+FROM `DailyAnalyses` AS `d`
+WHERE CONVERT(`d`.`Date`, date) = @__date_Date_0
+LIMIT 1
+2024-12-03 13:43:48.436 +00:00 [INF] Executed DbCommand (102ms) [Parameters=[@p0='?' (DbType = Double), @p1='?' (DbType = Double), @p2='?' (DbType = Double), @p3='?' (DbType = Double), @p4='?' (DbType = DateTime), @p5='?' (DbType = Double)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `DailyAnalyses` (`AverageHumidity`, `AveragePressure`, `AverageTemperature`, `AverageWindSpeed`, `Date`, `TotalPrecipitation`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+SELECT `Id`
+FROM `DailyAnalyses`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+2024-12-03 13:44:02.910 +00:00 [INF] Executed DbCommand (102ms) [Parameters=[@__date_Date_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`Id`, `d`.`AverageHumidity`, `d`.`AveragePressure`, `d`.`AverageTemperature`, `d`.`AverageWindSpeed`, `d`.`Date`, `d`.`TotalPrecipitation`
+FROM `DailyAnalyses` AS `d`
+WHERE CONVERT(`d`.`Date`, date) = @__date_Date_0
+LIMIT 1
+2024-12-03 13:44:03.319 +00:00 [INF] Executed DbCommand (104ms) [Parameters=[@p0='?' (DbType = Double), @p1='?' (DbType = Double), @p2='?' (DbType = Double), @p3='?' (DbType = Double), @p4='?' (DbType = DateTime), @p5='?' (DbType = Double)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `DailyAnalyses` (`AverageHumidity`, `AveragePressure`, `AverageTemperature`, `AverageWindSpeed`, `Date`, `TotalPrecipitation`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+SELECT `Id`
+FROM `DailyAnalyses`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+2024-12-03 13:44:06.480 +00:00 [INF] Executed DbCommand (107ms) [Parameters=[@__date_Date_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`Id`, `d`.`AverageHumidity`, `d`.`AveragePressure`, `d`.`AverageTemperature`, `d`.`AverageWindSpeed`, `d`.`Date`, `d`.`TotalPrecipitation`
+FROM `DailyAnalyses` AS `d`
+WHERE CONVERT(`d`.`Date`, date) = @__date_Date_0
+LIMIT 1
+2024-12-03 13:44:06.888 +00:00 [INF] Executed DbCommand (103ms) [Parameters=[@p0='?' (DbType = Double), @p1='?' (DbType = Double), @p2='?' (DbType = Double), @p3='?' (DbType = Double), @p4='?' (DbType = DateTime), @p5='?' (DbType = Double)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `DailyAnalyses` (`AverageHumidity`, `AveragePressure`, `AverageTemperature`, `AverageWindSpeed`, `Date`, `TotalPrecipitation`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+SELECT `Id`
+FROM `DailyAnalyses`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+2024-12-03 13:44:26.139 +00:00 [INF] Executed DbCommand (104ms) [Parameters=[@__date_Date_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`Id`, `d`.`AverageHumidity`, `d`.`AveragePressure`, `d`.`AverageTemperature`, `d`.`AverageWindSpeed`, `d`.`Date`, `d`.`TotalPrecipitation`
+FROM `DailyAnalyses` AS `d`
+WHERE CONVERT(`d`.`Date`, date) = @__date_Date_0
+LIMIT 1
+2024-12-03 13:44:26.547 +00:00 [INF] Executed DbCommand (102ms) [Parameters=[@p0='?' (DbType = Double), @p1='?' (DbType = Double), @p2='?' (DbType = Double), @p3='?' (DbType = Double), @p4='?' (DbType = DateTime), @p5='?' (DbType = Double)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `DailyAnalyses` (`AverageHumidity`, `AveragePressure`, `AverageTemperature`, `AverageWindSpeed`, `Date`, `TotalPrecipitation`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+SELECT `Id`
+FROM `DailyAnalyses`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+2024-12-03 13:44:37.895 +00:00 [INF] Executed DbCommand (101ms) [Parameters=[@__date_Date_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`Id`, `d`.`AverageHumidity`, `d`.`AveragePressure`, `d`.`AverageTemperature`, `d`.`AverageWindSpeed`, `d`.`Date`, `d`.`TotalPrecipitation`
+FROM `DailyAnalyses` AS `d`
+WHERE CONVERT(`d`.`Date`, date) = @__date_Date_0
+LIMIT 1
+2024-12-03 13:44:38.306 +00:00 [INF] Executed DbCommand (103ms) [Parameters=[@p0='?' (DbType = Double), @p1='?' (DbType = Double), @p2='?' (DbType = Double), @p3='?' (DbType = Double), @p4='?' (DbType = DateTime), @p5='?' (DbType = Double)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `DailyAnalyses` (`AverageHumidity`, `AveragePressure`, `AverageTemperature`, `AverageWindSpeed`, `Date`, `TotalPrecipitation`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+SELECT `Id`
+FROM `DailyAnalyses`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+2024-12-03 13:45:09.543 +00:00 [INF] Application is shutting down...

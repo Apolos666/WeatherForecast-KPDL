@@ -6,7 +6,7 @@ const useGetSpiderChartData = () => {
     setLoading(true);
     try {
       const response = await fetch(
-        `http://localhost:8084/api/analysis/spiderchart?year=2024`,
+        `http://localhost:8084/api/clustering/spiderchart?year=2024`,
         {
           headers: {
             Accept: 'application/json',
