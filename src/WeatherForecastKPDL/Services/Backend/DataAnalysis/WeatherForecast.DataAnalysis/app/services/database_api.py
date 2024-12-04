@@ -24,20 +24,28 @@ class DatabaseApiService:
             logger.error(f"Lỗi khi lưu daily analysis: {str(e)}")
             raise
 
-    async def save_correlation_analysis(self, analysis: CorrelationAnalysis):
-        logger.info(f"Đang lưu phân tích tương quan cho ngày {analysis.date}")
+    async def save_correlation_analysis(self, analyses: List[CorrelationAnalysis]):
+        logger.info(f"Đang lưu {len(analyses)} phân tích tương quan")
         try:
             async with httpx.AsyncClient() as client:
-                response = await client.post(
-                    f"{self.base_url}/api/analysis/correlation",
-                    json=analysis.model_dump()
-                )
-                response.raise_for_status()
-            logger.info("Lưu phân tích tương quan thành công")
+                tasks = []
+                for analysis in analyses:
+                    logger.info(f"Chuẩn bị lưu phân tích tương quan cho ngày {analysis.date}")
+                    task = client.post(
+                        f"{self.base_url}/api/analysis/correlation",
+                        json=analysis.model_dump()
+                    )
+                    tasks.append(task)
+                
+                responses = await asyncio.gather(*tasks)
+                for response in responses:
+                    response.raise_for_status()
+                    
+                logger.info("Lưu phân tích tương quan thành công")
         except Exception as e:
             logger.error(f"Lỗi khi lưu correlation analysis: {str(e)}")
             raise
-
+        
     async def save_seasonal_analysis(self, analyses: List[SeasonalAnalysis]):
         logger.info(f"Đang lưu {len(analyses)} phân tích theo quý")
         try:

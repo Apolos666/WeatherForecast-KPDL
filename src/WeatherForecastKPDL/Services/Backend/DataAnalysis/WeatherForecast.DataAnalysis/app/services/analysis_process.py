@@ -117,7 +117,7 @@ class WeatherAnalysisService:
             logger.error(f"Lỗi khi phân tích dữ liệu theo mùa: {str(e)}")
             raise
 
-    def analyze_correlation(self, hourly_data: List[HourlyWeatherData]) -> CorrelationAnalysis:
+    def analyze_correlation(self, hourly_data: List[HourlyWeatherData]) -> List[CorrelationAnalysis]:
         logger.info(f"Bắt đầu phân tích tương quan với {len(hourly_data)} bản ghi")
         try:
             df = pd.DataFrame([data.model_dump() for data in hourly_data])
@@ -126,50 +126,55 @@ class WeatherAnalysisService:
                 raise ValueError("Không có dữ liệu để phân tích")
             
             df['Time'] = pd.to_datetime(df['Time'])
+            df['Year'] = df['Time'].dt.year
             
             # Sort by time and log the first and last timestamps
             df = df.sort_values('Time')
             logger.info(f"First timestamp: {df['Time'].iloc[0]}")
             logger.info(f"Last timestamp: {df['Time'].iloc[-1]}")
             
-            # Chỉ định các biến cần phân tích tương quan
+            # Variables for correlation analysis
             variables = ['TempC', 'Humidity', 'PressureMb', 'WindKph', 'Cloud']
             
-            correlations = {}
-            for i in range(len(variables)):
-                for j in range(len(variables)):
-                    if i != j:
-                        var1 = variables[i]
-                        var2 = variables[j]
-                        corr_name = f"{var1.lower()}_{var2.lower()}_corr"
-                        correlations[corr_name] = round(df[var1].corr(df[var2]), 3)
-            
-            result = CorrelationAnalysis(
-                date=df['Time'].iloc[0].strftime('%Y-%m-%d'),  # Now using sorted dataframe
-                temp_humidity_corr=correlations.get('tempc_humidity_corr', None),
-                temp_pressure_corr=correlations.get('tempc_pressuremb_corr', None),
-                temp_wind_corr=correlations.get('tempc_windkph_corr', None),
-                temp_cloud_corr=correlations.get('tempc_cloud_corr', None),
-                humidity_temp_corr=correlations.get('humidity_tempc_corr', None),
-                humidity_pressure_corr=correlations.get('humidity_pressuremb_corr', None),
-                humidity_wind_corr=correlations.get('humidity_windkph_corr', None),
-                humidity_cloud_corr=correlations.get('humidity_cloud_corr', None),
-                pressure_temp_corr=correlations.get('pressuremb_tempc_corr', None),
-                pressure_humidity_corr=correlations.get('pressuremb_humidity_corr', None),
-                pressure_wind_corr=correlations.get('pressuremb_windkph_corr', None),
-                pressure_cloud_corr=correlations.get('pressuremb_cloud_corr', None),
-                wind_temp_corr=correlations.get('windkph_tempc_corr', None),
-                wind_humidity_corr=correlations.get('windkph_humidity_corr', None),
-                wind_pressure_corr=correlations.get('windkph_pressuremb_corr', None),
-                wind_cloud_corr=correlations.get('windkph_cloud_corr', None),
-                cloud_temp_corr=correlations.get('cloud_tempc_corr', None),
-                cloud_humidity_corr=correlations.get('cloud_humidity_corr', None),
-                cloud_pressure_corr=correlations.get('cloud_pressuremb_corr', None),
-                cloud_wind_corr=correlations.get('cloud_windkph_corr', None)
-            )
+            results = []
+            # Group by year and calculate correlations
+            for year, year_data in df.groupby('Year'):
+                correlations = {}
+                for i in range(len(variables)):
+                    for j in range(len(variables)):
+                        if i != j:
+                            var1 = variables[i]
+                            var2 = variables[j]
+                            corr_name = f"{var1.lower()}_{var2.lower()}_corr"
+                            correlations[corr_name] = round(year_data[var1].corr(year_data[var2]), 3)
+                
+                result = CorrelationAnalysis(
+                    date=year_data['Time'].iloc[0].strftime('%Y-%m-%d'),
+                    temp_humidity_corr=correlations.get('tempc_humidity_corr', None),
+                    temp_pressure_corr=correlations.get('tempc_pressuremb_corr', None),
+                    temp_wind_corr=correlations.get('tempc_windkph_corr', None),
+                    temp_cloud_corr=correlations.get('tempc_cloud_corr', None),
+                    humidity_temp_corr=correlations.get('humidity_tempc_corr', None),
+                    humidity_pressure_corr=correlations.get('humidity_pressuremb_corr', None),
+                    humidity_wind_corr=correlations.get('humidity_windkph_corr', None),
+                    humidity_cloud_corr=correlations.get('humidity_cloud_corr', None),
+                    pressure_temp_corr=correlations.get('pressuremb_tempc_corr', None),
+                    pressure_humidity_corr=correlations.get('pressuremb_humidity_corr', None),
+                    pressure_wind_corr=correlations.get('pressuremb_windkph_corr', None),
+                    pressure_cloud_corr=correlations.get('pressuremb_cloud_corr', None),
+                    wind_temp_corr=correlations.get('windkph_tempc_corr', None),
+                    wind_humidity_corr=correlations.get('windkph_humidity_corr', None),
+                    wind_pressure_corr=correlations.get('windkph_pressuremb_corr', None),
+                    wind_cloud_corr=correlations.get('windkph_cloud_corr', None),
+                    cloud_temp_corr=correlations.get('cloud_tempc_corr', None),
+                    cloud_humidity_corr=correlations.get('cloud_humidity_corr', None),
+                    cloud_pressure_corr=correlations.get('cloud_pressuremb_corr', None),
+                    cloud_wind_corr=correlations.get('cloud_windkph_corr', None)
+                )
+                results.append(result)
+                logger.info(f"Đã phân tích tương quan cho năm {year}")
 
-            logger.info(f"Kết quả phân tích tương quan cho ngày {result.date}")
-            return result
+            return results
 
         except Exception as e:
             logger.error(f"Lỗi khi phân tích tương quan: {str(e)}")

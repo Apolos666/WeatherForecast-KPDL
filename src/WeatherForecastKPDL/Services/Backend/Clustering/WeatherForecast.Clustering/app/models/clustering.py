@@ -1,4 +1,5 @@
 from pydantic import BaseModel, Field
+from typing import List
 
 
 class HourlyWeatherData(BaseModel):
@@ -24,10 +25,17 @@ class HourlyWeatherData(BaseModel):
     WillItRain: int
 
 
-class SpiderChartData(BaseModel):
-    Year: int
-    Season: str
-    NumberOfDays: int
+# class SpiderChartData(BaseModel):
+#     Year: int
+#     Season: str
+#     NumberOfDays: int
+
+class SeasonQuantityData(BaseModel):
+    year: int
+    spring_quantity: int
+    summer_quantity: int
+    autumn_quantity: int
+    winter_quantity: int    
 
 
 class Centroid(BaseModel):
@@ -64,3 +72,7 @@ class SeasonProbability(BaseModel):
         for key in d:
             d[key] = round(d[key], 6)
         return d
+
+class ClusteringResultData(BaseModel):
+    centroids: Centroid
+    quantity: List[SeasonQuantityData]

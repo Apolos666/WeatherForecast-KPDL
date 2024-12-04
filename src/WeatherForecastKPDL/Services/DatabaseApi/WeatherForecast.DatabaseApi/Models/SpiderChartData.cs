@@ -4,6 +4,8 @@ public class SpiderChartData
 {
     public int Id { get; set; }
     public int Year { get; set; }
-    public string Season { get; set; }
-    public int NumberOfDays { get; set; }
+    public int SpringQuantity { get; set; }
+    public int SummerQuantity { get; set; }
+    public int AutumnQuantity { get; set; }
+    public int WinterQuantity { get; set; }
 }

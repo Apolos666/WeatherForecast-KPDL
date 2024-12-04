@@ -78,32 +78,7 @@ def process_seasonal_analysis():
     finally:
         if loop is not None:
             loop.run_until_complete(loop.shutdown_asyncgens())
-            loop.close()
-
-@celery_app.task(name="app.tasks.weather_tasks.reset_correlation_analysis_consumer")
-def reset_correlation_analysis_consumer():
-    logger.info("Bắt đầu reset Correlation Analysis Consumer về earliest offset")
-    try:
-        if scheduler.consumers and 'correlation' in scheduler.consumers:
-            consumer = scheduler.consumers['correlation'].consumer
-            # Chờ để đảm bảo consumer đã được assign partitions
-            while not consumer.assignment():
-                consumer.poll(timeout_ms=1000)
-                
-            # Reset tất cả partitions về earliest
-            for partition in consumer.assignment():
-                logger.info(f"Đang reset partition {partition.partition} về earliest offset")
-                consumer.seek_to_beginning(partition)
-                # Verify position sau khi seek
-                new_position = consumer.position(partition)
-                logger.info(f"Đã reset partition {partition.partition} về offset {new_position}")
-                
-            logger.info("Đã reset thành công Correlation Analysis Consumer về earliest offset")
-            return {"status": "success"}
-    except Exception as e:
-        logger.error(f"Lỗi khi reset Correlation Analysis Consumer: {str(e)}")
-        return {"status": "error", "message": str(e)}            
-
+            loop.close()        
 
 @worker_ready.connect
 def at_start(sender, **kwargs):
@@ -130,12 +105,6 @@ if settings.CORRELATION_ANALYSIS_ENABLED:
     beat_schedule['correlation-analysis'] = {
         'task': 'app.tasks.weather_tasks.process_correlation_analysis',
         'schedule': settings.CORRELATION_ANALYSIS_SCHEDULE,
-        'options': {'queue': 'weather_tasks'}
-    }
-
-    beat_schedule['reset_correlation_analysis'] = {
-        'task': 'app.tasks.weather_tasks.reset_correlation_analysis_consumer',
-        'schedule': settings.RESET_CORRELATION_ANALYSIS_SCHEDULE, 
         'options': {'queue': 'weather_tasks'}
     }
 

@@ -18,19 +18,24 @@ public class ClusteringEndpoints : ICarterModule
             try
             {
                 var existingData = await db.SpiderChartDatas
-                    .FirstOrDefaultAsync(s => s.Year == request.Year && s.Season == request.Season);
+                    .FirstOrDefaultAsync(s => s.Year == request.Year);
 
                 if (existingData != null)
                 {
-                    existingData.NumberOfDays = request.NumberOfDays;
+                    existingData.SpringQuantity = request.SpringQuantity;
+                    existingData.SummerQuantity = request.SummerQuantity;
+                    existingData.AutumnQuantity = request.AutumnQuantity;
+                    existingData.WinterQuantity = request.WinterQuantity;
                 }
                 else
                 {
                     var spiderChartData = new SpiderChartData
                     {
                         Year = request.Year,
-                        Season = request.Season,
-                        NumberOfDays = request.NumberOfDays
+                        SpringQuantity = request.SpringQuantity,
+                        SummerQuantity = request.SummerQuantity,
+                        AutumnQuantity = request.AutumnQuantity,
+                        WinterQuantity = request.WinterQuantity
                     };
 
                     db.SpiderChartDatas.Add(spiderChartData);
@@ -47,7 +52,7 @@ public class ClusteringEndpoints : ICarterModule
                     statusCode: 500);
             }
         });
-
+        
         app.MapPost("/api/clustering/centroid", async (CentroidDto request, AppDbContext db) =>
         {
             try

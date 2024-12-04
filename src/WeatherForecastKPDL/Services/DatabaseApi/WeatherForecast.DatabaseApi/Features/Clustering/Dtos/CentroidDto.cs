@@ -4,8 +4,6 @@ namespace WeatherForecast.DatabaseApi.Features.Clustering.Dtos;
 
 public record CentroidDto
 {
-    [JsonPropertyName("year")] public int Year { get; set; }
-
     [JsonPropertyName("springcentroid")] public double SpringCentroid { get; set; }
 
     [JsonPropertyName("summercentroid")] public double SummerCentroid { get; set; }

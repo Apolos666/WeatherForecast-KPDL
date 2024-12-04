@@ -14,13 +14,10 @@ class Settings(BaseSettings):
     CELERY_WORKER: bool = os.getenv("CELERY_WORKER", "false").lower() == "true"
 
     # Schedule intervals (seconds)
-    SPIDER_CHART_SCHEDULE: float = 60.0 
-    RESET_SPIDER_CHART_SCHEDULE: float = 15552000.0
-    CENTROID_SCHEDULE: float = 31536000.0
+    CLUSTERING_TASK_SCHEDULE: float = 30 * 24 * 60 * 60 
 
     # Schedule enabled flags
-    SPIDER_CHART_CLUSTERING_ENABLED: bool = True
-    CENTROID_CLUSTERING_ENABLED: bool = True
+    CLUSTERING_TASK_ENABLED: bool = True
 
     class Config:
         env_file = ".env"

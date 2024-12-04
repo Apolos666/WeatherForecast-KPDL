@@ -66,3 +66,7 @@ class CorrelationAnalysis(BaseModel):
     cloud_humidity_corr: Optional[float] = None
     cloud_pressure_corr: Optional[float] = None
     cloud_wind_corr: Optional[float] = None
+
+class YearlyCorrelationAnalysis(BaseModel):
+    year: int
+    correlations: List[CorrelationAnalysis]
