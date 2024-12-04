@@ -38,8 +38,10 @@ interface Divider {
 interface SpiderWeatherData {
   id: number;
   year: number;
-  season: string;
-  numberOfDays: number;
+  springQuantity: number;
+  summerQuantity: number;
+  autumnQuantity: number;
+  winterQuantity: number;
 }
 
 const ThirdPattern = () => {
@@ -303,10 +305,12 @@ const ThirdPattern = () => {
 
   const categories = ['Mùa Xuân', 'Mùa Hạ', 'Mùa Thu', 'Mùa Đông'];
 
-  const values = categories.map((season) => {
-    const match = spiderData.find((item) => item.season === season);
-    return match ? match.numberOfDays : 0;
-  });
+  const values = spiderData.length > 0 ? [
+    spiderData[0].springQuantity,
+    spiderData[0].summerQuantity,
+    spiderData[0].autumnQuantity,
+    spiderData[0].winterQuantity
+  ] : [0, 0, 0, 0];
 
   return (
     <div className="p-8 bg-[url('/bg3.jpg')] bg-cover bg-center shadow-lg min-h-screen space-y-10">

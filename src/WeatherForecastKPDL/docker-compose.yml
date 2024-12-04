@@ -41,10 +41,10 @@ services:
   #   networks:
   #     - weathernet
 
-  # debezium-connector-config:
-  #   image: curlimages/curl
-  #   networks:
-  #     - weathernet
+  debezium-connector-config:
+    image: curlimages/curl
+    networks:
+      - weathernet
 
   weatherforecast.dataanalysis.worker:
     image: quangtran2/weatherforecastdataanalysis:latest
@@ -56,22 +56,22 @@ services:
     networks:
       - weathernet
 
-  # weatherforecastp.prediction:
-  #   image: quangtran2/weatherforecastprediction:latest
-  #   volumes:
-  #     - prediction_models:/app/trained_models
-  #   networks:
-  #     - weathernet
+  weatherforecastp.prediction:
+    image: quangtran2/weatherforecastprediction:latest
+    volumes:
+      - prediction_models:/app/trained_models
+    networks:
+      - weathernet
 
-  # weatherforecast.prediction.worker:
-  #   image: quangtran2/weatherforecastprediction:latest
-  #   networks:
-  #     - weathernet
+  weatherforecast.prediction.worker:
+    image: quangtran2/weatherforecastprediction:latest
+    networks:
+      - weathernet
 
-  # weatherforecast.prediction.beat:
-  #   image: quangtran2/weatherforecastprediction:latest
-  #   networks:
-  #     - weathernet
+  weatherforecast.prediction.beat:
+    image: quangtran2/weatherforecastprediction:latest
+    networks:
+      - weathernet
 
   weatherforecast.clustering:
     image: quangtran2/weatherforecastclustering:latest

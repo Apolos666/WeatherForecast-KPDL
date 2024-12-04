@@ -1179,3 +1179,1937 @@ SELECT `Id`
 FROM `Centroids`
 WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
 2024-12-04 11:11:18.500 +00:00 [INF] Application is shutting down...
+2024-12-04 17:20:16.411 +00:00 [INF] Executed DbCommand (102ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1 FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA='defaultdb' AND TABLE_NAME='__EFMigrationsHistory';
+2024-12-04 17:20:17.384 +00:00 [INF] Executed DbCommand (105ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1 FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA='defaultdb' AND TABLE_NAME='__EFMigrationsHistory';
+2024-12-04 17:20:17.630 +00:00 [INF] Executed DbCommand (119ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `MigrationId`, `ProductVersion`
+FROM `__EFMigrationsHistory`
+ORDER BY `MigrationId`;
+2024-12-04 17:20:17.648 +00:00 [INF] No migrations were applied. The database is already up to date.
+2024-12-04 17:20:17.734 +00:00 [INF] Now listening on: http://[::]:8080
+2024-12-04 17:20:17.735 +00:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-12-04 17:20:17.738 +00:00 [INF] Hosting environment: Development
+2024-12-04 17:20:17.738 +00:00 [INF] Content root path: /app
+2024-12-04 17:20:22.003 +00:00 [INF] Executed DbCommand (146ms) [Parameters=[@__request_Location_Name_0='?' (Size = 100)], CommandType='"Text"', CommandTimeout='30']
+SELECT `l`.`Id`, `l`.`Country`, `l`.`Lat`, `l`.`Localtime`, `l`.`LocaltimeEpoch`, `l`.`Lon`, `l`.`Name`, `l`.`Region`, `l`.`TzId`
+FROM `Locations` AS `l`
+WHERE `l`.`Name` = @__request_Location_Name_0
+LIMIT 1
+2024-12-04 17:20:22.355 +00:00 [INF] Executed DbCommand (118ms) [Parameters=[@__8__locals1_location_Id_0='?' (DbType = Int32), @__forecastDay_Date_Date_1='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT `w`.`Id`, `w`.`Date`, `w`.`DateEpoch`, `w`.`LocationId`
+FROM `WeatherForecasts` AS `w`
+WHERE (`w`.`LocationId` = @__8__locals1_location_Id_0) AND (CONVERT(`w`.`Date`, date) = @__forecastDay_Date_Date_1)
+LIMIT 1
+2024-12-04 17:21:28.055 +00:00 [INF] Application is shutting down...
+2024-12-04 17:23:09.931 +00:00 [INF] Executed DbCommand (105ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1 FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA='defaultdb' AND TABLE_NAME='__EFMigrationsHistory';
+2024-12-04 17:23:10.949 +00:00 [INF] Executed DbCommand (100ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1 FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA='defaultdb' AND TABLE_NAME='__EFMigrationsHistory';
+2024-12-04 17:23:11.167 +00:00 [INF] Executed DbCommand (100ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `MigrationId`, `ProductVersion`
+FROM `__EFMigrationsHistory`
+ORDER BY `MigrationId`;
+2024-12-04 17:23:11.179 +00:00 [INF] No migrations were applied. The database is already up to date.
+2024-12-04 17:23:11.221 +00:00 [INF] Now listening on: http://[::]:8080
+2024-12-04 17:23:11.223 +00:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-12-04 17:23:11.223 +00:00 [INF] Hosting environment: Development
+2024-12-04 17:23:11.224 +00:00 [INF] Content root path: /app
+2024-12-04 17:23:15.261 +00:00 [INF] Executed DbCommand (150ms) [Parameters=[@__request_Location_Name_0='?' (Size = 100)], CommandType='"Text"', CommandTimeout='30']
+SELECT `l`.`Id`, `l`.`Country`, `l`.`Lat`, `l`.`Localtime`, `l`.`LocaltimeEpoch`, `l`.`Lon`, `l`.`Name`, `l`.`Region`, `l`.`TzId`
+FROM `Locations` AS `l`
+WHERE `l`.`Name` = @__request_Location_Name_0
+LIMIT 1
+2024-12-04 17:23:15.616 +00:00 [INF] Executed DbCommand (111ms) [Parameters=[@__8__locals1_location_Id_0='?' (DbType = Int32), @__forecastDay_Date_Date_1='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT `w`.`Id`, `w`.`Date`, `w`.`DateEpoch`, `w`.`LocationId`
+FROM `WeatherForecasts` AS `w`
+WHERE (`w`.`LocationId` = @__8__locals1_location_Id_0) AND (CONVERT(`w`.`Date`, date) = @__forecastDay_Date_Date_1)
+LIMIT 1
+2024-12-04 17:23:50.660 +00:00 [INF] Executed DbCommand (100ms) [Parameters=[@__date_Date_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`Id`, `d`.`AverageHumidity`, `d`.`AveragePressure`, `d`.`AverageTemperature`, `d`.`AverageWindSpeed`, `d`.`Date`, `d`.`TotalPrecipitation`
+FROM `DailyAnalyses` AS `d`
+WHERE CONVERT(`d`.`Date`, date) = @__date_Date_0
+LIMIT 1
+2024-12-04 17:24:00.507 +00:00 [INF] Executed DbCommand (104ms) [Parameters=[@__request_Year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AutumnQuantity`, `s`.`SpringQuantity`, `s`.`SummerQuantity`, `s`.`WinterQuantity`, `s`.`Year`
+FROM `SpiderChartDatas` AS `s`
+WHERE `s`.`Year` = @__request_Year_0
+LIMIT 1
+2024-12-04 17:24:00.724 +00:00 [INF] Executed DbCommand (99ms) [Parameters=[@__request_Year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AutumnQuantity`, `s`.`SpringQuantity`, `s`.`SummerQuantity`, `s`.`WinterQuantity`, `s`.`Year`
+FROM `SpiderChartDatas` AS `s`
+WHERE `s`.`Year` = @__request_Year_0
+LIMIT 1
+2024-12-04 17:24:01.372 +00:00 [INF] Executed DbCommand (267ms) [Parameters=[@p0='?' (DbType = Double), @p1='?' (DbType = Double), @p2='?' (DbType = Double), @p3='?' (DbType = Double)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `Centroids` (`AutumnCentroid`, `SpringCentroid`, `SummerCentroid`, `WinterCentroid`)
+VALUES (@p0, @p1, @p2, @p3);
+SELECT `Id`
+FROM `Centroids`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+2024-12-04 17:24:02.202 +00:00 [INF] Executed DbCommand (98ms) [Parameters=[@__date_Date_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT `c`.`Id`, `c`.`CloudHumidityCorrelation`, `c`.`CloudPressureMbCorrelation`, `c`.`CloudTempCCorrelation`, `c`.`CloudWindKphCorrelation`, `c`.`HumidityCloudCorrelation`, `c`.`HumidityPressureMbCorrelation`, `c`.`HumidityTempCCorrelation`, `c`.`HumidityWindKphCorrelation`, `c`.`PressureMbCloudCorrelation`, `c`.`PressureMbHumidityCorrelation`, `c`.`PressureMbTempCCorrelation`, `c`.`PressureMbWindKphCorrelation`, `c`.`TempCCloudCorrelation`, `c`.`TempCHumidityCorrelation`, `c`.`TempCPressureMbCorrelation`, `c`.`TempCWindKphCorrelation`, `c`.`Time`, `c`.`WindKphCloudCorrelation`, `c`.`WindKphHumidityCorrelation`, `c`.`WindKphPressureMbCorrelation`, `c`.`WindKphTempCCorrelation`
+FROM `CorrelationAnalyses` AS `c`
+WHERE CONVERT(`c`.`Time`, date) = @__date_Date_0
+LIMIT 1
+2024-12-04 17:24:02.213 +00:00 [INF] Executed DbCommand (100ms) [Parameters=[@__date_Date_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT `c`.`Id`, `c`.`CloudHumidityCorrelation`, `c`.`CloudPressureMbCorrelation`, `c`.`CloudTempCCorrelation`, `c`.`CloudWindKphCorrelation`, `c`.`HumidityCloudCorrelation`, `c`.`HumidityPressureMbCorrelation`, `c`.`HumidityTempCCorrelation`, `c`.`HumidityWindKphCorrelation`, `c`.`PressureMbCloudCorrelation`, `c`.`PressureMbHumidityCorrelation`, `c`.`PressureMbTempCCorrelation`, `c`.`PressureMbWindKphCorrelation`, `c`.`TempCCloudCorrelation`, `c`.`TempCHumidityCorrelation`, `c`.`TempCPressureMbCorrelation`, `c`.`TempCWindKphCorrelation`, `c`.`Time`, `c`.`WindKphCloudCorrelation`, `c`.`WindKphHumidityCorrelation`, `c`.`WindKphPressureMbCorrelation`, `c`.`WindKphTempCCorrelation`
+FROM `CorrelationAnalyses` AS `c`
+WHERE CONVERT(`c`.`Time`, date) = @__date_Date_0
+LIMIT 1
+2024-12-04 17:24:06.011 +00:00 [INF] Executed DbCommand (96ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:24:06.016 +00:00 [INF] Executed DbCommand (102ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:24:06.016 +00:00 [INF] Executed DbCommand (102ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:24:06.493 +00:00 [INF] Executed DbCommand (96ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:24:06.499 +00:00 [INF] Executed DbCommand (98ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:24:06.534 +00:00 [INF] Executed DbCommand (99ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:24:06.537 +00:00 [INF] Executed DbCommand (101ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:24:06.545 +00:00 [INF] Executed DbCommand (103ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:24:07.040 +00:00 [INF] Executed DbCommand (101ms) [Parameters=[@__date_Date_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`Id`, `d`.`AverageHumidity`, `d`.`AveragePressure`, `d`.`AverageTemperature`, `d`.`AverageWindSpeed`, `d`.`Date`, `d`.`TotalPrecipitation`
+FROM `DailyAnalyses` AS `d`
+WHERE CONVERT(`d`.`Date`, date) = @__date_Date_0
+LIMIT 1
+2024-12-04 17:24:10.894 +00:00 [INF] Executed DbCommand (96ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:24:10.896 +00:00 [INF] Executed DbCommand (96ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:24:10.901 +00:00 [INF] Executed DbCommand (99ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:24:10.903 +00:00 [INF] Executed DbCommand (99ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:24:10.903 +00:00 [INF] Executed DbCommand (100ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:24:10.903 +00:00 [INF] Executed DbCommand (101ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:24:10.903 +00:00 [INF] Executed DbCommand (100ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:24:10.904 +00:00 [INF] Executed DbCommand (101ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:24:11.384 +00:00 [INF] Executed DbCommand (94ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:24:11.424 +00:00 [INF] Executed DbCommand (94ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:24:11.424 +00:00 [INF] Executed DbCommand (98ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:24:11.428 +00:00 [INF] Executed DbCommand (95ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:24:11.430 +00:00 [INF] Executed DbCommand (99ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:24:11.430 +00:00 [INF] Executed DbCommand (95ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:24:11.433 +00:00 [INF] Executed DbCommand (94ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:24:11.436 +00:00 [INF] Executed DbCommand (101ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:24:11.450 +00:00 [INF] Executed DbCommand (96ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:24:11.453 +00:00 [INF] Executed DbCommand (96ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:24:11.457 +00:00 [INF] Executed DbCommand (99ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:24:11.460 +00:00 [INF] Executed DbCommand (99ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:24:11.465 +00:00 [INF] Executed DbCommand (100ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:24:11.465 +00:00 [INF] Executed DbCommand (100ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:24:11.481 +00:00 [INF] Executed DbCommand (103ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:24:11.483 +00:00 [INF] Executed DbCommand (107ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:24:11.481 +00:00 [INF] Executed DbCommand (101ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:24:11.481 +00:00 [INF] Executed DbCommand (105ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:24:11.469 +00:00 [INF] Executed DbCommand (105ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:24:11.484 +00:00 [INF] Executed DbCommand (102ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:24:11.489 +00:00 [INF] Executed DbCommand (101ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:24:11.508 +00:00 [INF] Executed DbCommand (108ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:24:11.509 +00:00 [INF] Executed DbCommand (110ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:24:11.994 +00:00 [INF] Executed DbCommand (107ms) [Parameters=[@__date_Date_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`Id`, `d`.`AverageHumidity`, `d`.`AveragePressure`, `d`.`AverageTemperature`, `d`.`AverageWindSpeed`, `d`.`Date`, `d`.`TotalPrecipitation`
+FROM `DailyAnalyses` AS `d`
+WHERE CONVERT(`d`.`Date`, date) = @__date_Date_0
+LIMIT 1
+2024-12-04 17:24:25.799 +00:00 [INF] Executed DbCommand (106ms) [Parameters=[@__date_Date_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`Id`, `d`.`AverageHumidity`, `d`.`AveragePressure`, `d`.`AverageTemperature`, `d`.`AverageWindSpeed`, `d`.`Date`, `d`.`TotalPrecipitation`
+FROM `DailyAnalyses` AS `d`
+WHERE CONVERT(`d`.`Date`, date) = @__date_Date_0
+LIMIT 1
+2024-12-04 17:24:40.893 +00:00 [INF] Executed DbCommand (102ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:24:40.894 +00:00 [INF] Executed DbCommand (102ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:24:40.894 +00:00 [INF] Executed DbCommand (104ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:24:40.895 +00:00 [INF] Executed DbCommand (104ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:24:40.895 +00:00 [INF] Executed DbCommand (104ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:24:40.895 +00:00 [INF] Executed DbCommand (103ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:24:40.897 +00:00 [INF] Executed DbCommand (104ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:24:40.897 +00:00 [INF] Executed DbCommand (105ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:24:40.897 +00:00 [INF] Executed DbCommand (106ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:24:40.897 +00:00 [INF] Executed DbCommand (104ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:24:40.898 +00:00 [INF] Executed DbCommand (107ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:24:40.899 +00:00 [INF] Executed DbCommand (108ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:24:40.899 +00:00 [INF] Executed DbCommand (107ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:24:40.901 +00:00 [INF] Executed DbCommand (108ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:24:40.901 +00:00 [INF] Executed DbCommand (110ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:24:40.901 +00:00 [INF] Executed DbCommand (109ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:24:40.902 +00:00 [INF] Executed DbCommand (109ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:24:40.902 +00:00 [INF] Executed DbCommand (109ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:24:40.902 +00:00 [INF] Executed DbCommand (110ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:24:40.902 +00:00 [INF] Executed DbCommand (111ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:24:40.902 +00:00 [INF] Executed DbCommand (108ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:24:40.902 +00:00 [INF] Executed DbCommand (109ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:24:40.902 +00:00 [INF] Executed DbCommand (108ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:24:40.902 +00:00 [INF] Executed DbCommand (110ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:24:40.902 +00:00 [INF] Executed DbCommand (111ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:24:40.903 +00:00 [INF] Executed DbCommand (109ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:24:40.903 +00:00 [INF] Executed DbCommand (109ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:24:40.903 +00:00 [INF] Executed DbCommand (109ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:24:40.906 +00:00 [INF] Executed DbCommand (115ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:24:40.907 +00:00 [INF] Executed DbCommand (115ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:24:40.907 +00:00 [INF] Executed DbCommand (115ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:24:41.473 +00:00 [INF] Executed DbCommand (108ms) [Parameters=[@__date_Date_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`Id`, `d`.`AverageHumidity`, `d`.`AveragePressure`, `d`.`AverageTemperature`, `d`.`AverageWindSpeed`, `d`.`Date`, `d`.`TotalPrecipitation`
+FROM `DailyAnalyses` AS `d`
+WHERE CONVERT(`d`.`Date`, date) = @__date_Date_0
+LIMIT 1
+2024-12-04 17:24:55.927 +00:00 [INF] Executed DbCommand (107ms) [Parameters=[@__date_Date_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`Id`, `d`.`AverageHumidity`, `d`.`AveragePressure`, `d`.`AverageTemperature`, `d`.`AverageWindSpeed`, `d`.`Date`, `d`.`TotalPrecipitation`
+FROM `DailyAnalyses` AS `d`
+WHERE CONVERT(`d`.`Date`, date) = @__date_Date_0
+LIMIT 1
+2024-12-04 17:24:59.185 +00:00 [INF] Executed DbCommand (106ms) [Parameters=[@__year_Value_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AutumnQuantity`, `s`.`SpringQuantity`, `s`.`SummerQuantity`, `s`.`WinterQuantity`, `s`.`Year`
+FROM `SpiderChartDatas` AS `s`
+WHERE `s`.`Year` = @__year_Value_0
+2024-12-04 17:25:11.123 +00:00 [INF] Executed DbCommand (100ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:25:11.124 +00:00 [INF] Executed DbCommand (101ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:25:11.128 +00:00 [INF] Executed DbCommand (101ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:25:11.131 +00:00 [INF] Executed DbCommand (103ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:25:11.135 +00:00 [INF] Executed DbCommand (108ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:25:11.135 +00:00 [INF] Executed DbCommand (108ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:25:11.135 +00:00 [INF] Executed DbCommand (100ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:25:11.135 +00:00 [INF] Executed DbCommand (108ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:25:11.135 +00:00 [INF] Executed DbCommand (100ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:25:11.137 +00:00 [INF] Executed DbCommand (102ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:25:11.139 +00:00 [INF] Executed DbCommand (104ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:25:11.140 +00:00 [INF] Executed DbCommand (105ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:25:11.140 +00:00 [INF] Executed DbCommand (104ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:25:11.142 +00:00 [INF] Executed DbCommand (107ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:25:11.142 +00:00 [INF] Executed DbCommand (106ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:25:11.144 +00:00 [INF] Executed DbCommand (108ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:25:11.144 +00:00 [INF] Executed DbCommand (108ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:25:11.144 +00:00 [INF] Executed DbCommand (109ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:25:11.144 +00:00 [INF] Executed DbCommand (107ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:25:11.144 +00:00 [INF] Executed DbCommand (107ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:25:11.145 +00:00 [INF] Executed DbCommand (107ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:25:11.149 +00:00 [INF] Executed DbCommand (111ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:25:11.151 +00:00 [INF] Executed DbCommand (112ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:25:11.151 +00:00 [INF] Executed DbCommand (112ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:25:11.151 +00:00 [INF] Executed DbCommand (113ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:25:11.151 +00:00 [INF] Executed DbCommand (113ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:25:11.151 +00:00 [INF] Executed DbCommand (113ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:25:11.157 +00:00 [INF] Executed DbCommand (120ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:25:11.157 +00:00 [INF] Executed DbCommand (120ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:25:11.627 +00:00 [INF] Executed DbCommand (106ms) [Parameters=[@__date_Date_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`Id`, `d`.`AverageHumidity`, `d`.`AveragePressure`, `d`.`AverageTemperature`, `d`.`AverageWindSpeed`, `d`.`Date`, `d`.`TotalPrecipitation`
+FROM `DailyAnalyses` AS `d`
+WHERE CONVERT(`d`.`Date`, date) = @__date_Date_0
+LIMIT 1
+2024-12-04 17:25:25.978 +00:00 [INF] Executed DbCommand (134ms) [Parameters=[@__date_Date_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`Id`, `d`.`AverageHumidity`, `d`.`AveragePressure`, `d`.`AverageTemperature`, `d`.`AverageWindSpeed`, `d`.`Date`, `d`.`TotalPrecipitation`
+FROM `DailyAnalyses` AS `d`
+WHERE CONVERT(`d`.`Date`, date) = @__date_Date_0
+LIMIT 1
+2024-12-04 17:25:40.847 +00:00 [INF] Executed DbCommand (106ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:25:40.847 +00:00 [INF] Executed DbCommand (106ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:25:40.848 +00:00 [INF] Executed DbCommand (108ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:25:40.848 +00:00 [INF] Executed DbCommand (97ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:25:40.862 +00:00 [INF] Executed DbCommand (110ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:25:40.862 +00:00 [INF] Executed DbCommand (110ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:25:40.862 +00:00 [INF] Executed DbCommand (108ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:25:40.862 +00:00 [INF] Executed DbCommand (108ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:25:40.862 +00:00 [INF] Executed DbCommand (110ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:25:40.862 +00:00 [INF] Executed DbCommand (111ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:25:40.862 +00:00 [INF] Executed DbCommand (109ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:25:40.862 +00:00 [INF] Executed DbCommand (109ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:25:40.862 +00:00 [INF] Executed DbCommand (110ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:25:40.862 +00:00 [INF] Executed DbCommand (111ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:25:40.866 +00:00 [INF] Executed DbCommand (112ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:25:40.862 +00:00 [INF] Executed DbCommand (110ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:25:40.863 +00:00 [INF] Executed DbCommand (109ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:25:40.863 +00:00 [INF] Executed DbCommand (109ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:25:40.863 +00:00 [INF] Executed DbCommand (112ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:25:40.864 +00:00 [INF] Executed DbCommand (112ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:25:40.864 +00:00 [INF] Executed DbCommand (111ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:25:40.864 +00:00 [INF] Executed DbCommand (111ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:25:40.865 +00:00 [INF] Executed DbCommand (111ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:25:40.865 +00:00 [INF] Executed DbCommand (112ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:25:40.862 +00:00 [INF] Executed DbCommand (111ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:25:40.866 +00:00 [INF] Executed DbCommand (112ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:25:40.866 +00:00 [INF] Executed DbCommand (112ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:25:40.866 +00:00 [INF] Executed DbCommand (113ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:25:40.869 +00:00 [INF] Executed DbCommand (115ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:25:40.869 +00:00 [INF] Executed DbCommand (116ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:25:40.870 +00:00 [INF] Executed DbCommand (117ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:25:41.349 +00:00 [INF] Executed DbCommand (108ms) [Parameters=[@__date_Date_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`Id`, `d`.`AverageHumidity`, `d`.`AveragePressure`, `d`.`AverageTemperature`, `d`.`AverageWindSpeed`, `d`.`Date`, `d`.`TotalPrecipitation`
+FROM `DailyAnalyses` AS `d`
+WHERE CONVERT(`d`.`Date`, date) = @__date_Date_0
+LIMIT 1
+2024-12-04 17:25:55.806 +00:00 [INF] Executed DbCommand (108ms) [Parameters=[@__date_Date_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`Id`, `d`.`AverageHumidity`, `d`.`AveragePressure`, `d`.`AverageTemperature`, `d`.`AverageWindSpeed`, `d`.`Date`, `d`.`TotalPrecipitation`
+FROM `DailyAnalyses` AS `d`
+WHERE CONVERT(`d`.`Date`, date) = @__date_Date_0
+LIMIT 1
+2024-12-04 17:26:10.847 +00:00 [INF] Executed DbCommand (105ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:26:10.847 +00:00 [INF] Executed DbCommand (106ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:26:10.850 +00:00 [INF] Executed DbCommand (97ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:26:10.850 +00:00 [INF] Executed DbCommand (97ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:26:10.853 +00:00 [INF] Executed DbCommand (99ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:26:10.853 +00:00 [INF] Executed DbCommand (100ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:26:10.853 +00:00 [INF] Executed DbCommand (100ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:26:10.854 +00:00 [INF] Executed DbCommand (101ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:26:10.858 +00:00 [INF] Executed DbCommand (104ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:26:10.858 +00:00 [INF] Executed DbCommand (105ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:26:10.860 +00:00 [INF] Executed DbCommand (105ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:26:10.860 +00:00 [INF] Executed DbCommand (107ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:26:10.860 +00:00 [INF] Executed DbCommand (105ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:26:10.860 +00:00 [INF] Executed DbCommand (104ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:26:10.860 +00:00 [INF] Executed DbCommand (105ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:26:10.862 +00:00 [INF] Executed DbCommand (105ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:26:10.862 +00:00 [INF] Executed DbCommand (107ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:26:10.864 +00:00 [INF] Executed DbCommand (109ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:26:10.864 +00:00 [INF] Executed DbCommand (108ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:26:10.864 +00:00 [INF] Executed DbCommand (107ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:26:10.864 +00:00 [INF] Executed DbCommand (109ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:26:10.864 +00:00 [INF] Executed DbCommand (109ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:26:10.865 +00:00 [INF] Executed DbCommand (109ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:26:10.865 +00:00 [INF] Executed DbCommand (108ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:26:10.866 +00:00 [INF] Executed DbCommand (110ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:26:10.866 +00:00 [INF] Executed DbCommand (109ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:26:10.868 +00:00 [INF] Executed DbCommand (111ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:26:10.868 +00:00 [INF] Executed DbCommand (111ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:26:10.871 +00:00 [INF] Executed DbCommand (114ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:26:10.871 +00:00 [INF] Executed DbCommand (114ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:26:11.358 +00:00 [INF] Executed DbCommand (107ms) [Parameters=[@__date_Date_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`Id`, `d`.`AverageHumidity`, `d`.`AveragePressure`, `d`.`AverageTemperature`, `d`.`AverageWindSpeed`, `d`.`Date`, `d`.`TotalPrecipitation`
+FROM `DailyAnalyses` AS `d`
+WHERE CONVERT(`d`.`Date`, date) = @__date_Date_0
+LIMIT 1
+2024-12-04 17:26:25.796 +00:00 [INF] Executed DbCommand (106ms) [Parameters=[@__date_Date_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`Id`, `d`.`AverageHumidity`, `d`.`AveragePressure`, `d`.`AverageTemperature`, `d`.`AverageWindSpeed`, `d`.`Date`, `d`.`TotalPrecipitation`
+FROM `DailyAnalyses` AS `d`
+WHERE CONVERT(`d`.`Date`, date) = @__date_Date_0
+LIMIT 1
+2024-12-04 17:26:40.821 +00:00 [INF] Executed DbCommand (103ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:26:40.821 +00:00 [INF] Executed DbCommand (103ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:26:40.822 +00:00 [INF] Executed DbCommand (103ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:26:40.822 +00:00 [INF] Executed DbCommand (103ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:26:40.821 +00:00 [INF] Executed DbCommand (103ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:26:40.823 +00:00 [INF] Executed DbCommand (105ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:26:40.824 +00:00 [INF] Executed DbCommand (105ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:26:40.824 +00:00 [INF] Executed DbCommand (107ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:26:40.824 +00:00 [INF] Executed DbCommand (105ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:26:40.827 +00:00 [INF] Executed DbCommand (107ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:26:40.827 +00:00 [INF] Executed DbCommand (108ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:26:40.827 +00:00 [INF] Executed DbCommand (108ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:26:40.827 +00:00 [INF] Executed DbCommand (109ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:26:40.828 +00:00 [INF] Executed DbCommand (109ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:26:40.830 +00:00 [INF] Executed DbCommand (110ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:26:40.830 +00:00 [INF] Executed DbCommand (110ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:26:40.830 +00:00 [INF] Executed DbCommand (110ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:26:40.830 +00:00 [INF] Executed DbCommand (110ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:26:40.832 +00:00 [INF] Executed DbCommand (112ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:26:40.832 +00:00 [INF] Executed DbCommand (112ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:26:40.832 +00:00 [INF] Executed DbCommand (111ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:26:40.832 +00:00 [INF] Executed DbCommand (111ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:26:40.832 +00:00 [INF] Executed DbCommand (113ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:26:40.832 +00:00 [INF] Executed DbCommand (112ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:26:40.834 +00:00 [INF] Executed DbCommand (114ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:26:40.834 +00:00 [INF] Executed DbCommand (114ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:26:40.834 +00:00 [INF] Executed DbCommand (113ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:26:40.834 +00:00 [INF] Executed DbCommand (115ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:26:40.836 +00:00 [INF] Executed DbCommand (116ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:26:41.120 +00:00 [INF] Executed DbCommand (401ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:26:41.124 +00:00 [INF] Executed DbCommand (404ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:26:41.594 +00:00 [INF] Executed DbCommand (100ms) [Parameters=[@__date_Date_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`Id`, `d`.`AverageHumidity`, `d`.`AveragePressure`, `d`.`AverageTemperature`, `d`.`AverageWindSpeed`, `d`.`Date`, `d`.`TotalPrecipitation`
+FROM `DailyAnalyses` AS `d`
+WHERE CONVERT(`d`.`Date`, date) = @__date_Date_0
+LIMIT 1
+2024-12-04 17:26:55.787 +00:00 [INF] Executed DbCommand (101ms) [Parameters=[@__date_Date_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`Id`, `d`.`AverageHumidity`, `d`.`AveragePressure`, `d`.`AverageTemperature`, `d`.`AverageWindSpeed`, `d`.`Date`, `d`.`TotalPrecipitation`
+FROM `DailyAnalyses` AS `d`
+WHERE CONVERT(`d`.`Date`, date) = @__date_Date_0
+LIMIT 1
+2024-12-04 17:27:10.960 +00:00 [INF] Executed DbCommand (96ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:27:10.977 +00:00 [INF] Executed DbCommand (108ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:27:10.981 +00:00 [INF] Executed DbCommand (100ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:27:10.984 +00:00 [INF] Executed DbCommand (104ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:27:10.984 +00:00 [INF] Executed DbCommand (103ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:27:10.984 +00:00 [INF] Executed DbCommand (104ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:27:10.984 +00:00 [INF] Executed DbCommand (103ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:27:10.985 +00:00 [INF] Executed DbCommand (104ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:27:10.986 +00:00 [INF] Executed DbCommand (106ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:27:10.986 +00:00 [INF] Executed DbCommand (105ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:27:10.987 +00:00 [INF] Executed DbCommand (106ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:27:10.989 +00:00 [INF] Executed DbCommand (109ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:27:10.989 +00:00 [INF] Executed DbCommand (108ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:27:10.992 +00:00 [INF] Executed DbCommand (109ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:27:10.989 +00:00 [INF] Executed DbCommand (108ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:27:10.990 +00:00 [INF] Executed DbCommand (109ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:27:10.990 +00:00 [INF] Executed DbCommand (108ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:27:10.990 +00:00 [INF] Executed DbCommand (109ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:27:10.990 +00:00 [INF] Executed DbCommand (109ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:27:10.990 +00:00 [INF] Executed DbCommand (108ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:27:10.991 +00:00 [INF] Executed DbCommand (109ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:27:10.992 +00:00 [INF] Executed DbCommand (110ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:27:10.992 +00:00 [INF] Executed DbCommand (110ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:27:10.994 +00:00 [INF] Executed DbCommand (112ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:27:10.996 +00:00 [INF] Executed DbCommand (114ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:27:10.994 +00:00 [INF] Executed DbCommand (113ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:27:10.994 +00:00 [INF] Executed DbCommand (112ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:27:10.994 +00:00 [INF] Executed DbCommand (112ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:27:10.997 +00:00 [INF] Executed DbCommand (115ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:27:10.998 +00:00 [INF] Executed DbCommand (115ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:27:11.494 +00:00 [INF] Executed DbCommand (105ms) [Parameters=[@__date_Date_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`Id`, `d`.`AverageHumidity`, `d`.`AveragePressure`, `d`.`AverageTemperature`, `d`.`AverageWindSpeed`, `d`.`Date`, `d`.`TotalPrecipitation`
+FROM `DailyAnalyses` AS `d`
+WHERE CONVERT(`d`.`Date`, date) = @__date_Date_0
+LIMIT 1
+2024-12-04 17:27:25.793 +00:00 [INF] Executed DbCommand (107ms) [Parameters=[@__date_Date_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`Id`, `d`.`AverageHumidity`, `d`.`AveragePressure`, `d`.`AverageTemperature`, `d`.`AverageWindSpeed`, `d`.`Date`, `d`.`TotalPrecipitation`
+FROM `DailyAnalyses` AS `d`
+WHERE CONVERT(`d`.`Date`, date) = @__date_Date_0
+LIMIT 1
+2024-12-04 17:27:40.897 +00:00 [INF] Executed DbCommand (106ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:27:40.898 +00:00 [INF] Executed DbCommand (105ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:27:40.900 +00:00 [INF] Executed DbCommand (107ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:27:40.905 +00:00 [INF] Executed DbCommand (101ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:27:40.906 +00:00 [INF] Executed DbCommand (103ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:27:40.906 +00:00 [INF] Executed DbCommand (102ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:27:40.907 +00:00 [INF] Executed DbCommand (103ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:27:40.910 +00:00 [INF] Executed DbCommand (105ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:27:40.910 +00:00 [INF] Executed DbCommand (106ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:27:40.910 +00:00 [INF] Executed DbCommand (107ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:27:40.910 +00:00 [INF] Executed DbCommand (105ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:27:40.912 +00:00 [INF] Executed DbCommand (108ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:27:40.912 +00:00 [INF] Executed DbCommand (107ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:27:40.914 +00:00 [INF] Executed DbCommand (109ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:27:40.914 +00:00 [INF] Executed DbCommand (109ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:27:40.914 +00:00 [INF] Executed DbCommand (109ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:27:40.914 +00:00 [INF] Executed DbCommand (109ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:27:40.915 +00:00 [INF] Executed DbCommand (109ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:27:40.914 +00:00 [INF] Executed DbCommand (110ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:27:40.916 +00:00 [INF] Executed DbCommand (111ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:27:40.915 +00:00 [INF] Executed DbCommand (111ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:27:40.915 +00:00 [INF] Executed DbCommand (111ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:27:40.915 +00:00 [INF] Executed DbCommand (110ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:27:40.915 +00:00 [INF] Executed DbCommand (111ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:27:40.916 +00:00 [INF] Executed DbCommand (110ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:27:40.914 +00:00 [INF] Executed DbCommand (109ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:27:40.918 +00:00 [INF] Executed DbCommand (113ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:27:40.918 +00:00 [INF] Executed DbCommand (111ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:27:40.919 +00:00 [INF] Executed DbCommand (113ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:27:40.920 +00:00 [INF] Executed DbCommand (115ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:27:40.920 +00:00 [INF] Executed DbCommand (114ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:27:41.407 +00:00 [INF] Executed DbCommand (105ms) [Parameters=[@__date_Date_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`Id`, `d`.`AverageHumidity`, `d`.`AveragePressure`, `d`.`AverageTemperature`, `d`.`AverageWindSpeed`, `d`.`Date`, `d`.`TotalPrecipitation`
+FROM `DailyAnalyses` AS `d`
+WHERE CONVERT(`d`.`Date`, date) = @__date_Date_0
+LIMIT 1
+2024-12-04 17:27:55.796 +00:00 [INF] Executed DbCommand (106ms) [Parameters=[@__date_Date_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`Id`, `d`.`AverageHumidity`, `d`.`AveragePressure`, `d`.`AverageTemperature`, `d`.`AverageWindSpeed`, `d`.`Date`, `d`.`TotalPrecipitation`
+FROM `DailyAnalyses` AS `d`
+WHERE CONVERT(`d`.`Date`, date) = @__date_Date_0
+LIMIT 1
+2024-12-04 17:28:10.881 +00:00 [INF] Executed DbCommand (107ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:28:10.888 +00:00 [INF] Executed DbCommand (101ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:28:10.889 +00:00 [INF] Executed DbCommand (101ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:28:10.891 +00:00 [INF] Executed DbCommand (103ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:28:10.893 +00:00 [INF] Executed DbCommand (104ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:28:10.893 +00:00 [INF] Executed DbCommand (104ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:28:10.893 +00:00 [INF] Executed DbCommand (104ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:28:10.893 +00:00 [INF] Executed DbCommand (104ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:28:10.895 +00:00 [INF] Executed DbCommand (106ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:28:10.895 +00:00 [INF] Executed DbCommand (107ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:28:10.895 +00:00 [INF] Executed DbCommand (106ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:28:10.896 +00:00 [INF] Executed DbCommand (108ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:28:10.896 +00:00 [INF] Executed DbCommand (107ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:28:10.896 +00:00 [INF] Executed DbCommand (107ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:28:10.899 +00:00 [INF] Executed DbCommand (111ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:28:10.900 +00:00 [INF] Executed DbCommand (112ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:28:10.900 +00:00 [INF] Executed DbCommand (110ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:28:10.900 +00:00 [INF] Executed DbCommand (112ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:28:10.901 +00:00 [INF] Executed DbCommand (111ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:28:10.901 +00:00 [INF] Executed DbCommand (113ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:28:10.901 +00:00 [INF] Executed DbCommand (110ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:28:10.901 +00:00 [INF] Executed DbCommand (112ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:28:10.901 +00:00 [INF] Executed DbCommand (110ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:28:10.901 +00:00 [INF] Executed DbCommand (112ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:28:10.903 +00:00 [INF] Executed DbCommand (113ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:28:10.903 +00:00 [INF] Executed DbCommand (113ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:28:10.903 +00:00 [INF] Executed DbCommand (112ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:28:10.903 +00:00 [INF] Executed DbCommand (113ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:28:10.903 +00:00 [INF] Executed DbCommand (115ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:28:10.906 +00:00 [INF] Executed DbCommand (115ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:28:10.906 +00:00 [INF] Executed DbCommand (115ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:28:11.395 +00:00 [INF] Executed DbCommand (109ms) [Parameters=[@__date_Date_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`Id`, `d`.`AverageHumidity`, `d`.`AveragePressure`, `d`.`AverageTemperature`, `d`.`AverageWindSpeed`, `d`.`Date`, `d`.`TotalPrecipitation`
+FROM `DailyAnalyses` AS `d`
+WHERE CONVERT(`d`.`Date`, date) = @__date_Date_0
+LIMIT 1
+2024-12-04 17:28:25.829 +00:00 [INF] Executed DbCommand (105ms) [Parameters=[@__date_Date_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`Id`, `d`.`AverageHumidity`, `d`.`AveragePressure`, `d`.`AverageTemperature`, `d`.`AverageWindSpeed`, `d`.`Date`, `d`.`TotalPrecipitation`
+FROM `DailyAnalyses` AS `d`
+WHERE CONVERT(`d`.`Date`, date) = @__date_Date_0
+LIMIT 1
+2024-12-04 17:28:40.884 +00:00 [INF] Executed DbCommand (101ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:28:40.885 +00:00 [INF] Executed DbCommand (101ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:28:40.885 +00:00 [INF] Executed DbCommand (101ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:28:40.888 +00:00 [INF] Executed DbCommand (104ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:28:40.888 +00:00 [INF] Executed DbCommand (104ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:28:40.888 +00:00 [INF] Executed DbCommand (104ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:28:40.888 +00:00 [INF] Executed DbCommand (105ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:28:40.888 +00:00 [INF] Executed DbCommand (104ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:28:40.891 +00:00 [INF] Executed DbCommand (106ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:28:40.891 +00:00 [INF] Executed DbCommand (107ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:28:40.892 +00:00 [INF] Executed DbCommand (107ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:28:40.894 +00:00 [INF] Executed DbCommand (108ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:28:40.894 +00:00 [INF] Executed DbCommand (109ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:28:40.894 +00:00 [INF] Executed DbCommand (110ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:28:40.894 +00:00 [INF] Executed DbCommand (109ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:28:40.896 +00:00 [INF] Executed DbCommand (111ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:28:40.897 +00:00 [INF] Executed DbCommand (112ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:28:40.898 +00:00 [INF] Executed DbCommand (113ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:28:40.899 +00:00 [INF] Executed DbCommand (111ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:28:40.899 +00:00 [INF] Executed DbCommand (113ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:28:40.899 +00:00 [INF] Executed DbCommand (113ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:28:40.902 +00:00 [INF] Executed DbCommand (114ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:28:40.902 +00:00 [INF] Executed DbCommand (117ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:28:40.903 +00:00 [INF] Executed DbCommand (115ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:28:40.903 +00:00 [INF] Executed DbCommand (116ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:28:40.903 +00:00 [INF] Executed DbCommand (118ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:28:40.903 +00:00 [INF] Executed DbCommand (115ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:28:40.907 +00:00 [INF] Executed DbCommand (119ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:28:40.907 +00:00 [INF] Executed DbCommand (121ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:28:40.907 +00:00 [INF] Executed DbCommand (120ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:28:41.384 +00:00 [INF] Executed DbCommand (106ms) [Parameters=[@__date_Date_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`Id`, `d`.`AverageHumidity`, `d`.`AveragePressure`, `d`.`AverageTemperature`, `d`.`AverageWindSpeed`, `d`.`Date`, `d`.`TotalPrecipitation`
+FROM `DailyAnalyses` AS `d`
+WHERE CONVERT(`d`.`Date`, date) = @__date_Date_0
+LIMIT 1
+2024-12-04 17:28:55.913 +00:00 [INF] Executed DbCommand (107ms) [Parameters=[@__date_Date_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`Id`, `d`.`AverageHumidity`, `d`.`AveragePressure`, `d`.`AverageTemperature`, `d`.`AverageWindSpeed`, `d`.`Date`, `d`.`TotalPrecipitation`
+FROM `DailyAnalyses` AS `d`
+WHERE CONVERT(`d`.`Date`, date) = @__date_Date_0
+LIMIT 1
+2024-12-04 17:29:11.058 +00:00 [INF] Executed DbCommand (105ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:29:11.070 +00:00 [INF] Executed DbCommand (109ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:29:11.070 +00:00 [INF] Executed DbCommand (108ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:29:11.074 +00:00 [INF] Executed DbCommand (108ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:29:11.074 +00:00 [INF] Executed DbCommand (108ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:29:11.081 +00:00 [INF] Executed DbCommand (115ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:29:11.081 +00:00 [INF] Executed DbCommand (113ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:29:11.081 +00:00 [INF] Executed DbCommand (114ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:29:11.081 +00:00 [INF] Executed DbCommand (119ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:29:11.081 +00:00 [INF] Executed DbCommand (115ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:29:11.090 +00:00 [INF] Executed DbCommand (120ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:29:11.081 +00:00 [INF] Executed DbCommand (120ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:29:11.092 +00:00 [INF] Executed DbCommand (116ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:29:11.081 +00:00 [INF] Executed DbCommand (115ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:29:11.083 +00:00 [INF] Executed DbCommand (117ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:29:11.083 +00:00 [INF] Executed DbCommand (114ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:29:11.083 +00:00 [INF] Executed DbCommand (114ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:29:11.083 +00:00 [INF] Executed DbCommand (117ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:29:11.086 +00:00 [INF] Executed DbCommand (124ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:29:11.087 +00:00 [INF] Executed DbCommand (120ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:29:11.087 +00:00 [INF] Executed DbCommand (125ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:29:11.087 +00:00 [INF] Executed DbCommand (121ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:29:11.087 +00:00 [INF] Executed DbCommand (121ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:29:11.081 +00:00 [INF] Executed DbCommand (119ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:29:11.092 +00:00 [INF] Executed DbCommand (125ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:29:11.092 +00:00 [INF] Executed DbCommand (125ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:29:11.092 +00:00 [INF] Executed DbCommand (119ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:29:11.092 +00:00 [INF] Executed DbCommand (121ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:29:11.092 +00:00 [INF] Executed DbCommand (118ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:29:11.092 +00:00 [INF] Executed DbCommand (118ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:29:11.081 +00:00 [INF] Executed DbCommand (118ms) [Parameters=[@__request_Date_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+WHERE `s`.`Date` = @__request_Date_0
+LIMIT 1
+2024-12-04 17:29:11.754 +00:00 [INF] Executed DbCommand (103ms) [Parameters=[@__date_Date_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`Id`, `d`.`AverageHumidity`, `d`.`AveragePressure`, `d`.`AverageTemperature`, `d`.`AverageWindSpeed`, `d`.`Date`, `d`.`TotalPrecipitation`
+FROM `DailyAnalyses` AS `d`
+WHERE CONVERT(`d`.`Date`, date) = @__date_Date_0
+LIMIT 1
+2024-12-04 17:29:22.389 +00:00 [INF] Executed DbCommand (101ms) [Parameters=[@__year_Value_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AutumnQuantity`, `s`.`SpringQuantity`, `s`.`SummerQuantity`, `s`.`WinterQuantity`, `s`.`Year`
+FROM `SpiderChartDatas` AS `s`
+WHERE `s`.`Year` = @__year_Value_0
+2024-12-04 17:29:22.527 +00:00 [INF] Executed DbCommand (217ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+ORDER BY `s`.`Date`
+2024-12-04 17:29:22.597 +00:00 [INF] Executed DbCommand (100ms) [Parameters=[@__year_Value_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AutumnQuantity`, `s`.`SpringQuantity`, `s`.`SummerQuantity`, `s`.`WinterQuantity`, `s`.`Year`
+FROM `SpiderChartDatas` AS `s`
+WHERE `s`.`Year` = @__year_Value_0
+2024-12-04 17:29:22.756 +00:00 [INF] Executed DbCommand (108ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`AvgHumidity`, `s`.`AvgPressure`, `s`.`AvgTemp`, `s`.`AvgWind`, `s`.`Date`, `s`.`MaxTemp`, `s`.`MinTemp`, `s`.`Quarter`, `s`.`TotalPrecip`, `s`.`Year`
+FROM `SeasonalAnalyses` AS `s`
+ORDER BY `s`.`Date`
+2024-12-04 17:29:25.804 +00:00 [INF] Executed DbCommand (104ms) [Parameters=[@__date_Date_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT `d`.`Id`, `d`.`AverageHumidity`, `d`.`AveragePressure`, `d`.`AverageTemperature`, `d`.`AverageWindSpeed`, `d`.`Date`, `d`.`TotalPrecipitation`
+FROM `DailyAnalyses` AS `d`
+WHERE CONVERT(`d`.`Date`, date) = @__date_Date_0
+LIMIT 1
+2024-12-04 17:29:38.351 +00:00 [INF] Application is shutting down...
