@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import 'react-datepicker/dist/react-datepicker.css';
 import useGetPredictionData from '../../../../hooks/useGetPredictionData';
+import useGetPredictionSeasonal from '../../../../hooks/useGetPredictionSeasonal';
 import { toast } from 'react-toastify';
 
 interface WeatherData {
@@ -11,38 +12,180 @@ interface WeatherData {
   predicted_wind: number;
   predicted_cloud: number;
 }
+
+interface SeasonalData {
+  spring: number;
+  summer: number;
+  autumn: number;
+  winter: number;
+}
+
 const FifthPattern = () => {
   const [data, setData] = useState<WeatherData>();
-  const [season, setSeason] = useState<string>('spring');
+  const [seasonalData, setSeasonalData] = useState<SeasonalData>();
+  const [season, setSeason] = useState<string>('');
   const { getPredictionData, loading } = useGetPredictionData();
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const { ok, data } = await getPredictionData();
-      if (!ok) {
-        toast.error('Failed to fetch data');
-        return;
-      }
-      setData(data);
-    };
-    fetchData();
-  }, [getPredictionData]);
+  const { getPredictionSeasonal } = useGetPredictionSeasonal();
 
-  console.log(data);
+  const fetchData = async () => {
+    const { ok, data } = await getPredictionData();
+    if (!ok) {
+      toast.error('Failed to fetch data');
+      return;
+    }
+    setData(data);
+  };
+
+  const fetchSeasonalData = async () => {
+    const { ok, data } = await getPredictionSeasonal();
+    if (!ok) {
+      toast.error('Failed to fetch data');
+      return;
+    }
+
+    setSeasonalData(data);
+
+    if (
+      data.spring > data.summer &&
+      data.spring > data.autumn &&
+      data.spring > data.winter
+    ) {
+      setSeason('Spring');
+    } else if (
+      data.summer > data.spring &&
+      data.summer > data.autumn &&
+      data.summer > data.winter
+    ) {
+      setSeason('Summer');
+    } else if (
+      data.autumn > data.spring &&
+      data.autumn > data.summer &&
+      data.autumn > data.winter
+    ) {
+      setSeason('Autumn');
+    } else {
+      setSeason('Winter');
+    }
+  };
+
+  useEffect(() => {
+    fetchData();
+
+    fetchSeasonalData();
+  }, [getPredictionData]);
 
   return (
     <div
       className={`p-8 bg-cover bg-center shadow-lg min-h-screen space-y-10 
-      ${season === 'spring' && "bg-[url('/spring.jpg')]"}
-      ${season === 'summer' && "bg-[url('/summer.jpg')]"}
-      ${season === 'autumn' && "bg-[url('/fall.jpg')]"}
-      ${season === 'winter' && "bg-[url('/winter.jpg')]"}
+      ${season === 'Spring' && "bg-[url('/spring.jpg')]"}
+      ${season === 'Summer' && "bg-[url('/summer.jpg')]"}
+      ${season === 'Autumn' && "bg-[url('/fall.jpg')]"}
+      ${season === 'Winter' && "bg-[url('/winter.jpg')]"}
       `}
     >
       <div className="p-8 h-auto w-full space-y-10">
-        <h1 className="text-7xl font-bold text-center text-white">
+        <h1 className="text-7xl font-bold text-center text-white filter  transition-shadow">
           Weather Prediction
         </h1>
+
+        {seasonalData && (
+          <div className="col-span-4">
+            <div className="grid grid-cols-4 gap-6">
+              <div className="flex flex-col justify-start items-start gap-8  p-6  shadow-md bg-gray-200 rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-20 border border-gray-100">
+                <div className="flex flex-row gap-2 justify-center items-center">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="2rem"
+                    height="2rem"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      fill="#fff"
+                      d="M17 8C8 10 5.9 16.17 3.82 21.34l1.89.66l.95-2.3c.48.17.98.3 1.34.3C19 20 22 3 22 3c-1 2-8 2.25-13 3.25S2 11.5 2 13.5s1.75 3.75 1.75 3.75C7 8 17 8 17 8"
+                    />
+                  </svg>
+                  <h1 className="text-2xl 2xl:text-3xl font-bold text-center text-white">
+                    Spring
+                  </h1>
+                </div>
+                <p className="text-5xl font-bold text-center text-white flex justify-center items-center w-full h-full 2xl:text-7xl">
+                  {`${(seasonalData.spring * 100).toFixed(1)}`}%
+                </p>
+              </div>
+              <div className="flex flex-col justify-start items-start gap-8  p-6  shadow-md bg-gray-200 rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-20 border border-gray-100">
+                <div className="flex flex-row gap-2 justify-center items-center">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="2rem"
+                    height="2rem"
+                    viewBox="0 0 24 24"
+                  >
+                    <g fill="none" stroke="#fff" stroke-width="1.5">
+                      <circle cx="12" cy="12" r="6" />
+                      <path
+                        stroke-linecap="round"
+                        d="M12 2v1m0 18v1m10-10h-1M3 12H2m17.07-7.07l-.392.393M5.322 18.678l-.393.393m14.141-.001l-.392-.393M5.322 5.322l-.393-.393"
+                      />
+                    </g>
+                  </svg>
+                  <h1 className="text-2xl 2xl:text-3xl font-bold text-center text-white">
+                    Summer
+                  </h1>
+                </div>
+                <p className="text-5xl font-bold text-center text-white flex justify-center items-center w-full h-full 2xl:text-7xl">
+                  {`${(seasonalData.summer * 100).toFixed(1)}`}%
+                </p>
+              </div>
+              <div className="flex flex-col justify-start items-start gap-8  p-6  shadow-md bg-gray-200 rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-20 border border-gray-100">
+                <div className="flex flex-row gap-2 justify-center items-center">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="2rem"
+                    height="2rem"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      fill="#fff"
+                      d="M21.79 13L16 16l1 2l-4-.75V21h-2v-3.75L7 18l1-2l-5.79-3l1-1.73L1.61 8l3.6-.23l1-1.77l3.42 3.9L8 5h2l2-3l2 3h2l-1.63 4.9L17.79 6l1 1.73l3.6.23l-1.6 3.23z"
+                    />
+                  </svg>
+                  <h1 className="text-2xl 2xl:text-3xl font-bold text-center text-white">
+                    Autumn
+                  </h1>
+                </div>
+                <p className="text-5xl font-bold text-center text-white flex justify-center items-center w-full h-full 2xl:text-7xl">
+                  {`${(seasonalData.autumn * 100).toFixed(1)}`}%
+                </p>
+              </div>
+              <div className="flex flex-col justify-start items-start gap-8  p-6  shadow-md bg-gray-200 rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-20 border border-gray-100">
+                <div className="flex flex-row gap-2 justify-center items-center">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="2rem"
+                    height="2rem"
+                    viewBox="0 0 14 14"
+                  >
+                    <path
+                      fill="none"
+                      stroke="#fff"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="m5 .5l2 2l2-2M.5 9l2-2l-2-2M9 13.5l-2-2l-2 2M13.5 5l-2 2l2 2m-10-5.5L5 5m0 4l-1.5 1.5m7-7L9 5m0 4l1.5 1.5M7 2.5v9M2.5 7h9"
+                    />
+                  </svg>
+                  <h1 className="text-2xl 2xl:text-3xl font-bold text-center text-white">
+                    Winter
+                  </h1>
+                </div>
+                <p className="text-5xl font-bold text-center text-white flex justify-center items-center w-full h-full 2xl:text-7xl">
+                  {`${(seasonalData.winter * 100).toFixed(1)}`}%
+                </p>
+              </div>
+            </div>
+          </div>
+        )}
+
         {data && (
           <div className="space-y-6">
             <div className="grid grid-cols-6 gap-6">
@@ -68,6 +211,7 @@ const FifthPattern = () => {
                   {data ? `${data.predicted_temperature.toFixed(1)}°C` : ''}
                 </p>
               </div>
+
               <div className="col-span-4 h-[450px] lg:h-[470px]">
                 <div className="grid grid-cols-2 gap-6">
                   <div className="flex flex-col justify-start items-start gap-8  p-6  shadow-md h-[220px] 2xl:h-[335px] bg-gray-200 rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-20 border border-gray-100">

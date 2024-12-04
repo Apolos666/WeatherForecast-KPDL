@@ -1,12 +1,12 @@
 import React, { useState, useCallback } from 'react';
 
-const useGetSpiderChartData = () => {
+const useGetPredictionSeasonal = () => {
   const [loading, setLoading] = useState(false);
-  const getSpiderChartData = useCallback(async () => {
+  const getPredictionSeasonal = useCallback(async () => {
     setLoading(true);
     try {
       const response = await fetch(
-        `http://localhost:8084/api/clustering/spiderchart?year=2024`,
+        `http://localhost:8084/api/clustering/predict-season-probability`,
         {
           headers: {
             Accept: 'application/json',
@@ -29,7 +29,7 @@ const useGetSpiderChartData = () => {
     }
   }, []);
 
-  return { getSpiderChartData, loading };
+  return { getPredictionSeasonal, loading };
 };
 
-export default useGetSpiderChartData;
+export default useGetPredictionSeasonal;
