@@ -50,20 +50,16 @@ class DatabaseApiService:
         logger.info(f"Đang lưu {len(analyses)} phân tích theo quý")
         try:
             async with httpx.AsyncClient() as client:
-                tasks = []
                 for analysis in analyses:
-                    logger.info(f"Chuẩn bị lưu phân tích theo mùa cho ngày {analysis.date}")
-                    task = client.post(
+                    logger.info(f"Đang lưu phân tích theo mùa cho ngày {analysis.date}")
+                    response = await client.post(
                         f"{self.base_url}/api/analysis/seasonal",
                         json=analysis.model_dump()
                     )
-                    tasks.append(task)
-                
-                responses = await asyncio.gather(*tasks)
-                for response in responses:
                     response.raise_for_status()
+                    logger.info(f"Đã lưu thành công phân tích theo mùa cho ngày {analysis.date}")
                     
-                logger.info("Lưu phân tích theo mùa thành công")
+                logger.info("Hoàn thành lưu tất cả phân tích theo mùa")
         except Exception as e:
             logger.error(f"Lỗi khi lưu seasonal analysis: {str(e)}")
             raise

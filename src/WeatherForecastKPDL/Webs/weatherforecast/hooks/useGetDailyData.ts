@@ -32,6 +32,11 @@ const useGetDailyData = () => {
             });
           });
         });
+
+      return () => {
+        connection.off('ReceiveDailyAnalysis');
+        connection.stop();
+      };
     }
   }, [connection]);
 
@@ -50,7 +55,7 @@ const useGetDailyData = () => {
       }
 
       const fetchedData = await response.json();
-      setData(fetchedData); // Update the same data state
+      setData(fetchedData);
       return { ok: true, data: fetchedData };
     } catch (error) {
       console.error(error);
@@ -62,4 +67,5 @@ const useGetDailyData = () => {
 
   return { getDailyData, loading, data };
 };
+
 export default useGetDailyData;

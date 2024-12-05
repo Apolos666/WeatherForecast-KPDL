@@ -1,7 +1,50 @@
-import React, { useState, useCallback } from 'react';
+import { useState, useCallback, useEffect } from 'react';
+import { useSignalR } from './useSignalR';
+
+export interface SeasonalData {
+  date: string;
+  year: number;
+  quarter: number;
+  avgTemp: number;
+  avgHumidity: number;
+  totalPrecip: number;
+  avgWind: number;
+  avgPressure: number;
+  maxTemp: number;
+  minTemp: number;
+}
 
 const useGetSeasonalData = (year?: string, quarter?: string) => {
   const [loading, setLoading] = useState(false);
+  const [data, setData] = useState<SeasonalData[]>([]);
+  const connection = useSignalR();
+
+  useEffect(() => {
+    if (connection) {
+      connection.start()
+        .then(() => {
+          connection.on('ReceiveSeasonalAnalysis', (seasonalAnalysis: SeasonalData) => {
+            setData(prevData => {
+              const newData = [...prevData];
+              const index = newData.findIndex(item => item.date === seasonalAnalysis.date);
+              if (index !== -1) {
+                newData[index] = seasonalAnalysis;
+              } else {
+                newData.push(seasonalAnalysis);
+              }
+              return newData;
+            });
+          });
+        })
+        .catch(err => console.error('SignalR Connection Error:', err));
+
+      // Cleanup function
+      return () => {
+        connection.off('ReceiveSeasonalAnalysis');
+        connection.stop();
+      };
+    }
+  }, [connection]);
 
   const getSeasonalData = useCallback(async () => {
     setLoading(true);
@@ -9,11 +52,9 @@ const useGetSeasonalData = (year?: string, quarter?: string) => {
       let url = 'http://localhost:8084/api/analysis/seasonal';
       const params = new URLSearchParams();
 
-      // Thêm params nếu có giá trị
       if (year) params.append('year', year);
       if (quarter) params.append('quarter', quarter);
 
-      // Chỉ thêm dấu ? và params nếu có ít nhất 1 param
       if (params.toString()) {
         url += `?${params.toString()}`;
       }
@@ -29,8 +70,9 @@ const useGetSeasonalData = (year?: string, quarter?: string) => {
         throw new Error(`HTTP error! Status: ${response.status}`);
       }
 
-      const data = await response.json();
-      return { ok: true, data };
+      const result = await response.json();
+      setData(result);
+      return { ok: true, data: result };
     } catch (error) {
       console.error(error);
       return { ok: false, data: [] };
@@ -39,7 +81,7 @@ const useGetSeasonalData = (year?: string, quarter?: string) => {
     }
   }, [year, quarter]);
 
-  return { getSeasonalData, loading };
+  return { getSeasonalData, loading, data };
 };
 
 export default useGetSeasonalData;

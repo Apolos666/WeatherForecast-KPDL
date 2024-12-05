@@ -1,24 +1,11 @@
 'use client';
 import React, { useEffect, useState } from 'react';
 import 'react-datepicker/dist/react-datepicker.css';
-import useGetSeasonalData from '../../../../hooks/useGetSeasonalData';
+import useGetSeasonalData, { SeasonalData } from '../../../../hooks/useGetSeasonalData';
 import useGetSpiderChartData from '../../../../hooks/useGetSpiderChartData';
 import Plot from 'react-plotly.js';
 import { toast } from 'react-toastify';
-import { Data, Layout } from 'plotly.js';
-
-interface WeatherData {
-  date: string;
-  year: number;
-  quarter: number;
-  avgTemp: number;
-  avgHumidity: number;
-  totalPrecip: number;
-  avgWind: number;
-  avgPressure: number;
-  maxTemp: number;
-  minTemp: number;
-}
+import { Data } from 'plotly.js';
 
 interface Divider {
   type: 'line';
@@ -45,38 +32,21 @@ interface SpiderWeatherData {
 }
 
 const ThirdPattern = () => {
-  const [data, setData] = useState<WeatherData[]>([]);
   const [year, setYear] = useState('');
   const [quarter, setQuarter] = useState('');
-
+  const { getSeasonalData, loading, data } = useGetSeasonalData(year, quarter);
+  const { getSpiderChartData } = useGetSpiderChartData();
   const [spiderData, setSpiderData] = useState<SpiderWeatherData[]>([]);
 
-  const { getSeasonalData } = useGetSeasonalData(year, quarter);
-
-  const { getSpiderChartData } = useGetSpiderChartData();
-
-  const fetchData = async () => {
-    try {
-      const result = await getSeasonalData();
-
-      if (result.ok) {
-        setData(result.data);
-      } else {
-        toast.error('Error fetching data');
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  console.log(data)
 
   const fetchSpiderData = async () => {
     try {
       const result = await getSpiderChartData();
-
       if (result.ok) {
         setSpiderData(result.data);
       } else {
-        toast.error('Error fetching data');
+        toast.error('Error fetching spider data');
       }
     } catch (error) {
       console.log(error);
@@ -84,47 +54,33 @@ const ThirdPattern = () => {
   };
 
   useEffect(() => {
-    fetchData();
+    getSeasonalData();
     fetchSpiderData();
   }, []);
 
   useEffect(() => {
     if (year && quarter) {
-      fetchData();
+      getSeasonalData();
     }
   }, [year, quarter]);
 
   const handleFilter = () => {
     if (year || quarter) {
-      fetchData();
+      getSeasonalData();
     } else if (!year && !quarter) {
-      fetchData(); // Fetch lại tất cả dữ liệu
+      getSeasonalData();
     } else {
       toast.warning('Please enter year or quarter');
     }
   };
 
-  console.log(data);
-
-  const date = data.map((item) => item.date);
-  const Year = data.map((item) => item.year);
-  const Quarter = data.map((item) => item.quarter);
-  const avgTemp = data.map((item) => item.avgTemp);
-  const avgHumidity = data.map((item) => item.avgHumidity);
-  const totalPrecip = data.map((item) => item.totalPrecip);
-  const avgWind = data.map((item) => item.avgWind);
-  const avgPressure = data.map((item) => item.avgPressure);
-  const maxTemp = data.map((item) => item.maxTemp);
-  const minTemp = data.map((item) => item.minTemp);
-
-  // Tạo các đường phân chia quý
   const createQuarterDividers = () => {
     if (!data.length) return [];
 
     const dividers: Divider[] = [];
     let currentQuarter: number | null = null;
 
-    data.forEach((item, index) => {
+    data.forEach((item) => {
       if (currentQuarter !== item.quarter) {
         currentQuarter = item.quarter;
         dividers.push({
@@ -147,9 +103,8 @@ const ThirdPattern = () => {
     return dividers;
   };
 
-  // Tổ chức dữ liệu theo quý cho độ ẩm
   const organizeHumidityByQuarter = (): Data[] => {
-    const quarterData = data.reduce<Record<number, WeatherData[]>>(
+    const quarterData = data.reduce<Record<number, SeasonalData[]>>(
       (acc, item) => {
         if (!acc[item.quarter]) {
           acc[item.quarter] = [];
@@ -169,9 +124,7 @@ const ThirdPattern = () => {
       marker: {
         size: 8,
         symbol: ['circle', 'square', 'diamond', 'star'][Number(quarter) - 1],
-        color: ['#FF6B6B', '#4ECDC4', '#45B7D1', '#96CEB4'][
-          Number(quarter) - 1
-        ],
+        color: ['#FF6B6B', '#4ECDC4', '#45B7D1', '#96CEB4'][Number(quarter) - 1],
       },
       line: {
         shape: 'spline',
@@ -186,9 +139,8 @@ const ThirdPattern = () => {
     }));
   };
 
-  // Tổ chức dữ liệu theo quý cho áp suất
   const organizePressureByQuarter = (): Data[] => {
-    const quarterData = data.reduce<Record<number, WeatherData[]>>(
+    const quarterData = data.reduce<Record<number, SeasonalData[]>>(
       (acc, item) => {
         if (!acc[item.quarter]) {
           acc[item.quarter] = [];
@@ -208,9 +160,7 @@ const ThirdPattern = () => {
       marker: {
         size: 8,
         symbol: ['circle', 'square', 'diamond', 'star'][Number(quarter) - 1],
-        color: ['#FF6B6B', '#4ECDC4', '#45B7D1', '#96CEB4'][
-          Number(quarter) - 1
-        ],
+        color: ['#FF6B6B', '#4ECDC4', '#45B7D1', '#96CEB4'][Number(quarter) - 1],
       },
       hovertemplate:
         'Ngày: %{x}<br>' +
@@ -222,9 +172,8 @@ const ThirdPattern = () => {
     }));
   };
 
-  // Tổ chức dữ liệu theo quý cho tốc độ gió
   const organizeWindByQuarter = (): Data[] => {
-    const quarterData = data.reduce<Record<number, WeatherData[]>>(
+    const quarterData = data.reduce<Record<number, SeasonalData[]>>(
       (acc, item) => {
         if (!acc[item.quarter]) {
           acc[item.quarter] = [];
@@ -244,9 +193,7 @@ const ThirdPattern = () => {
       marker: {
         size: 8,
         symbol: ['circle', 'square', 'diamond', 'star'][Number(quarter) - 1],
-        color: ['#FF6B6B', '#4ECDC4', '#45B7D1', '#96CEB4'][
-          Number(quarter) - 1
-        ],
+        color: ['#FF6B6B', '#4ECDC4', '#45B7D1', '#96CEB4'][Number(quarter) - 1],
       },
       hovertemplate:
         'Ngày: %{x}<br>' +
@@ -258,15 +205,8 @@ const ThirdPattern = () => {
     }));
   };
 
-  // Thêm hàm helper để xác định quý
-  const getQuarter = (date: string) => {
-    const month = new Date(date).getMonth() + 1;
-    return Math.ceil(month / 3);
-  };
-
-  // Tổ chức dữ liệu theo quý cho nhiệt độ
   const organizeDataByQuarter = (): Data[] => {
-    const quarterData = data.reduce<Record<number, WeatherData[]>>(
+    const quarterData = data.reduce<Record<number, SeasonalData[]>>(
       (acc, item) => {
         if (!acc[item.quarter]) {
           acc[item.quarter] = [];
@@ -286,9 +226,7 @@ const ThirdPattern = () => {
       marker: {
         size: 8,
         symbol: ['circle', 'square', 'diamond', 'star'][Number(quarter) - 1],
-        color: ['#FF6B6B', '#4ECDC4', '#45B7D1', '#96CEB4'][
-          Number(quarter) - 1
-        ],
+        color: ['#FF6B6B', '#4ECDC4', '#45B7D1', '#96CEB4'][Number(quarter) - 1],
       },
       line: {
         shape: 'spline',
@@ -304,13 +242,14 @@ const ThirdPattern = () => {
   };
 
   const categories = ['Mùa Xuân', 'Mùa Hạ', 'Mùa Thu', 'Mùa Đông'];
-
-  const values = spiderData.length > 0 ? [
-    spiderData[0].springQuantity,
-    spiderData[0].summerQuantity,
-    spiderData[0].autumnQuantity,
-    spiderData[0].winterQuantity
-  ] : [0, 0, 0, 0];
+  const values = spiderData.length > 0 
+    ? [
+        spiderData[0].springQuantity,
+        spiderData[0].summerQuantity,
+        spiderData[0].autumnQuantity,
+        spiderData[0].winterQuantity
+      ] 
+    : [0, 0, 0, 0];
 
   return (
     <div className="p-8 bg-[url('/bg3.jpg')] bg-cover bg-center shadow-lg min-h-screen space-y-10">
@@ -319,8 +258,7 @@ const ThirdPattern = () => {
           <div className="flex flex-col gap-4">
             <h1 className="text-4xl font-bold tracking-tight">Seasonal Data</h1>
             <p className="text-lg font-light">
-              Explore aggregated seasonal data trends and uncover meaningful
-              patterns.
+              Explore aggregated seasonal data trends and uncover meaningful patterns.
             </p>
           </div>
         </header>
@@ -359,9 +297,7 @@ const ThirdPattern = () => {
         </div>
 
         <div className="space-y-6">
-          {/* Hàng đầu tiên: Chart độ ẩm và Spider chart */}
           <div className="grid grid-cols-5 gap-6">
-            {/* Chart độ ẩm */}
             <div className="col-span-3 bg-white p-6 rounded-xl shadow-md">
               <h2 className="text-2xl font-semibold text-gray-800 mb-4 flex items-center gap-2">
                 <i className="fas fa-tint text-blue-500"></i>
@@ -404,9 +340,7 @@ const ThirdPattern = () => {
                       y: 1.1,
                       xref: 'paper',
                       yref: 'paper',
-                      text:
-                        'Chú thích:<br>' +
-                        '⭕ Quý 1 | ⬛ Quý 2 | ♦️ Quý 3 | ⭐ Quý 4',
+                      text: 'Chú thích:<br>' + '⭕ Quý 1 | ⬛ Quý 2 | ♦️ Quý 3 | ⭐ Quý 4',
                       showarrow: false,
                       font: { size: 12 },
                       align: 'right',
@@ -422,7 +356,6 @@ const ThirdPattern = () => {
               />
             </div>
 
-            {/* Spider chart */}
             <div className="col-span-2 bg-white p-6 rounded-xl shadow-md">
               <h2 className="text-2xl font-semibold text-gray-800 mb-4 flex items-center gap-2">
                 <i className="fas fa-chart-pie text-blue-500"></i>
@@ -440,9 +373,7 @@ const ThirdPattern = () => {
                     fillcolor: 'rgba(59, 130, 246, 0.5)',
                     line: { color: '#1D4ED8', width: 2 },
                     hovertemplate:
-                      'Mùa: %{theta}<br>' +
-                      'Số ngày: %{r}<br>' +
-                      '<extra></extra>',
+                      'Mùa: %{theta}<br>' + 'Số ngày: %{r}<br>' + '<extra></extra>',
                   },
                 ]}
                 layout={{
@@ -476,7 +407,6 @@ const ThirdPattern = () => {
             </div>
           </div>
 
-          {/* Hàng thứ hai: Chart nhiệt độ */}
           <div className="bg-white p-6 rounded-xl shadow-md">
             <h2 className="text-2xl font-semibold text-gray-800 mb-4 flex items-center gap-2">
               <i className="fas fa-temperature-high text-blue-500"></i>
@@ -513,9 +443,7 @@ const ThirdPattern = () => {
                     y: 1.1,
                     xref: 'paper',
                     yref: 'paper',
-                    text:
-                      'Chú thích:<br>' +
-                      '⭕ Quý 1 | ⬛ Quý 2 | ♦️ Quý 3 | ⭐ Quý 4',
+                    text: 'Chú thích:<br>' + '⭕ Quý 1 | ⬛ Quý 2 | ♦️ Quý 3 | ⭐ Quý 4',
                     showarrow: false,
                     font: { size: 12 },
                     align: 'right',
