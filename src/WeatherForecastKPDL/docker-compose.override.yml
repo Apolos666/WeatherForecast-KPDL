@@ -147,117 +147,117 @@ services:
       timeout: 10s
       retries: 3
 
-  weatherforecast.dataanalysis.worker:
-    container_name: weatherforecast.dataanalysis.worker
-    command: celery -A app.tasks.weather_tasks.celery_app worker --queues=weather_tasks --loglevel=info --concurrency=1 
-    environment:
-      - WORKER_ID=worker
-      - KAFKA_BOOTSTRAP_SERVERS=kafka:9092
-      - DATABASE_API_URL=http://weatherforecast.databaseapi:8080
-      - REDIS_URL=${REDIS_URL}
-      - CELERY_WORKER=true
-    depends_on:
-      kafka:
-        condition: service_healthy
-      weatherforecast.databaseapi:
-        condition: service_healthy
+  # weatherforecast.dataanalysis.worker:
+  #   container_name: weatherforecast.dataanalysis.worker
+  #   command: celery -A app.tasks.weather_tasks.celery_app worker --queues=weather_tasks --loglevel=info --concurrency=1 
+  #   environment:
+  #     - WORKER_ID=worker
+  #     - KAFKA_BOOTSTRAP_SERVERS=kafka:9092
+  #     - DATABASE_API_URL=http://weatherforecast.databaseapi:8080
+  #     - REDIS_URL=${REDIS_URL}
+  #     - CELERY_WORKER=true
+  #   depends_on:
+  #     kafka:
+  #       condition: service_healthy
+  #     weatherforecast.databaseapi:
+  #       condition: service_healthy
 
-  weatherforecast.dataanalysis.beat:
-    container_name: weatherforecast.dataanalysis.beat
-    command: celery -A app.tasks.weather_tasks.celery_app beat
-    environment:
-      - WORKER_ID=beat
-      - KAFKA_BOOTSTRAP_SERVERS=kafka:9092
-      - DATABASE_API_URL=http://weatherforecast.databaseapi:8080
-      - REDIS_URL=${REDIS_URL}
-      - CELERY_WORKER=false
-    depends_on:
-      kafka:
-        condition: service_healthy
-      weatherforecast.databaseapi:
-        condition: service_healthy
+  # weatherforecast.dataanalysis.beat:
+  #   container_name: weatherforecast.dataanalysis.beat
+  #   command: celery -A app.tasks.weather_tasks.celery_app beat
+  #   environment:
+  #     - WORKER_ID=beat
+  #     - KAFKA_BOOTSTRAP_SERVERS=kafka:9092
+  #     - DATABASE_API_URL=http://weatherforecast.databaseapi:8080
+  #     - REDIS_URL=${REDIS_URL}
+  #     - CELERY_WORKER=false
+  #   depends_on:
+  #     kafka:
+  #       condition: service_healthy
+  #     weatherforecast.databaseapi:
+  #       condition: service_healthy
 
-  weatherforecastp.prediction:
-    container_name: weatherforecast.prediction
-    environment:
-      - WORKER_ID=worker
-      - KAFKA_BOOTSTRAP_SERVERS=kafka:9092
-      - REDIS_URL=${REDIS_URL}
-      - CELERY_WORKER=true
-    ports:
-      - "8086:8000"
-    depends_on:
-      kafka:
-        condition: service_healthy
+  # weatherforecastp.prediction:
+  #   container_name: weatherforecast.prediction
+  #   environment:
+  #     - WORKER_ID=worker
+  #     - KAFKA_BOOTSTRAP_SERVERS=kafka:9092
+  #     - REDIS_URL=${REDIS_URL}
+  #     - CELERY_WORKER=true
+  #   ports:
+  #     - "8086:8000"
+  #   depends_on:
+  #     kafka:
+  #       condition: service_healthy
 
-  weatherforecast.prediction.worker:
-    container_name: weatherforecast.prediction.worker
-    command: celery -A app.tasks.prediction_tasks.celery_app worker --queues=prediction_tasks --loglevel=info --concurrency=1 
-    environment:
-      - WORKER_ID=worker
-      - KAFKA_BOOTSTRAP_SERVERS=kafka:9092
-      - REDIS_URL=${REDIS_URL}
-      - CELERY_WORKER=true  
-    depends_on:
-      kafka:
-        condition: service_healthy
-      weatherforecast.databaseapi:
-        condition: service_healthy     
+  # weatherforecast.prediction.worker:
+  #   container_name: weatherforecast.prediction.worker
+  #   command: celery -A app.tasks.prediction_tasks.celery_app worker --queues=prediction_tasks --loglevel=info --concurrency=1 
+  #   environment:
+  #     - WORKER_ID=worker
+  #     - KAFKA_BOOTSTRAP_SERVERS=kafka:9092
+  #     - REDIS_URL=${REDIS_URL}
+  #     - CELERY_WORKER=true  
+  #   depends_on:
+  #     kafka:
+  #       condition: service_healthy
+  #     weatherforecast.databaseapi:
+  #       condition: service_healthy     
 
-  weatherforecast.prediction.beat:
-    container_name: weatherforecast.prediction.beat
-    command: celery -A app.tasks.prediction_tasks.celery_app beat
-    environment:
-      - WORKER_ID=beat
-      - KAFKA_BOOTSTRAP_SERVERS=kafka:9092
-      - REDIS_URL=${REDIS_URL}
-      - CELERY_WORKER=false
-    depends_on:
-      kafka:
-        condition: service_healthy
-      weatherforecast.databaseapi:
-        condition: service_healthy
+  # weatherforecast.prediction.beat:
+  #   container_name: weatherforecast.prediction.beat
+  #   command: celery -A app.tasks.prediction_tasks.celery_app beat
+  #   environment:
+  #     - WORKER_ID=beat
+  #     - KAFKA_BOOTSTRAP_SERVERS=kafka:9092
+  #     - REDIS_URL=${REDIS_URL}
+  #     - CELERY_WORKER=false
+  #   depends_on:
+  #     kafka:
+  #       condition: service_healthy
+  #     weatherforecast.databaseapi:
+  #       condition: service_healthy
 
-  weatherforecast.clustering:
-    container_name: weatherforecast.clustering
-    environment:
-      - KAFKA_BOOTSTRAP_SERVERS=kafka:9092
-      - DATABASE_API_URL=http://weatherforecast.databaseapi:8080
-      - REDIS_URL=${REDIS_URL}
-    ports:
-      - "8087:8000"
-    depends_on:
-      kafka:
-        condition: service_healthy
-      weatherforecast.databaseapi:
-        condition: service_healthy        
+  # weatherforecast.clustering:
+  #   container_name: weatherforecast.clustering
+  #   environment:
+  #     - KAFKA_BOOTSTRAP_SERVERS=kafka:9092
+  #     - DATABASE_API_URL=http://weatherforecast.databaseapi:8080
+  #     - REDIS_URL=${REDIS_URL}
+  #   ports:
+  #     - "8087:8000"
+  #   depends_on:
+  #     kafka:
+  #       condition: service_healthy
+  #     weatherforecast.databaseapi:
+  #       condition: service_healthy        
 
-  weatherforecast.clustering.worker:
-    container_name: weatherforecast.clustering.worker
-    command: celery -A app.tasks.clustering_tasks.celery_app worker --queues=clustering_tasks --loglevel=info --concurrency=1 
-    environment:
-      - WORKER_ID=worker
-      - KAFKA_BOOTSTRAP_SERVERS=kafka:9092
-      - DATABASE_API_URL=http://weatherforecast.databaseapi:8080
-      - REDIS_URL=${REDIS_URL}
-      - CELERY_WORKER=true
-    depends_on:
-      kafka:
-        condition: service_healthy
-      weatherforecast.databaseapi:
-        condition: service_healthy      
+  # weatherforecast.clustering.worker:
+  #   container_name: weatherforecast.clustering.worker
+  #   command: celery -A app.tasks.clustering_tasks.celery_app worker --queues=clustering_tasks --loglevel=info --concurrency=1 
+  #   environment:
+  #     - WORKER_ID=worker
+  #     - KAFKA_BOOTSTRAP_SERVERS=kafka:9092
+  #     - DATABASE_API_URL=http://weatherforecast.databaseapi:8080
+  #     - REDIS_URL=${REDIS_URL}
+  #     - CELERY_WORKER=true
+  #   depends_on:
+  #     kafka:
+  #       condition: service_healthy
+  #     weatherforecast.databaseapi:
+  #       condition: service_healthy      
 
-  weatherforecast.clustering.beat:
-    container_name: weatherforecast.clustering.beat
-    command: celery -A app.tasks.clustering_tasks.celery_app beat 
-    environment:
-      - WORKER_ID=beat
-      - KAFKA_BOOTSTRAP_SERVERS=kafka:9092
-      - DATABASE_API_URL=http://weatherforecast.databaseapi:8080
-      - REDIS_URL=${REDIS_URL}
-      - CELERY_WORKER=false
-    depends_on:
-      kafka:
-        condition: service_healthy
-      weatherforecast.databaseapi:
-        condition: service_healthy      
+  # weatherforecast.clustering.beat:
+  #   container_name: weatherforecast.clustering.beat
+  #   command: celery -A app.tasks.clustering_tasks.celery_app beat 
+  #   environment:
+  #     - WORKER_ID=beat
+  #     - KAFKA_BOOTSTRAP_SERVERS=kafka:9092
+  #     - DATABASE_API_URL=http://weatherforecast.databaseapi:8080
+  #     - REDIS_URL=${REDIS_URL}
+  #     - CELERY_WORKER=false
+  #   depends_on:
+  #     kafka:
+  #       condition: service_healthy
+  #     weatherforecast.databaseapi:
+  #       condition: service_healthy      
