@@ -1,9 +1,11 @@
 using Carter;
+using Microsoft.AspNetCore.SignalR;
 using Microsoft.EntityFrameworkCore;
 using WeatherForecast.DatabaseApi.Data;
 using WeatherForecast.DatabaseApi.Dtos;
 using WeatherForecast.DatabaseApi.Entities;
 using WeatherForecast.DatabaseApi.Features.Analysis.Dtos;
+using WeatherForecast.DatabaseApi.Features.Analysis.Hubs;
 using WeatherForecast.DatabaseApi.Models;
 
 namespace WeatherForecast.DatabaseApi.Features.Analysis.Endpoints;
@@ -12,29 +14,27 @@ public class AnalysisEndpoints : ICarterModule
 {
     public void AddRoutes(IEndpointRouteBuilder app)
     {
-        app.MapPost("/api/analysis/daily", async (DailyAnalysisDto request, AppDbContext db) =>
+        app.MapPost("/api/analysis/daily", async (DailyAnalysisDto request, AppDbContext db, IHubContext<AnalysisHub, IAnalysisClient> hubContext) =>
         {
             try
             {
                 var date = DateTime.Parse(request.Date);
-
-                // Kiểm tra xem đã có dữ liệu cho ngày này chưa
                 var existingAnalysis = await db.DailyAnalyses
                     .FirstOrDefaultAsync(d => d.Date.Date == date.Date);
 
+                DailyAnalysis analysis;
                 if (existingAnalysis != null)
                 {
-                    // Cập nhật dữ liệu hiện có
                     existingAnalysis.AverageTemperature = request.AvgTemp;
                     existingAnalysis.AverageHumidity = request.AvgHumidity;
                     existingAnalysis.TotalPrecipitation = request.TotalPrecip;
                     existingAnalysis.AverageWindSpeed = request.AvgWind;
                     existingAnalysis.AveragePressure = request.AvgPressure;
+                    analysis = existingAnalysis;
                 }
                 else
                 {
-                    // Tạo mới dữ liệu phân tích
-                    var analysis = new DailyAnalysis
+                    analysis = new DailyAnalysis
                     {
                         Date = date,
                         AverageTemperature = request.AvgTemp,
@@ -43,11 +43,13 @@ public class AnalysisEndpoints : ICarterModule
                         AverageWindSpeed = request.AvgWind,
                         AveragePressure = request.AvgPressure
                     };
-
                     db.DailyAnalyses.Add(analysis);
                 }
 
                 await db.SaveChangesAsync();
+                
+                // Notify connected clients
+                await hubContext.Clients.All.ReceiveDailyAnalysis(analysis);
 
                 return Results.Ok();
             }
@@ -135,15 +137,14 @@ public class AnalysisEndpoints : ICarterModule
         });
 
 
-        app.MapPost("/api/analysis/seasonal", async (SeasonalAnalysisDto request, AppDbContext db) =>
+        app.MapPost("/api/analysis/seasonal", async (SeasonalAnalysisDto request, AppDbContext db, IHubContext<AnalysisHub, IAnalysisClient> hubContext) =>
         {
             try
             {
-                var date = DateTime.Parse(request.Date);
-
                 var existingAnalysis = await db.SeasonalAnalyses
                     .FirstOrDefaultAsync(s => s.Date == request.Date);
 
+                SeasonalAnalysis analysis;
                 if (existingAnalysis != null)
                 {
                     existingAnalysis.Date = request.Date;
@@ -156,10 +157,11 @@ public class AnalysisEndpoints : ICarterModule
                     existingAnalysis.AvgPressure = request.AvgPressure;
                     existingAnalysis.MaxTemp = request.MaxTemp;
                     existingAnalysis.MinTemp = request.MinTemp;
+                    analysis = existingAnalysis;
                 }
                 else
                 {
-                    var analysis = new SeasonalAnalysis
+                    analysis = new SeasonalAnalysis
                     {
                         Date = request.Date,
                         Year = request.Year,
@@ -172,11 +174,14 @@ public class AnalysisEndpoints : ICarterModule
                         MaxTemp = request.MaxTemp,
                         MinTemp = request.MinTemp
                     };
-
                     db.SeasonalAnalyses.Add(analysis);
                 }
 
                 await db.SaveChangesAsync();
+                
+                // Notify connected clients
+                await hubContext.Clients.All.ReceiveSeasonalAnalysis(analysis);
+
                 return Results.Ok();
             }
             catch (Exception ex)

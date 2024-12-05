@@ -41,10 +41,10 @@ services:
   #   networks:
   #     - weathernet
 
-  debezium-connector-config:
-    image: curlimages/curl
-    networks:
-      - weathernet
+  # debezium-connector-config:
+  #   image: curlimages/curl
+  #   networks:
+  #     - weathernet
 
   weatherforecast.dataanalysis.worker:
     image: quangtran2/weatherforecastdataanalysis:latest

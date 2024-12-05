@@ -12,6 +12,7 @@ using WeatherForecast.DatabaseApi.Data;
 using WeatherForecast.DatabaseApi.Dtos;
 using WeatherForecast.DatabaseApi.Entities;
 using WeatherForecast.DatabaseApi.Extensions;
+using WeatherForecast.DatabaseApi.Features.Analysis.Hubs;
 using WeatherForecast.DatabaseApi.Infrastructure.Services;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -65,9 +66,12 @@ builder.Services.AddCors(options =>
     });
 });
 
+builder.Services.AddSignalR();
+
 var app = builder.Build();
 app.UseCors("AllowLocalhost");
 
+app.MapHub<AnalysisHub>("/hubs/analysis");
 app.MapCarter();
 
 app.MigrateDatabase<AppDbContext>();

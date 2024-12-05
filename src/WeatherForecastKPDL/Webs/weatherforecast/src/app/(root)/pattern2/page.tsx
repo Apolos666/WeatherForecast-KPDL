@@ -1,31 +1,19 @@
 'use client';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import 'react-datepicker/dist/react-datepicker.css';
 import useGetDailyData from '../../../../hooks/useGetDailyData';
 import Plot from 'react-plotly.js';
 import { toast } from 'react-toastify';
 
-interface WeatherData {
-  date: string;
-  averageTemperature: number;
-  averageHumidity: number;
-  averageWindSpeed: number;
-  totalPrecipitation: number;
-  averagePressure: number;
-}
-
 const SecondPattern = () => {
-  const [data, setData] = useState<WeatherData[]>([]);
+  const { getDailyData, loading, data } = useGetDailyData();
 
-  const { getDailyData, loading } = useGetDailyData();
+  console.log(data)
 
   const fetchData = async () => {
     try {
       const result = await getDailyData();
-
-      if (result.ok) {
-        setData(result.data);
-      } else {
+      if (!result.ok) {
         toast.error('Error fetching data');
       }
     } catch (error) {
@@ -42,6 +30,7 @@ const SecondPattern = () => {
   const averageHumidity = data.map((item) => item.averageHumidity);
   const averagePressure = data.map((item) => item.averagePressure);
   const averageWindSpeed = data.map((item) => item.averageWindSpeed);
+
   return (
     <div className="p-8 bg-[url('/bg2.jpg')] bg-cover bg-center shadow-lg min-h-screen space-y-10">
       <div className="p-8 h-full w-full bg-gray-400 rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10 space-y-10">
